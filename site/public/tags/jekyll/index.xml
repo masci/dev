@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Jekyll on /dev/ </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://dev.pippi.im/tags/jekyll/index.xml</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 10 Aug 2013 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Moving to Jekyll</title>
+      <link>http://dev.pippi.im/writing/moving-to-jekyll</link>
+      <pubDate>Sat, 10 Aug 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/moving-to-jekyll</guid>
+      <description>&lt;p&gt;I started writing on a personal blog in November, 2006 and I choose a Wordpress instance at
+wordrpess.com at the time, because it was easy and it was free. &lt;a href=&#34;http://masci.wordpress.com&#34;&gt;My old blog&lt;/a&gt;
+consists of 79 articles in more than six years and considering the most of them are just suggested
+links or citations, it&amp;rsquo;s not much work in the end. Anyway, I&amp;rsquo;m trying to start this whole
+thing again so I registered a personal domain to host my stuff and take a look at
+Wordpress alternatives.&lt;/p&gt;
+
+&lt;p&gt;I think static HTML generators are the killer app for a developer with foolish writing
+ambitions (like me, you know). Such tools are terribly close to my everyday activities:
+edit your contents within a text editor, keep contents under version control, deploy stuff
+by pushing a certain branch to your remote, enjoy.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve recently moved my company&amp;rsquo;s website to a static content generator written in Python
+and I wrote in six month the same amount of contents I wrote in the past three years of
+WYSIWYG blog engine. It works.&lt;/p&gt;
+
+&lt;p&gt;Why Jekyll? Well, it&amp;rsquo;s mainly because of GitHub pages. Provided that deploying a static site
+to GH Pages is terribly smooth and costs zero even with a custom domain name, if you write
+your contents with Jekyll GitHub generates the static pages from your source after every push
+on the master branch. Wow.&lt;/p&gt;
+
+&lt;p&gt;To be fair Jekyll is a very good product anyway, it&amp;rsquo;s well maintained, well documented and
+has an active community of users behind. Moreover, it&amp;rsquo;s so easy to use that even a Pythonista
+can feel comfortable with it :-).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

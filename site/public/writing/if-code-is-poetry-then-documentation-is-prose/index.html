@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <meta charset="utf-8">
+  <title> If code is poetry, then documentation is prose &middot; /dev/ </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://dev.pippi.im/css/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" href="http://dev.pippi.im/css/dev.css">
+  <link href="http://dev.pippi.im/css/font-awesome.min.css" rel="stylesheet">
+  
+  
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="/dev/" />
+</head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">/dev/ by Massimiliano Pippi</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+    </div>
+  </div>
+</div>
+        <div class="container">
+            <h1>If code is poetry, then documentation is prose</h1>
+            <h5 id="wc"> 1200 words by masci</h5>
+            <div class="row">
+                <div class="post col-lg-8">
+                    
+
+<h2 id="toc_0">What is poetry?</h2>
+
+<p>Before starting, let’s agree on some terminology. Obviously poetry is a literary form, a way to write down things I would say,
+but how do you recognize it, how can you say that is poetry and this is not? Well, according to my literary heritage (I’m italian)
+something is poetry when it has verse, rhyme and stanza; let’s see what they are and how we can recognize them.</p>
+
+<h3 id="toc_1">Verse</h3>
+
+<p>A verse is a sequence of words on a single line; those sequences must follow strict rules that determine their length and
+contents in terms of syllables. The verse gives rhythm to the composition.</p>
+
+<h3 id="toc_2">Rhyme</h3>
+
+<p>A Rhyme is the equality of the sound of different words and it gives melody to the composition.</p>
+
+<h3 id="toc_3">Stanza</h3>
+
+<p>A group of verses; even these groups follows strict rules about the number of verses they might contain and the way they are connected
+together, with or without rhymes.</p>
+
+<p>Let’s see an example that follows all these poetry rules, a stanza from <em>Il gelsomino notturno</em> (<em>Night Blooming Jasmine</em>) by Giovanni Pascoli:</p>
+
+<pre><code>E’ l’alba: si chiudono i petali
+un poco gualciti: si cova,
+    dentro l’urna molle e segreta,
+    non so che felicità nuova.
+</code></pre>
+
+<p>and its english translation:</p>
+
+<pre><code>It’s dawn: the petals, slightly worn,
+close up again—each bud to brood,
+    in its soft, secret urn,
+    on some yet-nameless good.
+</code></pre>
+
+<p>Why do we like it? It has rhythm, sounds good spoken aloud, contains beautiful words, has a strange but pretty aesthetic form once written
+down (the tabs are part of the verses) and has a powerful sexual metaphor hidden in it - you get it even if it’s not explicit. You know
+it’s there and in fact this is what the author really meant to tell you. Would it be the same if the author pulled in some detail about the
+fact? Hell, no!</p>
+
+<p>Now what about something like this:</p>
+
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
+lock<span style="color: #555555">.</span>acquire()
+<span style="color: #006699; font-weight: bold">try</span>:
+    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
+<span style="color: #006699; font-weight: bold">finally</span>:
+    lock<span style="color: #555555">.</span>release()
+</pre></div>
+
+<p>Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?</p>
+
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
+<span style="color: #006699; font-weight: bold">with</span> lock:
+    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
+</pre></div>
+
+<p>Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
+form of poetry, or at least that it&rsquo;s possible to write code in a poetic fashion.</p>
+
+<h1 id="toc_4">What’s wrong with poetry?</h1>
+
+<p>Poetry is one of the highest but most challenging forms of art: to cut a long story short, poetry is difficult for the most
+of us. Take this for example:</p>
+
+<pre><code>Da un immoto fragor di carrïaggi
+ferrei, moventi verso l’infinito
+tra schiocchi acuti e fremiti selvaggi…
+un silenzio improvviso. Ero guarito.
+</code></pre>
+
+<p>its english translation:</p>
+
+<pre><code>Out of a motionless infernal
+shudder and clang of steel on steel
+as wagons moved toward the eternal,
+a sudden silence: I was healed.
+</code></pre>
+
+<blockquote>
+<p>Wat?</p>
+</blockquote>
+
+<p>As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
+Let&rsquo;s see an example of well written code:</p>
+
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">itertools</span> <span style="color: #006699; font-weight: bold">import</span> chain, islice
+
+<span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">chunks</span>(iterable, size, format<span style="color: #555555">=</span><span style="color: #336666">iter</span>):
+    it <span style="color: #555555">=</span> <span style="color: #336666">iter</span>(iterable)
+    <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">True</span>:
+        <span style="color: #006699; font-weight: bold">yield</span> format(chain((it<span style="color: #555555">.</span>next(),), islice(it, size <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>)))
+</pre></div>
+
+<blockquote>
+<p>Ok, give me a sec&hellip;</p>
+</blockquote>
+
+<p>To grasp the meaning of a code snippet you have to read it carefully, examining the overall context, reading the code
+that comes before and after, trying to guess programmer’s mind at last. Very few people will be motivated enough to go
+through the process and the result will vary between unhappy users, angry users and former users. Don’t let the poetry
+alone!</p>
+
+<h1 id="toc_5">Here comes the prose</h1>
+
+<p>Prose is <em>the other</em> literary form, sometimes defined as “everything is not poetry”.
+<a href="http://en.wikipedia.org/wiki/Eugenio_Montale">Eugenio Montale</a> was one of the greatest italian poets and he won the
+Nobel Prize in Literature in 1975; during an interview he was once asked about the differences between prose and poetry
+and he stated that while Prose is <em>horizontal</em>, Poetry is <em>vertical</em>. Poetry is short, emotional, made of evocative
+and powerful words, it can bring you different feelings so quickly you can barely notice. Prose is long, tells you
+a story with clear and useful words, takes your hand and walks along with you towards the meaning.</p>
+
+<p>You get the point, prose can explain poetry just like documentation can explain code.</p>
+
+<h1 id="toc_6">Why programmers don’t write prose</h1>
+
+<p>I have an educated guess: writing docs is hard and life consuming. As a core developer of a mid-sized open source
+project I found myself writing way more lines of docs than code. I used to be a poet but I had to turn into a writer
+for the occasion. But it’s not only a matter of quantity, writing docs is also challenging for a series of issues:
+you may not be a native english speaker and writing good docs is hard in that case; or you may be a native english
+speaker but you have to wisely choose your words to make your docs understandable for non native speakers; you have
+to write examples, tutorials and advertise them; you have to make screenshots; you have to setup different environments;
+you have to put yourself in users’ shoes; you have to argument with strangers on the internet.</p>
+
+<h1 id="toc_7">Why you should write prose</h1>
+
+<p>First of all, prose and poetry have different audience. Code Poets will likely dig into your code whether or not the
+project has documentation; humans just start from the documentation. More humans, more users; more users, more
+contributors; more contributors, less work for everyone :)</p>
+
+<h1 id="toc_8">How to write prose</h1>
+
+<p>Writing docs when most of the code is already in place and project features almost complete is difficult and disheartening:
+you have to invent good stories for your users as an aftermath, you have to review the code and fill the gaps in your
+docstrings, you have to put in place examples and use cases. What you should do instead is writing documentation along
+with or better before the code: someone refers to this as <em>Documentation Driven Development</em>. Writing docs before the code
+can give you precious hints about the idea you are going to implement: as a rule of thumb, if you struggle to describe your
+idea into the documentation, maybe that is not a good idea. Write the stories, write the docstrings then write the code
+(insert tests in the process where you’re more comfortable with).</p>
+
+<h1 id="toc_9">Lessons learnt as a prose writer</h1>
+
+<ul>
+<li>Always write docstrings for your and your team’s sanity and write them early, even before the code.</li>
+<li>Write good docs and make them available to the internet.</li>
+<li>Write tutorials, a lot of tutorials.</li>
+<li>Write articles, show people how to use your code.</li>
+<li>Listen to your users, there are no stupid questions, only stupid developers not answering.</li>
+</ul>
+
+                    <hr>
+                    <ul class="pager">
+                         &nbsp;<li class="previous"><a href="http://dev.pippi.im/page/about"> Prev</a></li>
+                         &nbsp;<li class="next"><a href="http://dev.pippi.im/writing/django-upload-on-google-cloud-storage"> Next</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="list-group voffset4">
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">POSTED</h4>
+                            <p class="list-group-item-text">Sat, May 24, 2014</p>
+                        </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">TAGS</h4>
+                            
+                            <a href="http://dev.pippi.im/tags/python">python</a>
+                            
+                            <a href="http://dev.pippi.im/tags/docs">docs</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="post col-lg-8 voffset4">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'dev-pippi';
+    var disqus_identifier = 'http:\/\/dev.pippi.im\/writing\/if-code-is-poetry-then-documentation-is-prose';
+    var disqus_title = 'If code is poetry, then documentation is prose';
+    var disqus_url = 'http:\/\/dev.pippi.im\/writing\/if-code-is-poetry-then-documentation-is-prose';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </div>
+            </div>
+            <footer>
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <small>
+      <ul class="list-unstyled">
+        <li class="pull-right"><a href="#top">Back to top</a></li>
+      </ul>
+      <p>Original theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
+      <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
+      <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+      </small>
+    </div>
+  </div>
+
+</footer>
+        </div>
+    </body>
+</html>
