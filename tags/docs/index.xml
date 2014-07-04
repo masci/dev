@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Docs on /dev/ </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://dev.pippi.im/tags/docs/index.xml</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 24 May 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>If code is poetry, then documentation is prose</title>
+      <link>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose</link>
+      <pubDate>Sat, 24 May 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;What is poetry?&lt;/h2&gt;
+
+&lt;p&gt;Before starting, let’s agree on some terminology. Obviously poetry is a literary form, a way to write down things I would say,
+but how do you recognize it, how can you say that is poetry and this is not? Well, according to my literary heritage (I’m italian)
+something is poetry when it has verse, rhyme and stanza; let’s see what they are and how we can recognize them.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Verse&lt;/h3&gt;
+
+&lt;p&gt;A verse is a sequence of words on a single line; those sequences must follow strict rules that determine their length and
+contents in terms of syllables. The verse gives rhythm to the composition.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;Rhyme&lt;/h3&gt;
+
+&lt;p&gt;A Rhyme is the equality of the sound of different words and it gives melody to the composition.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Stanza&lt;/h3&gt;
+
+&lt;p&gt;A group of verses; even these groups follows strict rules about the number of verses they might contain and the way they are connected
+together, with or without rhymes.&lt;/p&gt;
+
+&lt;p&gt;Let’s see an example that follows all these poetry rules, a stanza from &lt;em&gt;Il gelsomino notturno&lt;/em&gt; (&lt;em&gt;Night Blooming Jasmine&lt;/em&gt;) by Giovanni Pascoli:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;E’ l’alba: si chiudono i petali
+un poco gualciti: si cova,
+    dentro l’urna molle e segreta,
+    non so che felicità nuova.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and its english translation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;It’s dawn: the petals, slightly worn,
+close up again—each bud to brood,
+    in its soft, secret urn,
+    on some yet-nameless good.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Why do we like it? It has rhythm, sounds good spoken aloud, contains beautiful words, has a strange but pretty aesthetic form once written
+down (the tabs are part of the verses) and has a powerful sexual metaphor hidden in it - you get it even if it’s not explicit. You know
+it’s there and in fact this is what the author really meant to tell you. Would it be the same if the author pulled in some detail about the
+fact? Hell, no!&lt;/p&gt;
+
+&lt;p&gt;Now what about something like this:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
+lock&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;acquire()
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;try&lt;/span&gt;:
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Let&amp;#39;s get critical&amp;quot;&lt;/span&gt;)
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;finally&lt;/span&gt;:
+    lock&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;release()
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;with&lt;/span&gt; lock:
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Let&amp;#39;s get critical&amp;quot;&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
+form of poetry, or at least that it&amp;rsquo;s possible to write code in a poetic fashion.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_4&#34;&gt;What’s wrong with poetry?&lt;/h1&gt;
+
+&lt;p&gt;Poetry is one of the highest but most challenging forms of art: to cut a long story short, poetry is difficult for the most
+of us. Take this for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Da un immoto fragor di carrïaggi
+ferrei, moventi verso l’infinito
+tra schiocchi acuti e fremiti selvaggi…
+un silenzio improvviso. Ero guarito.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;its english translation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Out of a motionless infernal
+shudder and clang of steel on steel
+as wagons moved toward the eternal,
+a sudden silence: I was healed.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wat?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
+Let&amp;rsquo;s see an example of well written code:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;itertools&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; chain, islice
+
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;chunks&lt;/span&gt;(iterable, size, format&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #336666&#34;&gt;iter&lt;/span&gt;):
+    it &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;iter&lt;/span&gt;(iterable)
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;True&lt;/span&gt;:
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;yield&lt;/span&gt; format(chain((it&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;next(),), islice(it, size &lt;span style=&#34;color: #555555&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #FF6600&#34;&gt;1&lt;/span&gt;)))
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ok, give me a sec&amp;hellip;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To grasp the meaning of a code snippet you have to read it carefully, examining the overall context, reading the code
+that comes before and after, trying to guess programmer’s mind at last. Very few people will be motivated enough to go
+through the process and the result will vary between unhappy users, angry users and former users. Don’t let the poetry
+alone!&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_5&#34;&gt;Here comes the prose&lt;/h1&gt;
+
+&lt;p&gt;Prose is &lt;em&gt;the other&lt;/em&gt; literary form, sometimes defined as “everything is not poetry”.
+&lt;a href=&#34;http://en.wikipedia.org/wiki/Eugenio_Montale&#34;&gt;Eugenio Montale&lt;/a&gt; was one of the greatest italian poets and he won the
+Nobel Prize in Literature in 1975; during an interview he was once asked about the differences between prose and poetry
+and he stated that while Prose is &lt;em&gt;horizontal&lt;/em&gt;, Poetry is &lt;em&gt;vertical&lt;/em&gt;. Poetry is short, emotional, made of evocative
+and powerful words, it can bring you different feelings so quickly you can barely notice. Prose is long, tells you
+a story with clear and useful words, takes your hand and walks along with you towards the meaning.&lt;/p&gt;
+
+&lt;p&gt;You get the point, prose can explain poetry just like documentation can explain code.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_6&#34;&gt;Why programmers don’t write prose&lt;/h1&gt;
+
+&lt;p&gt;I have an educated guess: writing docs is hard and life consuming. As a core developer of a mid-sized open source
+project I found myself writing way more lines of docs than code. I used to be a poet but I had to turn into a writer
+for the occasion. But it’s not only a matter of quantity, writing docs is also challenging for a series of issues:
+you may not be a native english speaker and writing good docs is hard in that case; or you may be a native english
+speaker but you have to wisely choose your words to make your docs understandable for non native speakers; you have
+to write examples, tutorials and advertise them; you have to make screenshots; you have to setup different environments;
+you have to put yourself in users’ shoes; you have to argument with strangers on the internet.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;Why you should write prose&lt;/h1&gt;
+
+&lt;p&gt;First of all, prose and poetry have different audience. Code Poets will likely dig into your code whether or not the
+project has documentation; humans just start from the documentation. More humans, more users; more users, more
+contributors; more contributors, less work for everyone :)&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_8&#34;&gt;How to write prose&lt;/h1&gt;
+
+&lt;p&gt;Writing docs when most of the code is already in place and project features almost complete is difficult and disheartening:
+you have to invent good stories for your users as an aftermath, you have to review the code and fill the gaps in your
+docstrings, you have to put in place examples and use cases. What you should do instead is writing documentation along
+with or better before the code: someone refers to this as &lt;em&gt;Documentation Driven Development&lt;/em&gt;. Writing docs before the code
+can give you precious hints about the idea you are going to implement: as a rule of thumb, if you struggle to describe your
+idea into the documentation, maybe that is not a good idea. Write the stories, write the docstrings then write the code
+(insert tests in the process where you’re more comfortable with).&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_9&#34;&gt;Lessons learnt as a prose writer&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Always write docstrings for your and your team’s sanity and write them early, even before the code.&lt;/li&gt;
+&lt;li&gt;Write good docs and make them available to the internet.&lt;/li&gt;
+&lt;li&gt;Write tutorials, a lot of tutorials.&lt;/li&gt;
+&lt;li&gt;Write articles, show people how to use your code.&lt;/li&gt;
+&lt;li&gt;Listen to your users, there are no stupid questions, only stupid developers not answering.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

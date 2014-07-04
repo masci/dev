@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Pages on /dev/ </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://dev.pippi.im/page/index.xml</link>
+    <language>en-us</language>
+    
+    
+    <updated>Fri, 04 Jul 2014 09:35:49 UTC</updated>
+    
+    <item>
+      <title>about</title>
+      <link>http://dev.pippi.im/page/about</link>
+      <pubDate>Fri, 04 Jul 2014 09:35:49 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/page/about</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

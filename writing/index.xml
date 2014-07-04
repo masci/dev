@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Writings on /dev/ </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://dev.pippi.im/writing/index.xml</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 24 May 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>If code is poetry, then documentation is prose</title>
+      <link>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose</link>
+      <pubDate>Sat, 24 May 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;What is poetry?&lt;/h2&gt;
+
+&lt;p&gt;Before starting, let’s agree on some terminology. Obviously poetry is a literary form, a way to write down things I would say,
+but how do you recognize it, how can you say that is poetry and this is not? Well, according to my literary heritage (I’m italian)
+something is poetry when it has verse, rhyme and stanza; let’s see what they are and how we can recognize them.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Verse&lt;/h3&gt;
+
+&lt;p&gt;A verse is a sequence of words on a single line; those sequences must follow strict rules that determine their length and
+contents in terms of syllables. The verse gives rhythm to the composition.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;Rhyme&lt;/h3&gt;
+
+&lt;p&gt;A Rhyme is the equality of the sound of different words and it gives melody to the composition.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Stanza&lt;/h3&gt;
+
+&lt;p&gt;A group of verses; even these groups follows strict rules about the number of verses they might contain and the way they are connected
+together, with or without rhymes.&lt;/p&gt;
+
+&lt;p&gt;Let’s see an example that follows all these poetry rules, a stanza from &lt;em&gt;Il gelsomino notturno&lt;/em&gt; (&lt;em&gt;Night Blooming Jasmine&lt;/em&gt;) by Giovanni Pascoli:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;E’ l’alba: si chiudono i petali
+un poco gualciti: si cova,
+    dentro l’urna molle e segreta,
+    non so che felicità nuova.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and its english translation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;It’s dawn: the petals, slightly worn,
+close up again—each bud to brood,
+    in its soft, secret urn,
+    on some yet-nameless good.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Why do we like it? It has rhythm, sounds good spoken aloud, contains beautiful words, has a strange but pretty aesthetic form once written
+down (the tabs are part of the verses) and has a powerful sexual metaphor hidden in it - you get it even if it’s not explicit. You know
+it’s there and in fact this is what the author really meant to tell you. Would it be the same if the author pulled in some detail about the
+fact? Hell, no!&lt;/p&gt;
+
+&lt;p&gt;Now what about something like this:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
+lock&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;acquire()
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;try&lt;/span&gt;:
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Let&amp;#39;s get critical&amp;quot;&lt;/span&gt;)
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;finally&lt;/span&gt;:
+    lock&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;release()
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;with&lt;/span&gt; lock:
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Let&amp;#39;s get critical&amp;quot;&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
+form of poetry, or at least that it&amp;rsquo;s possible to write code in a poetic fashion.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_4&#34;&gt;What’s wrong with poetry?&lt;/h1&gt;
+
+&lt;p&gt;Poetry is one of the highest but most challenging forms of art: to cut a long story short, poetry is difficult for the most
+of us. Take this for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Da un immoto fragor di carrïaggi
+ferrei, moventi verso l’infinito
+tra schiocchi acuti e fremiti selvaggi…
+un silenzio improvviso. Ero guarito.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;its english translation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Out of a motionless infernal
+shudder and clang of steel on steel
+as wagons moved toward the eternal,
+a sudden silence: I was healed.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Wat?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
+Let&amp;rsquo;s see an example of well written code:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;itertools&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; chain, islice
+
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;chunks&lt;/span&gt;(iterable, size, format&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #336666&#34;&gt;iter&lt;/span&gt;):
+    it &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;iter&lt;/span&gt;(iterable)
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;True&lt;/span&gt;:
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;yield&lt;/span&gt; format(chain((it&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;next(),), islice(it, size &lt;span style=&#34;color: #555555&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #FF6600&#34;&gt;1&lt;/span&gt;)))
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ok, give me a sec&amp;hellip;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To grasp the meaning of a code snippet you have to read it carefully, examining the overall context, reading the code
+that comes before and after, trying to guess programmer’s mind at last. Very few people will be motivated enough to go
+through the process and the result will vary between unhappy users, angry users and former users. Don’t let the poetry
+alone!&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_5&#34;&gt;Here comes the prose&lt;/h1&gt;
+
+&lt;p&gt;Prose is &lt;em&gt;the other&lt;/em&gt; literary form, sometimes defined as “everything is not poetry”.
+&lt;a href=&#34;http://en.wikipedia.org/wiki/Eugenio_Montale&#34;&gt;Eugenio Montale&lt;/a&gt; was one of the greatest italian poets and he won the
+Nobel Prize in Literature in 1975; during an interview he was once asked about the differences between prose and poetry
+and he stated that while Prose is &lt;em&gt;horizontal&lt;/em&gt;, Poetry is &lt;em&gt;vertical&lt;/em&gt;. Poetry is short, emotional, made of evocative
+and powerful words, it can bring you different feelings so quickly you can barely notice. Prose is long, tells you
+a story with clear and useful words, takes your hand and walks along with you towards the meaning.&lt;/p&gt;
+
+&lt;p&gt;You get the point, prose can explain poetry just like documentation can explain code.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_6&#34;&gt;Why programmers don’t write prose&lt;/h1&gt;
+
+&lt;p&gt;I have an educated guess: writing docs is hard and life consuming. As a core developer of a mid-sized open source
+project I found myself writing way more lines of docs than code. I used to be a poet but I had to turn into a writer
+for the occasion. But it’s not only a matter of quantity, writing docs is also challenging for a series of issues:
+you may not be a native english speaker and writing good docs is hard in that case; or you may be a native english
+speaker but you have to wisely choose your words to make your docs understandable for non native speakers; you have
+to write examples, tutorials and advertise them; you have to make screenshots; you have to setup different environments;
+you have to put yourself in users’ shoes; you have to argument with strangers on the internet.&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_7&#34;&gt;Why you should write prose&lt;/h1&gt;
+
+&lt;p&gt;First of all, prose and poetry have different audience. Code Poets will likely dig into your code whether or not the
+project has documentation; humans just start from the documentation. More humans, more users; more users, more
+contributors; more contributors, less work for everyone :)&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_8&#34;&gt;How to write prose&lt;/h1&gt;
+
+&lt;p&gt;Writing docs when most of the code is already in place and project features almost complete is difficult and disheartening:
+you have to invent good stories for your users as an aftermath, you have to review the code and fill the gaps in your
+docstrings, you have to put in place examples and use cases. What you should do instead is writing documentation along
+with or better before the code: someone refers to this as &lt;em&gt;Documentation Driven Development&lt;/em&gt;. Writing docs before the code
+can give you precious hints about the idea you are going to implement: as a rule of thumb, if you struggle to describe your
+idea into the documentation, maybe that is not a good idea. Write the stories, write the docstrings then write the code
+(insert tests in the process where you’re more comfortable with).&lt;/p&gt;
+
+&lt;h1 id=&#34;toc_9&#34;&gt;Lessons learnt as a prose writer&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Always write docstrings for your and your team’s sanity and write them early, even before the code.&lt;/li&gt;
+&lt;li&gt;Write good docs and make them available to the internet.&lt;/li&gt;
+&lt;li&gt;Write tutorials, a lot of tutorials.&lt;/li&gt;
+&lt;li&gt;Write articles, show people how to use your code.&lt;/li&gt;
+&lt;li&gt;Listen to your users, there are no stupid questions, only stupid developers not answering.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Uploading files to Google Cloud Storage with Django</title>
+      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;On of the features of &lt;a href=&#34;https://github.com/masci/django-appengine-toolkit&#34;&gt;Django Appengine Toolkit&lt;/a&gt; is simplifying
+the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
+Google App Engine. Infact all you have to do is writing something like this in your settings.py module:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;APPENGINE_TOOLKIT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;APP_YAML&amp;#39;&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(BASE_DIR, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;app.yaml&amp;#39;&lt;/span&gt;),
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;BUCKET_NAME&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;media-uploads&amp;#39;&lt;/span&gt;,
+}
+DEFAULT_FILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
+STATICFILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;A complete example&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/masci/django_cloudstorage_example&#34;&gt;This repo&lt;/a&gt; contains a minimalistic Django project
+implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just
+one app implementing all the logic, defining the model and exposing the views. For detailed instructions on how to
+setup a Django project on App Engine with &lt;code&gt;django-appengine-toolkit&lt;/code&gt; please check out
+&lt;a href=&#34;http://dev.pippi.im/2014/02/10/create-a-blog-in-minutes-on-app-engine-with-django/&#34;&gt;this blog post&lt;/a&gt;.
+Now let&amp;rsquo;s take a look at the code.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;The Model&lt;/h3&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;Document&lt;/span&gt;(models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;Model):
+    docfile &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;FileField(upload_to&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;documents/%Y/%m/&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;%d&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&lt;/span&gt;)
+
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;delete&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+        storage, path &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path
+        &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(Document, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+        storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(path)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Pretty easy, we have just one field containing the file. Notice the delete method we&amp;rsquo;re going to use so that
+when an instance is deleted, the same will happen to corresponding file on Cloud Storage.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;The views&lt;/h3&gt;
+
+&lt;p&gt;Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
+the logic for the uploads, form included:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileManagerView&lt;/span&gt;(CreateView):
+    model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
+
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+        kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;object_list&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;all()
+        kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;fava&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rava&amp;#39;&lt;/span&gt;
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(FileManagerView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Since we need to show the list of files &lt;strong&gt;and&lt;/strong&gt; the form to upload them on the same page, we cannot use a &lt;code&gt;CreateView&lt;/code&gt; as is,
+what we need is a &lt;code&gt;CreateView&lt;/code&gt; and &lt;code&gt;ListView&lt;/code&gt; hybrid instead, thus the hack of overriding &lt;code&gt;get_context_data&lt;/code&gt;: we inject the queryset
+in the context so the template can render properly.&lt;/p&gt;
+
+&lt;p&gt;The relevant html code in the template looks like this:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+{% for object in object_list %}
+  &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;form&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;action=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;{% url &amp;#39;delete&amp;#39; object.id %}&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;method=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;post&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;{% csrf_token %}
+      &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;href=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;{{ object.docfile.url }}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;{{ object.docfile.name }}&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+      &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;input&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Delete&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+{% empty %}
+  &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;No documents.&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+{% endfor %}
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;form&lt;/span&gt;  &lt;span style=&#34;color: #330099&#34;&gt;enctype=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;multipart/form-data&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;action=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;method=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;post&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;{% csrf_token %}
+    {{ form.as_p }}
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;input&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Upload&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice we render a form for each file listed, so we can make a &lt;code&gt;POST&lt;/code&gt; request directly, without passing for a confirmation view
+as usual when using &lt;code&gt;DeleteView&lt;/code&gt; generics. Let&amp;rsquo;s see the View code:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileRemoveView&lt;/span&gt;(DeleteView):
+    model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
+is deleted. Wow.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;The urls&lt;/h3&gt;
+
+&lt;p&gt;Quick and dirty: mount the two views to the urls:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^$&amp;#39;&lt;/span&gt;, FileManagerView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;),
+    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^delete/(?P&amp;lt;pk&amp;gt;\d+)/$&amp;#39;&lt;/span&gt;, FileRemoveView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;),
+)   
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That&amp;rsquo;s all, have fun deploying on App Engine!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
+      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django</link>
+      <pubDate>Mon, 10 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;Django was actively supported at an early stage of the Python runtime in App Engine SDK through the notable
+&lt;a href=&#34;http://www.django-nonrel.org&#34;&gt;django-nonrel&lt;/a&gt; framework, a fork of the original project that adds support for NoSql databases.
+But starting from the App Engine SDK 1.6.2, released more than two years ago, you can instead deploy Django&amp;rsquo;s official releases
+and take advantages from the whole stack using Google Cloud Sql.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Case study&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;re going to setup a minimal project using &lt;a href=&#34;http://django-blog-zinnia.com/&#34;&gt;Zinnia&lt;/a&gt;, a blog engine built on top of Django and
+a fairly complex web application that leverages several components of the framework, a good benchmark for showing how easy can
+be deploying on App Engine.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;p&gt;Setting up the Google Cloud services goes beyond the scope of this article and is &lt;a href=&#34;https://cloud.google.com/developers/&#34;&gt;well documented&lt;/a&gt;,
+as well as having a working Python environment,  so the following it&amp;rsquo;s assumed:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;you already started a Google Cloud project&lt;/li&gt;
+&lt;li&gt;a Google Cloud Sql instance is up and running and you created a database for this project&lt;/li&gt;
+&lt;li&gt;you created a bucket on Google Cloud Storage to store media files&lt;/li&gt;
+&lt;li&gt;you have a working installation of Python 2.7 and pip on your local machine&lt;/li&gt;
+&lt;li&gt;you installed and configured the Python App Engine SDK on your local machine&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For the last point, make sure that issuing import google from a Python prompt does not raise any error.
+Even if not required, I strongly recommend to use &lt;a href=&#34;http://www.virtualenv.org/en/latest/&#34;&gt;virtualenv&lt;/a&gt; to isolate the
+Python environment for this project.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;Bootstrap&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start installing Django. The latest version available in the App Engine
+&lt;a href=&#34;https://developers.google.com/appengine/docs/python/tools/libraries27&#34;&gt;Python 2.7 environment&lt;/a&gt; is the 1.5, so we go for the same:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install django&amp;lt;1.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once finished, we can start an empty project:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;django-admin.py startproject myblog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will create the typical Django application layout:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;myblog
+ |_ myblog
+ |_ manage.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The project needs some dependencies that can be listed in a plain text file, one package per line, so that pip can install them all at once.
+Along with the package name we can specify the version number, so that requirements won&amp;rsquo;t change across different installations. Let&amp;rsquo;s put the
+following in a file called requirements.txt and save it at the root of the project:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;django-blog-zinnia==0.13
+django-appengine-toolkit
+pillow
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we install the dependencies with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After pip finished we can finally start coding.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Configure Django and Zinnia&lt;/h2&gt;
+
+&lt;p&gt;First of all, we need to tell Django which application we want to use in our project, so open myblog/myblog/settings.py file and add these lines
+to &lt;code&gt;INSTALLED_APP&lt;/code&gt; setting:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;INSTALLED_APPS = (
+    # other stuff here,
+    &#39;django.contrib.admin&#39;,
+    &#39;django.contrib.comments&#39;,
+    &#39;tagging&#39;,
+    &#39;mptt&#39;,
+    &#39;zinnia&#39;,
+    &#39;appengine_toolkit&#39;,
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;the last application, &lt;a href=&#34;https://github.com/masci/django-appengine-toolkit&#34;&gt;appengine_toolkit&lt;/a&gt;, is an helper that will make easier accessing some
+features of App Engine from a Django project, we will see how in a moment.
+We want to put all the static files (javascripts, css, images) in a folder called static at the root of our project (to be clear, along with the
+&lt;code&gt;manage.py&lt;/code&gt; module). Django can automatically collect such files if we set the variable STATIC_ROOT in settings.py with the full path to the
+desired folder. We want to build an absolute path that will work both in local and production environments, so it can be convenient to add a
+variable &lt;code&gt;BASE_DIR&lt;/code&gt; to the &lt;code&gt;settings.py&lt;/code&gt; pointing to the project root in a portable manner:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can then refer the absolute path to the static folder as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;STATIC_ROOT = os.path.join(BASE_DIR, &#39;static&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Zinnia uses a template context we need to set along with Django&amp;rsquo;s default contexts so we add this block of code in &lt;code&gt;settings.py&lt;/code&gt; module:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;TEMPLATE_CONTEXT_PROCESSORS = (
+    &#39;django.contrib.auth.context_processors.auth&#39;,
+    &#39;django.core.context_processors.i18n&#39;,
+    &#39;django.core.context_processors.request&#39;,
+    &#39;django.core.context_processors.media&#39;,
+    &#39;zinnia.context_processors.version&#39;,
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Following lines must be added to our project&amp;rsquo;s urls.py in order to display the blog:
+from django.contrib import admin&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;admin.autodiscover()
+    urlpatterns = patterns(&#39;&#39;,
+    url(r&#39;^admin/&#39;, include(admin.site.urls)),
+    url(r&#39;^weblog/&#39;, include(&#39;zinnia.urls&#39;)),
+    url(r&#39;^comments/&#39;, include(&#39;django.contrib.comments.urls&#39;)),
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Configure App Engine&lt;/h2&gt;
+
+&lt;p&gt;Now we need to create the yaml file containing App Engine application settings. At the root of the project create an app.yaml text file
+containing the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application: your_project_id_here
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: django
+  version: &amp;quot;1.5&amp;quot;
+- name: PIL
+  version: &amp;quot;1.1.7&amp;quot;
+- name: MySQLdb
+  version: &amp;quot;latest&amp;quot;
+
+builtins:
+- django_wsgi: on
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: &#39;myblog.settings&#39;
+  DATABASE_URL: &#39;mysql://root@your-project-id:sql-instance-name/database-name&#39;
+
+handlers:
+- url: /static
+  static_dir: static
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Some parameters need to be adjusted with actual data, in particular we have to provide our Google Cloud project ID and the Cloud SQL instance
+name.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;Configure database&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;DATABASE_URL&lt;/code&gt; environment variable contains all the parameters needed to perform a connection from an App Engine application to our
+database. Just add the following code to the settings.py to make Django capable to parse and make use of such parameters:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import appengine_toolkit
+DATABASES = {
+    &#39;default&#39;: appengine_toolkit.config(),
+}
+
+APPENGINE_TOOLKIT = {
+    &#39;APP_YAML&#39;: os.path.join(BASE_DIR, &#39;app.yaml&#39;),
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s all and from now on, all we have to do for changing database connection parameters is to modify the &lt;code&gt;DATABASE_URL&lt;/code&gt; environment variable
+and deploy the application again.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_7&#34;&gt;File storaging&lt;/h2&gt;
+
+&lt;p&gt;We will store uploaded files in a bucket on Google Cloud Storage and we will let Django handle the upload process and then ask the Blobstore API
+for a link to statically serve the same files. All we need to do is telling Django the bucket name and the Python class to use to talk to Cloud
+Storage API:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;APPENGINE_TOOLKIT = {
+    # other settings here
+    &#39;BUCKET_NAME&#39;: &#39;zinnia-uploads&#39;,
+}
+DEFAULT_FILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
+STATICFILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;Deploy&lt;/h2&gt;
+
+&lt;p&gt;Configuration steps are over, time to create the database schema with Django&amp;rsquo;s built in management commands. Before proceeding, we have to set
+the &lt;code&gt;DATABASE_URL&lt;/code&gt; environment variable on the local machine performing the command. This is because we need to connect to the Cloud SQL
+instance from the local machine and the connection string is slightly different from the one you would use in production, notice the &lt;code&gt;rdbms://&lt;/code&gt;
+component:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export DATABASE_URL=&#39;rdbms://root@your-project-id:sql-instance-name/database-name&#39; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the variable set, issue the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python manage.py syncdb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;During the schema creation we will prompted for username and password to assign to the admin user.
+Now we need to provide application dependencies and App Engine has a peculiar approach to this: it requires that every piece of software which
+is not already provided by the &lt;a href=&#34;https://developers.google.com/appengine/docs/python/tools/libraries27&#34;&gt;Python Environment&lt;/a&gt; has to be uploaded
+together with application code during the deployment process. Instead of
+mangling our local Python environment we will use a functionality provided by django_appengine_toolkit package. It adds a management command to
+Django that symlinks all the dependencies needed in a folder inside the project root, making that folder available to the Python environment. We
+issue the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python manage.py collectdeps -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and if everything is fine we will have a libs directory inside the project root containing all the dependencies needed.
+Now we need to collect all the static files in one place, that&amp;rsquo;s the static directory at the project root. Just issue the command:
+python manage.py collectstatic
+and we should find a folder named static at the project root that contains all the files needed by our application.
+Now the final step, the actual deployment. If we are on a Mac we can use the Google App Engine Launcher tool and complete the deployment through
+a graphical interface. Otherwise on Linux just issue this command in our project root:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;appcfg.py --oauth2 update .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check out for any error and try accessing your application with a browser, you should see the Zinnia home page.
+You can find the code of the example application in &lt;a href=&#34;https://github.com/masci/django_appengine_example&#34;&gt;my repo on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_9&#34;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;These days App Engine seems to be a land the Django community forgot, but I think times are good for a change: the brand new Cloud Console and
+the gcloud Tool, new services like Cloud Sql and the efforts in supporting the Python SDK can make the life of a Djangonaut a lot easier on the
+Google platform. Sure, documentation should improve as well as the support to some client libraries but I think it&amp;rsquo;s worth it and with a little
+code we can get very close to something like &amp;ldquo;one click deploy&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
+      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do</link>
+      <pubDate>Sun, 10 Nov 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Who said authentication?&lt;/h2&gt;
+
+&lt;p&gt;If you have an HTTP endpoint which requires authentication, chances are that you&amp;rsquo;re using HTTP Basic auth or
+Digest. This was the case, you should immediately stop asking users for their passwords - let&amp;rsquo;s see why.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the
+transmission occurs over SSL and it has some pros: it&amp;rsquo;s easy to implement and it uses the well known
+&lt;a href=&#34;http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8&#34;&gt;HTTP Authorization header&lt;/a&gt;, largely supported
+by almost all the HTTP clients out in the wild.&lt;/p&gt;
+
+&lt;p&gt;But what if an user falls in a SSL based man-in-the-middle attack (see section 4.8 of the
+&lt;a href=&#34;http://www.ietf.org/rfc/rfc2617.txt&#34;&gt;rfc2617&lt;/a&gt;)? Her credentials would be compromised and
+when you realize it, you could be forced to suspend user&amp;rsquo;s account or reset her password at minimum.&lt;/p&gt;
+
+&lt;p&gt;And what if your web resource is accessed by third party services? You would force users to reveal their password
+to another party to let them access their own data, and if your users are smart, they would feel very uncomfortable
+with that. Moreover, if some user changes her password on your server, access would be denied to other services.&lt;/p&gt;
+
+&lt;p&gt;You can avoid the hassle using a token instead of an username and password pair: you can change it whenever you
+want without users caring about, you can revoke it at any time in case of trouble without suspending user accounts,
+you can give it to other parties with the consensus of your users without making them reveal any secret. Token
+authentication is practical and secure, but how to implement it?&lt;/p&gt;
+
+&lt;p&gt;Well, I have some good news: there&amp;rsquo;s a protocol for that, and that protocol has an RFC standard. It&amp;rsquo;s called
+OAuth2.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;OAuth2 FTW&lt;/h2&gt;
+
+&lt;p&gt;It was not so much time ago that I&amp;rsquo;ve been considering OAuth2 solely a tricky protocol used to authorize a
+service to access data provided by another service, and there are still people with the same misbelief. OAuth2
+can easily replace Basic auth over SSL and there are plenty of good libraries that make the implementation a charm.&lt;/p&gt;
+
+&lt;p&gt;The OAuth2 world is token-centric: you have to retrieve an access token and use it on every request to the server
+when authentication is required; for whatever reason you want, you can easily get another, brand new
+token at any time (if the server supports it, this behaviour is optional indeed); you can give your token to
+third parties and let them access your resources &amp;ldquo;as they were you&amp;rdquo;; every token may have a &lt;em&gt;scope&lt;/em&gt;, a list of
+things that it&amp;rsquo;s allowed to do or do not; you can revoke the token at any time if you want (and so can the server).&lt;/p&gt;
+
+&lt;p&gt;OAuth2 offers different strategies (called &lt;em&gt;flows&lt;/em&gt;) to let users retrieve their token, and actually some of them
+are rather complex. Since we&amp;rsquo;re trying to replace Basic auth, let&amp;rsquo;s see an OAuth2 flow which is as much as
+simple, the &lt;em&gt;Resource owner password-based grant&lt;/em&gt;: users provide their username and password only once to obtain
+an access token that can be used to access resources on the server.&lt;/p&gt;
+
+&lt;p&gt;You can easily try by yourself how this authentication method works using a real world OAuth2 provider as a server
+and curl on your local machine as a client.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;Register an app&lt;/h3&gt;
+
+&lt;p&gt;Go to &lt;a href=&#34;http://django-oauth-toolkit.herokuapp.com/&#34;&gt;OAuth2 Playground&lt;/a&gt;, a fully functional OAuth2 provider written
+in Django using &lt;a href=&#34;https://github.com/evonove/django-oauth-toolkit&#34;&gt;Django OAuth Toolkit&lt;/a&gt; library, follow the menu
+&lt;em&gt;OAuth2 Provider &amp;ndash;&amp;gt; Register an Application&lt;/em&gt; and login with test/test username and
+password. Give a name to your application (this is particulary useful in some flows), choose suitable values for
+&lt;em&gt;client id&lt;/em&gt; and &lt;em&gt;client secret&lt;/em&gt; fields or leave the defaults (they&amp;rsquo;re automatically generated in a safe way by
+the system), choose &lt;em&gt;Public&lt;/em&gt; as &lt;em&gt;Client type&lt;/em&gt; and &lt;em&gt;Resource owner password-based&lt;/em&gt; as &lt;em&gt;Authorization grant type&lt;/em&gt;.
+For the OAuth2 flow you&amp;rsquo;re going to use there&amp;rsquo;s no need of any &lt;em&gt;Redirect uris&lt;/em&gt; so you can leave that field blank.
+Hit &lt;em&gt;save&lt;/em&gt; to finally register your application on the OAuth2 provider.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Grab your token&lt;/h3&gt;
+
+&lt;p&gt;Now we need a token to access resources on the Playground server. We will ask for a token for our Application
+and the user &lt;em&gt;test&lt;/em&gt; of whom we know username and password; the url where retrieve the token is &lt;em&gt;/o/token&lt;/em&gt;
+(every OAuth2 provider has its own url mapping of course), let&amp;rsquo;s go there with curl:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -d &amp;quot;grant_type=password&amp;amp;client_id=your_client_id_here&amp;amp;username=test&amp;amp;password=test&amp;quot; http://django-oauth-toolkit.herokuapp.com/o/token/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If everything goes smooth, server will answer with something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;refresh_token&amp;quot;: &amp;quot;a_refresh_token_here&amp;quot;, 
+    &amp;quot;token_type&amp;quot;: &amp;quot;Bearer&amp;quot;, 
+    &amp;quot;scope&amp;quot;: &amp;quot;example&amp;quot;, 
+    &amp;quot;access_token&amp;quot;: &amp;quot;the_access_token&amp;quot;, 
+    &amp;quot;expires_in&amp;quot;: 36000
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The server provided also a refresh token, a second token which can be swapped for a new access token
+at any time before the current one expires. With the access token provided, we can authenticate against the server
+using &lt;code&gt;Authorization&lt;/code&gt; header and providing our access token. In this example, we&amp;rsquo;re going to access detailed data
+for our application through a proper endpoint:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -H &amp;quot;Authorization: Bearer the_access_token_here&amp;quot; http://django-oauth-toolkit.herokuapp.com/api/v1/applications/your_client_id_here/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the server successfully authenticate and the scopes provided are enough to access the data we requested, we will
+receive a response in json format similar to this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[{
+    &amp;quot;model&amp;quot;: &amp;quot;example.myapplication&amp;quot;, 
+    &amp;quot;pk&amp;quot;: 2, 
+    &amp;quot;fields&amp;quot;: {
+        &amp;quot;client_type&amp;quot;: &amp;quot;public&amp;quot;, 
+        &amp;quot;user&amp;quot;: 2, 
+        &amp;quot;client_id&amp;quot;: &amp;quot;&amp;quot;, 
+        &amp;quot;name&amp;quot;: &amp;quot;My own APP&amp;quot;, 
+        &amp;quot;authorization_grant_type&amp;quot;: &amp;quot;password&amp;quot;, 
+        &amp;quot;client_secret&amp;quot;: &amp;quot;&amp;quot;, 
+        &amp;quot;description&amp;quot;: &amp;quot;&amp;quot;, 
+        &amp;quot;redirect_uris&amp;quot;: &amp;quot;&amp;quot;
+    }
+}]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From now on, our credentials are represented by the access token, with benefits for both users and the service provider:
+the token can be revoked by the server if needed (account suspension, abuse of the service, etc.), or can be revoked
+by ourselves if we do not want to access that service anymore. Or it can be refreshed with a new token if we fear our
+old one would be compromised. We had to provide username and password just once but now we can use the token anywhere
+we need to authenticate: a third party service or a mobile app for example.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;So what?&lt;/h2&gt;
+
+&lt;p&gt;Even if security level is similar, using OAuth2 allows much more control and flexibility than using username and password,
+provided that communication occurs over SSL. Well, the server has to manage a slightly more complex workflow when using
+OAuth2 (think about applications registration and tokens management), but since OAuth2 is a standard described in
+&lt;a href=&#34;http://tools.ietf.org/html/rfc6749&#34;&gt;RFC6749&lt;/a&gt; there are plenty of libraries and software components which implement the
+protocol and can be used to drastically reduce the code needed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Build GitHub like notifications with Django messages and AngularJS</title>
+      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js</link>
+      <pubDate>Tue, 22 Oct 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Foreword&lt;/h2&gt;
+
+&lt;p&gt;GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which
+remains &lt;em&gt;unread&lt;/em&gt; until you actually read it; then it&amp;rsquo;s archived and removed from your &lt;em&gt;inbox&lt;/em&gt;, which it happens could remain empty:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/images/github_notifications.png&#34; alt=&#34;github inbox&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called &lt;em&gt;Message
+Framework&lt;/em&gt; and you can find it in the &lt;code&gt;contrib&lt;/code&gt; package. Messages are &lt;em&gt;produced&lt;/em&gt; during users&amp;rsquo; activity and delivered
+subsequently; in the meantime, they are stored in cookies or sessions.&lt;/p&gt;
+
+&lt;p&gt;The ephemeral nature of Django&amp;rsquo;s &lt;code&gt;contrib.messages&lt;/code&gt; makes them not suitable for storing notifications in GitHub
+style: notifications have to be persisted until user actually reads it, messages instead are marked as read the moment
+they are, let&amp;rsquo;s say, &lt;em&gt;observed&lt;/em&gt;. Nevertheless Django message framework is flexible enough to let you provide your own
+storage policy, and third-party applications like &lt;a href=&#34;https://github.com/evonove/django-stored-messages&#34;&gt;Django Stored Messages&lt;/a&gt;
+use this feature to store messages in a persistent way (specifically, an sql database).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Disclaimer: The frontend code will make use of AngularJs even if I am a total newbie and I don&amp;rsquo;t really know how to
+angular. If you are a newbie too, please go read &lt;a href=&#34;http://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day/&#34;&gt;this effective blog post&lt;/a&gt;
+by Todd Motto and then come back here. If you&amp;rsquo;re not an Angular newbie, please take into account my code could offend
+you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;The application&lt;/h2&gt;
+
+&lt;p&gt;Fire up a virtualenv and install Django:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkvirtualenv notification_example
+pip install django
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Start an empty project:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;django-admin.py startproject notification_example
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;hellip;and an app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd notification_example
+python manage.py startapp notification
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now for some dependencies - install Django Stored Messages and &lt;a href=&#34;http://http://django-rest-framework.org/&#34;&gt;Django Rest Framework&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install django-stored-messages djangorestframework
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Configure all the things! In &lt;code&gt;notification_example/settings.py&lt;/code&gt; be sure to have these:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;PROJECT_ROOT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;abspath(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;dirname(__file__)), &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;..&amp;#39;&lt;/span&gt;)
+
+DATABASES &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;: {
+        &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;ENGINE&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.db.backends.sqlite3&amp;#39;&lt;/span&gt;,
+        &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;NAME&amp;#39;&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(PROJECT_ROOT, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;db.sqlite&amp;#39;&lt;/span&gt;),
+    }
+}
+
+INSTALLED_APPS &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; (
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.auth&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.contenttypes&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.sessions&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.sites&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.messages&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.staticfiles&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;notification&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages&amp;#39;&lt;/span&gt;,
+    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rest_framework&amp;#39;&lt;/span&gt;,
+)
+
+MESSAGE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages.storage.PersistentStorage&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
+logged in user.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_2&#34;&gt;The homepage view&lt;/h2&gt;
+
+&lt;p&gt;Django Stored Messages can persist messages only when they are sent to a valid user, and such user has to login for
+viewing the messages, so we provide a login form directly inside the homepage. To produce some notifications, visiting the index will trigger a message as well. The code:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; FormView
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.auth.forms&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; AuthenticationForm
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.messages&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; add_message
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.auth&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; login
+
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;stored_messages&lt;/span&gt;
+
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;IndexView&lt;/span&gt;(FormView):
+    template_name &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;notification/homepage.html&amp;#39;&lt;/span&gt;
+    form_class &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; AuthenticationForm
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
+
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+        add_message(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;request, stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You visited the homepage&amp;#39;&lt;/span&gt;)
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(IndexView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;form_valid&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, form):
+        login(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;request, form&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_user())
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(IndexView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;form_valid(form)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We&amp;rsquo;re going to use &lt;em&gt;class based views&lt;/em&gt;, of course. Notice Django Stored Messages let us make use of the builtin
+messages api, thus passing in a message of type &lt;code&gt;stored_messages.STORED_INFO&lt;/code&gt; will cause that message to be stored on
+the database.
+The &lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/notification/homepage.html&#34;&gt;homepage template&lt;/a&gt;
+will be extended from a &lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/base.html&#34;&gt;basic Boostrap3 template&lt;/a&gt;, we&amp;rsquo;re going onto details later.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_3&#34;&gt;The message view&lt;/h2&gt;
+
+&lt;p&gt;This is a simple &lt;code&gt;TemplateView&lt;/code&gt;, the only trick here is getting from the urlstring whether user wants to see all the
+notifications or only the &lt;em&gt;unread&lt;/em&gt; ones:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; TemplateView
+
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;MessagesView&lt;/span&gt;(TemplateView):
+    template_name &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;notification/messages.html&amp;#39;&lt;/span&gt;
+
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, request, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #000000; font-weight: bold&#34;&gt;in&lt;/span&gt; request&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GET:  &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# quick and dirty&lt;/span&gt;
+            kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;True&lt;/span&gt;
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(MessagesView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get(request, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The view code is rather simple because all the magic is left to Django Stored Messages template tags and its REST api.
+The Html template for the message view will try to mimic GitHub&amp;rsquo;s notification page,
+&lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/notification/messages.html&#34;&gt;here is the code&lt;/a&gt; and
+this is the result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/images/messages.png&#34; alt=&#34;messages screenshot&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;As you can see from this chunk:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;col-md-9&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+{% if not unread %}
+    {% stored_messages_archive 100 %}
+{% else %}
+    ...
+{% endif %}
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If user requested the archive (i.e. to show messages that were already read), the template tag
+&lt;code&gt;stored_messages_archive&lt;/code&gt; provided by Django Stored Messages will show a list of &lt;code&gt;100&lt;/code&gt; messages rendering
+the template at &lt;code&gt;stored_messages/stored_messages_list.html&lt;/code&gt;. Here is the template ovverrided to add Bootstrap3 classes:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{% if messages %}
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+        {% for message in messages %}
+            &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+                {{ message.message }}
+            &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        {% empty %}
+            &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;No messages here!&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        {% endfor %}
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+{% endif %}
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We will get into the details for the &lt;code&gt;else&lt;/code&gt; branch in the messages template later.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_4&#34;&gt;Plug the urls&lt;/h2&gt;
+
+&lt;p&gt;Nothing special here but notice the inclusion of the REST api urls coming from &lt;code&gt;stored_messages&lt;/code&gt; package:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^logout/$&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.auth.views.logout&amp;#39;&lt;/span&gt;,  {&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;next_page&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;}, name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;logout&amp;#39;&lt;/span&gt;),
+    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^$&amp;#39;&lt;/span&gt;, IndexView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;home&amp;#39;&lt;/span&gt;),
+    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^messages/$&amp;#39;&lt;/span&gt;, MessagesView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;messages&amp;#39;&lt;/span&gt;),
+    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^api/&amp;#39;&lt;/span&gt;, include(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages.urls&amp;#39;&lt;/span&gt;)),
+)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Final touches&lt;/h2&gt;
+
+&lt;p&gt;To add some noise to the notification stream, we will add messages for the user when she logs in and out:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_in&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    add_message(kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;request&amp;#39;&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You were logged in!&amp;#39;&lt;/span&gt;)
+user_logged_in&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_in)
+
+
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_out&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    add_message(kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;request&amp;#39;&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You were logged out!&amp;#39;&lt;/span&gt;)
+user_logged_out&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_out)
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The Django app is complete now, time for some Javascript code!&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_6&#34;&gt;The REST&lt;/h2&gt;
+
+&lt;p&gt;Even if Django Stored Messages has a template tag to show unread messages, for this demo we will use the REST api,
+which let us retrieve unread messages and mark them as read. To interact with the api we use
+&lt;a href=&#34;http://angularjs.org/&#34;&gt;Angular&lt;/a&gt;, for the sake of simplicity we use a single controller:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; messageApp &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; angular.module(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;messageApp&amp;#39;&lt;/span&gt;, []);
+
+messageApp.controller(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;MainCtrl&amp;#39;&lt;/span&gt;, [&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;$scope&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;$http&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; ($scope, $http) {
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// Messages array&lt;/span&gt;
+    $scope.messages &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {};
+
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+}]);
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice the injection of the &lt;code&gt;$http&lt;/code&gt; object we will use to make http requests. The messages array will be filled with
+data coming from the api, then it will be available through the &lt;code&gt;$scope&lt;/code&gt; object. For the angular application to work
+properly, the html code in our templates needs to be aware of the angular stuff - we do this in the &lt;code&gt;base.html&lt;/code&gt; so that
+every page could use angular facilities:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #009999&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;html&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-app=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;messageApp&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    ...
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;and:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ...
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;body&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-controller=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;MainCtrl&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;&amp;lt;!-- navbar --&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;navbar navbar-inverse navbar-fixed-top&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+        ...
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Inside the controller, this code will be added to retrieve all the unread messages for the logged-in user:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// retrieve Messages from the restAPI&lt;/span&gt;
+    $http({
+        method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;,
+        url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/inbox/&amp;#39;&lt;/span&gt;
+    })
+    .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+        $scope.messages &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; data;
+    })
+    .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+        &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
+    });
+
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If everything goes fine, &lt;code&gt;$scope.messages&lt;/code&gt; will contain our messages and we can use them inside the DOM. To do this, we
+need some angularities inside the html, for example in the &lt;code&gt;message.html&lt;/code&gt; template:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{% verbatim %}
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-if=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;messages.length&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-repeat=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;message in messages&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+    {{ message.message.date | date:&amp;#39;MMM d, y h:mm:ss a&amp;#39; }} - {{ message.message.message }}
+      &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markRead($index)&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;style=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;cursor:pointer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark as read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+{% endverbatim %}
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code&gt;ng-if&lt;/code&gt; attribute determines if we have some messages to show. If we do have, the &lt;code&gt;ng-repeat&lt;/code&gt; attribute will take
+care of iterating the messages and show them in the DOM through angular&amp;rsquo;s template tags.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Warning: we&amp;rsquo;re mixing Django and Angular templates there and since they share the same template syntax (this could
+be changed in angular but it&amp;rsquo;s not generally advisable) we need to wrap angular code inside Django&amp;rsquo;s &lt;code&gt;verbatim&lt;/code&gt; tags.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In the html code above notice this:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markRead($index)&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;style=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;cursor:pointer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark as read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;For every unread message, we provide a link and we tell angular that when user clicks it (&lt;code&gt;ng-click&lt;/code&gt; attribute) the
+function &lt;code&gt;markRead()&lt;/code&gt; has to be called with the parameter &lt;code&gt;$index&lt;/code&gt;. We define that function inside the angular
+controller and attach it to the &lt;code&gt;$scope&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark messages read&lt;/span&gt;
+    $scope.markRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (index) {
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; id &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; $scope.messages[index].id;
+        $http({
+            method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
+            url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/inbox/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;id&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/read/&amp;#39;&lt;/span&gt;,
+            xsrfHeaderName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;X-CSRFToken&amp;#39;&lt;/span&gt;,
+            xsrfCookieName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;csrftoken&amp;#39;&lt;/span&gt;
+        })
+        .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+            $scope.messages.splice(index, &lt;span style=&#34;color: #FF6600&#34;&gt;1&lt;/span&gt;);
+        })
+        .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+            &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
+        })
+    };
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The parameter passed to &lt;code&gt;$http&lt;/code&gt; contains all the logic needed to retrieve the csrf token from user&amp;rsquo;s cookie and pass it
+to Django inside the &lt;code&gt;X-CSRFToken&lt;/code&gt; header. For my experience, I&amp;rsquo;ve never seen an easier way to do this (thank you so
+much, Angular!). After retrieving the database id for the &lt;em&gt;index-th&lt;/em&gt; message, we call the &lt;code&gt;/api/inbox/{lookup}/read/&lt;/code&gt;
+endpoint which marks that message as read. In case the request goes well (and this is where magics happen), we remove
+the element from the &lt;code&gt;$scope.messages&lt;/code&gt; - angular will remove that element from the DOM afterwards. No code. No explicit
+DOM manipulation. Just fun.&lt;/p&gt;
+
+&lt;p&gt;Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
+The code for the button is very similar to the one to mark messages read:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;button&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;btn btn-success&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markAllRead()&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark all read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This time the function name is &lt;code&gt;markAllRead&lt;/code&gt; and we call it without parameters; the function is defined inside the
+controller:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark all read&lt;/span&gt;
+    $scope.markAllRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; () {
+        $http({
+            method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
+            url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/mark_all_read/&amp;#39;&lt;/span&gt;,
+            xsrfHeaderName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;X-CSRFToken&amp;#39;&lt;/span&gt;,
+            xsrfCookieName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;csrftoken&amp;#39;&lt;/span&gt;
+        })
+        .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt;(data, status, headers, config) {
+            $scope.messages.splice(&lt;span style=&#34;color: #FF6600&#34;&gt;0&lt;/span&gt;, $scope.messages.length);
+        })
+        .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt;(data, status, headers, config){
+            &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
+        })
+    };
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The csrf boilerplate is the same (for the record, this could be easily avoided using some advanced angular features)
+and the logic is very similar: in case the request succeeded, the array of messages is cleared and the DOM reflects the
+changes automagically.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_7&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/masci/notification_example&#34;&gt;A working example is on GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://django-stored-messages.rtfd.org/&#34;&gt;Django Stored Messages documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Moving to Jekyll</title>
+      <link>http://dev.pippi.im/writing/moving-to-jekyll</link>
+      <pubDate>Sat, 10 Aug 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/moving-to-jekyll</guid>
+      <description>&lt;p&gt;I started writing on a personal blog in November, 2006 and I choose a Wordpress instance at
+wordrpess.com at the time, because it was easy and it was free. &lt;a href=&#34;http://masci.wordpress.com&#34;&gt;My old blog&lt;/a&gt;
+consists of 79 articles in more than six years and considering the most of them are just suggested
+links or citations, it&amp;rsquo;s not much work in the end. Anyway, I&amp;rsquo;m trying to start this whole
+thing again so I registered a personal domain to host my stuff and take a look at
+Wordpress alternatives.&lt;/p&gt;
+
+&lt;p&gt;I think static HTML generators are the killer app for a developer with foolish writing
+ambitions (like me, you know). Such tools are terribly close to my everyday activities:
+edit your contents within a text editor, keep contents under version control, deploy stuff
+by pushing a certain branch to your remote, enjoy.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve recently moved my company&amp;rsquo;s website to a static content generator written in Python
+and I wrote in six month the same amount of contents I wrote in the past three years of
+WYSIWYG blog engine. It works.&lt;/p&gt;
+
+&lt;p&gt;Why Jekyll? Well, it&amp;rsquo;s mainly because of GitHub pages. Provided that deploying a static site
+to GH Pages is terribly smooth and costs zero even with a custom domain name, if you write
+your contents with Jekyll GitHub generates the static pages from your source after every push
+on the master branch. Wow.&lt;/p&gt;
+
+&lt;p&gt;To be fair Jekyll is a very good product anyway, it&amp;rsquo;s well maintained, well documented and
+has an active community of users behind. Moreover, it&amp;rsquo;s so easy to use that even a Pythonista
+can feel comfortable with it :-).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
