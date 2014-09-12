@@ -6,9 +6,9 @@
   <meta charset="utf-8">
   <title> Uploading files to Google Cloud Storage with Django &middot; /dev/ </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://dev.pippi.im/css/bootstrap.min.css" media="screen">
-  <link rel="stylesheet" href="http://dev.pippi.im/css/dev.css">
-  <link href="http://dev.pippi.im/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:1313/css/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" href="http://localhost:1313/css/dev.css">
+  <link href="http://localhost:1313/css/font-awesome.min.css" rel="stylesheet">
   
   
   
@@ -49,12 +49,12 @@
 the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
 Google App Engine. Infact all you have to do is writing something like this in your settings.py module:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">APPENGINE_TOOLKIT <span style="color: #555555">=</span> {
-    <span style="color: #CC3300">&#39;APP_YAML&#39;</span>: os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>join(BASE_DIR, <span style="color: #CC3300">&#39;app.yaml&#39;</span>),
-    <span style="color: #CC3300">&#39;BUCKET_NAME&#39;</span>: <span style="color: #CC3300">&#39;media-uploads&#39;</span>,
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>APPENGINE_TOOLKIT <span style="color: #555555">=</span> {
+    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>APP_YAML<span style="color: #AA0000; background-color: #FFAAAA">’</span>: os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>join(BASE_DIR, <span style="color: #AA0000; background-color: #FFAAAA">‘</span>app<span style="color: #555555">.</span>yaml<span style="color: #AA0000; background-color: #FFAAAA">’</span>),
+    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>BUCKET_NAME<span style="color: #AA0000; background-color: #FFAAAA">’</span>: <span style="color: #AA0000; background-color: #FFAAAA">‘</span>media<span style="color: #555555">-</span>uploads<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
 }
-DEFAULT_FILE_STORAGE <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
-STATICFILE_STORAGE <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
+DEFAULT_FILE_STORAGE <span style="color: #555555">=</span> <span style="color: #AA0000; background-color: #FFAAAA">‘</span>appengine_toolkit<span style="color: #555555">.</span>storage<span style="color: #555555">.</span>GoogleCloudStorage<span style="color: #AA0000; background-color: #FFAAAA">’</span>
+STATICFILE_STORAGE <span style="color: #555555">=</span> <span style="color: #AA0000; background-color: #FFAAAA">‘</span>appengine_toolkit<span style="color: #555555">.</span>storage<span style="color: #555555">.</span>GoogleCloudStorage<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 </pre></div>
 
 <h2 id="toc_1">A complete example</h2>
@@ -68,13 +68,13 @@ Now let&rsquo;s take a look at the code.</p>
 
 <h3 id="toc_2">The Model</h3>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">Document</span>(models<span style="color: #555555">.</span>Model):
-    docfile <span style="color: #555555">=</span> models<span style="color: #555555">.</span>FileField(upload_to<span style="color: #555555">=</span><span style="color: #CC3300">&#39;documents/%Y/%m/</span><span style="color: #AA0000">%d</span><span style="color: #CC3300">&#39;</span>)
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">Document</span>(models<span style="color: #555555">.</span>Model):
+    docfile <span style="color: #555555">=</span> models<span style="color: #555555">.</span>FileField(upload_to<span style="color: #555555">=</span><span style="color: #AA0000; background-color: #FFAAAA">‘</span>documents<span style="color: #555555">/%</span>Y<span style="color: #555555">/%</span>m<span style="color: #555555">/%</span>d<span style="color: #AA0000; background-color: #FFAAAA">’</span>)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 
-    <span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">delete</span>(<span style="color: #336666">self</span>, <span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
-        storage, path <span style="color: #555555">=</span> <span style="color: #336666">self</span><span style="color: #555555">.</span>docfile<span style="color: #555555">.</span>storage, <span style="color: #336666">self</span><span style="color: #555555">.</span>docfile<span style="color: #555555">.</span>path
-        <span style="color: #336666">super</span>(Document, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>delete(<span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs)
-        storage<span style="color: #555555">.</span>delete(path)
+<span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">delete</span>(<span style="color: #336666">self</span>, <span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
+    storage, path <span style="color: #555555">=</span> <span style="color: #336666">self</span><span style="color: #555555">.</span>docfile<span style="color: #555555">.</span>storage, <span style="color: #336666">self</span><span style="color: #555555">.</span>docfile<span style="color: #555555">.</span>path
+    <span style="color: #336666">super</span>(Document, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>delete(<span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs)
+    storage<span style="color: #555555">.</span>delete(path)
 </pre></div>
 
 <p>Pretty easy, we have just one field containing the file. Notice the delete method we&rsquo;re going to use so that
@@ -85,14 +85,14 @@ when an instance is deleted, the same will happen to corresponding file on Cloud
 <p>Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
 the logic for the uploads, form included:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">FileManagerView</span>(CreateView):
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">FileManagerView</span>(CreateView):
     model <span style="color: #555555">=</span> Document
-    success_url <span style="color: #555555">=</span> reverse_lazy(<span style="color: #CC3300">&#39;main&#39;</span>)
+    success_url <span style="color: #555555">=</span> reverse_lazy(<span style="color: #AA0000; background-color: #FFAAAA">‘</span>main<span style="color: #AA0000; background-color: #FFAAAA">’</span>)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 
-    <span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">get_context_data</span>(<span style="color: #336666">self</span>, <span style="color: #555555">**</span>kwargs):
-        kwargs[<span style="color: #CC3300">&#39;object_list&#39;</span>] <span style="color: #555555">=</span> Document<span style="color: #555555">.</span>objects<span style="color: #555555">.</span>all()
-        kwargs[<span style="color: #CC3300">&#39;fava&#39;</span>] <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;rava&#39;</span>
-        <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(FileManagerView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>get_context_data(<span style="color: #555555">**</span>kwargs)
+<span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">get_context_data</span>(<span style="color: #336666">self</span>, <span style="color: #555555">**</span>kwargs):
+    kwargs[<span style="color: #CC3300">&#39;object_list&#39;</span>] <span style="color: #555555">=</span> Document<span style="color: #555555">.</span>objects<span style="color: #555555">.</span>all()
+    kwargs[<span style="color: #CC3300">&#39;fava&#39;</span>] <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;rava&#39;</span>
+    <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(FileManagerView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>get_context_data(<span style="color: #555555">**</span>kwargs)
 </pre></div>
 
 <p>Since we need to show the list of files <strong>and</strong> the form to upload them on the same page, we cannot use a <code>CreateView</code> as is,
@@ -123,9 +123,9 @@ in the context so the template can render properly.</p>
 <p>Notice we render a form for each file listed, so we can make a <code>POST</code> request directly, without passing for a confirmation view
 as usual when using <code>DeleteView</code> generics. Let&rsquo;s see the View code:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">FileRemoveView</span>(DeleteView):
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">FileRemoveView</span>(DeleteView):
     model <span style="color: #555555">=</span> Document
-    success_url <span style="color: #555555">=</span> reverse_lazy(<span style="color: #CC3300">&#39;main&#39;</span>)
+    success_url <span style="color: #555555">=</span> reverse_lazy(<span style="color: #AA0000; background-color: #FFAAAA">‘</span>main<span style="color: #AA0000; background-color: #FFAAAA">’</span>)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 </pre></div>
 
 <p>Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
@@ -135,18 +135,18 @@ is deleted. Wow.</p>
 
 <p>Quick and dirty: mount the two views to the urls:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">urlpatterns <span style="color: #555555">=</span> patterns(<span style="color: #CC3300">&#39;&#39;</span>,
-    url(<span style="color: #CC3300">r&#39;^$&#39;</span>, FileManagerView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #CC3300">&#39;main&#39;</span>),
-    url(<span style="color: #CC3300">r&#39;^delete/(?P&lt;pk&gt;\d+)/$&#39;</span>, FileRemoveView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #CC3300">&#39;delete&#39;</span>),
-)   
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>urlpatterns <span style="color: #555555">=</span> patterns(<span style="color: #AA0000; background-color: #FFAAAA">“</span>,
+    url(r<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">^</span><span style="color: #AA0000; background-color: #FFAAAA">$‘</span>, FileManagerView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #AA0000; background-color: #FFAAAA">‘</span>main<span style="color: #AA0000; background-color: #FFAAAA">’</span>),
+    url(r<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">^</span>delete<span style="color: #555555">/</span>(<span style="color: #AA0000; background-color: #FFAAAA">?</span>P<span style="color: #555555">&lt;</span>pk<span style="color: #555555">&gt;</span>\d<span style="color: #555555">+</span>)<span style="color: #555555">/</span><span style="color: #AA0000; background-color: #FFAAAA">$‘</span>, FileRemoveView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #AA0000; background-color: #FFAAAA">‘</span>delete<span style="color: #AA0000; background-color: #FFAAAA">’</span>),
+)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 </pre></div>
 
 <p>That&rsquo;s all, have fun deploying on App Engine!</p>
 
                     <hr>
                     <ul class="pager">
-                         &nbsp;<li class="previous"><a href="http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose"> Prev</a></li>
-                         &nbsp;<li class="next"><a href="http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django"> Next</a></li>
+                         &nbsp;<li class="previous"><a href="http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/"> Prev</a></li>
+                         &nbsp;<li class="next"><a href="http://localhost:1313/talk/fullstack_angular_django/"> Next</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
@@ -158,15 +158,15 @@ is deleted. Wow.</p>
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">TAGS</h4>
                             
-                            <a href="http://dev.pippi.im/tags/django">django</a>
+                            <a href="http://localhost:1313/tags/django">django</a>
                             
-                            <a href="http://dev.pippi.im/tags/google">google</a>
+                            <a href="http://localhost:1313/tags/google">google</a>
                             
-                            <a href="http://dev.pippi.im/tags/python">python</a>
+                            <a href="http://localhost:1313/tags/python">python</a>
                             
-                            <a href="http://dev.pippi.im/tags/appengine">appengine</a>
+                            <a href="http://localhost:1313/tags/appengine">appengine</a>
                             
-                            <a href="http://dev.pippi.im/tags/gcs">gcs</a>
+                            <a href="http://localhost:1313/tags/gcs">gcs</a>
                             
                         </div>
                     </div>
@@ -177,9 +177,9 @@ is deleted. Wow.</p>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'dev-pippi';
-    var disqus_identifier = 'http:\/\/dev.pippi.im\/writing\/django-upload-on-google-cloud-storage';
+    var disqus_identifier = 'http:\/\/localhost:1313\/writing\/django-upload-on-google-cloud-storage\/';
     var disqus_title = 'Uploading files to Google Cloud Storage with Django';
-    var disqus_url = 'http:\/\/dev.pippi.im\/writing\/django-upload-on-google-cloud-storage';
+    var disqus_url = 'http:\/\/localhost:1313\/writing\/django-upload-on-google-cloud-storage\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -196,16 +196,14 @@ is deleted. Wow.</p>
     <div class="col-lg-12">
       <hr>
       <small>
-      <ul class="list-unstyled">
-        <li class="pull-right"><a href="#top">Back to top</a></li>
-      </ul>
-      <p>Original theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
-      <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
-      <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+        <ul class="list-unstyled">
+          <li class="pull-right"><a href="#top">Back to top</a></li>
+        </ul>
+        <p>Original theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
+        <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
       </small>
     </div>
   </div>
-
 </footer>
         </div>
         <script>
@@ -218,5 +216,8 @@ is deleted. Wow.</p>
   ga('send', 'pageview');
 
 </script>
-    </body>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

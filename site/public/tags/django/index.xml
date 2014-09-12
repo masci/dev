@@ -3,7 +3,7 @@
   <channel>
       <title>Django on /dev/ </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/tags/django/index.xml</link>
+    <link>http://localhost:1313/tags/django/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage</link>
+      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage</guid>
+      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
@@ -23,12 +23,12 @@
 the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
 Google App Engine. Infact all you have to do is writing something like this in your settings.py module:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;APPENGINE_TOOLKIT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;APP_YAML&amp;#39;&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(BASE_DIR, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;app.yaml&amp;#39;&lt;/span&gt;),
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;BUCKET_NAME&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;media-uploads&amp;#39;&lt;/span&gt;,
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;APPENGINE_TOOLKIT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;APP_YAML&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(BASE_DIR, &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;app&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;yaml&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;BUCKET_NAME&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;media&lt;span style=&#34;color: #555555&#34;&gt;-&lt;/span&gt;uploads&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
 }
-DEFAULT_FILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
-STATICFILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
+DEFAULT_FILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;appengine_toolkit&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GoogleCloudStorage&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;
+STATICFILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;appengine_toolkit&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GoogleCloudStorage&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;toc_1&#34;&gt;A complete example&lt;/h2&gt;
@@ -42,13 +42,13 @@ Now let&amp;rsquo;s take a look at the code.&lt;/p&gt;
 
 &lt;h3 id=&#34;toc_2&#34;&gt;The Model&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;Document&lt;/span&gt;(models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;Model):
-    docfile &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;FileField(upload_to&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;documents/%Y/%m/&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;%d&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;Document&lt;/span&gt;(models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;Model):
+    docfile &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;FileField(upload_to&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;documents&lt;span style=&#34;color: #555555&#34;&gt;/%&lt;/span&gt;Y&lt;span style=&#34;color: #555555&#34;&gt;/%&lt;/span&gt;m&lt;span style=&#34;color: #555555&#34;&gt;/%&lt;/span&gt;d&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;delete&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-        storage, path &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path
-        &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(Document, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
-        storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(path)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;delete&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    storage, path &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path
+    &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(Document, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+    storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(path)
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Pretty easy, we have just one field containing the file. Notice the delete method we&amp;rsquo;re going to use so that
@@ -59,14 +59,14 @@ when an instance is deleted, the same will happen to corresponding file on Cloud
 &lt;p&gt;Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
 the logic for the uploads, form included:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileManagerView&lt;/span&gt;(CreateView):
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileManagerView&lt;/span&gt;(CreateView):
     model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
-    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;main&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-        kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;object_list&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;all()
-        kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;fava&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rava&amp;#39;&lt;/span&gt;
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(FileManagerView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;object_list&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;all()
+    kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;fava&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rava&amp;#39;&lt;/span&gt;
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(FileManagerView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Since we need to show the list of files &lt;strong&gt;and&lt;/strong&gt; the form to upload them on the same page, we cannot use a &lt;code&gt;CreateView&lt;/code&gt; as is,
@@ -97,9 +97,9 @@ in the context so the template can render properly.&lt;/p&gt;
 &lt;p&gt;Notice we render a form for each file listed, so we can make a &lt;code&gt;POST&lt;/code&gt; request directly, without passing for a confirmation view
 as usual when using &lt;code&gt;DeleteView&lt;/code&gt; generics. Let&amp;rsquo;s see the View code:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileRemoveView&lt;/span&gt;(DeleteView):
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileRemoveView&lt;/span&gt;(DeleteView):
     model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
-    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;main&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
@@ -109,10 +109,10 @@ is deleted. Wow.&lt;/p&gt;
 
 &lt;p&gt;Quick and dirty: mount the two views to the urls:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^$&amp;#39;&lt;/span&gt;, FileManagerView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;),
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^delete/(?P&amp;lt;pk&amp;gt;\d+)/$&amp;#39;&lt;/span&gt;, FileRemoveView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;),
-)   
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;“&lt;/span&gt;,
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;$‘&lt;/span&gt;, FileManagerView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;main&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;delete&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;?&lt;/span&gt;P&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pk&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;\d&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;$‘&lt;/span&gt;, FileRemoveView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;delete&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;That&amp;rsquo;s all, have fun deploying on App Engine!&lt;/p&gt;
@@ -121,10 +121,10 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django</link>
+      <link>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django</guid>
+      <guid>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
@@ -362,10 +362,10 @@ code we can get very close to something like &amp;ldquo;one click deploy&amp;rdq
     
     <item>
       <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
-      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do</link>
+      <link>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
       <pubDate>Sun, 10 Nov 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do</guid>
+      <guid>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Who said authentication?&lt;/h2&gt;
@@ -490,10 +490,10 @@ protocol and can be used to drastically reduce the code needed.&lt;/p&gt;
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js</link>
+      <link>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
       <pubDate>Tue, 22 Oct 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js</guid>
+      <guid>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Foreword&lt;/h2&gt;
@@ -547,28 +547,28 @@ python manage.py startapp notification
 
 &lt;p&gt;Configure all the things! In &lt;code&gt;notification_example/settings.py&lt;/code&gt; be sure to have these:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;PROJECT_ROOT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;abspath(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;dirname(__file__)), &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;..&amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;PROJECT_ROOT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;abspath(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;dirname(&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;strong&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #336666&#34;&gt;file&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;strong&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;)), &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;..&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-DATABASES &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;: {
-        &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;ENGINE&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.db.backends.sqlite3&amp;#39;&lt;/span&gt;,
-        &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;NAME&amp;#39;&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(PROJECT_ROOT, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;db.sqlite&amp;#39;&lt;/span&gt;),
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;DATABASES &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;default&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: {
+        &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;ENGINE&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;db&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;backends&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;sqlite3&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+        &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;NAME&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(PROJECT_ROOT, &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;db&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;sqlite&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
     }
-}
+}&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-INSTALLED_APPS &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; (
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.auth&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.contenttypes&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.sessions&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.sites&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.messages&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.staticfiles&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;notification&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages&amp;#39;&lt;/span&gt;,
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rest_framework&amp;#39;&lt;/span&gt;,
-)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;INSTALLED_APPS &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; (
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contrib&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;auth&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contrib&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contenttypes&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contrib&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;sessions&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contrib&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;sites&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contrib&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;messages&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contrib&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;staticfiles&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;notification&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;stored_messages&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;rest_framework&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
+)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-MESSAGE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages.storage.PersistentStorage&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;MESSAGE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;PersistentStorage&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now let&amp;rsquo;s go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
@@ -579,25 +579,25 @@ logged in user.&lt;/p&gt;
 &lt;p&gt;Django Stored Messages can persist messages only when they are sent to a valid user, and such user has to login for
 viewing the messages, so we provide a login form directly inside the homepage. To produce some notifications, visiting the index will trigger a message as well. The code:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; FormView
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; FormView
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.auth.forms&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; AuthenticationForm
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.messages&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; add_message
-&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.auth&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; login
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.auth&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; login&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;stored_messages&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;stored_messages&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;IndexView&lt;/span&gt;(FormView):
-    template_name &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;notification/homepage.html&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;IndexView&lt;/span&gt;(FormView):
+    template_name &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;notification&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;homepage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;html&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;
     form_class &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; AuthenticationForm
-    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-        add_message(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;request, stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You visited the homepage&amp;#39;&lt;/span&gt;)
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(IndexView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    add_message(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;request, stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You visited the homepage&amp;#39;&lt;/span&gt;)
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(IndexView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
 
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;form_valid&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, form):
-        login(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;request, form&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_user())
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(IndexView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;form_valid(form)
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;form_valid&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, form):
+    login(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;request, form&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_user())
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(IndexView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;form_valid(form)
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;We&amp;rsquo;re going to use &lt;em&gt;class based views&lt;/em&gt;, of course. Notice Django Stored Messages let us make use of the builtin
@@ -611,15 +611,15 @@ will be extended from a &lt;a href=&#34;https://github.com/masci/notification_ex
 &lt;p&gt;This is a simple &lt;code&gt;TemplateView&lt;/code&gt;, the only trick here is getting from the urlstring whether user wants to see all the
 notifications or only the &lt;em&gt;unread&lt;/em&gt; ones:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; TemplateView
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; TemplateView&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;MessagesView&lt;/span&gt;(TemplateView):
-    template_name &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;notification/messages.html&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;MessagesView&lt;/span&gt;(TemplateView):
+    template_name &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;notification&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;html&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, request, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #000000; font-weight: bold&#34;&gt;in&lt;/span&gt; request&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GET:  &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# quick and dirty&lt;/span&gt;
-            kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;True&lt;/span&gt;
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(MessagesView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get(request, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, request, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #000000; font-weight: bold&#34;&gt;in&lt;/span&gt; request&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GET:  &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# quick and dirty&lt;/span&gt;
+        kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;True&lt;/span&gt;
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(MessagesView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get(request, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The view code is rather simple because all the magic is left to Django Stored Messages template tags and its REST api.
@@ -645,7 +645,7 @@ this is the result:&lt;/p&gt;
 &lt;code&gt;stored_messages_archive&lt;/code&gt; provided by Django Stored Messages will show a list of &lt;code&gt;100&lt;/code&gt; messages rendering
 the template at &lt;code&gt;stored_messages/stored_messages_list.html&lt;/code&gt;. Here is the template ovverrided to add Bootstrap3 classes:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{% if messages %}
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{% if messages %}
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
         {% for message in messages %}
             &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -655,7 +655,7 @@ the template at &lt;code&gt;stored_messages/stored_messages_list.html&lt;/code&g
             &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;No messages here!&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
         {% endfor %}
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-{% endif %}
+{% endif %}&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;We will get into the details for the &lt;code&gt;else&lt;/code&gt; branch in the messages template later.&lt;/p&gt;
@@ -664,26 +664,25 @@ the template at &lt;code&gt;stored_messages/stored_messages_list.html&lt;/code&g
 
 &lt;p&gt;Nothing special here but notice the inclusion of the REST api urls coming from &lt;code&gt;stored_messages&lt;/code&gt; package:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^logout/$&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.auth.views.logout&amp;#39;&lt;/span&gt;,  {&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;next_page&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;}, name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;logout&amp;#39;&lt;/span&gt;),
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^$&amp;#39;&lt;/span&gt;, IndexView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;home&amp;#39;&lt;/span&gt;),
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^messages/$&amp;#39;&lt;/span&gt;, MessagesView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;messages&amp;#39;&lt;/span&gt;),
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^api/&amp;#39;&lt;/span&gt;, include(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages.urls&amp;#39;&lt;/span&gt;)),
-)
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;“&lt;/span&gt;,
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;logout&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;$‘&lt;/span&gt;, &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;django&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;contrib&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;auth&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;views&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;logout&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,  {&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;next_page&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;}, name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;logout&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;$‘&lt;/span&gt;, IndexView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;home&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;messages&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;$‘&lt;/span&gt;, MessagesView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;messages&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;api&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;, include(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;urls&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)),
+)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;toc_5&#34;&gt;Final touches&lt;/h2&gt;
 
 &lt;p&gt;To add some noise to the notification stream, we will add messages for the user when she logs in and out:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_in&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-    add_message(kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;request&amp;#39;&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You were logged in!&amp;#39;&lt;/span&gt;)
-user_logged_in&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_in)
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_in&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    add_message(kwargs[&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;request&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;You were logged &lt;span style=&#34;color: #000000; font-weight: bold&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;!’&lt;/span&gt;)
+user_logged_in&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_in)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-
-&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_out&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-    add_message(kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;request&amp;#39;&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You were logged out!&amp;#39;&lt;/span&gt;)
-user_logged_out&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_out)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_out&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    add_message(kwargs[&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;request&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;You were logged out&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;!’&lt;/span&gt;)
+user_logged_out&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_out)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The Django app is complete now, time for some Javascript code!&lt;/p&gt;
@@ -694,14 +693,16 @@ user_logged_out&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(
 which let us retrieve unread messages and mark them as read. To interact with the api we use
 &lt;a href=&#34;http://angularjs.org/&#34;&gt;Angular&lt;/a&gt;, for the sake of simplicity we use a single controller:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; messageApp &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; angular.module(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;messageApp&amp;#39;&lt;/span&gt;, []);
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; messageApp &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; angular.module(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;messageApp&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;, []);&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/p&amp;gt;&lt;/span&gt;
 
-messageApp.controller(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;MainCtrl&amp;#39;&lt;/span&gt;, [&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;$scope&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;$http&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; ($scope, $http) {
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;messageApp.controller(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;MainCtrl&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;, [&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;$scope&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;, &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;$http&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;, &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; ($scope, $http) {
     &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// Messages array&lt;/span&gt;
-    $scope.messages &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {};
+    $scope.messages &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {};&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/p&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
-}]);
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;}]);&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/p&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Notice the injection of the &lt;code&gt;$http&lt;/code&gt; object we will use to make http requests. The messages array will be filled with
@@ -709,53 +710,53 @@ data coming from the api, then it will be available through the &lt;code&gt;$sco
 properly, the html code in our templates needs to be aware of the angular stuff - we do this in the &lt;code&gt;base.html&lt;/code&gt; so that
 every page could use angular facilities:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #009999&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #009999&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;html&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-app=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;messageApp&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-    ...
+    …&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;and:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ...
-    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;...
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;body&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-controller=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;MainCtrl&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;&amp;lt;!-- navbar --&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;navbar navbar-inverse navbar-fixed-top&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
-        ...
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;body&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-controller=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;MainCtrl&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;&amp;lt;!-- navbar --&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;navbar navbar-inverse navbar-fixed-top&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+    ...
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Inside the controller, this code will be added to retrieve all the unread messages for the logged-in user:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 
-    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// retrieve Messages from the restAPI&lt;/span&gt;
-    $http({
-        method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;,
-        url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/inbox/&amp;#39;&lt;/span&gt;
-    })
-    .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
-        $scope.messages &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; data;
-    })
-    .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
-        &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
-    });
+&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// retrieve Messages from the restAPI&lt;/span&gt;
+$http({
+    method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;,
+    url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/inbox/&amp;#39;&lt;/span&gt;
+})
+.success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+    $scope.messages &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; data;
+})
+.error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
+});
 
-    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If everything goes fine, &lt;code&gt;$scope.messages&lt;/code&gt; will contain our messages and we can use them inside the DOM. To do this, we
 need some angularities inside the html, for example in the &lt;code&gt;message.html&lt;/code&gt; template:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{% verbatim %}
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{% verbatim %}
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-if=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;messages.length&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
   &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-repeat=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;message in messages&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
-    {{ message.message.date | date:&amp;#39;MMM d, y h:mm:ss a&amp;#39; }} - {{ message.message.message }}
+    {{ message.message.date | date:‘MMM d, y h:mm:ss a’ }} - {{ message.message.message }}
       &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markRead($index)&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;style=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;cursor:pointer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark as read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
   &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-{% endverbatim %}
+{% endverbatim %}&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The &lt;code&gt;ng-if&lt;/code&gt; attribute determines if we have some messages to show. If we do have, the &lt;code&gt;ng-repeat&lt;/code&gt; attribute will take
@@ -767,32 +768,32 @@ be changed in angular but it&amp;rsquo;s not generally advisable) we need to wra
 &lt;/blockquote&gt;
 
 &lt;p&gt;In the html code above notice this:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markRead($index)&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;style=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;cursor:pointer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark as read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;p&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markRead($index)&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;style=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;cursor:pointer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark as read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;For every unread message, we provide a link and we tell angular that when user clicks it (&lt;code&gt;ng-click&lt;/code&gt; attribute) the
 function &lt;code&gt;markRead()&lt;/code&gt; has to be called with the parameter &lt;code&gt;$index&lt;/code&gt;. We define that function inside the angular
 controller and attach it to the &lt;code&gt;$scope&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 
-    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark messages read&lt;/span&gt;
-    $scope.markRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (index) {
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; id &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; $scope.messages[index].id;
-        $http({
-            method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
-            url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/inbox/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;id&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/read/&amp;#39;&lt;/span&gt;,
-            xsrfHeaderName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;X-CSRFToken&amp;#39;&lt;/span&gt;,
-            xsrfCookieName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;csrftoken&amp;#39;&lt;/span&gt;
-        })
-        .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
-            $scope.messages.splice(index, &lt;span style=&#34;color: #FF6600&#34;&gt;1&lt;/span&gt;);
-        })
-        .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
-            &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
-        })
-    };
-    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark messages read&lt;/span&gt;
+$scope.markRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (index) {
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; id &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; $scope.messages[index].id;
+    $http({
+        method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
+        url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/inbox/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;id&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/read/&amp;#39;&lt;/span&gt;,
+        xsrfHeaderName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;X-CSRFToken&amp;#39;&lt;/span&gt;,
+        xsrfCookieName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;csrftoken&amp;#39;&lt;/span&gt;
+    })
+    .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+        $scope.messages.splice(index, &lt;span style=&#34;color: #FF6600&#34;&gt;1&lt;/span&gt;);
+    })
+    .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (data, status, headers, config) {
+        &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
+    })
+};
+&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The parameter passed to &lt;code&gt;$http&lt;/code&gt; contains all the logic needed to retrieve the csrf token from user&amp;rsquo;s cookie and pass it
@@ -805,30 +806,30 @@ DOM manipulation. Just fun.&lt;/p&gt;
 &lt;p&gt;Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
 The code for the button is very similar to the one to mark messages read:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;button&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;btn btn-success&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markAllRead()&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark all read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;p&amp;gt;&amp;lt;button&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;btn btn-success&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markAllRead()&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark all read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/button&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This time the function name is &lt;code&gt;markAllRead&lt;/code&gt; and we call it without parameters; the function is defined inside the
 controller:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 
-    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark all read&lt;/span&gt;
-    $scope.markAllRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; () {
-        $http({
-            method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
-            url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/mark_all_read/&amp;#39;&lt;/span&gt;,
-            xsrfHeaderName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;X-CSRFToken&amp;#39;&lt;/span&gt;,
-            xsrfCookieName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;csrftoken&amp;#39;&lt;/span&gt;
-        })
-        .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt;(data, status, headers, config) {
-            $scope.messages.splice(&lt;span style=&#34;color: #FF6600&#34;&gt;0&lt;/span&gt;, $scope.messages.length);
-        })
-        .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt;(data, status, headers, config){
-            &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
-        })
-    };
-    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark all read&lt;/span&gt;
+$scope.markAllRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; () {
+    $http({
+        method&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;,
+        url&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;//127.0.0.1:8000/api/mark_all_read/&amp;#39;&lt;/span&gt;,
+        xsrfHeaderName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;X-CSRFToken&amp;#39;&lt;/span&gt;,
+        xsrfCookieName&lt;span style=&#34;color: #555555&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;csrftoken&amp;#39;&lt;/span&gt;
+    })
+    .success(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt;(data, status, headers, config) {
+        $scope.messages.splice(&lt;span style=&#34;color: #FF6600&#34;&gt;0&lt;/span&gt;, $scope.messages.length);
+    })
+    .error(&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt;(data, status, headers, config){
+        &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// something went wrong :(&lt;/span&gt;
+    })
+};
+&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The csrf boilerplate is the same (for the record, this could be easily avoided using some advanced angular features)

@@ -3,7 +3,7 @@
   <channel>
       <title>Google on /dev/ </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/tags/google/index.xml</link>
+    <link>http://localhost:1313/tags/google/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage</link>
+      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage</guid>
+      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
@@ -23,12 +23,12 @@
 the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
 Google App Engine. Infact all you have to do is writing something like this in your settings.py module:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;APPENGINE_TOOLKIT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;APP_YAML&amp;#39;&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(BASE_DIR, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;app.yaml&amp;#39;&lt;/span&gt;),
-    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;BUCKET_NAME&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;media-uploads&amp;#39;&lt;/span&gt;,
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;APPENGINE_TOOLKIT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;APP_YAML&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(BASE_DIR, &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;app&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;yaml&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+    &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;BUCKET_NAME&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;: &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;media&lt;span style=&#34;color: #555555&#34;&gt;-&lt;/span&gt;uploads&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;,
 }
-DEFAULT_FILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
-STATICFILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
+DEFAULT_FILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;appengine_toolkit&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GoogleCloudStorage&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;
+STATICFILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;appengine_toolkit&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GoogleCloudStorage&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;toc_1&#34;&gt;A complete example&lt;/h2&gt;
@@ -42,13 +42,13 @@ Now let&amp;rsquo;s take a look at the code.&lt;/p&gt;
 
 &lt;h3 id=&#34;toc_2&#34;&gt;The Model&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;Document&lt;/span&gt;(models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;Model):
-    docfile &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;FileField(upload_to&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;documents/%Y/%m/&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;%d&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;Document&lt;/span&gt;(models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;Model):
+    docfile &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;FileField(upload_to&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;documents&lt;span style=&#34;color: #555555&#34;&gt;/%&lt;/span&gt;Y&lt;span style=&#34;color: #555555&#34;&gt;/%&lt;/span&gt;m&lt;span style=&#34;color: #555555&#34;&gt;/%&lt;/span&gt;d&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;delete&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-        storage, path &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path
-        &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(Document, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
-        storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(path)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;delete&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    storage, path &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path
+    &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(Document, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+    storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(path)
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Pretty easy, we have just one field containing the file. Notice the delete method we&amp;rsquo;re going to use so that
@@ -59,14 +59,14 @@ when an instance is deleted, the same will happen to corresponding file on Cloud
 &lt;p&gt;Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
 the logic for the uploads, form included:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileManagerView&lt;/span&gt;(CreateView):
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileManagerView&lt;/span&gt;(CreateView):
     model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
-    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;main&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
-        kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;object_list&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;all()
-        kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;fava&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rava&amp;#39;&lt;/span&gt;
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(FileManagerView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;get_context_data&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+    kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;object_list&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;all()
+    kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;fava&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rava&amp;#39;&lt;/span&gt;
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(FileManagerView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Since we need to show the list of files &lt;strong&gt;and&lt;/strong&gt; the form to upload them on the same page, we cannot use a &lt;code&gt;CreateView&lt;/code&gt; as is,
@@ -97,9 +97,9 @@ in the context so the template can render properly.&lt;/p&gt;
 &lt;p&gt;Notice we render a form for each file listed, so we can make a &lt;code&gt;POST&lt;/code&gt; request directly, without passing for a confirmation view
 as usual when using &lt;code&gt;DeleteView&lt;/code&gt; generics. Let&amp;rsquo;s see the View code:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileRemoveView&lt;/span&gt;(DeleteView):
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileRemoveView&lt;/span&gt;(DeleteView):
     model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
-    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
+    success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;main&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
@@ -109,10 +109,10 @@ is deleted. Wow.&lt;/p&gt;
 
 &lt;p&gt;Quick and dirty: mount the two views to the urls:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^$&amp;#39;&lt;/span&gt;, FileManagerView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;),
-    url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^delete/(?P&amp;lt;pk&amp;gt;\d+)/$&amp;#39;&lt;/span&gt;, FileRemoveView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;),
-)   
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;“&lt;/span&gt;,
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;$‘&lt;/span&gt;, FileManagerView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;main&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+    url(r&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;^&lt;/span&gt;delete&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;?&lt;/span&gt;P&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pk&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;\d&lt;span style=&#34;color: #555555&#34;&gt;+&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;$‘&lt;/span&gt;, FileRemoveView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;‘&lt;/span&gt;delete&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;),
+)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;That&amp;rsquo;s all, have fun deploying on App Engine!&lt;/p&gt;
@@ -121,10 +121,10 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django</link>
+      <link>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django</guid>
+      <guid>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
