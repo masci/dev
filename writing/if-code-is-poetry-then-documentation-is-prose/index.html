@@ -6,9 +6,9 @@
   <meta charset="utf-8">
   <title> If code is poetry, then documentation is prose &middot; /dev/ </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://dev.pippi.im/css/bootstrap.min.css" media="screen">
-  <link rel="stylesheet" href="http://dev.pippi.im/css/dev.css">
-  <link href="http://dev.pippi.im/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://localhost:1313/css/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" href="http://localhost:1313/css/dev.css">
+  <link href="http://localhost:1313/css/font-awesome.min.css" rel="stylesheet">
   
   
   
@@ -86,19 +86,19 @@ fact? Hell, no!</p>
 
 <p>Now what about something like this:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
 lock<span style="color: #555555">.</span>acquire()
 <span style="color: #006699; font-weight: bold">try</span>:
-    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
+    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #AA0000; background-color: #FFAAAA">“</span>Let<span style="color: #AA0000; background-color: #FFAAAA">’</span>s get critical<span style="color: #AA0000; background-color: #FFAAAA">”</span>)
 <span style="color: #006699; font-weight: bold">finally</span>:
-    lock<span style="color: #555555">.</span>release()
+    lock<span style="color: #555555">.</span>release()<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 </pre></div>
 
 <p>Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
 <span style="color: #006699; font-weight: bold">with</span> lock:
-    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
+    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #AA0000; background-color: #FFAAAA">“</span>Let<span style="color: #AA0000; background-color: #FFAAAA">’</span>s get critical<span style="color: #AA0000; background-color: #FFAAAA">”</span>)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 </pre></div>
 
 <p>Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
@@ -130,12 +130,12 @@ a sudden silence: I was healed.
 <p>As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
 Let&rsquo;s see an example of well written code:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">itertools</span> <span style="color: #006699; font-weight: bold">import</span> chain, islice
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">itertools</span> <span style="color: #006699; font-weight: bold">import</span> chain, islice<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 
-<span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">chunks</span>(iterable, size, format<span style="color: #555555">=</span><span style="color: #336666">iter</span>):
+<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">chunks</span>(iterable, size, format<span style="color: #555555">=</span><span style="color: #336666">iter</span>):
     it <span style="color: #555555">=</span> <span style="color: #336666">iter</span>(iterable)
     <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">True</span>:
-        <span style="color: #006699; font-weight: bold">yield</span> format(chain((it<span style="color: #555555">.</span>next(),), islice(it, size <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>)))
+        <span style="color: #006699; font-weight: bold">yield</span> format(chain((it<span style="color: #555555">.</span>next(),), islice(it, size <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>)))<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
 </pre></div>
 
 <blockquote>
@@ -196,8 +196,8 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
 
                     <hr>
                     <ul class="pager">
-                         &nbsp;<li class="previous"><a href="http://dev.pippi.im/page/about"> Prev</a></li>
-                         &nbsp;<li class="next"><a href="http://dev.pippi.im/writing/django-upload-on-google-cloud-storage"> Next</a></li>
+                         &nbsp;<li class="previous"><a href="http://localhost:1313/talk/codice_poesia/"> Prev</a></li>
+                         &nbsp;<li class="next"><a href="http://localhost:1313/writing/django-upload-on-google-cloud-storage/"> Next</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
@@ -209,9 +209,9 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">TAGS</h4>
                             
-                            <a href="http://dev.pippi.im/tags/python">python</a>
+                            <a href="http://localhost:1313/tags/python">python</a>
                             
-                            <a href="http://dev.pippi.im/tags/docs">docs</a>
+                            <a href="http://localhost:1313/tags/docs">docs</a>
                             
                         </div>
                     </div>
@@ -222,9 +222,9 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'dev-pippi';
-    var disqus_identifier = 'http:\/\/dev.pippi.im\/writing\/if-code-is-poetry-then-documentation-is-prose';
+    var disqus_identifier = 'http:\/\/localhost:1313\/writing\/if-code-is-poetry-then-documentation-is-prose\/';
     var disqus_title = 'If code is poetry, then documentation is prose';
-    var disqus_url = 'http:\/\/dev.pippi.im\/writing\/if-code-is-poetry-then-documentation-is-prose';
+    var disqus_url = 'http:\/\/localhost:1313\/writing\/if-code-is-poetry-then-documentation-is-prose\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -241,16 +241,14 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
     <div class="col-lg-12">
       <hr>
       <small>
-      <ul class="list-unstyled">
-        <li class="pull-right"><a href="#top">Back to top</a></li>
-      </ul>
-      <p>Original theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
-      <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
-      <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+        <ul class="list-unstyled">
+          <li class="pull-right"><a href="#top">Back to top</a></li>
+        </ul>
+        <p>Original theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
+        <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>
       </small>
     </div>
   </div>
-
 </footer>
         </div>
         <script>
@@ -263,5 +261,8 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
   ga('send', 'pageview');
 
 </script>
-    </body>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

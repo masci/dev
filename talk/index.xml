@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Talks on /dev/ </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/talk/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 24 May 2014 15:06:44 UTC</updated>
+    
+    <item>
+      <title>If code is poetry, then documentation is prose</title>
+      <link>http://localhost:1313/talk/code_is_poetry/</link>
+      <pubDate>Sat, 24 May 2014 15:06:44 UTC</pubDate>
+      
+      <guid>http://localhost:1313/talk/code_is_poetry/</guid>
+      <description>&lt;p&gt;Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness;
+but without good documentation that explains what it does, you will likely end up with
+unsatisfied users or no users at all.&lt;/p&gt;
+
+&lt;p&gt;If anyone had told me I would have spent more time writing documentation than coding,
+I would not have believed it, but that was before I discovered a simple but powerful
+law: “more documentation, more users, more contributors”.&lt;/p&gt;
+
+&lt;p&gt;During the talk we will see which are the foundations of good documentation and how
+documentation can let your open source project take off.&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/Yovew2KMbI4&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Se il codice è poesia, la documentazione è prosa</title>
+      <link>http://localhost:1313/talk/codice_poesia/</link>
+      <pubDate>Sat, 24 May 2014 15:06:44 UTC</pubDate>
+      
+      <guid>http://localhost:1313/talk/codice_poesia/</guid>
+      <description>&lt;p&gt;Perché sarà pur vero che il codice ha l&amp;rsquo;eleganza del verso, può avere un suo ritmo e la sua espressività,
+ma senza una buona documentazione che ne spieghi il funzionamento, difficilmente avrete degli utenti
+soddisfatti.&lt;/p&gt;
+
+&lt;p&gt;Se mi avessero detto che avrei finito con lo spendere molto più tempo sulla documentazione di un progetto
+che sul codice non ci avrei mai creduto, ma era prima di scoprire la semplice e potente implicazione
+&amp;ldquo;più documentazione, più utenti, più contributor&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Durante il talk vedremo quali sono i principii alla base di una buona documentazione e come questa possa
+fare da volano al successo del vostro progetto.&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/0rilhpelvRI&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Full­stack developer with Django and AngularJS</title>
+      <link>http://localhost:1313/talk/fullstack_angular_django/</link>
+      <pubDate>Sat, 26 Apr 2014 15:06:44 UTC</pubDate>
+      
+      <guid>http://localhost:1313/talk/fullstack_angular_django/</guid>
+      <description>&lt;p&gt;Durante il codelab ciascun partecipante vestirà i panni del full-stack developer,  facendosi carico di tutti gli aspetti di un’applicazione web a partire dal backend per arrivare al frontend e curando tutti i dettagli di integrazione.&lt;/p&gt;
+
+&lt;p&gt;La parte backend verrà sviluppata in linguaggio Python utilizzando Django, noto framework per lo sviluppo di applicazioni web caratterizzato da un ampio set di funzionalità che agevolano lo sviluppo rapido di applicazioni con architettura REST.&lt;/p&gt;
+
+&lt;p&gt;Per il lato frontend sarà utilizzato AngularJS, uno dei più diffusi framework per lo sviluppo di applicazioni web moderne. Illustrato lo stack Javascript per lo scaffolding dell’applicazione, sarà sviluppata una single page application in grado di “sfamarsi” con gli endpoint REST precedentemente prodotti.&lt;/p&gt;
+
+&lt;p&gt;Uniti questi due mondi avrete la vostra “arma definitiva”.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Make your Pony fly with Google App Engine</title>
+      <link>http://localhost:1313/talk/make_your_pony_fly/</link>
+      <pubDate>Sat, 16 Nov 2013 15:06:44 UTC</pubDate>
+      
+      <guid>http://localhost:1313/talk/make_your_pony_fly/</guid>
+      <description>&lt;p&gt;Django sta emergendo come framework di riferimento per lo sviluppo di applicazioni web in linguaggio Python; è facile da usare ed offre un set di funzionalità &amp;ldquo;full stack&amp;rdquo; che consente tra le altre cose lo sviluppo rapido di backend con architettura REST.&lt;/p&gt;
+
+&lt;p&gt;Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l&amp;rsquo;arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/9Jbp7L2JqGU&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vintage Web Programming with Python</title>
+      <link>http://localhost:1313/talk/vintage_web_programming_python/</link>
+      <pubDate>Sat, 30 Mar 2013 15:06:44 UTC</pubDate>
+      
+      <guid>http://localhost:1313/talk/vintage_web_programming_python/</guid>
+      <description>&lt;p&gt;Perche sprecare memoria e cicli macchina per produrre ad ogni richiesta dei client le pagine di un sito web?
+Un sito statico e sorprendentemente veloce, parco nei consumi delle risorse macchina e facile da installare
+anche nelle situazioni di web hosting piu` difficili. Mostreremo come un generatore di pagine statiche
+(acrylamid) unito ad uno dei linguaggi di templating html piu potenti sulla piazza (jinja2) possa generare
+siti tecnologicamente all’avanguardia e veloci come nessun framework dinamico potrebbe mai essere.
+Tutto scrivendo pochissimo codice Python!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

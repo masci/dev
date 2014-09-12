@@ -3,7 +3,7 @@
   <channel>
       <title>Docs on /dev/ </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/tags/docs/index.xml</link>
+    <link>http://localhost:1313/tags/docs/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>If code is poetry, then documentation is prose</title>
-      <link>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose</link>
+      <link>http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose</guid>
+      <guid>http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;What is poetry?&lt;/h2&gt;
@@ -60,19 +60,19 @@ fact? Hell, no!&lt;/p&gt;
 
 &lt;p&gt;Now what about something like this:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
 lock&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;acquire()
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;try&lt;/span&gt;:
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Let&amp;#39;s get critical&amp;quot;&lt;/span&gt;)
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;“&lt;/span&gt;Let&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;s get critical&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;”&lt;/span&gt;)
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;finally&lt;/span&gt;:
-    lock&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;release()
+    lock&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;release()&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;lock &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; threading&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;lock()
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;with&lt;/span&gt; lock:
-    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Let&amp;#39;s get critical&amp;quot;&lt;/span&gt;)
+    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;“&lt;/span&gt;Let&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;’&lt;/span&gt;s get critical&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;”&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
@@ -104,12 +104,12 @@ a sudden silence: I was healed.
 &lt;p&gt;As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
 Let&amp;rsquo;s see an example of well written code:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;itertools&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; chain, islice
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;itertools&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; chain, islice&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 
-&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;chunks&lt;/span&gt;(iterable, size, format&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #336666&#34;&gt;iter&lt;/span&gt;):
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;chunks&lt;/span&gt;(iterable, size, format&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #336666&#34;&gt;iter&lt;/span&gt;):
     it &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;iter&lt;/span&gt;(iterable)
     &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;True&lt;/span&gt;:
-        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;yield&lt;/span&gt; format(chain((it&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;next(),), islice(it, size &lt;span style=&#34;color: #555555&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #FF6600&#34;&gt;1&lt;/span&gt;)))
+        &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;yield&lt;/span&gt; format(chain((it&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;next(),), islice(it, size &lt;span style=&#34;color: #555555&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #FF6600&#34;&gt;1&lt;/span&gt;)))&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;p&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
