@@ -45,6 +45,21 @@
             </li>
           </ul>
 
+          <h1>Talks</h1>
+          <p class="text-muted">
+            <small>These are the latest entries, check the <a href="/talk/">Archive</a> for a complete list</small>
+          </p>
+          <ul class="posts list-unstyled">
+          {{ range .Data.Pages.ByDate.Reverse }}
+            {{ if eq .Type "talk" }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
+            </li>
+            {{ end }}
+          {{ end }}
+          </ul>
+
           <h1>Follow me</h1>
           <ul class="list-inline">
             <li><a href="https://github.com/masci"><i class="fa fa-github fa-2x"></i></a></li>
