@@ -16,10 +16,16 @@
                 <div class="col-lg-4">
                     <div class="list-group voffset4">
                         <div class="list-group-item">
-                            <h4 class="list-group-item-heading">CONFERENCE(S)</h4>
+                            {{ if gt (len .Params.conferences) 1 }}
+                            <h4 class="list-group-item-heading">CONFERENCES</h4>
+                            {{ else }}
+                            <h4 class="list-group-item-heading">CONFERENCE</h4>
+                            {{ end }}
                             {{ range .Params.conferences }}
-                            <p class="list-group-item-text"><b>{{ .name }}</b></p>
-                            <p class="list-group-item-text">{{ .date.Format "Mon, Jan 2, 2006" }}</p>
+                            <div class="list-group-conference">
+                                <p class="list-group-item-text"><b>{{ .name }}</b></p>
+                                <p class="list-group-item-text">{{ .date.Format "Mon, Jan 2, 2006" }}</p>
+                            </div>
                             {{ end }}
                         </div>
                         <div class="list-group-item">
