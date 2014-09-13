@@ -216,3 +216,7 @@ a > i.fa {
         width: 970px;
     }    
 }
+
+.list-group-conference {
+    padding-bottom: .8em;
+}
