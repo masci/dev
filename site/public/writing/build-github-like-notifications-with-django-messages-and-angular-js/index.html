@@ -94,28 +94,28 @@ python manage.py startapp notification
 
 <p>Configure all the things! In <code>notification_example/settings.py</code> be sure to have these:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>PROJECT_ROOT <span style="color: #555555">=</span> os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>join(os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>abspath(os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>dirname(<span style="color: #555555">&lt;</span>strong<span style="color: #555555">&gt;</span><span style="color: #336666">file</span><span style="color: #555555">&lt;/</span>strong<span style="color: #555555">&gt;</span>)), <span style="color: #AA0000; background-color: #FFAAAA">‘</span><span style="color: #555555">..</span><span style="color: #AA0000; background-color: #FFAAAA">’</span>)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">PROJECT_ROOT <span style="color: #555555">=</span> os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>join(os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>abspath(os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>dirname(__file__)), <span style="color: #CC3300">&#39;..&#39;</span>)
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>DATABASES <span style="color: #555555">=</span> {
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>default<span style="color: #AA0000; background-color: #FFAAAA">’</span>: {
-        <span style="color: #AA0000; background-color: #FFAAAA">‘</span>ENGINE<span style="color: #AA0000; background-color: #FFAAAA">’</span>: <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>db<span style="color: #555555">.</span>backends<span style="color: #555555">.</span>sqlite3<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-        <span style="color: #AA0000; background-color: #FFAAAA">‘</span>NAME<span style="color: #AA0000; background-color: #FFAAAA">’</span>: os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>join(PROJECT_ROOT, <span style="color: #AA0000; background-color: #FFAAAA">‘</span>db<span style="color: #555555">.</span>sqlite<span style="color: #AA0000; background-color: #FFAAAA">’</span>),
+DATABASES <span style="color: #555555">=</span> {
+    <span style="color: #CC3300">&#39;default&#39;</span>: {
+        <span style="color: #CC3300">&#39;ENGINE&#39;</span>: <span style="color: #CC3300">&#39;django.db.backends.sqlite3&#39;</span>,
+        <span style="color: #CC3300">&#39;NAME&#39;</span>: os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>join(PROJECT_ROOT, <span style="color: #CC3300">&#39;db.sqlite&#39;</span>),
     }
-}<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+}
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>INSTALLED_APPS <span style="color: #555555">=</span> (
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>contrib<span style="color: #555555">.</span>auth<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>contrib<span style="color: #555555">.</span>contenttypes<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>contrib<span style="color: #555555">.</span>sessions<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>contrib<span style="color: #555555">.</span>sites<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>contrib<span style="color: #555555">.</span>messages<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>contrib<span style="color: #555555">.</span>staticfiles<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>notification<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>stored_messages<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-    <span style="color: #AA0000; background-color: #FFAAAA">‘</span>rest_framework<span style="color: #AA0000; background-color: #FFAAAA">’</span>,
-)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+INSTALLED_APPS <span style="color: #555555">=</span> (
+    <span style="color: #CC3300">&#39;django.contrib.auth&#39;</span>,
+    <span style="color: #CC3300">&#39;django.contrib.contenttypes&#39;</span>,
+    <span style="color: #CC3300">&#39;django.contrib.sessions&#39;</span>,
+    <span style="color: #CC3300">&#39;django.contrib.sites&#39;</span>,
+    <span style="color: #CC3300">&#39;django.contrib.messages&#39;</span>,
+    <span style="color: #CC3300">&#39;django.contrib.staticfiles&#39;</span>,
+    <span style="color: #CC3300">&#39;notification&#39;</span>,
+    <span style="color: #CC3300">&#39;stored_messages&#39;</span>,
+    <span style="color: #CC3300">&#39;rest_framework&#39;</span>,
+)
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>MESSAGE_STORAGE <span style="color: #555555">=</span> <span style="color: #AA0000; background-color: #FFAAAA">‘</span>stored_messages<span style="color: #555555">.</span>storage<span style="color: #555555">.</span>PersistentStorage<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+MESSAGE_STORAGE <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;stored_messages.storage.PersistentStorage&#39;</span>
 </pre></div>
 
 <p>Now let&rsquo;s go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
@@ -126,25 +126,25 @@ logged in user.</p>
 <p>Django Stored Messages can persist messages only when they are sent to a valid user, and such user has to login for
 viewing the messages, so we provide a login form directly inside the homepage. To produce some notifications, visiting the index will trigger a message as well. The code:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.views.generic</span> <span style="color: #006699; font-weight: bold">import</span> FormView
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.views.generic</span> <span style="color: #006699; font-weight: bold">import</span> FormView
 <span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.contrib.auth.forms</span> <span style="color: #006699; font-weight: bold">import</span> AuthenticationForm
 <span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.contrib.messages</span> <span style="color: #006699; font-weight: bold">import</span> add_message
-<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.contrib.auth</span> <span style="color: #006699; font-weight: bold">import</span> login<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.contrib.auth</span> <span style="color: #006699; font-weight: bold">import</span> login
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">stored_messages</span><span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">stored_messages</span>
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">IndexView</span>(FormView):
-    template_name <span style="color: #555555">=</span> <span style="color: #AA0000; background-color: #FFAAAA">‘</span>notification<span style="color: #555555">/</span>homepage<span style="color: #555555">.</span>html<span style="color: #AA0000; background-color: #FFAAAA">’</span>
+<span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">IndexView</span>(FormView):
+    template_name <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;notification/homepage.html&#39;</span>
     form_class <span style="color: #555555">=</span> AuthenticationForm
-    success_url <span style="color: #555555">=</span> <span style="color: #AA0000; background-color: #FFAAAA">‘</span><span style="color: #555555">/</span><span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+    success_url <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;/&#39;</span>
 
-<span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">get_context_data</span>(<span style="color: #336666">self</span>, <span style="color: #555555">**</span>kwargs):
-    add_message(<span style="color: #336666">self</span><span style="color: #555555">.</span>request, stored_messages<span style="color: #555555">.</span>STORED_INFO, <span style="color: #CC3300">&#39;You visited the homepage&#39;</span>)
-    <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(IndexView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>get_context_data(<span style="color: #555555">**</span>kwargs)
+    <span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">get_context_data</span>(<span style="color: #336666">self</span>, <span style="color: #555555">**</span>kwargs):
+        add_message(<span style="color: #336666">self</span><span style="color: #555555">.</span>request, stored_messages<span style="color: #555555">.</span>STORED_INFO, <span style="color: #CC3300">&#39;You visited the homepage&#39;</span>)
+        <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(IndexView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>get_context_data(<span style="color: #555555">**</span>kwargs)
 
-<span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">form_valid</span>(<span style="color: #336666">self</span>, form):
-    login(<span style="color: #336666">self</span><span style="color: #555555">.</span>request, form<span style="color: #555555">.</span>get_user())
-    <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(IndexView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>form_valid(form)
+    <span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">form_valid</span>(<span style="color: #336666">self</span>, form):
+        login(<span style="color: #336666">self</span><span style="color: #555555">.</span>request, form<span style="color: #555555">.</span>get_user())
+        <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(IndexView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>form_valid(form)
 </pre></div>
 
 <p>We&rsquo;re going to use <em>class based views</em>, of course. Notice Django Stored Messages let us make use of the builtin
@@ -158,15 +158,15 @@ will be extended from a <a href="https://github.com/masci/notification_example/b
 <p>This is a simple <code>TemplateView</code>, the only trick here is getting from the urlstring whether user wants to see all the
 notifications or only the <em>unread</em> ones:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.views.generic</span> <span style="color: #006699; font-weight: bold">import</span> TemplateView<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">django.views.generic</span> <span style="color: #006699; font-weight: bold">import</span> TemplateView
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">MessagesView</span>(TemplateView):
-    template_name <span style="color: #555555">=</span> <span style="color: #AA0000; background-color: #FFAAAA">‘</span>notification<span style="color: #555555">/</span>messages<span style="color: #555555">.</span>html<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">MessagesView</span>(TemplateView):
+    template_name <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;notification/messages.html&#39;</span>
 
-<span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">get</span>(<span style="color: #336666">self</span>, request, <span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
-    <span style="color: #006699; font-weight: bold">if</span> <span style="color: #CC3300">&#39;unread&#39;</span> <span style="color: #000000; font-weight: bold">in</span> request<span style="color: #555555">.</span>GET:  <span style="color: #0099FF; font-style: italic"># quick and dirty</span>
-        kwargs[<span style="color: #CC3300">&#39;unread&#39;</span>] <span style="color: #555555">=</span> <span style="color: #336666">True</span>
-    <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(MessagesView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>get(request, <span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs)
+    <span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">get</span>(<span style="color: #336666">self</span>, request, <span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
+        <span style="color: #006699; font-weight: bold">if</span> <span style="color: #CC3300">&#39;unread&#39;</span> <span style="color: #000000; font-weight: bold">in</span> request<span style="color: #555555">.</span>GET:  <span style="color: #0099FF; font-style: italic"># quick and dirty</span>
+            kwargs[<span style="color: #CC3300">&#39;unread&#39;</span>] <span style="color: #555555">=</span> <span style="color: #336666">True</span>
+        <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(MessagesView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>get(request, <span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs)
 </pre></div>
 
 <p>The view code is rather simple because all the magic is left to Django Stored Messages template tags and its REST api.
@@ -192,7 +192,7 @@ this is the result:</p>
 <code>stored_messages_archive</code> provided by Django Stored Messages will show a list of <code>100</code> messages rendering
 the template at <code>stored_messages/stored_messages_list.html</code>. Here is the template ovverrided to add Bootstrap3 classes:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;p&gt;</span>{% if messages %}
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">{% if messages %}
     <span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;list-group&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
         {% for message in messages %}
             <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;list-group-item&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
@@ -202,7 +202,7 @@ the template at <code>stored_messages/stored_messages_list.html</code>. Here is 
             <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;list-group-item&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>No messages here!<span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
         {% endfor %}
     <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
-{% endif %}<span style="color: #330099; font-weight: bold">&lt;/p&gt;</span>
+{% endif %}
 </pre></div>
 
 <p>We will get into the details for the <code>else</code> branch in the messages template later.</p>
@@ -211,25 +211,26 @@ the template at <code>stored_messages/stored_messages_list.html</code>. Here is 
 
 <p>Nothing special here but notice the inclusion of the REST api urls coming from <code>stored_messages</code> package:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>urlpatterns <span style="color: #555555">=</span> patterns(<span style="color: #AA0000; background-color: #FFAAAA">“</span>,
-    url(r<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">^</span>logout<span style="color: #555555">/</span><span style="color: #AA0000; background-color: #FFAAAA">$‘</span>, <span style="color: #AA0000; background-color: #FFAAAA">‘</span>django<span style="color: #555555">.</span>contrib<span style="color: #555555">.</span>auth<span style="color: #555555">.</span>views<span style="color: #555555">.</span>logout<span style="color: #AA0000; background-color: #FFAAAA">’</span>,  {<span style="color: #AA0000; background-color: #FFAAAA">‘</span>next_page<span style="color: #AA0000; background-color: #FFAAAA">’</span>: <span style="color: #AA0000; background-color: #FFAAAA">‘</span><span style="color: #555555">/</span><span style="color: #AA0000; background-color: #FFAAAA">’</span>}, name<span style="color: #555555">=</span><span style="color: #AA0000; background-color: #FFAAAA">‘</span>logout<span style="color: #AA0000; background-color: #FFAAAA">’</span>),
-    url(r<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">^</span><span style="color: #AA0000; background-color: #FFAAAA">$‘</span>, IndexView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #AA0000; background-color: #FFAAAA">‘</span>home<span style="color: #AA0000; background-color: #FFAAAA">’</span>),
-    url(r<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">^</span>messages<span style="color: #555555">/</span><span style="color: #AA0000; background-color: #FFAAAA">$‘</span>, MessagesView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #AA0000; background-color: #FFAAAA">‘</span>messages<span style="color: #AA0000; background-color: #FFAAAA">’</span>),
-    url(r<span style="color: #AA0000; background-color: #FFAAAA">’</span><span style="color: #555555">^</span>api<span style="color: #555555">/</span><span style="color: #AA0000; background-color: #FFAAAA">‘</span>, include(<span style="color: #AA0000; background-color: #FFAAAA">‘</span>stored_messages<span style="color: #555555">.</span>urls<span style="color: #AA0000; background-color: #FFAAAA">’</span>)),
-)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">urlpatterns <span style="color: #555555">=</span> patterns(<span style="color: #CC3300">&#39;&#39;</span>,
+    url(<span style="color: #CC3300">r&#39;^logout/$&#39;</span>, <span style="color: #CC3300">&#39;django.contrib.auth.views.logout&#39;</span>,  {<span style="color: #CC3300">&#39;next_page&#39;</span>: <span style="color: #CC3300">&#39;/&#39;</span>}, name<span style="color: #555555">=</span><span style="color: #CC3300">&#39;logout&#39;</span>),
+    url(<span style="color: #CC3300">r&#39;^$&#39;</span>, IndexView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #CC3300">&#39;home&#39;</span>),
+    url(<span style="color: #CC3300">r&#39;^messages/$&#39;</span>, MessagesView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #CC3300">&#39;messages&#39;</span>),
+    url(<span style="color: #CC3300">r&#39;^api/&#39;</span>, include(<span style="color: #CC3300">&#39;stored_messages.urls&#39;</span>)),
+)
 </pre></div>
 
 <h2 id="toc_5">Final touches</h2>
 
 <p>To add some noise to the notification stream, we will add messages for the user when she logs in and out:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">_user_logged_in</span>(<span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
-    add_message(kwargs[<span style="color: #AA0000; background-color: #FFAAAA">‘</span>request<span style="color: #AA0000; background-color: #FFAAAA">’</span>], stored_messages<span style="color: #555555">.</span>STORED_INFO, <span style="color: #AA0000; background-color: #FFAAAA">‘</span>You were logged <span style="color: #000000; font-weight: bold">in</span><span style="color: #AA0000; background-color: #FFAAAA">!’</span>)
-user_logged_in<span style="color: #555555">.</span>connect(_user_logged_in)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">_user_logged_in</span>(<span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
+    add_message(kwargs[<span style="color: #CC3300">&#39;request&#39;</span>], stored_messages<span style="color: #555555">.</span>STORED_INFO, <span style="color: #CC3300">&#39;You were logged in!&#39;</span>)
+user_logged_in<span style="color: #555555">.</span>connect(_user_logged_in)
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">_user_logged_out</span>(<span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
-    add_message(kwargs[<span style="color: #AA0000; background-color: #FFAAAA">‘</span>request<span style="color: #AA0000; background-color: #FFAAAA">’</span>], stored_messages<span style="color: #555555">.</span>STORED_INFO, <span style="color: #AA0000; background-color: #FFAAAA">‘</span>You were logged out<span style="color: #AA0000; background-color: #FFAAAA">!’</span>)
-user_logged_out<span style="color: #555555">.</span>connect(_user_logged_out)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+
+<span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">_user_logged_out</span>(<span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
+    add_message(kwargs[<span style="color: #CC3300">&#39;request&#39;</span>], stored_messages<span style="color: #555555">.</span>STORED_INFO, <span style="color: #CC3300">&#39;You were logged out!&#39;</span>)
+user_logged_out<span style="color: #555555">.</span>connect(_user_logged_out)
 </pre></div>
 
 <p>The Django app is complete now, time for some Javascript code!</p>
@@ -240,16 +241,14 @@ user_logged_out<span style="color: #555555">.</span>connect(_user_logged_out)<sp
 which let us retrieve unread messages and mark them as read. To interact with the api we use
 <a href="http://angularjs.org/">Angular</a>, for the sake of simplicity we use a single controller:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">var</span> messageApp <span style="color: #555555">=</span> angular.module(<span style="color: #AA0000; background-color: #FFAAAA">‘</span>messageApp<span style="color: #AA0000; background-color: #FFAAAA">’</span>, []);<span style="color: #555555">&lt;</span><span style="color: #AA0000; background-color: #FFAAAA">/p&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> messageApp <span style="color: #555555">=</span> angular.module(<span style="color: #CC3300">&#39;messageApp&#39;</span>, []);
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>messageApp.controller(<span style="color: #AA0000; background-color: #FFAAAA">‘</span>MainCtrl<span style="color: #AA0000; background-color: #FFAAAA">’</span>, [<span style="color: #AA0000; background-color: #FFAAAA">‘</span>$scope<span style="color: #AA0000; background-color: #FFAAAA">’</span>, <span style="color: #AA0000; background-color: #FFAAAA">‘</span>$http<span style="color: #AA0000; background-color: #FFAAAA">’</span>, <span style="color: #006699; font-weight: bold">function</span> ($scope, $http) {
+messageApp.controller(<span style="color: #CC3300">&#39;MainCtrl&#39;</span>, [<span style="color: #CC3300">&#39;$scope&#39;</span>, <span style="color: #CC3300">&#39;$http&#39;</span>, <span style="color: #006699; font-weight: bold">function</span> ($scope, $http) {
     <span style="color: #0099FF; font-style: italic">// Messages array</span>
-    $scope.messages <span style="color: #555555">=</span> {};<span style="color: #555555">&lt;</span><span style="color: #AA0000; background-color: #FFAAAA">/p&gt;</span>
+    $scope.messages <span style="color: #555555">=</span> {};
 
-<span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #0099FF; font-style: italic">// ...</span>
-<span style="color: #555555">&lt;</span><span style="color: #AA0000; background-color: #FFAAAA">/code&gt;&lt;/pre&gt;</span>
-
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>}]);<span style="color: #555555">&lt;</span><span style="color: #AA0000; background-color: #FFAAAA">/p&gt;</span>
+    <span style="color: #0099FF; font-style: italic">// ...</span>
+}]);
 </pre></div>
 
 <p>Notice the injection of the <code>$http</code> object we will use to make http requests. The messages array will be filled with
@@ -257,10 +256,10 @@ data coming from the api, then it will be available through the <code>$scope</co
 properly, the html code in our templates needs to be aware of the angular stuff - we do this in the <code>base.html</code> so that
 every page could use angular facilities:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;p&gt;</span><span style="color: #009999">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #009999">&lt;!DOCTYPE html&gt;</span>
 <span style="color: #330099; font-weight: bold">&lt;html</span> <span style="color: #330099">ng-app=</span><span style="color: #CC3300">&quot;messageApp&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
     <span style="color: #330099; font-weight: bold">&lt;head&gt;</span>
-    …<span style="color: #330099; font-weight: bold">&lt;/p&gt;</span>
+    ...
 </pre></div>
 
 <p>and:</p>
@@ -296,14 +295,14 @@ $http({
 <p>If everything goes fine, <code>$scope.messages</code> will contain our messages and we can use them inside the DOM. To do this, we
 need some angularities inside the html, for example in the <code>message.html</code> template:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;p&gt;</span>{% verbatim %}
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">{% verbatim %}
 <span style="color: #330099; font-weight: bold">&lt;ul</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;list-group&quot;</span> <span style="color: #330099">ng-if=</span><span style="color: #CC3300">&quot;messages.length&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
   <span style="color: #330099; font-weight: bold">&lt;li</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;list-group-item&quot;</span> <span style="color: #330099">ng-repeat=</span><span style="color: #CC3300">&quot;message in messages&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
-    {{ message.message.date | date:‘MMM d, y h:mm:ss a’ }} - {{ message.message.message }}
+    {{ message.message.date | date:&#39;MMM d, y h:mm:ss a&#39; }} - {{ message.message.message }}
       <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">ng-click=</span><span style="color: #CC3300">&quot;markRead($index)&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;cursor:pointer&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>Mark as read<span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
   <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
 <span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
-{% endverbatim %}<span style="color: #330099; font-weight: bold">&lt;/p&gt;</span>
+{% endverbatim %}
 </pre></div>
 
 <p>The <code>ng-if</code> attribute determines if we have some messages to show. If we do have, the <code>ng-repeat</code> attribute will take
@@ -315,7 +314,7 @@ be changed in angular but it&rsquo;s not generally advisable) we need to wrap an
 </blockquote>
 
 <p>In the html code above notice this:
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;p&gt;&lt;a</span> <span style="color: #330099">ng-click=</span><span style="color: #CC3300">&quot;markRead($index)&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;cursor:pointer&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>Mark as read<span style="color: #330099; font-weight: bold">&lt;/a&gt;&lt;/p&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">ng-click=</span><span style="color: #CC3300">&quot;markRead($index)&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;cursor:pointer&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>Mark as read<span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
 </pre></div></p>
 
 <p>For every unread message, we provide a link and we tell angular that when user clicks it (<code>ng-click</code> attribute) the
@@ -353,7 +352,7 @@ DOM manipulation. Just fun.</p>
 <p>Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
 The code for the button is very similar to the one to mark messages read:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;p&gt;&lt;button</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;button&quot;</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;btn btn-success&quot;</span> <span style="color: #330099">ng-click=</span><span style="color: #CC3300">&quot;markAllRead()&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>Mark all read<span style="color: #330099; font-weight: bold">&lt;/button&gt;&lt;/p&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;button</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;button&quot;</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;btn btn-success&quot;</span> <span style="color: #330099">ng-click=</span><span style="color: #CC3300">&quot;markAllRead()&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>Mark all read<span style="color: #330099; font-weight: bold">&lt;/button&gt;</span>
 </pre></div>
 
 <p>This time the function name is <code>markAllRead</code> and we call it without parameters; the function is defined inside the
