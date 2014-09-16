@@ -56,28 +56,28 @@ Now for some dependencies - install Django Stored Messages and [Django Rest Fram
 Configure all the things! In `notification_example/settings.py` be sure to have these:
 
 {{% highlight python %}}
-PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
+    PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite'),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite'),
+        }
     }
-}
 
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'notification',
-    'stored_messages',
-    'rest_framework',
-)
+    INSTALLED_APPS = (
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.sites',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'notification',
+        'stored_messages',
+        'rest_framework',
+    )
 
-MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
+    MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
 {{% /highlight %}}
 
 Now let's go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
@@ -90,25 +90,25 @@ Django Stored Messages can persist messages only when they are sent to a valid u
 viewing the messages, so we provide a login form directly inside the homepage. To produce some notifications, visiting the index will trigger a message as well. The code:
 
 {{% highlight python %}}
-from django.views.generic import FormView
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.messages import add_message
-from django.contrib.auth import login
+    from django.views.generic import FormView
+    from django.contrib.auth.forms import AuthenticationForm
+    from django.contrib.messages import add_message
+    from django.contrib.auth import login
 
-import stored_messages
+    import stored_messages
 
-class IndexView(FormView):
-    template_name = 'notification/homepage.html'
-    form_class = AuthenticationForm
-    success_url = '/'
+    class IndexView(FormView):
+        template_name = 'notification/homepage.html'
+        form_class = AuthenticationForm
+        success_url = '/'
 
-    def get_context_data(self, **kwargs):
-        add_message(self.request, stored_messages.STORED_INFO, 'You visited the homepage')
-        return super(IndexView, self).get_context_data(**kwargs)
+        def get_context_data(self, **kwargs):
+            add_message(self.request, stored_messages.STORED_INFO, 'You visited the homepage')
+            return super(IndexView, self).get_context_data(**kwargs)
 
-    def form_valid(self, form):
-        login(self.request, form.get_user())
-        return super(IndexView, self).form_valid(form)
+        def form_valid(self, form):
+            login(self.request, form.get_user())
+            return super(IndexView, self).form_valid(form)
 {{% /highlight %}}
 
 We're going to use _class based views_, of course. Notice Django Stored Messages let us make use of the builtin 
@@ -124,15 +124,15 @@ This is a simple `TemplateView`, the only trick here is getting from the urlstri
 notifications or only the _unread_ ones:
 
 {{% highlight python %}}
-from django.views.generic import TemplateView
+    from django.views.generic import TemplateView
 
-class MessagesView(TemplateView):
-    template_name = 'notification/messages.html'
+    class MessagesView(TemplateView):
+        template_name = 'notification/messages.html'
 
-    def get(self, request, *args, **kwargs):
-        if 'unread' in request.GET:  # quick and dirty
-            kwargs['unread'] = True
-        return super(MessagesView, self).get(request, *args, **kwargs)
+        def get(self, request, *args, **kwargs):
+            if 'unread' in request.GET:  # quick and dirty
+                kwargs['unread'] = True
+            return super(MessagesView, self).get(request, *args, **kwargs)
 {{% /highlight %}}
 
 The view code is rather simple because all the magic is left to Django Stored Messages template tags and its REST api.
@@ -145,13 +145,13 @@ this is the result:
 As you can see from this chunk:
 
 {{% highlight html %}}
-<div class="col-md-9">
-{% if not unread %}
-    {% stored_messages_archive 100 %}
-{% else %}
-    ...
-{% endif %}
-</div>
+    <div class="col-md-9">
+    {% if not unread %}
+        {% stored_messages_archive 100 %}
+    {% else %}
+        ...
+    {% endif %}
+    </div>
 {{% /highlight %}}
 
 If user requested the archive (i.e. to show messages that were already read), the template tag 
@@ -159,17 +159,17 @@ If user requested the archive (i.e. to show messages that were already read), th
 the template at `stored_messages/stored_messages_list.html`. Here is the template ovverrided to add Bootstrap3 classes:
 
 {{% highlight html %}}
-{% if messages %}
-    <ul class="list-group">
-        {% for message in messages %}
-            <li class="list-group-item">
-                {{ message.message }}
-            </li>
-        {% empty %}
-            <li class="list-group-item">No messages here!</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+    {% if messages %}
+        <ul class="list-group">
+            {% for message in messages %}
+                <li class="list-group-item">
+                    {{ message.message }}
+                </li>
+            {% empty %}
+                <li class="list-group-item">No messages here!</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {{% /highlight %}}
 
 We will get into the details for the `else` branch in the messages template later.
@@ -180,12 +180,12 @@ Plug the urls
 Nothing special here but notice the inclusion of the REST api urls coming from `stored_messages` package:
 
 {{% highlight python %}}
-urlpatterns = patterns('',
-    url(r'^logout/$', 'django.contrib.auth.views.logout',  {'next_page': '/'}, name='logout'),
-    url(r'^$', IndexView.as_view(), name='home'),
-    url(r'^messages/$', MessagesView.as_view(), name='messages'),
-    url(r'^api/', include('stored_messages.urls')),
-)
+    urlpatterns = patterns('',
+        url(r'^logout/$', 'django.contrib.auth.views.logout',  {'next_page': '/'}, name='logout'),
+        url(r'^$', IndexView.as_view(), name='home'),
+        url(r'^messages/$', MessagesView.as_view(), name='messages'),
+        url(r'^api/', include('stored_messages.urls')),
+    )
 {{% /highlight %}}
 
 Final touches
@@ -194,14 +194,14 @@ Final touches
 To add some noise to the notification stream, we will add messages for the user when she logs in and out:
 
 {{% highlight python %}}
-def _user_logged_in(*args, **kwargs):
-    add_message(kwargs['request'], stored_messages.STORED_INFO, 'You were logged in!')
-user_logged_in.connect(_user_logged_in)
+    def _user_logged_in(*args, **kwargs):
+        add_message(kwargs['request'], stored_messages.STORED_INFO, 'You were logged in!')
+    user_logged_in.connect(_user_logged_in)
 
 
-def _user_logged_out(*args, **kwargs):
-    add_message(kwargs['request'], stored_messages.STORED_INFO, 'You were logged out!')
-user_logged_out.connect(_user_logged_out)
+    def _user_logged_out(*args, **kwargs):
+        add_message(kwargs['request'], stored_messages.STORED_INFO, 'You were logged out!')
+    user_logged_out.connect(_user_logged_out)
 {{% /highlight %}}
 
 The Django app is complete now, time for some Javascript code!
@@ -214,14 +214,14 @@ which let us retrieve unread messages and mark them as read. To interact with th
 [Angular](http://angularjs.org/), for the sake of simplicity we use a single controller:
 
 {{% highlight javascript %}}
-var messageApp = angular.module('messageApp', []);
+    var messageApp = angular.module('messageApp', []);
 
-messageApp.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
-    // Messages array
-    $scope.messages = {};
+    messageApp.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
+        // Messages array
+        $scope.messages = {};
 
-    // ...
-}]);
+        // ...
+    }]);
 {{% /highlight %}}
 
 Notice the injection of the `$http` object we will use to make http requests. The messages array will be filled with 
@@ -230,10 +230,10 @@ properly, the html code in our templates needs to be aware of the angular stuff 
 every page could use angular facilities:
 
 {{% highlight html %}}
-<!DOCTYPE html>
-<html ng-app="messageApp">
-    <head>
-    ...
+    <!DOCTYPE html>
+    <html ng-app="messageApp">
+        <head>
+        ...
 {{% /highlight %}}
 
 and:
@@ -272,14 +272,14 @@ If everything goes fine, `$scope.messages` will contain our messages and we can 
 need some angularities inside the html, for example in the `message.html` template:
 
 {{% highlight html %}}
-{% verbatim %}
-<ul class="list-group" ng-if="messages.length">
-  <li class="list-group-item" ng-repeat="message in messages">
-    {{ message.message.date | date:'MMM d, y h:mm:ss a' }} - {{ message.message.message }}
-      <a ng-click="markRead($index)" style="cursor:pointer">Mark as read</a>
-  </li>
-</ul>
-{% endverbatim %}
+    {% verbatim %}
+    <ul class="list-group" ng-if="messages.length">
+      <li class="list-group-item" ng-repeat="message in messages">
+        {{ message.message.date | date:'MMM d, y h:mm:ss a' }} - {{ message.message.message }}
+          <a ng-click="markRead($index)" style="cursor:pointer">Mark as read</a>
+      </li>
+    </ul>
+    {% endverbatim %}
 {{% /highlight %}}
 
 The `ng-if` attribute determines if we have some messages to show. If we do have, the `ng-repeat` attribute will take 
@@ -290,7 +290,7 @@ care of iterating the messages and show them in the DOM through angular's templa
 
 In the html code above notice this:
 {{% highlight html %}}
-<a ng-click="markRead($index)" style="cursor:pointer">Mark as read</a>
+    <a ng-click="markRead($index)" style="cursor:pointer">Mark as read</a>
 {{% /highlight %}}
 
 For every unread message, we provide a link and we tell angular that when user clicks it (`ng-click` attribute) the
@@ -330,7 +330,7 @@ Since Django Stored Messages api exposes an endpoint to mark all messages read, 
 The code for the button is very similar to the one to mark messages read:
 
 {{% highlight html %}}
-<button type="button" class="btn btn-success" ng-click="markAllRead()">Mark all read</button>
+    <button type="button" class="btn btn-success" ng-click="markAllRead()">Mark all read</button>
 {{% /highlight %}}
 
 This time the function name is `markAllRead` and we call it without parameters; the function is defined inside the
