@@ -86,19 +86,19 @@ fact? Hell, no!</p>
 
 <p>Now what about something like this:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
 lock<span style="color: #555555">.</span>acquire()
 <span style="color: #006699; font-weight: bold">try</span>:
-    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #AA0000; background-color: #FFAAAA">“</span>Let<span style="color: #AA0000; background-color: #FFAAAA">’</span>s get critical<span style="color: #AA0000; background-color: #FFAAAA">”</span>)
+    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
 <span style="color: #006699; font-weight: bold">finally</span>:
-    lock<span style="color: #555555">.</span>release()<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+    lock<span style="color: #555555">.</span>release()
 </pre></div>
 
 <p>Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span>lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
 <span style="color: #006699; font-weight: bold">with</span> lock:
-    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #AA0000; background-color: #FFAAAA">“</span>Let<span style="color: #AA0000; background-color: #FFAAAA">’</span>s get critical<span style="color: #AA0000; background-color: #FFAAAA">”</span>)<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
 </pre></div>
 
 <p>Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
@@ -130,12 +130,12 @@ a sudden silence: I was healed.
 <p>As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
 Let&rsquo;s see an example of well written code:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">itertools</span> <span style="color: #006699; font-weight: bold">import</span> chain, islice<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">itertools</span> <span style="color: #006699; font-weight: bold">import</span> chain, islice
 
-<span style="color: #555555">&lt;</span>p<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">chunks</span>(iterable, size, format<span style="color: #555555">=</span><span style="color: #336666">iter</span>):
+<span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">chunks</span>(iterable, size, format<span style="color: #555555">=</span><span style="color: #336666">iter</span>):
     it <span style="color: #555555">=</span> <span style="color: #336666">iter</span>(iterable)
     <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">True</span>:
-        <span style="color: #006699; font-weight: bold">yield</span> format(chain((it<span style="color: #555555">.</span>next(),), islice(it, size <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>)))<span style="color: #555555">&lt;/</span>p<span style="color: #555555">&gt;</span>
+        <span style="color: #006699; font-weight: bold">yield</span> format(chain((it<span style="color: #555555">.</span>next(),), islice(it, size <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>)))
 </pre></div>
 
 <blockquote>
@@ -196,7 +196,7 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
 
                     <hr>
                     <ul class="pager">
-                         &nbsp;<li class="previous"><a href="http://localhost:1313/talk/code_is_poetry/"> Prev</a></li>
+                         &nbsp;<li class="previous"><a href="http://localhost:1313/talk/codice_poesia/"> Prev</a></li>
                          &nbsp;<li class="next"><a href="http://localhost:1313/writing/django-upload-on-google-cloud-storage/"> Next</a></li>
                     </ul>
                 </div>
