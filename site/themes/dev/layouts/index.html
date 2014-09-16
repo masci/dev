@@ -13,13 +13,11 @@
             <small>These are the latest entries, check the <a href="/writing/">Archive</a> for a complete list</small>
           </p>
           <ul class="posts list-unstyled">
-          {{ range .Data.Pages.ByDate.Reverse }}
-            {{ if eq .Type "writing" }}
+          {{ range first 5 .Site.Sections.writing }}
             <li>
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
+              <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+              <time class="pull-right post-list">{{ .Page.Date.Format "Mon, Jan 2, 2006" }}</h4></time>
             </li>
-            {{ end }}
           {{ end }}
           </ul>
 
@@ -50,13 +48,11 @@
             <small>These are the latest entries, check the <a href="/talk/">Archive</a> for a complete list</small>
           </p>
           <ul class="posts list-unstyled">
-          {{ range .Data.Pages.ByDate.Reverse }}
-            {{ if eq .Type "talk" }}
+          {{ range first 5 .Site.Sections.talk }}
             <li>
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
+              <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+              <time class="pull-right post-list">{{ .Page.Date.Format "Mon, Jan 2, 2006" }}</h4></time>
             </li>
-            {{ end }}
           {{ end }}
           </ul>
 
