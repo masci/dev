@@ -19,30 +19,6 @@
     </item>
     
     <item>
-      <title>Se il codice è poesia, la documentazione è prosa</title>
-      <link>http://dev.pippi.im/talk/codice_poesia/</link>
-      <pubDate>Sat, 24 May 2014 15:06:44 UTC</pubDate>
-      
-      <guid>http://dev.pippi.im/talk/codice_poesia/</guid>
-      <description>&lt;p&gt;Perché sarà pur vero che il codice ha l&amp;rsquo;eleganza del verso, può avere un suo ritmo e la sua espressività,
-ma senza una buona documentazione che ne spieghi il funzionamento, difficilmente avrete degli utenti
-soddisfatti.&lt;/p&gt;
-
-&lt;p&gt;Se mi avessero detto che avrei finito con lo spendere molto più tempo sulla documentazione di un progetto
-che sul codice non ci avrei mai creduto, ma era prima di scoprire la semplice e potente implicazione
-&amp;ldquo;più documentazione, più utenti, più contributor&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Durante il talk vedremo quali sono i principii alla base di una buona documentazione e come questa possa
-fare da volano al successo del vostro progetto.&lt;/p&gt;
-
-&lt;div class=&#34;embed video-player&#34;&gt;
-&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/0rilhpelvRI&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>If code is poetry, then documentation is prose</title>
       <link>http://dev.pippi.im/talk/code_is_poetry/</link>
       <pubDate>Sat, 24 May 2014 15:06:44 UTC</pubDate>
@@ -61,6 +37,30 @@ documentation can let your open source project take off.&lt;/p&gt;
 
 &lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/Yovew2KMbI4&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Se il codice è poesia, la documentazione è prosa</title>
+      <link>http://dev.pippi.im/talk/codice_poesia/</link>
+      <pubDate>Sat, 24 May 2014 15:06:44 UTC</pubDate>
+      
+      <guid>http://dev.pippi.im/talk/codice_poesia/</guid>
+      <description>&lt;p&gt;Perché sarà pur vero che il codice ha l&amp;rsquo;eleganza del verso, può avere un suo ritmo e la sua espressività,
+ma senza una buona documentazione che ne spieghi il funzionamento, difficilmente avrete degli utenti
+soddisfatti.&lt;/p&gt;
+
+&lt;p&gt;Se mi avessero detto che avrei finito con lo spendere molto più tempo sulla documentazione di un progetto
+che sul codice non ci avrei mai creduto, ma era prima di scoprire la semplice e potente implicazione
+&amp;ldquo;più documentazione, più utenti, più contributor&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Durante il talk vedremo quali sono i principii alla base di una buona documentazione e come questa possa
+fare da volano al successo del vostro progetto.&lt;/p&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/0rilhpelvRI&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 </description>
