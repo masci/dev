@@ -3,7 +3,7 @@
   <channel>
       <title>Angularjs on /dev/ </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/tags/angularjs/index.xml/</link>
+    <link>http://localhost:1313/tags/angularjs/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <link>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
       <pubDate>Tue, 22 Oct 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <guid>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Foreword&lt;/h2&gt;

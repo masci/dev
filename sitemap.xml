@@ -2,68 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://dev.pippi.im/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2014-07-04T09:35:49+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/page/about/</loc>
+    <loc>http://localhost:1313/page/about/</loc>
     <lastmod>2014-07-04T09:35:49+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/talk/code_is_poetry/</loc>
+    <loc>http://localhost:1313/talk/code_is_poetry/</loc>
     <lastmod>2014-05-24T15:06:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/talk/codice_poesia/</loc>
+    <loc>http://localhost:1313/talk/codice_poesia/</loc>
     <lastmod>2014-05-24T15:06:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</loc>
+    <loc>http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/</loc>
     <lastmod>2014-05-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</loc>
+    <loc>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</loc>
     <lastmod>2014-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/talk/fullstack_angular_django/</loc>
+    <loc>http://localhost:1313/talk/fullstack_angular_django/</loc>
     <lastmod>2014-04-26T15:06:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</loc>
+    <loc>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</loc>
     <lastmod>2014-02-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/talk/make_your_pony_fly/</loc>
+    <loc>http://localhost:1313/talk/make_your_pony_fly/</loc>
     <lastmod>2013-11-16T15:06:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</loc>
+    <loc>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</loc>
     <lastmod>2013-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</loc>
+    <loc>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</loc>
     <lastmod>2013-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/writing/moving-to-jekyll/</loc>
+    <loc>http://localhost:1313/writing/moving-to-jekyll/</loc>
     <lastmod>2013-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://dev.pippi.im/talk/vintage_web_programming_python/</loc>
+    <loc>http://localhost:1313/talk/vintage_web_programming_python/</loc>
     <lastmod>2013-03-30T15:06:44+00:00</lastmod>
   </url>
   

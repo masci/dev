@@ -3,7 +3,7 @@
   <channel>
       <title>Writings on /dev/ </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/writing/index.xml/</link>
+    <link>http://localhost:1313/writing/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>If code is poetry, then documentation is prose</title>
-      <link>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</link>
+      <link>http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</guid>
+      <guid>http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;What is poetry?&lt;/h2&gt;
@@ -172,10 +172,10 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
+      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
@@ -282,10 +282,10 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <link>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <guid>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
@@ -523,10 +523,10 @@ code we can get very close to something like &amp;ldquo;one click deploy&amp;rdq
     
     <item>
       <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
-      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <link>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
       <pubDate>Sun, 10 Nov 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <guid>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Who said authentication?&lt;/h2&gt;
@@ -651,10 +651,10 @@ protocol and can be used to drastically reduce the code needed.&lt;/p&gt;
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <link>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
       <pubDate>Tue, 22 Oct 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <guid>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Foreword&lt;/h2&gt;
@@ -1007,10 +1007,10 @@ changes automagically.&lt;/p&gt;
     
     <item>
       <title>Moving to Jekyll</title>
-      <link>http://dev.pippi.im/writing/moving-to-jekyll/</link>
+      <link>http://localhost:1313/writing/moving-to-jekyll/</link>
       <pubDate>Sat, 10 Aug 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://dev.pippi.im/writing/moving-to-jekyll/</guid>
+      <guid>http://localhost:1313/writing/moving-to-jekyll/</guid>
       <description>&lt;p&gt;I started writing on a personal blog in November, 2006 and I choose a Wordpress instance at
 wordrpess.com at the time, because it was easy and it was free. &lt;a href=&#34;http://masci.wordpress.com&#34;&gt;My old blog&lt;/a&gt;
 consists of 79 articles in more than six years and considering the most of them are just suggested
