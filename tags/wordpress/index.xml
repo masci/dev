@@ -3,7 +3,7 @@
   <channel>
       <title>Wordpress on /dev/ </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/tags/wordpress/index.xml/</link>
+    <link>http://dev.pippi.im/tags/wordpress/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>Moving to Jekyll</title>
-      <link>http://localhost:1313/writing/moving-to-jekyll/</link>
+      <link>http://dev.pippi.im/writing/moving-to-jekyll/</link>
       <pubDate>Sat, 10 Aug 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/writing/moving-to-jekyll/</guid>
+      <guid>http://dev.pippi.im/writing/moving-to-jekyll/</guid>
       <description>&lt;p&gt;I started writing on a personal blog in November, 2006 and I choose a Wordpress instance at
 wordrpess.com at the time, because it was easy and it was free. &lt;a href=&#34;http://masci.wordpress.com&#34;&gt;My old blog&lt;/a&gt;
 consists of 79 articles in more than six years and considering the most of them are just suggested
