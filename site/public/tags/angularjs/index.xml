@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Angularjs on /dev/ </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/tags/angularjs/index.xml/</link>
+    <title>Angularjs on /dev/</title>
+    <link>http://localhost:1313/tags/angularjs/</link>
+    <description>Recent content in Angularjs on /dev/</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Tue, 22 Oct 2013 00:00:00 UTC</updated>
+    <lastBuildDate>Tue, 22 Oct 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/angularjs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
-      <pubDate>Tue, 22 Oct 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <guid>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Foreword&lt;/h2&gt;
+&lt;h2 id=&#34;foreword:8b52954376401a38becf578ecdedd059&#34;&gt;Foreword&lt;/h2&gt;
 
 &lt;p&gt;GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which
 remains &lt;em&gt;unread&lt;/em&gt; until you actually read it; then it&amp;rsquo;s archived and removed from your &lt;em&gt;inbox&lt;/em&gt;, which it happens could remain empty:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/github_notifications.png&#34; alt=&#34;github inbox&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/github_notifications.png&#34; alt=&#34;github inbox&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called &lt;em&gt;Message
@@ -42,7 +42,7 @@ by Todd Motto and then come back here. If you&amp;rsquo;re not an Angular newbie
 you.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;The application&lt;/h2&gt;
+&lt;h2 id=&#34;the-application:8b52954376401a38becf578ecdedd059&#34;&gt;The application&lt;/h2&gt;
 
 &lt;p&gt;Fire up a virtualenv and install Django:&lt;/p&gt;
 
@@ -68,7 +68,7 @@ python manage.py startapp notification
 
 &lt;p&gt;Configure all the things! In &lt;code&gt;notification_example/settings.py&lt;/code&gt; be sure to have these:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;PROJECT_ROOT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;abspath(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;dirname(__file__)), &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;..&amp;#39;&lt;/span&gt;)
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;PROJECT_ROOT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;abspath(os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;dirname(__file__)), &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;..&amp;#39;&lt;/span&gt;)
 
 DATABASES &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
     &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;: {
@@ -90,17 +90,19 @@ INSTALLED_APPS &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; (
 )
 
 MESSAGE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages.storage.PersistentStorage&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Now let&amp;rsquo;s go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
 logged in user.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;The homepage view&lt;/h2&gt;
+&lt;h2 id=&#34;the-homepage-view:8b52954376401a38becf578ecdedd059&#34;&gt;The homepage view&lt;/h2&gt;
 
 &lt;p&gt;Django Stored Messages can persist messages only when they are sent to a valid user, and such user has to login for
 viewing the messages, so we provide a login form directly inside the homepage. To produce some notifications, visiting the index will trigger a message as well. The code:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; FormView
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; FormView
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.auth.forms&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; AuthenticationForm
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.messages&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; add_message
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.contrib.auth&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; login
@@ -119,7 +121,9 @@ viewing the messages, so we provide a login form directly inside the homepage. T
     &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;form_valid&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, form):
         login(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;request, form&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_user())
         &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(IndexView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;form_valid(form)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;We&amp;rsquo;re going to use &lt;em&gt;class based views&lt;/em&gt;, of course. Notice Django Stored Messages let us make use of the builtin
 messages api, thus passing in a message of type &lt;code&gt;stored_messages.STORED_INFO&lt;/code&gt; will cause that message to be stored on
@@ -127,12 +131,12 @@ the database.
 The &lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/notification/homepage.html&#34;&gt;homepage template&lt;/a&gt;
 will be extended from a &lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/base.html&#34;&gt;basic Boostrap3 template&lt;/a&gt;, we&amp;rsquo;re going onto details later.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_3&#34;&gt;The message view&lt;/h2&gt;
+&lt;h2 id=&#34;the-message-view:8b52954376401a38becf578ecdedd059&#34;&gt;The message view&lt;/h2&gt;
 
 &lt;p&gt;This is a simple &lt;code&gt;TemplateView&lt;/code&gt;, the only trick here is getting from the urlstring whether user wants to see all the
 notifications or only the &lt;em&gt;unread&lt;/em&gt; ones:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; TemplateView
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #00CCFF; font-weight: bold&#34;&gt;django.views.generic&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;import&lt;/span&gt; TemplateView
 
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;MessagesView&lt;/span&gt;(TemplateView):
     template_name &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;notification/messages.html&amp;#39;&lt;/span&gt;
@@ -141,32 +145,36 @@ notifications or only the &lt;em&gt;unread&lt;/em&gt; ones:&lt;/p&gt;
         &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #000000; font-weight: bold&#34;&gt;in&lt;/span&gt; request&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;GET:  &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# quick and dirty&lt;/span&gt;
             kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;True&lt;/span&gt;
         &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(MessagesView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get(request, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The view code is rather simple because all the magic is left to Django Stored Messages template tags and its REST api.
 The Html template for the message view will try to mimic GitHub&amp;rsquo;s notification page,
 &lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/notification/messages.html&#34;&gt;here is the code&lt;/a&gt; and
 this is the result:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/messages.png&#34; alt=&#34;messages screenshot&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/messages.png&#34; alt=&#34;messages screenshot&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;As you can see from this chunk:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;col-md-9&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;lt;div&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;col-md-9&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
 {% if not unread %}
     {% stored_messages_archive 100 %}
 {% else %}
     ...
 {% endif %}
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;If user requested the archive (i.e. to show messages that were already read), the template tag
 &lt;code&gt;stored_messages_archive&lt;/code&gt; provided by Django Stored Messages will show a list of &lt;code&gt;100&lt;/code&gt; messages rendering
 the template at &lt;code&gt;stored_messages/stored_messages_list.html&lt;/code&gt;. Here is the template ovverrided to add Bootstrap3 classes:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{% if messages %}
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&lt;/span&gt;{% if messages %}
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
         {% for message in messages %}
             &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
@@ -177,27 +185,31 @@ the template at &lt;code&gt;stored_messages/stored_messages_list.html&lt;/code&g
         {% endfor %}
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
 {% endif %}
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;We will get into the details for the &lt;code&gt;else&lt;/code&gt; branch in the messages template later.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_4&#34;&gt;Plug the urls&lt;/h2&gt;
+&lt;h2 id=&#34;plug-the-urls:8b52954376401a38becf578ecdedd059&#34;&gt;Plug the urls&lt;/h2&gt;
 
 &lt;p&gt;Nothing special here but notice the inclusion of the REST api urls coming from &lt;code&gt;stored_messages&lt;/code&gt; package:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
     url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^logout/$&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;django.contrib.auth.views.logout&amp;#39;&lt;/span&gt;,  {&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;next_page&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;}, name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;logout&amp;#39;&lt;/span&gt;),
     url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^$&amp;#39;&lt;/span&gt;, IndexView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;home&amp;#39;&lt;/span&gt;),
     url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^messages/$&amp;#39;&lt;/span&gt;, MessagesView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;messages&amp;#39;&lt;/span&gt;),
     url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^api/&amp;#39;&lt;/span&gt;, include(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;stored_messages.urls&amp;#39;&lt;/span&gt;)),
 )
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_5&#34;&gt;Final touches&lt;/h2&gt;
+&lt;h2 id=&#34;final-touches:8b52954376401a38becf578ecdedd059&#34;&gt;Final touches&lt;/h2&gt;
 
 &lt;p&gt;To add some noise to the notification stream, we will add messages for the user when she logs in and out:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_in&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_in&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
     add_message(kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;request&amp;#39;&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You were logged in!&amp;#39;&lt;/span&gt;)
 user_logged_in&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_in)
 
@@ -205,17 +217,19 @@ user_logged_in&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_
 &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;_user_logged_out&lt;/span&gt;(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
     add_message(kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;request&amp;#39;&lt;/span&gt;], stored_messages&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;You were logged out!&amp;#39;&lt;/span&gt;)
 user_logged_out&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;connect(_user_logged_out)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The Django app is complete now, time for some Javascript code!&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_6&#34;&gt;The REST&lt;/h2&gt;
+&lt;h2 id=&#34;the-rest:8b52954376401a38becf578ecdedd059&#34;&gt;The REST&lt;/h2&gt;
 
 &lt;p&gt;Even if Django Stored Messages has a template tag to show unread messages, for this demo we will use the REST api,
 which let us retrieve unread messages and mark them as read. To interact with the api we use
 &lt;a href=&#34;http://angularjs.org/&#34;&gt;Angular&lt;/a&gt;, for the sake of simplicity we use a single controller:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; messageApp &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; angular.module(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;messageApp&amp;#39;&lt;/span&gt;, []);
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;var&lt;/span&gt; messageApp &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; angular.module(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;messageApp&amp;#39;&lt;/span&gt;, []);
 
 messageApp.controller(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;MainCtrl&amp;#39;&lt;/span&gt;, [&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;$scope&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;$http&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; ($scope, $http) {
     &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// Messages array&lt;/span&gt;
@@ -223,33 +237,39 @@ messageApp.controller(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;MainCt
 
     &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 }]);
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Notice the injection of the &lt;code&gt;$http&lt;/code&gt; object we will use to make http requests. The messages array will be filled with
 data coming from the api, then it will be available through the &lt;code&gt;$scope&lt;/code&gt; object. For the angular application to work
 properly, the html code in our templates needs to be aware of the angular stuff - we do this in the &lt;code&gt;base.html&lt;/code&gt; so that
 every page could use angular facilities:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #009999&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #009999&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;html&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-app=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;messageApp&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
     ...
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;and:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;...
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&lt;/span&gt;...
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
 
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;body&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-controller=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;MainCtrl&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;&amp;lt;!-- navbar --&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;div&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;navbar navbar-inverse navbar-fixed-top&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
     ...
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Inside the controller, this code will be added to retrieve all the unread messages for the logged-in user:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 
 &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// retrieve Messages from the restAPI&lt;/span&gt;
 $http({
@@ -264,12 +284,14 @@ $http({
 });
 
 &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;If everything goes fine, &lt;code&gt;$scope.messages&lt;/code&gt; will contain our messages and we can use them inside the DOM. To do this, we
 need some angularities inside the html, for example in the &lt;code&gt;message.html&lt;/code&gt; template:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{% verbatim %}
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&lt;/span&gt;{% verbatim %}
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-if=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;messages.length&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
   &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;list-group-item&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-repeat=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;message in messages&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;
     {{ message.message.date | date:&amp;#39;MMM d, y h:mm:ss a&amp;#39; }} - {{ message.message.message }}
@@ -277,7 +299,9 @@ need some angularities inside the html, for example in the &lt;code&gt;message.h
   &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
 {% endverbatim %}
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The &lt;code&gt;ng-if&lt;/code&gt; attribute determines if we have some messages to show. If we do have, the &lt;code&gt;ng-repeat&lt;/code&gt; attribute will take
 care of iterating the messages and show them in the DOM through angular&amp;rsquo;s template tags.&lt;/p&gt;
@@ -288,14 +312,16 @@ be changed in angular but it&amp;rsquo;s not generally advisable) we need to wra
 &lt;/blockquote&gt;
 
 &lt;p&gt;In the html code above notice this:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markRead($index)&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;style=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;cursor:pointer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark as read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markRead($index)&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;style=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;cursor:pointer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark as read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;For every unread message, we provide a link and we tell angular that when user clicks it (&lt;code&gt;ng-click&lt;/code&gt; attribute) the
 function &lt;code&gt;markRead()&lt;/code&gt; has to be called with the parameter &lt;code&gt;$index&lt;/code&gt;. We define that function inside the angular
 controller and attach it to the &lt;code&gt;$scope&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 
 &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark messages read&lt;/span&gt;
 $scope.markRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; (index) {
@@ -314,7 +340,9 @@ $scope.markRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;sp
     })
 };
 &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The parameter passed to &lt;code&gt;$http&lt;/code&gt; contains all the logic needed to retrieve the csrf token from user&amp;rsquo;s cookie and pass it
 to Django inside the &lt;code&gt;X-CSRFToken&lt;/code&gt; header. For my experience, I&amp;rsquo;ve never seen an easier way to do this (thank you so
@@ -326,13 +354,15 @@ DOM manipulation. Just fun.&lt;/p&gt;
 &lt;p&gt;Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
 The code for the button is very similar to the one to mark messages read:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;button&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;btn btn-success&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markAllRead()&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark all read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;lt;button&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;class=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;btn btn-success&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;ng-click=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;markAllRead()&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;Mark all read&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;This time the function name is &lt;code&gt;markAllRead&lt;/code&gt; and we call it without parameters; the function is defined inside the
 controller:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
 
 &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// mark all read&lt;/span&gt;
 $scope.markAllRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;function&lt;/span&gt; () {
@@ -350,13 +380,15 @@ $scope.markAllRead &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt
     })
 };
 &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;// ...&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #AA0000; background-color: #FFAAAA&#34;&gt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;The csrf boilerplate is the same (for the record, this could be easily avoided using some advanced angular features)
 and the logic is very similar: in case the request succeeded, the array of messages is cleared and the DOM reflects the
 changes automagically.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_7&#34;&gt;References&lt;/h2&gt;
+&lt;h2 id=&#34;references:8b52954376401a38becf578ecdedd059&#34;&gt;References&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/masci/notification_example&#34;&gt;A working example is on GitHub&lt;/a&gt;&lt;/li&gt;
