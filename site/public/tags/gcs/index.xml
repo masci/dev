@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gcs on /dev/</title>
-    <link>http://localhost:1313/tags/gcs/</link>
+    <link>http://dev.pippi.im/tags/gcs/</link>
     <description>Recent content in Gcs on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/gcs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://dev.pippi.im/tags/gcs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
+      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
 &lt;h2 id=&#34;intro:0434f80763347f24c1805480aae6648f&#34;&gt;Intro&lt;/h2&gt;
