@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Authentication on /dev/ </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/tags/authentication/index.xml/</link>
+    <title>Authentication on /dev/</title>
+    <link>http://localhost:1313/tags/authentication/</link>
+    <description>Recent content in Authentication on /dev/</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Sun, 10 Nov 2013 00:00:00 UTC</updated>
+    <lastBuildDate>Sun, 10 Nov 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
-      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
-      <pubDate>Sun, 10 Nov 2013 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <guid>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
       <description>
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Who said authentication?&lt;/h2&gt;
+&lt;h2 id=&#34;who-said-authentication:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;Who said authentication?&lt;/h2&gt;
 
 &lt;p&gt;If you have an HTTP endpoint which requires authentication, chances are that you&amp;rsquo;re using HTTP Basic auth or
 Digest. This was the case, you should immediately stop asking users for their passwords - let&amp;rsquo;s see why.&lt;/p&gt;
@@ -43,7 +43,7 @@ authentication is practical and secure, but how to implement it?&lt;/p&gt;
 &lt;p&gt;Well, I have some good news: there&amp;rsquo;s a protocol for that, and that protocol has an RFC standard. It&amp;rsquo;s called
 OAuth2.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;OAuth2 FTW&lt;/h2&gt;
+&lt;h2 id=&#34;oauth2-ftw:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;OAuth2 FTW&lt;/h2&gt;
 
 &lt;p&gt;It was not so much time ago that I&amp;rsquo;ve been considering OAuth2 solely a tricky protocol used to authorize a
 service to access data provided by another service, and there are still people with the same misbelief. OAuth2
@@ -63,7 +63,7 @@ an access token that can be used to access resources on the server.&lt;/p&gt;
 &lt;p&gt;You can easily try by yourself how this authentication method works using a real world OAuth2 provider as a server
 and curl on your local machine as a client.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;Register an app&lt;/h3&gt;
+&lt;h3 id=&#34;register-an-app:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;Register an app&lt;/h3&gt;
 
 &lt;p&gt;Go to &lt;a href=&#34;http://django-oauth-toolkit.herokuapp.com/&#34;&gt;OAuth2 Playground&lt;/a&gt;, a fully functional OAuth2 provider written
 in Django using &lt;a href=&#34;https://github.com/evonove/django-oauth-toolkit&#34;&gt;Django OAuth Toolkit&lt;/a&gt; library, follow the menu
@@ -74,7 +74,7 @@ the system), choose &lt;em&gt;Public&lt;/em&gt; as &lt;em&gt;Client type&lt;/em&
 For the OAuth2 flow you&amp;rsquo;re going to use there&amp;rsquo;s no need of any &lt;em&gt;Redirect uris&lt;/em&gt; so you can leave that field blank.
 Hit &lt;em&gt;save&lt;/em&gt; to finally register your application on the OAuth2 provider.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_3&#34;&gt;Grab your token&lt;/h3&gt;
+&lt;h3 id=&#34;grab-your-token:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;Grab your token&lt;/h3&gt;
 
 &lt;p&gt;Now we need a token to access resources on the Playground server. We will ask for a token for our Application
 and the user &lt;em&gt;test&lt;/em&gt; of whom we know username and password; the url where retrieve the token is &lt;em&gt;/o/token&lt;/em&gt;
@@ -127,7 +127,7 @@ by ourselves if we do not want to access that service anymore. Or it can be refr
 old one would be compromised. We had to provide username and password just once but now we can use the token anywhere
 we need to authenticate: a third party service or a mobile app for example.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_4&#34;&gt;So what?&lt;/h2&gt;
+&lt;h2 id=&#34;so-what:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;So what?&lt;/h2&gt;
 
 &lt;p&gt;Even if security level is similar, using OAuth2 allows much more control and flexibility than using username and password,
 provided that communication occurs over SSL. Well, the server has to manage a slightly more complex workflow when using

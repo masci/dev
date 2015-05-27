@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Appengine on /dev/ </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://dev.pippi.im/tags/appengine/index.xml/</link>
+    <title>Appengine on /dev/</title>
+    <link>http://localhost:1313/tags/appengine/</link>
+    <description>Recent content in Appengine on /dev/</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Fri, 02 May 2014 00:00:00 UTC</updated>
+    <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/appengine/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
-      <pubDate>Fri, 02 May 2014 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro:0434f80763347f24c1805480aae6648f&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;On of the features of &lt;a href=&#34;https://github.com/masci/django-appengine-toolkit&#34;&gt;Django Appengine Toolkit&lt;/a&gt; is simplifying
 the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
 Google App Engine. Infact all you have to do is writing something like this in your settings.py module:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;APPENGINE_TOOLKIT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;APPENGINE_TOOLKIT &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; {
     &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;APP_YAML&amp;#39;&lt;/span&gt;: os&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;join(BASE_DIR, &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;app.yaml&amp;#39;&lt;/span&gt;),
     &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;BUCKET_NAME&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;media-uploads&amp;#39;&lt;/span&gt;,
 }
 DEFAULT_FILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
 STATICFILE_STORAGE &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;A complete example&lt;/h2&gt;
+&lt;h2 id=&#34;a-complete-example:0434f80763347f24c1805480aae6648f&#34;&gt;A complete example&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/masci/django_cloudstorage_example&#34;&gt;This repo&lt;/a&gt; contains a minimalistic Django project
 implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just
@@ -40,26 +42,28 @@ setup a Django project on App Engine with &lt;code&gt;django-appengine-toolkit&l
 &lt;a href=&#34;http://dev.pippi.im/2014/02/10/create-a-blog-in-minutes-on-app-engine-with-django/&#34;&gt;this blog post&lt;/a&gt;.
 Now let&amp;rsquo;s take a look at the code.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_2&#34;&gt;The Model&lt;/h3&gt;
+&lt;h3 id=&#34;the-model:0434f80763347f24c1805480aae6648f&#34;&gt;The Model&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;Document&lt;/span&gt;(models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;Model):
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;Document&lt;/span&gt;(models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;Model):
     docfile &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; models&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;FileField(upload_to&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;documents/%Y/%m/&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;%d&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&lt;/span&gt;)
 
     &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #CC00FF&#34;&gt;delete&lt;/span&gt;(&lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;, &lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs):
         storage, path &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;storage, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;docfile&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;path
         &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(Document, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(&lt;span style=&#34;color: #555555&#34;&gt;*&lt;/span&gt;args, &lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
         storage&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;delete(path)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Pretty easy, we have just one field containing the file. Notice the delete method we&amp;rsquo;re going to use so that
 when an instance is deleted, the same will happen to corresponding file on Cloud Storage.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_3&#34;&gt;The views&lt;/h3&gt;
+&lt;h3 id=&#34;the-views:0434f80763347f24c1805480aae6648f&#34;&gt;The views&lt;/h3&gt;
 
 &lt;p&gt;Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
 the logic for the uploads, form included:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileManagerView&lt;/span&gt;(CreateView):
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileManagerView&lt;/span&gt;(CreateView):
     model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
     success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
 
@@ -67,7 +71,9 @@ the logic for the uploads, form included:&lt;/p&gt;
         kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;object_list&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;objects&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;all()
         kwargs[&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;fava&amp;#39;&lt;/span&gt;] &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;rava&amp;#39;&lt;/span&gt;
         &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #336666&#34;&gt;super&lt;/span&gt;(FileManagerView, &lt;span style=&#34;color: #336666&#34;&gt;self&lt;/span&gt;)&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&#34;color: #555555&#34;&gt;**&lt;/span&gt;kwargs)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Since we need to show the list of files &lt;strong&gt;and&lt;/strong&gt; the form to upload them on the same page, we cannot use a &lt;code&gt;CreateView&lt;/code&gt; as is,
 what we need is a &lt;code&gt;CreateView&lt;/code&gt; and &lt;code&gt;ListView&lt;/code&gt; hybrid instead, thus the hack of overriding &lt;code&gt;get_context_data&lt;/code&gt;: we inject the queryset
@@ -75,7 +81,7 @@ in the context so the template can render properly.&lt;/p&gt;
 
 &lt;p&gt;The relevant html code in the template looks like this:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
 {% for object in object_list %}
   &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;form&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;action=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;{% url &amp;#39;delete&amp;#39; object.id %}&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;method=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;post&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;gt;&lt;/span&gt;{% csrf_token %}
@@ -92,28 +98,34 @@ in the context so the template can render properly.&lt;/p&gt;
     {{ form.as_p }}
     &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;input&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Upload&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;/&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #330099; font-weight: bold&#34;&gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Notice we render a form for each file listed, so we can make a &lt;code&gt;POST&lt;/code&gt; request directly, without passing for a confirmation view
 as usual when using &lt;code&gt;DeleteView&lt;/code&gt; generics. Let&amp;rsquo;s see the View code:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileRemoveView&lt;/span&gt;(DeleteView):
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #00AA88; font-weight: bold&#34;&gt;FileRemoveView&lt;/span&gt;(DeleteView):
     model &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; Document
     success_url &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; reverse_lazy(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;)
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
 is deleted. Wow.&lt;/p&gt;
 
-&lt;h3 id=&#34;toc_4&#34;&gt;The urls&lt;/h3&gt;
+&lt;h3 id=&#34;the-urls:0434f80763347f24c1805480aae6648f&#34;&gt;The urls&lt;/h3&gt;
 
 &lt;p&gt;Quick and dirty: mount the two views to the urls:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;urlpatterns &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; patterns(&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
     url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^$&amp;#39;&lt;/span&gt;, FileManagerView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;main&amp;#39;&lt;/span&gt;),
     url(&lt;span style=&#34;color: #CC3300&#34;&gt;r&amp;#39;^delete/(?P&amp;lt;pk&amp;gt;\d+)/$&amp;#39;&lt;/span&gt;, FileRemoveView&lt;span style=&#34;color: #555555&#34;&gt;.&lt;/span&gt;as_view(), name&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;),
 )   
+&lt;span style=&#34;color: #555555&#34;&gt;&amp;lt;/&lt;/span&gt;code&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;pre&lt;span style=&#34;color: #555555&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s all, have fun deploying on App Engine!&lt;/p&gt;
 </description>
@@ -121,26 +133,26 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
-      <pubDate>Mon, 10 Feb 2014 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <guid>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;Django was actively supported at an early stage of the Python runtime in App Engine SDK through the notable
 &lt;a href=&#34;http://www.django-nonrel.org&#34;&gt;django-nonrel&lt;/a&gt; framework, a fork of the original project that adds support for NoSql databases.
 But starting from the App Engine SDK 1.6.2, released more than two years ago, you can instead deploy Django&amp;rsquo;s official releases
 and take advantages from the whole stack using Google Cloud Sql.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Case study&lt;/h2&gt;
+&lt;h2 id=&#34;case-study:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Case study&lt;/h2&gt;
 
 &lt;p&gt;We&amp;rsquo;re going to setup a minimal project using &lt;a href=&#34;http://django-blog-zinnia.com/&#34;&gt;Zinnia&lt;/a&gt;, a blog engine built on top of Django and
 a fairly complex web application that leverages several components of the framework, a good benchmark for showing how easy can
 be deploying on App Engine.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisites:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Prerequisites&lt;/h2&gt;
 
 &lt;p&gt;Setting up the Google Cloud services goes beyond the scope of this article and is &lt;a href=&#34;https://cloud.google.com/developers/&#34;&gt;well documented&lt;/a&gt;,
 as well as having a working Python environment,  so the following it&amp;rsquo;s assumed:&lt;/p&gt;
@@ -157,7 +169,7 @@ as well as having a working Python environment,  so the following it&amp;rsquo;s
 Even if not required, I strongly recommend to use &lt;a href=&#34;http://www.virtualenv.org/en/latest/&#34;&gt;virtualenv&lt;/a&gt; to isolate the
 Python environment for this project.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_3&#34;&gt;Bootstrap&lt;/h2&gt;
+&lt;h2 id=&#34;bootstrap:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Bootstrap&lt;/h2&gt;
 
 &lt;p&gt;Let&amp;rsquo;s start installing Django. The latest version available in the App Engine
 &lt;a href=&#34;https://developers.google.com/appengine/docs/python/tools/libraries27&#34;&gt;Python 2.7 environment&lt;/a&gt; is the 1.5, so we go for the same:&lt;/p&gt;
@@ -193,7 +205,7 @@ pillow
 
 &lt;p&gt;After pip finished we can finally start coding.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_4&#34;&gt;Configure Django and Zinnia&lt;/h2&gt;
+&lt;h2 id=&#34;configure-django-and-zinnia:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Configure Django and Zinnia&lt;/h2&gt;
 
 &lt;p&gt;First of all, we need to tell Django which application we want to use in our project, so open myblog/myblog/settings.py file and add these lines
 to &lt;code&gt;INSTALLED_APP&lt;/code&gt; setting:&lt;/p&gt;
@@ -246,7 +258,7 @@ from django.contrib import admin&lt;/p&gt;
 )
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_5&#34;&gt;Configure App Engine&lt;/h2&gt;
+&lt;h2 id=&#34;configure-app-engine:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Configure App Engine&lt;/h2&gt;
 
 &lt;p&gt;Now we need to create the yaml file containing App Engine application settings. At the root of the project create an app.yaml text file
 containing the following:&lt;/p&gt;
@@ -280,7 +292,7 @@ handlers:
 &lt;p&gt;Some parameters need to be adjusted with actual data, in particular we have to provide our Google Cloud project ID and the Cloud SQL instance
 name.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_6&#34;&gt;Configure database&lt;/h2&gt;
+&lt;h2 id=&#34;configure-database:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Configure database&lt;/h2&gt;
 
 &lt;p&gt;The &lt;code&gt;DATABASE_URL&lt;/code&gt; environment variable contains all the parameters needed to perform a connection from an App Engine application to our
 database. Just add the following code to the settings.py to make Django capable to parse and make use of such parameters:&lt;/p&gt;
@@ -298,7 +310,7 @@ APPENGINE_TOOLKIT = {
 &lt;p&gt;That&amp;rsquo;s all and from now on, all we have to do for changing database connection parameters is to modify the &lt;code&gt;DATABASE_URL&lt;/code&gt; environment variable
 and deploy the application again.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_7&#34;&gt;File storaging&lt;/h2&gt;
+&lt;h2 id=&#34;file-storaging:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;File storaging&lt;/h2&gt;
 
 &lt;p&gt;We will store uploaded files in a bucket on Google Cloud Storage and we will let Django handle the upload process and then ask the Blobstore API
 for a link to statically serve the same files. All we need to do is telling Django the bucket name and the Python class to use to talk to Cloud
@@ -312,7 +324,7 @@ DEFAULT_FILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
 STATICFILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_8&#34;&gt;Deploy&lt;/h2&gt;
+&lt;h2 id=&#34;deploy:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Deploy&lt;/h2&gt;
 
 &lt;p&gt;Configuration steps are over, time to create the database schema with Django&amp;rsquo;s built in management commands. Before proceeding, we have to set
 the &lt;code&gt;DATABASE_URL&lt;/code&gt; environment variable on the local machine performing the command. This is because we need to connect to the Cloud SQL
@@ -351,7 +363,7 @@ a graphical interface. Otherwise on Linux just issue this command in our project
 &lt;p&gt;Check out for any error and try accessing your application with a browser, you should see the Zinnia home page.
 You can find the code of the example application in &lt;a href=&#34;https://github.com/masci/django_appengine_example&#34;&gt;my repo on GitHub&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_9&#34;&gt;Conclusions&lt;/h2&gt;
+&lt;h2 id=&#34;conclusions:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Conclusions&lt;/h2&gt;
 
 &lt;p&gt;These days App Engine seems to be a land the Django community forgot, but I think times are good for a change: the brand new Cloud Console and
 the gcloud Tool, new services like Cloud Sql and the efforts in supporting the Python SDK can make the life of a Djangonaut a lot easier on the
