@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks on /dev/</title>
-    <link>http://localhost:1313/talk/</link>
+    <link>http://dev.pippi.im/talk/</link>
     <description>Recent content in Talks on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 27 May 2015 11:06:44 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/talk/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://dev.pippi.im/talk/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Django 1.7 on App Engine: it could work!</title>
-      <link>http://localhost:1313/talk/django_17_app_engine/</link>
+      <link>http://dev.pippi.im/talk/django_17_app_engine/</link>
       <pubDate>Wed, 27 May 2015 11:06:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/talk/django_17_app_engine/</guid>
+      <guid>http://dev.pippi.im/talk/django_17_app_engine/</guid>
       <description>&lt;p&gt;Django was actively supported at an early stage of the Python runtime in App Engine SDK
 through the notable django-nonrel framework, a fork of the original project that adds
 support for NoSql databases. But starting from the App Engine SDK 1.6.2, released more
@@ -29,10 +29,10 @@ App Engine, Cloud SQL and Cloud Storage.&lt;/p&gt;
     
     <item>
       <title>If code is poetry, then documentation is prose</title>
-      <link>http://localhost:1313/talk/code_is_poetry/</link>
+      <link>http://dev.pippi.im/talk/code_is_poetry/</link>
       <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/talk/code_is_poetry/</guid>
+      <guid>http://dev.pippi.im/talk/code_is_poetry/</guid>
       <description>&lt;p&gt;Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness;
 but without good documentation that explains what it does, you will likely end up with
 unsatisfied users or no users at all.&lt;/p&gt;
@@ -53,10 +53,10 @@ documentation can let your open source project take off.&lt;/p&gt;
     
     <item>
       <title>Se il codice è poesia, la documentazione è prosa</title>
-      <link>http://localhost:1313/talk/codice_poesia/</link>
+      <link>http://dev.pippi.im/talk/codice_poesia/</link>
       <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/talk/codice_poesia/</guid>
+      <guid>http://dev.pippi.im/talk/codice_poesia/</guid>
       <description>&lt;p&gt;Perché sarà pur vero che il codice ha l&amp;rsquo;eleganza del verso, può avere un suo ritmo e la sua espressività,
 ma senza una buona documentazione che ne spieghi il funzionamento, difficilmente avrete degli utenti
 soddisfatti.&lt;/p&gt;
@@ -77,10 +77,10 @@ fare da volano al successo del vostro progetto.&lt;/p&gt;
     
     <item>
       <title>Full­stack developer with Django and AngularJS</title>
-      <link>http://localhost:1313/talk/fullstack_angular_django/</link>
+      <link>http://dev.pippi.im/talk/fullstack_angular_django/</link>
       <pubDate>Sat, 26 Apr 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/talk/fullstack_angular_django/</guid>
+      <guid>http://dev.pippi.im/talk/fullstack_angular_django/</guid>
       <description>&lt;p&gt;Durante il codelab ciascun partecipante vestirà i panni del full-stack developer,  facendosi carico di tutti gli aspetti di un’applicazione web a partire dal backend per arrivare al frontend e curando tutti i dettagli di integrazione.&lt;/p&gt;
 
 &lt;p&gt;La parte backend verrà sviluppata in linguaggio Python utilizzando Django, noto framework per lo sviluppo di applicazioni web caratterizzato da un ampio set di funzionalità che agevolano lo sviluppo rapido di applicazioni con architettura REST.&lt;/p&gt;
@@ -93,10 +93,10 @@ fare da volano al successo del vostro progetto.&lt;/p&gt;
     
     <item>
       <title>Make your Pony fly with Google App Engine</title>
-      <link>http://localhost:1313/talk/make_your_pony_fly/</link>
+      <link>http://dev.pippi.im/talk/make_your_pony_fly/</link>
       <pubDate>Sat, 16 Nov 2013 15:06:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/talk/make_your_pony_fly/</guid>
+      <guid>http://dev.pippi.im/talk/make_your_pony_fly/</guid>
       <description>&lt;p&gt;Django sta emergendo come framework di riferimento per lo sviluppo di applicazioni web in linguaggio Python; è facile da usare ed offre un set di funzionalità &amp;ldquo;full stack&amp;rdquo; che consente tra le altre cose lo sviluppo rapido di backend con architettura REST.&lt;/p&gt;
 
 &lt;p&gt;Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l&amp;rsquo;arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.&lt;/p&gt;
@@ -110,10 +110,10 @@ fare da volano al successo del vostro progetto.&lt;/p&gt;
     
     <item>
       <title>Vintage Web Programming with Python</title>
-      <link>http://localhost:1313/talk/vintage_web_programming_python/</link>
+      <link>http://dev.pippi.im/talk/vintage_web_programming_python/</link>
       <pubDate>Sat, 30 Mar 2013 15:06:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/talk/vintage_web_programming_python/</guid>
+      <guid>http://dev.pippi.im/talk/vintage_web_programming_python/</guid>
       <description>&lt;p&gt;Perche sprecare memoria e cicli macchina per produrre ad ogni richiesta dei client le pagine di un sito web?
 Un sito statico e sorprendentemente veloce, parco nei consumi delle risorse macchina e facile da installare
 anche nelle situazioni di web hosting piu` difficili. Mostreremo come un generatore di pagine statiche
