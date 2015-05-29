@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Django on /dev/</title>
-    <link>http://localhost:1313/tags/django/</link>
+    <link>http://dev.pippi.im/tags/django/</link>
     <description>Recent content in Django on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://dev.pippi.im/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
+      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
 &lt;h2 id=&#34;intro:0434f80763347f24c1805480aae6648f&#34;&gt;Intro&lt;/h2&gt;
@@ -133,10 +133,10 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>
 
 &lt;h2 id=&#34;intro:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Intro&lt;/h2&gt;
@@ -374,10 +374,10 @@ code we can get very close to something like &amp;ldquo;one click deploy&amp;rdq
     
     <item>
       <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
-      <link>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
       <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
       <description>
 
 &lt;h2 id=&#34;who-said-authentication:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;Who said authentication?&lt;/h2&gt;
@@ -502,10 +502,10 @@ protocol and can be used to drastically reduce the code needed.&lt;/p&gt;
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
       <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>
 
 &lt;h2 id=&#34;foreword:8b52954376401a38becf578ecdedd059&#34;&gt;Foreword&lt;/h2&gt;
@@ -513,7 +513,7 @@ protocol and can be used to drastically reduce the code needed.&lt;/p&gt;
 &lt;p&gt;GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which
 remains &lt;em&gt;unread&lt;/em&gt; until you actually read it; then it&amp;rsquo;s archived and removed from your &lt;em&gt;inbox&lt;/em&gt;, which it happens could remain empty:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/github_notifications.png&#34; alt=&#34;github inbox&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://dev.pippi.im/images/github_notifications.png&#34; alt=&#34;github inbox&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called &lt;em&gt;Message
@@ -645,7 +645,7 @@ The Html template for the message view will try to mimic GitHub&amp;rsquo;s noti
 &lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/notification/messages.html&#34;&gt;here is the code&lt;/a&gt; and
 this is the result:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/messages.png&#34; alt=&#34;messages screenshot&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://dev.pippi.im/images/messages.png&#34; alt=&#34;messages screenshot&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;As you can see from this chunk:&lt;/p&gt;
