@@ -11,6 +11,10 @@ date = 2015-04-18T15:06:44Z
 name = "Slides"
 url  = "https://speakerdeck.com/masci/django-1-dot-7-on-app-engine"
 
+[[material]]
+name = "Video"
+url  = "https://www.youtube.com/watch?v=FxqNij_zNcE"
+
 +++
 
 Django was actively supported at an early stage of the Python runtime in App Engine SDK 
@@ -22,3 +26,5 @@ from the whole stack of the framework.
 In less than half an hour we’ll see how we can easily deploy the latest version of Django 
 on the Google Cloud Platform, taking advantage of the tools and services provided by 
 App Engine, Cloud SQL and Cloud Storage.
+
+{{% youtube FxqNij_zNcE %}}
