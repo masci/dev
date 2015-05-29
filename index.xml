@@ -24,6 +24,11 @@ from the whole stack of the framework.&lt;/p&gt;
 &lt;p&gt;In less than half an hour we’ll see how we can easily deploy the latest version of Django
 on the Google Cloud Platform, taking advantage of the tools and services provided by
 App Engine, Cloud SQL and Cloud Storage.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/FxqNij_zNcE&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -34,25 +39,6 @@ App Engine, Cloud SQL and Cloud Storage.&lt;/p&gt;
       
       <guid>http://localhost:1313/page/about/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>If code is poetry, then documentation is prose</title>
-      <link>http://localhost:1313/talk/code_is_poetry/</link>
-      <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
-      
-      <guid>http://localhost:1313/talk/code_is_poetry/</guid>
-      <description>&lt;p&gt;Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness;
-but without good documentation that explains what it does, you will likely end up with
-unsatisfied users or no users at all.&lt;/p&gt;
-
-&lt;p&gt;If anyone had told me I would have spent more time writing documentation than coding,
-I would not have believed it, but that was before I discovered a simple but powerful
-law: “more documentation, more users, more contributors”.&lt;/p&gt;
-
-&lt;p&gt;During the talk we will see which are the foundations of good documentation and how
-documentation can let your open source project take off.&lt;/p&gt;
-</description>
     </item>
     
     <item>
@@ -71,6 +57,35 @@ che sul codice non ci avrei mai creduto, ma era prima di scoprire la semplice e 
 
 &lt;p&gt;Durante il talk vedremo quali sono i principii alla base di una buona documentazione e come questa possa
 fare da volano al successo del vostro progetto.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/0rilhpelvRI&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>If code is poetry, then documentation is prose</title>
+      <link>http://localhost:1313/talk/code_is_poetry/</link>
+      <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
+      
+      <guid>http://localhost:1313/talk/code_is_poetry/</guid>
+      <description>&lt;p&gt;Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness;
+but without good documentation that explains what it does, you will likely end up with
+unsatisfied users or no users at all.&lt;/p&gt;
+
+&lt;p&gt;If anyone had told me I would have spent more time writing documentation than coding,
+I would not have believed it, but that was before I discovered a simple but powerful
+law: “more documentation, more users, more contributors”.&lt;/p&gt;
+
+&lt;p&gt;During the talk we will see which are the foundations of good documentation and how
+documentation can let your open source project take off.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/Yovew2KMbI4&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -629,6 +644,11 @@ code we can get very close to something like &amp;ldquo;one click deploy&amp;rdq
       <description>&lt;p&gt;Django sta emergendo come framework di riferimento per lo sviluppo di applicazioni web in linguaggio Python; è facile da usare ed offre un set di funzionalità &amp;ldquo;full stack&amp;rdquo; che consente tra le altre cose lo sviluppo rapido di backend con architettura REST.&lt;/p&gt;
 
 &lt;p&gt;Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l&amp;rsquo;arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/9Jbp7L2JqGU&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
