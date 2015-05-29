@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>/dev/</title>
-    <link>http://dev.pippi.im/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 27 May 2015 11:06:44 +0000</lastBuildDate>
-    <atom:link href="http://dev.pippi.im/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Django 1.7 on App Engine: it could work!</title>
-      <link>http://dev.pippi.im/talk/django_17_app_engine/</link>
+      <link>http://localhost:1313/talk/django_17_app_engine/</link>
       <pubDate>Wed, 27 May 2015 11:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/django_17_app_engine/</guid>
+      <guid>http://localhost:1313/talk/django_17_app_engine/</guid>
       <description>&lt;p&gt;Django was actively supported at an early stage of the Python runtime in App Engine SDK
 through the notable django-nonrel framework, a fork of the original project that adds
 support for NoSql databases. But starting from the App Engine SDK 1.6.2, released more
@@ -29,19 +29,19 @@ App Engine, Cloud SQL and Cloud Storage.&lt;/p&gt;
     
     <item>
       <title>about</title>
-      <link>http://dev.pippi.im/page/about/</link>
+      <link>http://localhost:1313/page/about/</link>
       <pubDate>Fri, 04 Jul 2014 09:35:49 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/page/about/</guid>
+      <guid>http://localhost:1313/page/about/</guid>
       <description></description>
     </item>
     
     <item>
       <title>If code is poetry, then documentation is prose</title>
-      <link>http://dev.pippi.im/talk/code_is_poetry/</link>
+      <link>http://localhost:1313/talk/code_is_poetry/</link>
       <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/code_is_poetry/</guid>
+      <guid>http://localhost:1313/talk/code_is_poetry/</guid>
       <description>&lt;p&gt;Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness;
 but without good documentation that explains what it does, you will likely end up with
 unsatisfied users or no users at all.&lt;/p&gt;
@@ -52,20 +52,15 @@ law: “more documentation, more users, more contributors”.&lt;/p&gt;
 
 &lt;p&gt;During the talk we will see which are the foundations of good documentation and how
 documentation can let your open source project take off.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
-&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/Yovew2KMbI4&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Se il codice è poesia, la documentazione è prosa</title>
-      <link>http://dev.pippi.im/talk/codice_poesia/</link>
+      <link>http://localhost:1313/talk/codice_poesia/</link>
       <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/codice_poesia/</guid>
+      <guid>http://localhost:1313/talk/codice_poesia/</guid>
       <description>&lt;p&gt;Perché sarà pur vero che il codice ha l&amp;rsquo;eleganza del verso, può avere un suo ritmo e la sua espressività,
 ma senza una buona documentazione che ne spieghi il funzionamento, difficilmente avrete degli utenti
 soddisfatti.&lt;/p&gt;
@@ -76,20 +71,15 @@ che sul codice non ci avrei mai creduto, ma era prima di scoprire la semplice e 
 
 &lt;p&gt;Durante il talk vedremo quali sono i principii alla base di una buona documentazione e come questa possa
 fare da volano al successo del vostro progetto.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
-&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/0rilhpelvRI&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>If code is poetry, then documentation is prose</title>
-      <link>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</link>
+      <link>http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</guid>
+      <guid>http://localhost:1313/writing/if-code-is-poetry-then-documentation-is-prose/</guid>
       <description>
 
 &lt;h2 id=&#34;what-is-poetry:b21ae3a418d25ed6c1bc13f9d11cc917&#34;&gt;What is poetry?&lt;/h2&gt;
@@ -253,10 +243,10 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
+      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
 &lt;h2 id=&#34;intro:0434f80763347f24c1805480aae6648f&#34;&gt;Intro&lt;/h2&gt;
@@ -375,10 +365,10 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Full­stack developer with Django and AngularJS</title>
-      <link>http://dev.pippi.im/talk/fullstack_angular_django/</link>
+      <link>http://localhost:1313/talk/fullstack_angular_django/</link>
       <pubDate>Sat, 26 Apr 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/fullstack_angular_django/</guid>
+      <guid>http://localhost:1313/talk/fullstack_angular_django/</guid>
       <description>&lt;p&gt;Durante il codelab ciascun partecipante vestirà i panni del full-stack developer,  facendosi carico di tutti gli aspetti di un’applicazione web a partire dal backend per arrivare al frontend e curando tutti i dettagli di integrazione.&lt;/p&gt;
 
 &lt;p&gt;La parte backend verrà sviluppata in linguaggio Python utilizzando Django, noto framework per lo sviluppo di applicazioni web caratterizzato da un ampio set di funzionalità che agevolano lo sviluppo rapido di applicazioni con architettura REST.&lt;/p&gt;
@@ -391,10 +381,10 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <link>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <guid>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>
 
 &lt;h2 id=&#34;intro:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Intro&lt;/h2&gt;
@@ -632,27 +622,22 @@ code we can get very close to something like &amp;ldquo;one click deploy&amp;rdq
     
     <item>
       <title>Make your Pony fly with Google App Engine</title>
-      <link>http://dev.pippi.im/talk/make_your_pony_fly/</link>
+      <link>http://localhost:1313/talk/make_your_pony_fly/</link>
       <pubDate>Sat, 16 Nov 2013 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/make_your_pony_fly/</guid>
+      <guid>http://localhost:1313/talk/make_your_pony_fly/</guid>
       <description>&lt;p&gt;Django sta emergendo come framework di riferimento per lo sviluppo di applicazioni web in linguaggio Python; è facile da usare ed offre un set di funzionalità &amp;ldquo;full stack&amp;rdquo; che consente tra le altre cose lo sviluppo rapido di backend con architettura REST.&lt;/p&gt;
 
 &lt;p&gt;Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l&amp;rsquo;arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
-&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/9Jbp7L2JqGU&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
-      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <link>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
       <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <guid>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
       <description>
 
 &lt;h2 id=&#34;who-said-authentication:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;Who said authentication?&lt;/h2&gt;
@@ -777,10 +762,10 @@ protocol and can be used to drastically reduce the code needed.&lt;/p&gt;
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <link>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
       <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <guid>http://localhost:1313/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>
 
 &lt;h2 id=&#34;foreword:8b52954376401a38becf578ecdedd059&#34;&gt;Foreword&lt;/h2&gt;
@@ -788,7 +773,7 @@ protocol and can be used to drastically reduce the code needed.&lt;/p&gt;
 &lt;p&gt;GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which
 remains &lt;em&gt;unread&lt;/em&gt; until you actually read it; then it&amp;rsquo;s archived and removed from your &lt;em&gt;inbox&lt;/em&gt;, which it happens could remain empty:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://dev.pippi.im/images/github_notifications.png&#34; alt=&#34;github inbox&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/github_notifications.png&#34; alt=&#34;github inbox&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called &lt;em&gt;Message
@@ -920,7 +905,7 @@ The Html template for the message view will try to mimic GitHub&amp;rsquo;s noti
 &lt;a href=&#34;https://github.com/masci/notification_example/blob/master/templates/notification/messages.html&#34;&gt;here is the code&lt;/a&gt; and
 this is the result:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://dev.pippi.im/images/messages.png&#34; alt=&#34;messages screenshot&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/messages.png&#34; alt=&#34;messages screenshot&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;As you can see from this chunk:&lt;/p&gt;
@@ -1165,10 +1150,10 @@ changes automagically.&lt;/p&gt;
     
     <item>
       <title>Moving to Jekyll</title>
-      <link>http://dev.pippi.im/writing/moving-to-jekyll/</link>
+      <link>http://localhost:1313/writing/moving-to-jekyll/</link>
       <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/moving-to-jekyll/</guid>
+      <guid>http://localhost:1313/writing/moving-to-jekyll/</guid>
       <description>&lt;p&gt;I started writing on a personal blog in November, 2006 and I choose a Wordpress instance at
 wordrpess.com at the time, because it was easy and it was free. &lt;a href=&#34;http://masci.wordpress.com&#34;&gt;My old blog&lt;/a&gt;
 consists of 79 articles in more than six years and considering the most of them are just suggested
@@ -1198,10 +1183,10 @@ can feel comfortable with it :-).&lt;/p&gt;
     
     <item>
       <title>Vintage Web Programming with Python</title>
-      <link>http://dev.pippi.im/talk/vintage_web_programming_python/</link>
+      <link>http://localhost:1313/talk/vintage_web_programming_python/</link>
       <pubDate>Sat, 30 Mar 2013 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/vintage_web_programming_python/</guid>
+      <guid>http://localhost:1313/talk/vintage_web_programming_python/</guid>
       <description>&lt;p&gt;Perche sprecare memoria e cicli macchina per produrre ad ogni richiesta dei client le pagine di un sito web?
 Un sito statico e sorprendentemente veloce, parco nei consumi delle risorse macchina e facile da installare
 anche nelle situazioni di web hosting piu` difficili. Mostreremo come un generatore di pagine statiche
