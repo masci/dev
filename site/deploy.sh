@@ -5,6 +5,9 @@ echo -e "\033[0;32mDeploying updates to Github...\033[0m"
 # Build the project. 
 hugo -t dev
 
+# Up one dir
+cd ..
+
 # Add changes to git.
 git add -A
 
