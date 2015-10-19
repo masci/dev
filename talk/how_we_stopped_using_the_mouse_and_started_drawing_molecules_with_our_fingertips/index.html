@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
   <meta charset="utf-8">
-  <title> Make your Pony fly with Google App Engine &middot; /dev/ </title>
+  <title> How we stopped using the mouse and started drawing molecules with our fingertips &middot; /dev/ </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://localhost:1313//css/bootstrap.min.css" media="screen">
   <link rel="stylesheet" href="http://localhost:1313//css/dev.css">
@@ -32,18 +32,24 @@
   </div>
 </div>
         <div class="container">
-            <h1>Make your Pony fly with Google App Engine</h1>
-            <h5 id="wc"> 100 words by masci</h5>
+            <h1>How we stopped using the mouse and started drawing molecules with our fingertips</h1>
+            <h5 id="wc"> 300 words by masci</h5>
             <div class="row">
                 <div class="post col-lg-8">
-                    <p>Django sta emergendo come framework di riferimento per lo sviluppo di applicazioni web in linguaggio Python; è facile da usare ed offre un set di funzionalità &ldquo;full stack&rdquo; che consente tra le altre cose lo sviluppo rapido di backend con architettura REST.</p>
+                    <p>Porting to mobile a Qt desktop application that lets you draw molecules, crunches numbers, stores data, displays plot and graphs it’s something that goes far beyond converting a QWidget to a Qml component. You have to change user&rsquo;s perspective, merging what they expect from a mobile application with what they expect from a scientific software. You have to
+outsource heavy computational parts and data storage. You have to code from scratch components that don’t exist yet in the Qml ecosystem.</p>
 
-<p>Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l&rsquo;arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.</p>
+<p>With the arrival of Qt 5 and the support for Android and iOS, we realized that simply moving our legacy code to the new version of the framework still keeping the QWidget approach wouldn’t be worth it: we needed to port our applications to Qml and open to a whole new set of platforms.</p>
 
-<p><div class="embed video-player">
-<iframe class="youtube-player center-block" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/9Jbp7L2JqGU" allowfullscreen frameborder="0">
-</iframe>
-</div></p>
+<p>In this talk you’ll get the lessons learned during a porting journey lasted more than 6 months, with particular reference to the following topics:</p>
+
+<ul>
+<li>Rethink a complex user model for drawing molecules so that one can use their fingers on mobile and touch screens, still keeping it usable on a desktop through the mouse</li>
+<li>Moving heavy computations on the cloud using REST and OAuth2 to exchange data.</li>
+<li>Provide a theming system for the UI, following Material Design principles but keeping a good user experience on the desktop</li>
+<li>Refactor graphic and drawing components with a pixel independent approach</li>
+<li>Develop a brand new interactive 2D plot with Qml in mind</li>
+</ul>
 
                     <hr>
                 </div>
@@ -55,8 +61,8 @@
                             
                             
                             <div class="list-group-conference">
-                                <p class="list-group-item-text"><b>GDG DevFest Rome</b></p>
-                                <p class="list-group-item-text">Sat, Nov 16, 2013</p>
+                                <p class="list-group-item-text"><b>Qt World Summit</b></p>
+                                <p class="list-group-item-text">Tue, Oct 6, 2015</p>
                             </div>
                             
                         </div>
@@ -64,17 +70,13 @@
                             <h4 class="list-group-item-heading">META</h4>
                             
                             <p class="list-group-item-text">
-                                <a href="https//speakerdeck.com/masci/make-your-pony-fly-with-google-app-engine">Slides</a>
-                            </p>
-                            
-                            <p class="list-group-item-text">
-                                <a href="https//www.youtube.com/watchv9jbp7l2jqgu">Video</a>
+                                <a href="https//speakerdeck.com/masci/how-we-stopped-using-the-mouse-and-started-drawing-molecules-with-our-fingertips-not-the-usual-porting-story">Slides</a>
                             </p>
                             
                         </div>
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">LANG</h4>
-                            <p class="list-group-item-text">it</p>
+                            <p class="list-group-item-text">en</p>
                         </div>                        
                     </div>
                 </div>
