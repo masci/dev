@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Appengine on /dev/</title>
-    <link>http://dev.pippi.im/tags/appengine/</link>
+    <link>http://localhost:1313/tags/appengine/</link>
     <description>Recent content in Appengine on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://dev.pippi.im/tags/appengine/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/appengine/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
+      <link>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>http://localhost:1313/writing/django-upload-on-google-cloud-storage/</guid>
       <description>
 
 &lt;h2 id=&#34;intro:0434f80763347f24c1805480aae6648f&#34;&gt;Intro&lt;/h2&gt;
@@ -133,10 +133,10 @@ is deleted. Wow.&lt;/p&gt;
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <link>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <guid>http://localhost:1313/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>
 
 &lt;h2 id=&#34;intro:cd5e92e90542d64d0ed990fcb2586796&#34;&gt;Intro&lt;/h2&gt;

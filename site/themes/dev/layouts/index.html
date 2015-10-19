@@ -21,8 +21,24 @@
           {{ end }}
           </ul>
 
+          <h1>Talks</h1>
+          <p class="text-muted">
+            <small>These are the latest entries, check the <a href="/talk/">Archive</a> for a complete list</small>
+          </p>
+          <ul class="posts list-unstyled">
+          {{ range first 5 .Site.Sections.talk }}
+            <li>
+              <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+              <time class="pull-right post-list">{{ .Page.Date.Format "Mon, Jan 2, 2006" }}</h4></time>
+            </li>
+          {{ end }}
+          </ul>
+
           <h1>Open Source Projects</h1>
           <ul class="list-unstyled">
+            <li>
+              <a href="https://github.com/masci/flickr">Flickr.go</a> A Flickr client made for Gophers.
+            </li>
             <li>
               <a href="https://github.com/evonove/django-oauth-toolkit">Django OAuth Toolkit</a> OAuth goodies for the Djangonauts.
             </li>
@@ -39,22 +55,9 @@
               <a href="https://github.com/masci/masci.github.io">/dev/</a> This site
             </li>
           </ul>
-
-          <h1>Talks</h1>
-          <p class="text-muted">
-            <small>These are the latest entries, check the <a href="/talk/">Archive</a> for a complete list</small>
-          </p>
-          <ul class="posts list-unstyled">
-          {{ range first 5 .Site.Sections.talk }}
-            <li>
-              <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-              <time class="pull-right post-list">{{ .Page.Date.Format "Mon, Jan 2, 2006" }}</h4></time>
-            </li>
-          {{ end }}
-          </ul>
-
+          
           <h1>About me</h1>
-          <p>Write something clever here</p>
+          <p>Software developer for over 10 years, more than half spent working with scientific visualization and backend software for a private company, using C++ and Qt technologies. Open source advocate and active contributor, documentation fanatic, speaker at conferences (for the ❤ of sharing).</p>
           <ul class="list-inline">
             <li><a href="https://github.com/masci"><i class="fa fa-github fa-2x"></i></a></li>
             <li><a href="https://twitter.com/maxpippi"><i class="fa fa-twitter-square fa-2x"></i></a></li>

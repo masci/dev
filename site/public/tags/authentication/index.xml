@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authentication on /dev/</title>
-    <link>http://dev.pippi.im/tags/authentication/</link>
+    <link>http://localhost:1313/tags/authentication/</link>
     <description>Recent content in Authentication on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Nov 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://dev.pippi.im/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
-      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <link>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
       <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <guid>http://localhost:1313/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
       <description>
 
 &lt;h2 id=&#34;who-said-authentication:ccbd7d2ae8b1fe35589fc832f5c8f5d5&#34;&gt;Who said authentication?&lt;/h2&gt;
