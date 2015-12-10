@@ -6,8 +6,24 @@
     <description>Recent content in Talks on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2015 13:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Dec 2015 11:30:00 +0000</lastBuildDate>
     <atom:link href="http://dev.pippi.im/talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Python - Go One Way</title>
+      <link>http://dev.pippi.im/talk/python_go_one_way/</link>
+      <pubDate>Fri, 04 Dec 2015 11:30:00 +0000</pubDate>
+      
+      <guid>http://dev.pippi.im/talk/python_go_one_way/</guid>
+      <description>&lt;p&gt;Rumor has it recently that a growing number of Python developers are migrating to Go through an impressive series of success stories;
+even if we don&amp;rsquo;t know the real numbers and it&amp;rsquo;s difficult to make a detailed picture of this phenomenon, the fact that Python
+devs are interested in Go is out of the question, just go to some mailing list, blog or Twitter account and check out yourself.&lt;/p&gt;
+
+&lt;p&gt;During the talk we will see what Go can offer that is so attractive for a Pythonista to make them migrate code, tools, behaviours.
+We&amp;rsquo;ll also try to understand if this journey to the Land of Gophers can be one way or it&amp;rsquo;s better for a Python dev to buy the
+return ticket in advance.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>How we stopped using the mouse and started drawing molecules with our fingertips</title>
@@ -29,6 +45,11 @@ outsource heavy computational parts and data storage. You have to code from scra
 &lt;li&gt;Refactor graphic and drawing components with a pixel independent approach&lt;/li&gt;
 &lt;li&gt;Develop a brand new interactive 2D plot with Qml in mind&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/XfuwRKloDkQ&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
     </item>
     
