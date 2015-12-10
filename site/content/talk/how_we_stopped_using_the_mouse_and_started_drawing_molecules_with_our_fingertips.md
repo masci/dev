@@ -11,6 +11,10 @@ date = 2015-10-06T13:30:00Z
 name = "Slides"
 url  = "https://speakerdeck.com/masci/how-we-stopped-using-the-mouse-and-started-drawing-molecules-with-our-fingertips-not-the-usual-porting-story"
 
+[[material]]
+name = "Video"
+url  = "https://www.youtube.com/watch?v=XfuwRKloDkQ"
+
 +++
 
 Porting to mobile a Qt desktop application that lets you draw molecules, crunches numbers, stores data, displays plot and graphs it’s something that goes far beyond converting a QWidget to a Qml component. You have to change user's perspective, merging what they expect from a mobile application with what they expect from a scientific software. You have to 
@@ -25,3 +29,5 @@ In this talk you’ll get the lessons learned during a porting journey lasted mo
 - Provide a theming system for the UI, following Material Design principles but keeping a good user experience on the desktop 
 - Refactor graphic and drawing components with a pixel independent approach 
 - Develop a brand new interactive 2D plot with Qml in mind
+
+{{% youtube XfuwRKloDkQ %}}
