@@ -38,22 +38,22 @@
                 <div class="post col-lg-8">
                     
 
-<h2 id="what-is-poetry:b21ae3a418d25ed6c1bc13f9d11cc917">What is poetry?</h2>
+<h2 id="what-is-poetry">What is poetry?</h2>
 
 <p>Before starting, let’s agree on some terminology. Obviously poetry is a literary form, a way to write down things I would say,
 but how do you recognize it, how can you say that is poetry and this is not? Well, according to my literary heritage (I’m italian)
 something is poetry when it has verse, rhyme and stanza; let’s see what they are and how we can recognize them.</p>
 
-<h3 id="verse:b21ae3a418d25ed6c1bc13f9d11cc917">Verse</h3>
+<h3 id="verse">Verse</h3>
 
 <p>A verse is a sequence of words on a single line; those sequences must follow strict rules that determine their length and
 contents in terms of syllables. The verse gives rhythm to the composition.</p>
 
-<h3 id="rhyme:b21ae3a418d25ed6c1bc13f9d11cc917">Rhyme</h3>
+<h3 id="rhyme">Rhyme</h3>
 
 <p>A Rhyme is the equality of the sound of different words and it gives melody to the composition.</p>
 
-<h3 id="stanza:b21ae3a418d25ed6c1bc13f9d11cc917">Stanza</h3>
+<h3 id="stanza">Stanza</h3>
 
 <p>A group of verses; even these groups follows strict rules about the number of verses they might contain and the way they are connected
 together, with or without rhymes.</p>
@@ -81,29 +81,27 @@ fact? Hell, no!</p>
 
 <p>Now what about something like this:</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span>lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
-lock<span style="color: #555555">.</span>acquire()
-<span style="color: #006699; font-weight: bold">try</span>:
-    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
-<span style="color: #006699; font-weight: bold">finally</span>:
-    lock<span style="color: #555555">.</span>release()
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+<pre><code>lock = threading.lock()
+lock.acquire()
+try:
+    print("Let's get critical")
+finally:
+    lock.release()
+</code></pre>
+
 
 <p>Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span>lock <span style="color: #555555">=</span> threading<span style="color: #555555">.</span>lock()
-<span style="color: #006699; font-weight: bold">with</span> lock:
-    <span style="color: #006699; font-weight: bold">print</span>(<span style="color: #CC3300">&quot;Let&#39;s get critical&quot;</span>)
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+<pre><code>lock = threading.lock()
+with lock:
+    print("Let's get critical")
+</code></pre>
+
 
 <p>Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
 form of poetry, or at least that it&rsquo;s possible to write code in a poetic fashion.</p>
 
-<h1 id="what-s-wrong-with-poetry:b21ae3a418d25ed6c1bc13f9d11cc917">What’s wrong with poetry?</h1>
+<h1 id="what-s-wrong-with-poetry">What’s wrong with poetry?</h1>
 
 <p>Poetry is one of the highest but most challenging forms of art: to cut a long story short, poetry is difficult for the most
 of us. Take this for example:</p>
@@ -129,15 +127,14 @@ a sudden silence: I was healed.
 <p>As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
 Let&rsquo;s see an example of well written code:</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">itertools</span> <span style="color: #006699; font-weight: bold">import</span> chain, islice
+<pre><code>from itertools import chain, islice
 
-<span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">chunks</span>(iterable, size, format<span style="color: #555555">=</span><span style="color: #336666">iter</span>):
-    it <span style="color: #555555">=</span> <span style="color: #336666">iter</span>(iterable)
-    <span style="color: #006699; font-weight: bold">while</span> <span style="color: #336666">True</span>:
-        <span style="color: #006699; font-weight: bold">yield</span> format(chain((it<span style="color: #555555">.</span>next(),), islice(it, size <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>)))
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+def chunks(iterable, size, format=iter):
+    it = iter(iterable)
+    while True:
+        yield format(chain((it.next(),), islice(it, size - 1)))
+</code></pre>
+
 
 <blockquote>
 <p>Ok, give me a sec&hellip;</p>
@@ -148,7 +145,7 @@ that comes before and after, trying to guess programmer’s mind at last. Very f
 through the process and the result will vary between unhappy users, angry users and former users. Don’t let the poetry
 alone!</p>
 
-<h1 id="here-comes-the-prose:b21ae3a418d25ed6c1bc13f9d11cc917">Here comes the prose</h1>
+<h1 id="here-comes-the-prose">Here comes the prose</h1>
 
 <p>Prose is <em>the other</em> literary form, sometimes defined as “everything is not poetry”.
 <a href="http://en.wikipedia.org/wiki/Eugenio_Montale">Eugenio Montale</a> was one of the greatest italian poets and he won the
@@ -159,7 +156,7 @@ a story with clear and useful words, takes your hand and walks along with you to
 
 <p>You get the point, prose can explain poetry just like documentation can explain code.</p>
 
-<h1 id="why-programmers-don-t-write-prose:b21ae3a418d25ed6c1bc13f9d11cc917">Why programmers don’t write prose</h1>
+<h1 id="why-programmers-don-t-write-prose">Why programmers don’t write prose</h1>
 
 <p>I have an educated guess: writing docs is hard and life consuming. As a core developer of a mid-sized open source
 project I found myself writing way more lines of docs than code. I used to be a poet but I had to turn into a writer
@@ -169,13 +166,13 @@ speaker but you have to wisely choose your words to make your docs understandabl
 to write examples, tutorials and advertise them; you have to make screenshots; you have to setup different environments;
 you have to put yourself in users’ shoes; you have to argument with strangers on the internet.</p>
 
-<h1 id="why-you-should-write-prose:b21ae3a418d25ed6c1bc13f9d11cc917">Why you should write prose</h1>
+<h1 id="why-you-should-write-prose">Why you should write prose</h1>
 
 <p>First of all, prose and poetry have different audience. Code Poets will likely dig into your code whether or not the
 project has documentation; humans just start from the documentation. More humans, more users; more users, more
 contributors; more contributors, less work for everyone :)</p>
 
-<h1 id="how-to-write-prose:b21ae3a418d25ed6c1bc13f9d11cc917">How to write prose</h1>
+<h1 id="how-to-write-prose">How to write prose</h1>
 
 <p>Writing docs when most of the code is already in place and project features almost complete is difficult and disheartening:
 you have to invent good stories for your users as an aftermath, you have to review the code and fill the gaps in your
@@ -185,7 +182,7 @@ can give you precious hints about the idea you are going to implement: as a rule
 idea into the documentation, maybe that is not a good idea. Write the stories, write the docstrings then write the code
 (insert tests in the process where you’re more comfortable with).</p>
 
-<h1 id="lessons-learnt-as-a-prose-writer:b21ae3a418d25ed6c1bc13f9d11cc917">Lessons learnt as a prose writer</h1>
+<h1 id="lessons-learnt-as-a-prose-writer">Lessons learnt as a prose writer</h1>
 
 <ul>
 <li>Always write docstrings for your and your team’s sanity and write them early, even before the code.</li>
