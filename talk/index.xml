@@ -2,12 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks on /dev/</title>
-    <link>http://dev.pippi.im/talk/</link>
+    <link>http://dev.pippi.im/talk/index.xml</link>
     <description>Recent content in Talks on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Dec 2015 11:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jan 2017 11:30:00 +0000</lastBuildDate>
     <atom:link href="http://dev.pippi.im/talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to port your Python software to Go without people noticing - a real story</title>
+      <link>http://dev.pippi.im/talk/how_to_port_your_Python_software_to_Go/</link>
+      <pubDate>Tue, 24 Jan 2017 11:30:00 +0000</pubDate>
+      
+      <guid>http://dev.pippi.im/talk/how_to_port_your_Python_software_to_Go/</guid>
+      <description>&lt;p&gt;Success stories about rewriting Python applications in Go are not big news anymore.
+The pros and cons are well known, best practices are in place, the standard library
+is there to help. But what if there’s some Python code you would like to keep or worse,
+some you can’t get rid of?&lt;/p&gt;
+
+&lt;p&gt;When we chose to port the Datadog Agent to Go, we had a
+requirement to maintain our plugin system in Python. During the talk we will share
+stories about cgo, the GIL and the quest for performance as we bridge multiple languages
+in a single application.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Python - Go One Way</title>
@@ -46,10 +64,10 @@ outsource heavy computational parts and data storage. You have to code from scra
 &lt;li&gt;Develop a brand new interactive 2D plot with Qml in mind&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/XfuwRKloDkQ&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -69,10 +87,10 @@ from the whole stack of the framework.&lt;/p&gt;
 on the Google Cloud Platform, taking advantage of the tools and services provided by
 App Engine, Cloud SQL and Cloud Storage.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/FxqNij_zNcE&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -93,10 +111,10 @@ law: “more documentation, more users, more contributors”.&lt;/p&gt;
 &lt;p&gt;During the talk we will see which are the foundations of good documentation and how
 documentation can let your open source project take off.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/Yovew2KMbI4&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -117,10 +135,10 @@ che sul codice non ci avrei mai creduto, ma era prima di scoprire la semplice e 
 &lt;p&gt;Durante il talk vedremo quali sono i principii alla base di una buona documentazione e come questa possa
 fare da volano al successo del vostro progetto.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/0rilhpelvRI&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -150,10 +168,10 @@ fare da volano al successo del vostro progetto.&lt;/p&gt;
 
 &lt;p&gt;Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l&amp;rsquo;arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe class=&#34;youtube-player center-block&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/9Jbp7L2JqGU&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

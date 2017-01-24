@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on /dev/</title>
-    <link>http://dev.pippi.im/page/</link>
+    <link>http://dev.pippi.im/page/index.xml</link>
     <description>Recent content in Pages on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>

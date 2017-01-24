@@ -38,23 +38,22 @@
                 <div class="post col-lg-8">
                     
 
-<h2 id="intro:0434f80763347f24c1805480aae6648f">Intro</h2>
+<h2 id="intro">Intro</h2>
 
 <p>On of the features of <a href="https://github.com/masci/django-appengine-toolkit">Django Appengine Toolkit</a> is simplifying
 the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
 Google App Engine. Infact all you have to do is writing something like this in your settings.py module:</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span>APPENGINE_TOOLKIT <span style="color: #555555">=</span> {
-    <span style="color: #CC3300">&#39;APP_YAML&#39;</span>: os<span style="color: #555555">.</span>path<span style="color: #555555">.</span>join(BASE_DIR, <span style="color: #CC3300">&#39;app.yaml&#39;</span>),
-    <span style="color: #CC3300">&#39;BUCKET_NAME&#39;</span>: <span style="color: #CC3300">&#39;media-uploads&#39;</span>,
+<pre><code>APPENGINE_TOOLKIT = {
+    'APP_YAML': os.path.join(BASE_DIR, 'app.yaml'),
+    'BUCKET_NAME': 'media-uploads',
 }
-DEFAULT_FILE_STORAGE <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
-STATICFILE_STORAGE <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+DEFAULT_FILE_STORAGE = 'appengine_toolkit.storage.GoogleCloudStorage'
+STATICFILE_STORAGE = 'appengine_toolkit.storage.GoogleCloudStorage'
+</code></pre>
 
-<h2 id="a-complete-example:0434f80763347f24c1805480aae6648f">A complete example</h2>
+
+<h2 id="a-complete-example">A complete example</h2>
 
 <p><a href="https://github.com/masci/django_cloudstorage_example">This repo</a> contains a minimalistic Django project
 implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just
@@ -63,38 +62,36 @@ setup a Django project on App Engine with <code>django-appengine-toolkit</code> 
 <a href="http://dev.pippi.im/2014/02/10/create-a-blog-in-minutes-on-app-engine-with-django/">this blog post</a>.
 Now let&rsquo;s take a look at the code.</p>
 
-<h3 id="the-model:0434f80763347f24c1805480aae6648f">The Model</h3>
+<h3 id="the-model">The Model</h3>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">Document</span>(models<span style="color: #555555">.</span>Model):
-    docfile <span style="color: #555555">=</span> models<span style="color: #555555">.</span>FileField(upload_to<span style="color: #555555">=</span><span style="color: #CC3300">&#39;documents/%Y/%m/</span><span style="color: #AA0000">%d</span><span style="color: #CC3300">&#39;</span>)
+<pre><code>class Document(models.Model):
+    docfile = models.FileField(upload_to='documents/%Y/%m/%d')
 
-    <span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">delete</span>(<span style="color: #336666">self</span>, <span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs):
-        storage, path <span style="color: #555555">=</span> <span style="color: #336666">self</span><span style="color: #555555">.</span>docfile<span style="color: #555555">.</span>storage, <span style="color: #336666">self</span><span style="color: #555555">.</span>docfile<span style="color: #555555">.</span>path
-        <span style="color: #336666">super</span>(Document, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>delete(<span style="color: #555555">*</span>args, <span style="color: #555555">**</span>kwargs)
-        storage<span style="color: #555555">.</span>delete(path)
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+    def delete(self, *args, **kwargs):
+        storage, path = self.docfile.storage, self.docfile.path
+        super(Document, self).delete(*args, **kwargs)
+        storage.delete(path)
+</code></pre>
+
 
 <p>Pretty easy, we have just one field containing the file. Notice the delete method we&rsquo;re going to use so that
 when an instance is deleted, the same will happen to corresponding file on Cloud Storage.</p>
 
-<h3 id="the-views:0434f80763347f24c1805480aae6648f">The views</h3>
+<h3 id="the-views">The views</h3>
 
 <p>Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
 the logic for the uploads, form included:</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">FileManagerView</span>(CreateView):
-    model <span style="color: #555555">=</span> Document
-    success_url <span style="color: #555555">=</span> reverse_lazy(<span style="color: #CC3300">&#39;main&#39;</span>)
+<pre><code>class FileManagerView(CreateView):
+    model = Document
+    success_url = reverse_lazy('main')
 
-    <span style="color: #006699; font-weight: bold">def</span> <span style="color: #CC00FF">get_context_data</span>(<span style="color: #336666">self</span>, <span style="color: #555555">**</span>kwargs):
-        kwargs[<span style="color: #CC3300">&#39;object_list&#39;</span>] <span style="color: #555555">=</span> Document<span style="color: #555555">.</span>objects<span style="color: #555555">.</span>all()
-        kwargs[<span style="color: #CC3300">&#39;fava&#39;</span>] <span style="color: #555555">=</span> <span style="color: #CC3300">&#39;rava&#39;</span>
-        <span style="color: #006699; font-weight: bold">return</span> <span style="color: #336666">super</span>(FileManagerView, <span style="color: #336666">self</span>)<span style="color: #555555">.</span>get_context_data(<span style="color: #555555">**</span>kwargs)
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+    def get_context_data(self, **kwargs):
+        kwargs['object_list'] = Document.objects.all()
+        kwargs['fava'] = 'rava'
+        return super(FileManagerView, self).get_context_data(**kwargs)
+</code></pre>
+
 
 <p>Since we need to show the list of files <strong>and</strong> the form to upload them on the same page, we cannot use a <code>CreateView</code> as is,
 what we need is a <code>CreateView</code> and <code>ListView</code> hybrid instead, thus the hack of overriding <code>get_context_data</code>: we inject the queryset
@@ -102,51 +99,48 @@ in the context so the template can render properly.</p>
 
 <p>The relevant html code in the template looks like this:</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;pre&gt;&lt;code&gt;&lt;ul&gt;</span>
+<pre><code><ul>
 {% for object in object_list %}
-  <span style="color: #330099; font-weight: bold">&lt;li&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;form</span> <span style="color: #330099">action=</span><span style="color: #CC3300">&quot;{% url &#39;delete&#39; object.id %}&quot;</span> <span style="color: #330099">method=</span><span style="color: #CC3300">&quot;post&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>{% csrf_token %}
-      <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;{{ object.docfile.url }}&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>{{ object.docfile.name }}<span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
-      <span style="color: #330099; font-weight: bold">&lt;input</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;submit&quot;</span> <span style="color: #330099">value=</span><span style="color: #CC3300">&quot;Delete&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
-    <span style="color: #330099; font-weight: bold">&lt;/form&gt;</span>
-  <span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+  <li>
+    <form action="{% url 'delete' object.id %}" method="post">{% csrf_token %}
+      <a href="{{ object.docfile.url }}">{{ object.docfile.name }}</a>
+      <input type="submit" value="Delete" />
+    </form>
+  </li>
 {% empty %}
-  <span style="color: #330099; font-weight: bold">&lt;li&gt;</span>No documents.<span style="color: #330099; font-weight: bold">&lt;/li&gt;</span>
+  <li>No documents.</li>
 {% endfor %}
-<span style="color: #330099; font-weight: bold">&lt;/ul&gt;</span>
+</ul>
 
-<span style="color: #330099; font-weight: bold">&lt;form</span>  <span style="color: #330099">enctype=</span><span style="color: #CC3300">&quot;multipart/form-data&quot;</span> <span style="color: #330099">action=</span><span style="color: #CC3300">&quot;&quot;</span> <span style="color: #330099">method=</span><span style="color: #CC3300">&quot;post&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>{% csrf_token %}
+<form  enctype="multipart/form-data" action="" method="post">{% csrf_token %}
     {{ form.as_p }}
-    <span style="color: #330099; font-weight: bold">&lt;input</span> <span style="color: #330099">type=</span><span style="color: #CC3300">&quot;submit&quot;</span> <span style="color: #330099">value=</span><span style="color: #CC3300">&quot;Upload&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
-<span style="color: #330099; font-weight: bold">&lt;/form&gt;</span>
-<span style="color: #330099; font-weight: bold">&lt;/code&gt;&lt;/pre&gt;</span>
-</pre></div>
-</p>
+    <input type="submit" value="Upload" />
+</form>
+</code></pre>
+
 
 <p>Notice we render a form for each file listed, so we can make a <code>POST</code> request directly, without passing for a confirmation view
 as usual when using <code>DeleteView</code> generics. Let&rsquo;s see the View code:</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span><span style="color: #006699; font-weight: bold">class</span> <span style="color: #00AA88; font-weight: bold">FileRemoveView</span>(DeleteView):
-    model <span style="color: #555555">=</span> Document
-    success_url <span style="color: #555555">=</span> reverse_lazy(<span style="color: #CC3300">&#39;main&#39;</span>)
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+<pre><code>class FileRemoveView(DeleteView):
+    model = Document
+    success_url = reverse_lazy('main')
+</code></pre>
+
 
 <p>Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
 is deleted. Wow.</p>
 
-<h3 id="the-urls:0434f80763347f24c1805480aae6648f">The urls</h3>
+<h3 id="the-urls">The urls</h3>
 
 <p>Quick and dirty: mount the two views to the urls:</p>
 
-<p><div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #555555">&lt;</span>pre<span style="color: #555555">&gt;&lt;</span>code<span style="color: #555555">&gt;</span>urlpatterns <span style="color: #555555">=</span> patterns(<span style="color: #CC3300">&#39;&#39;</span>,
-    url(<span style="color: #CC3300">r&#39;^$&#39;</span>, FileManagerView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #CC3300">&#39;main&#39;</span>),
-    url(<span style="color: #CC3300">r&#39;^delete/(?P&lt;pk&gt;\d+)/$&#39;</span>, FileRemoveView<span style="color: #555555">.</span>as_view(), name<span style="color: #555555">=</span><span style="color: #CC3300">&#39;delete&#39;</span>),
+<pre><code>urlpatterns = patterns('',
+    url(r'^$', FileManagerView.as_view(), name='main'),
+    url(r'^delete/(?P<pk>\d+)/$', FileRemoveView.as_view(), name='delete'),
 )   
-<span style="color: #555555">&lt;/</span>code<span style="color: #555555">&gt;&lt;/</span>pre<span style="color: #555555">&gt;</span>
-</pre></div>
-</p>
+</code></pre>
+
 
 <p>That&rsquo;s all, have fun deploying on App Engine!</p>
 

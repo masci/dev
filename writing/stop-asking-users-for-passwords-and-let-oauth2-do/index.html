@@ -38,7 +38,7 @@
                 <div class="post col-lg-8">
                     
 
-<h2 id="who-said-authentication:ccbd7d2ae8b1fe35589fc832f5c8f5d5">Who said authentication?</h2>
+<h2 id="who-said-authentication">Who said authentication?</h2>
 
 <p>If you have an HTTP endpoint which requires authentication, chances are that you&rsquo;re using HTTP Basic auth or
 Digest. This was the case, you should immediately stop asking users for their passwords - let&rsquo;s see why.</p>
@@ -64,7 +64,7 @@ authentication is practical and secure, but how to implement it?</p>
 <p>Well, I have some good news: there&rsquo;s a protocol for that, and that protocol has an RFC standard. It&rsquo;s called
 OAuth2.</p>
 
-<h2 id="oauth2-ftw:ccbd7d2ae8b1fe35589fc832f5c8f5d5">OAuth2 FTW</h2>
+<h2 id="oauth2-ftw">OAuth2 FTW</h2>
 
 <p>It was not so much time ago that I&rsquo;ve been considering OAuth2 solely a tricky protocol used to authorize a
 service to access data provided by another service, and there are still people with the same misbelief. OAuth2
@@ -84,7 +84,7 @@ an access token that can be used to access resources on the server.</p>
 <p>You can easily try by yourself how this authentication method works using a real world OAuth2 provider as a server
 and curl on your local machine as a client.</p>
 
-<h3 id="register-an-app:ccbd7d2ae8b1fe35589fc832f5c8f5d5">Register an app</h3>
+<h3 id="register-an-app">Register an app</h3>
 
 <p>Go to <a href="http://django-oauth-toolkit.herokuapp.com/">OAuth2 Playground</a>, a fully functional OAuth2 provider written
 in Django using <a href="https://github.com/evonove/django-oauth-toolkit">Django OAuth Toolkit</a> library, follow the menu
@@ -95,7 +95,7 @@ the system), choose <em>Public</em> as <em>Client type</em> and <em>Resource own
 For the OAuth2 flow you&rsquo;re going to use there&rsquo;s no need of any <em>Redirect uris</em> so you can leave that field blank.
 Hit <em>save</em> to finally register your application on the OAuth2 provider.</p>
 
-<h3 id="grab-your-token:ccbd7d2ae8b1fe35589fc832f5c8f5d5">Grab your token</h3>
+<h3 id="grab-your-token">Grab your token</h3>
 
 <p>Now we need a token to access resources on the Playground server. We will ask for a token for our Application
 and the user <em>test</em> of whom we know username and password; the url where retrieve the token is <em>/o/token</em>
@@ -148,7 +148,7 @@ by ourselves if we do not want to access that service anymore. Or it can be refr
 old one would be compromised. We had to provide username and password just once but now we can use the token anywhere
 we need to authenticate: a third party service or a mobile app for example.</p>
 
-<h2 id="so-what:ccbd7d2ae8b1fe35589fc832f5c8f5d5">So what?</h2>
+<h2 id="so-what">So what?</h2>
 
 <p>Even if security level is similar, using OAuth2 allows much more control and flexibility than using username and password,
 provided that communication occurs over SSL. Well, the server has to manage a slightly more complex workflow when using
