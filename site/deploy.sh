@@ -20,4 +20,4 @@ git commit -m "$msg"
 
 # Push source and build repos.
 git push origin master
-git subtree push -f --prefix=site/public git@github.com:masci/dev.git gh-pages
+git push origin `git subtree split --prefix=site/public`:gh-pages --force
