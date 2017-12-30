@@ -6,10 +6,19 @@
     <description>Recent content on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jan 2017 11:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jun 2017 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="http://dev.pippi.im/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Protobuf parsing in Python</title>
+      <link>http://dev.pippi.im/writing/protobuf-python/</link>
+      <pubDate>Thu, 08 Jun 2017 00:00:00 +0100</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/protobuf-python/</guid>
+      <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.</description>
+    </item>
     
     <item>
       <title>A Python and a Gopher Walk into a Bar - Embedding Python in Go</title>

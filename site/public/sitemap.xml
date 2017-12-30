@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://dev.pippi.im/writing/protobuf-python/</loc>
+    <lastmod>2017-06-08T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://dev.pippi.im/talk/a-python-and-a-gopher/</loc>
     <lastmod>2017-01-24T11:30:00+00:00</lastmod>
   </url>
@@ -84,7 +89,7 @@
   
   <url>
     <loc>http://dev.pippi.im/</loc>
-    <lastmod>2017-01-24T11:30:00+00:00</lastmod>
+    <lastmod>2017-06-08T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -166,8 +171,14 @@
   </url>
   
   <url>
+    <loc>http://dev.pippi.im/tags/protobuf/</loc>
+    <lastmod>2017-06-08T00:00:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://dev.pippi.im/tags/python/</loc>
-    <lastmod>2014-05-24T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-08T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -197,7 +208,7 @@
   
   <url>
     <loc>http://dev.pippi.im/writing/</loc>
-    <lastmod>2014-05-24T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-08T00:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
