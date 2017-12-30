@@ -2,11 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gcs on /dev/</title>
-    <link>http://dev.pippi.im/tags/gcs/index.xml</link>
+    <link>http://dev.pippi.im/tags/gcs/</link>
     <description>Recent content in Gcs on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://dev.pippi.im/tags/gcs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://dev.pippi.im/tags/gcs/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
@@ -14,114 +17,8 @@
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
       <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
-      <description>
-
-&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
-
-&lt;p&gt;On of the features of &lt;a href=&#34;https://github.com/masci/django-appengine-toolkit&#34;&gt;Django Appengine Toolkit&lt;/a&gt; is simplifying
-the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
-Google App Engine. Infact all you have to do is writing something like this in your settings.py module:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;APPENGINE_TOOLKIT = {
-    &#39;APP_YAML&#39;: os.path.join(BASE_DIR, &#39;app.yaml&#39;),
-    &#39;BUCKET_NAME&#39;: &#39;media-uploads&#39;,
-}
-DEFAULT_FILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
-STATICFILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;h2 id=&#34;a-complete-example&#34;&gt;A complete example&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/masci/django_cloudstorage_example&#34;&gt;This repo&lt;/a&gt; contains a minimalistic Django project
-implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just
-one app implementing all the logic, defining the model and exposing the views. For detailed instructions on how to
-setup a Django project on App Engine with &lt;code&gt;django-appengine-toolkit&lt;/code&gt; please check out
-&lt;a href=&#34;http://dev.pippi.im/2014/02/10/create-a-blog-in-minutes-on-app-engine-with-django/&#34;&gt;this blog post&lt;/a&gt;.
-Now let&amp;rsquo;s take a look at the code.&lt;/p&gt;
-
-&lt;h3 id=&#34;the-model&#34;&gt;The Model&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;class Document(models.Model):
-    docfile = models.FileField(upload_to=&#39;documents/%Y/%m/%d&#39;)
-
-    def delete(self, *args, **kwargs):
-        storage, path = self.docfile.storage, self.docfile.path
-        super(Document, self).delete(*args, **kwargs)
-        storage.delete(path)
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;p&gt;Pretty easy, we have just one field containing the file. Notice the delete method we&amp;rsquo;re going to use so that
-when an instance is deleted, the same will happen to corresponding file on Cloud Storage.&lt;/p&gt;
-
-&lt;h3 id=&#34;the-views&#34;&gt;The views&lt;/h3&gt;
-
-&lt;p&gt;Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
-the logic for the uploads, form included:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class FileManagerView(CreateView):
-    model = Document
-    success_url = reverse_lazy(&#39;main&#39;)
-
-    def get_context_data(self, **kwargs):
-        kwargs[&#39;object_list&#39;] = Document.objects.all()
-        kwargs[&#39;fava&#39;] = &#39;rava&#39;
-        return super(FileManagerView, self).get_context_data(**kwargs)
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;p&gt;Since we need to show the list of files &lt;strong&gt;and&lt;/strong&gt; the form to upload them on the same page, we cannot use a &lt;code&gt;CreateView&lt;/code&gt; as is,
-what we need is a &lt;code&gt;CreateView&lt;/code&gt; and &lt;code&gt;ListView&lt;/code&gt; hybrid instead, thus the hack of overriding &lt;code&gt;get_context_data&lt;/code&gt;: we inject the queryset
-in the context so the template can render properly.&lt;/p&gt;
-
-&lt;p&gt;The relevant html code in the template looks like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&lt;ul&gt;
-{% for object in object_list %}
-  &lt;li&gt;
-    &lt;form action=&#34;{% url &#39;delete&#39; object.id %}&#34; method=&#34;post&#34;&gt;{% csrf_token %}
-      &lt;a href=&#34;{{ object.docfile.url }}&#34;&gt;{{ object.docfile.name }}&lt;/a&gt;
-      &lt;input type=&#34;submit&#34; value=&#34;Delete&#34; /&gt;
-    &lt;/form&gt;
-  &lt;/li&gt;
-{% empty %}
-  &lt;li&gt;No documents.&lt;/li&gt;
-{% endfor %}
-&lt;/ul&gt;
-
-&lt;form  enctype=&#34;multipart/form-data&#34; action=&#34;&#34; method=&#34;post&#34;&gt;{% csrf_token %}
-    {{ form.as_p }}
-    &lt;input type=&#34;submit&#34; value=&#34;Upload&#34; /&gt;
-&lt;/form&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;p&gt;Notice we render a form for each file listed, so we can make a &lt;code&gt;POST&lt;/code&gt; request directly, without passing for a confirmation view
-as usual when using &lt;code&gt;DeleteView&lt;/code&gt; generics. Let&amp;rsquo;s see the View code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;class FileRemoveView(DeleteView):
-    model = Document
-    success_url = reverse_lazy(&#39;main&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;p&gt;Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
-is deleted. Wow.&lt;/p&gt;
-
-&lt;h3 id=&#34;the-urls&#34;&gt;The urls&lt;/h3&gt;
-
-&lt;p&gt;Quick and dirty: mount the two views to the urls:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;urlpatterns = patterns(&#39;&#39;,
-    url(r&#39;^$&#39;, FileManagerView.as_view(), name=&#39;main&#39;),
-    url(r&#39;^delete/(?P&lt;pk&gt;\d+)/$&#39;, FileRemoveView.as_view(), name=&#39;delete&#39;),
-)   
-&lt;/code&gt;&lt;/pre&gt;
-
-
-&lt;p&gt;That&amp;rsquo;s all, have fun deploying on App Engine!&lt;/p&gt;
-</description>
+      <description>Intro On of the features of Django Appengine Toolkit is simplifying the work needed to configure Google Cloud Storage as a static files storage for Django applications running on Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
+&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;APPENGINE_TOOLKIT = { &amp;#39;APP_YAML&amp;#39;: os.path.join(BASE_DIR, &amp;#39;app.yaml&amp;#39;), &amp;#39;BUCKET_NAME&amp;#39;: &amp;#39;media-uploads&amp;#39;, } DEFAULT_FILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; STATICFILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt; A complete example This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files.</description>
     </item>
     
   </channel>

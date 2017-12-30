@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
   <meta charset="utf-8">
-  <title> about &middot; /dev/ </title>
+  <title> A Python and a Gopher Walk into a Bar - Embedding Python in Go &middot; /dev/ </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://dev.pippi.im//css/bootstrap.min.css" media="screen">
   <link rel="stylesheet" href="http://dev.pippi.im//css/dev.css">
@@ -32,52 +32,61 @@
   </div>
 </div>
         <div class="container">
-            <h1>about</h1>
+            <h1>A Python and a Gopher Walk into a Bar - Embedding Python in Go</h1>
             <h5 id="wc"> 100 words by masci</h5>
             <div class="row">
                 <div class="post col-lg-8">
-                    
+                    <p>Success stories about rewriting Python applications in Go are not big
+news anymore. The pros and cons are well known, best practices are in
+place, and the standard library is there to help. But what if you want
+to keep some of your Python code? When we chose to port the Datadog
+Agent to Go, we needed to maintain support for our existing library of
+plugins written in Python. During the talk we will share lessons
+learned from our experiences with cgo, the GIL and the quest for
+performance as we bridge multiple languages in a single application.</p>
+
+<div class="embed video-player">
+<iframe class="youtube-player center-block" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/egSvw7xYw9s" allowfullscreen frameborder="0">
+</iframe>
+</div>
+
                     <hr>
-                    <ul class="pager">
-                         &nbsp;<li class="previous"><a href="http://dev.pippi.im/talk/django_17_app_engine/"> Prev</a></li>
-                         &nbsp;<li class="next"><a href="http://dev.pippi.im/talk/code_is_poetry/"> Next</a></li>
-                    </ul>
                 </div>
                 <div class="col-lg-4">
                     <div class="list-group voffset4">
                         <div class="list-group-item">
-                            <h4 class="list-group-item-heading">POSTED</h4>
-                            <p class="list-group-item-text">Fri, Jul 4, 2014</p>
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">TAGS</h4>
+                            
+                            <h4 class="list-group-item-heading">CONFERENCES</h4>
+                            
+                            
+                            <div class="list-group-conference">
+                                <p class="list-group-item-text"><b>GothamGo</b></p>
+                                <p class="list-group-item-text">Thu, Oct 5, 2017</p>
+                            </div>
+                            
+                            <div class="list-group-conference">
+                                <p class="list-group-item-text"><b>PyGotham</b></p>
+                                <p class="list-group-item-text">Fri, Oct 6, 2017</p>
+                            </div>
                             
                         </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">META</h4>
+                            
+                            <p class="list-group-item-text">
+                                <a href="https://speakerdeck.com/masci/a-python-and-a-gopher-walk-into-a-bar-embedding-python-in-go-1">Slides</a>
+                            </p>
+                            
+                            <p class="list-group-item-text">
+                                <a href="https://www.youtube.com/watch?v=egSvw7xYw9s">Video</a>
+                            </p>
+                            
+                        </div>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">LANG</h4>
+                            <p class="list-group-item-text">en</p>
+                        </div>                        
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="post col-lg-8 voffset4">
-                    <div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "dev-pippi" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
                 </div>
             </div>
             <footer>

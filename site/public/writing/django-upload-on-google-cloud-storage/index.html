@@ -44,14 +44,13 @@
 the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
 Google App Engine. Infact all you have to do is writing something like this in your settings.py module:</p>
 
-<pre><code>APPENGINE_TOOLKIT = {
-    'APP_YAML': os.path.join(BASE_DIR, 'app.yaml'),
-    'BUCKET_NAME': 'media-uploads',
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>APPENGINE_TOOLKIT <span style="color:#555">=</span> {
+    <span style="color:#c30"></span><span style="color:#c30">&#39;APP_YAML&#39;</span>: os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(BASE_DIR, <span style="color:#c30"></span><span style="color:#c30">&#39;app.yaml&#39;</span>),
+    <span style="color:#c30"></span><span style="color:#c30">&#39;BUCKET_NAME&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;media-uploads&#39;</span>,
 }
-DEFAULT_FILE_STORAGE = 'appengine_toolkit.storage.GoogleCloudStorage'
-STATICFILE_STORAGE = 'appengine_toolkit.storage.GoogleCloudStorage'
-</code></pre>
-
+DEFAULT_FILE_STORAGE <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
+STATICFILE_STORAGE <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <h2 id="a-complete-example">A complete example</h2>
 
@@ -64,15 +63,14 @@ Now let&rsquo;s take a look at the code.</p>
 
 <h3 id="the-model">The Model</h3>
 
-<pre><code>class Document(models.Model):
-    docfile = models.FileField(upload_to='documents/%Y/%m/%d')
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Document</span>(models<span style="color:#555">.</span>Model):
+    docfile <span style="color:#555">=</span> models<span style="color:#555">.</span>FileField(upload_to<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;documents/%Y/%m/</span><span style="color:#a00">%d</span><span style="color:#c30">&#39;</span>)
 
-    def delete(self, *args, **kwargs):
-        storage, path = self.docfile.storage, self.docfile.path
-        super(Document, self).delete(*args, **kwargs)
-        storage.delete(path)
-</code></pre>
-
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">delete</span>(self, <span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
+        storage, path <span style="color:#555">=</span> self<span style="color:#555">.</span>docfile<span style="color:#555">.</span>storage, self<span style="color:#555">.</span>docfile<span style="color:#555">.</span>path
+        <span style="color:#366">super</span>(Document, self)<span style="color:#555">.</span>delete(<span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs)
+        storage<span style="color:#555">.</span>delete(path)
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>Pretty easy, we have just one field containing the file. Notice the delete method we&rsquo;re going to use so that
 when an instance is deleted, the same will happen to corresponding file on Cloud Storage.</p>
@@ -82,16 +80,15 @@ when an instance is deleted, the same will happen to corresponding file on Cloud
 <p>Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
 the logic for the uploads, form included:</p>
 
-<pre><code>class FileManagerView(CreateView):
-    model = Document
-    success_url = reverse_lazy('main')
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">FileManagerView</span>(CreateView):
+    model <span style="color:#555">=</span> Document
+    success_url <span style="color:#555">=</span> reverse_lazy(<span style="color:#c30"></span><span style="color:#c30">&#39;main&#39;</span>)
 
-    def get_context_data(self, **kwargs):
-        kwargs['object_list'] = Document.objects.all()
-        kwargs['fava'] = 'rava'
-        return super(FileManagerView, self).get_context_data(**kwargs)
-</code></pre>
-
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_context_data</span>(self, <span style="color:#555">**</span>kwargs):
+        kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;object_list&#39;</span>] <span style="color:#555">=</span> Document<span style="color:#555">.</span>objects<span style="color:#555">.</span><span style="color:#366">all</span>()
+        kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;fava&#39;</span>] <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;rava&#39;</span>
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(FileManagerView, self)<span style="color:#555">.</span>get_context_data(<span style="color:#555">**</span>kwargs)
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>Since we need to show the list of files <strong>and</strong> the form to upload them on the same page, we cannot use a <code>CreateView</code> as is,
 what we need is a <code>CreateView</code> and <code>ListView</code> hybrid instead, thus the hack of overriding <code>get_context_data</code>: we inject the queryset
@@ -99,34 +96,32 @@ in the context so the template can render properly.</p>
 
 <p>The relevant html code in the template looks like this:</p>
 
-<pre><code><ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;&lt;<span style="color:#309;font-weight:bold">ul</span>&gt;
 {% for object in object_list %}
-  <li>
-    <form action="{% url 'delete' object.id %}" method="post">{% csrf_token %}
-      <a href="{{ object.docfile.url }}">{{ object.docfile.name }}</a>
-      <input type="submit" value="Delete" />
-    </form>
-  </li>
+  &lt;<span style="color:#309;font-weight:bold">li</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">form</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;{% url &#39;delete&#39; object.id %}&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;post&#34;</span>&gt;{% csrf_token %}
+      &lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;{{ object.docfile.url }}&#34;</span>&gt;{{ object.docfile.name }}&lt;/<span style="color:#309;font-weight:bold">a</span>&gt;
+      &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Delete&#34;</span> /&gt;
+    &lt;/<span style="color:#309;font-weight:bold">form</span>&gt;
+  &lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
 {% empty %}
-  <li>No documents.</li>
+  &lt;<span style="color:#309;font-weight:bold">li</span>&gt;No documents.&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
 {% endfor %}
-</ul>
+&lt;/<span style="color:#309;font-weight:bold">ul</span>&gt;
 
-<form  enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+&lt;<span style="color:#309;font-weight:bold">form</span>  <span style="color:#309">enctype</span><span style="color:#555">=</span><span style="color:#c30">&#34;multipart/form-data&#34;</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;post&#34;</span>&gt;{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Upload" />
-</form>
-</code></pre>
-
+    &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Upload&#34;</span> /&gt;
+&lt;/<span style="color:#309;font-weight:bold">form</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>Notice we render a form for each file listed, so we can make a <code>POST</code> request directly, without passing for a confirmation view
 as usual when using <code>DeleteView</code> generics. Let&rsquo;s see the View code:</p>
 
-<pre><code>class FileRemoveView(DeleteView):
-    model = Document
-    success_url = reverse_lazy('main')
-</code></pre>
-
+<p><div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">FileRemoveView</span>(DeleteView):
+    model <span style="color:#555">=</span> Document
+    success_url <span style="color:#555">=</span> reverse_lazy(<span style="color:#c30"></span><span style="color:#c30">&#39;main&#39;</span>)
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div></p>
 
 <p>Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
 is deleted. Wow.</p>
@@ -135,12 +130,11 @@ is deleted. Wow.</p>
 
 <p>Quick and dirty: mount the two views to the urls:</p>
 
-<pre><code>urlpatterns = patterns('',
-    url(r'^$', FileManagerView.as_view(), name='main'),
-    url(r'^delete/(?P<pk>\d+)/$', FileRemoveView.as_view(), name='delete'),
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>urlpatterns <span style="color:#555">=</span> patterns(<span style="color:#c30"></span><span style="color:#c30">&#39;&#39;</span>,
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^$&#39;</span>, FileManagerView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;main&#39;</span>),
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^delete/(?P&lt;pk&gt;\d+)/$&#39;</span>, FileRemoveView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;delete&#39;</span>),
 )   
-</code></pre>
-
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>That&rsquo;s all, have fun deploying on App Engine!</p>
 
@@ -176,20 +170,25 @@ is deleted. Wow.</p>
             <div class="row">
                 <div class="post col-lg-8 voffset4">
                     <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'dev-pippi';
-    var disqus_identifier = 'http:\/\/dev.pippi.im\/writing\/django-upload-on-google-cloud-storage\/';
-    var disqus_title = 'Uploading files to Google Cloud Storage with Django';
-    var disqus_url = 'http:\/\/dev.pippi.im\/writing\/django-upload-on-google-cloud-storage\/';
-
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dev-pippi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
                 </div>
             </div>
             <footer>

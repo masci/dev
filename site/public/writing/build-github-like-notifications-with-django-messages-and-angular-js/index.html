@@ -33,7 +33,7 @@
 </div>
         <div class="container">
             <h1>Build GitHub like notifications with Django messages and AngularJS</h1>
-            <h5 id="wc"> 1500 words by masci</h5>
+            <h5 id="wc"> 1600 words by masci</h5>
             <div class="row">
                 <div class="post col-lg-8">
                     
@@ -88,30 +88,29 @@ python manage.py startapp notification
 
 <p>Configure all the things! In <code>notification_example/settings.py</code> be sure to have these:</p>
 
-<pre><code>PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>PROJECT_ROOT <span style="color:#555">=</span> os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(os<span style="color:#555">.</span>path<span style="color:#555">.</span>abspath(os<span style="color:#555">.</span>path<span style="color:#555">.</span>dirname(__file__)), <span style="color:#c30"></span><span style="color:#c30">&#39;..&#39;</span>)
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite'),
+DATABASES <span style="color:#555">=</span> {
+    <span style="color:#c30"></span><span style="color:#c30">&#39;default&#39;</span>: {
+        <span style="color:#c30"></span><span style="color:#c30">&#39;ENGINE&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;django.db.backends.sqlite3&#39;</span>,
+        <span style="color:#c30"></span><span style="color:#c30">&#39;NAME&#39;</span>: os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(PROJECT_ROOT, <span style="color:#c30"></span><span style="color:#c30">&#39;db.sqlite&#39;</span>),
     }
 }
 
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'notification',
-    'stored_messages',
-    'rest_framework',
+INSTALLED_APPS <span style="color:#555">=</span> (
+    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.auth&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.contenttypes&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.sessions&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.sites&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.messages&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.staticfiles&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;notification&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;stored_messages&#39;</span>,
+    <span style="color:#c30"></span><span style="color:#c30">&#39;rest_framework&#39;</span>,
 )
 
-MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
-</code></pre>
-
+MESSAGE_STORAGE <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;stored_messages.storage.PersistentStorage&#39;</span>
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>Now let&rsquo;s go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
 logged in user.</p>
@@ -121,27 +120,26 @@ logged in user.</p>
 <p>Django Stored Messages can persist messages only when they are sent to a valid user, and such user has to login for
 viewing the messages, so we provide a login form directly inside the homepage. To produce some notifications, visiting the index will trigger a message as well. The code:</p>
 
-<pre><code>from django.views.generic import FormView
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.messages import add_message
-from django.contrib.auth import login
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">django.views.generic</span> <span style="color:#069;font-weight:bold">import</span> FormView
+<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">django.contrib.auth.forms</span> <span style="color:#069;font-weight:bold">import</span> AuthenticationForm
+<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">django.contrib.messages</span> <span style="color:#069;font-weight:bold">import</span> add_message
+<span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">django.contrib.auth</span> <span style="color:#069;font-weight:bold">import</span> login
 
-import stored_messages
+<span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">stored_messages</span>
 
-class IndexView(FormView):
-    template_name = 'notification/homepage.html'
-    form_class = AuthenticationForm
-    success_url = '/'
+<span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">IndexView</span>(FormView):
+    template_name <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;notification/homepage.html&#39;</span>
+    form_class <span style="color:#555">=</span> AuthenticationForm
+    success_url <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;/&#39;</span>
 
-    def get_context_data(self, **kwargs):
-        add_message(self.request, stored_messages.STORED_INFO, 'You visited the homepage')
-        return super(IndexView, self).get_context_data(**kwargs)
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_context_data</span>(self, <span style="color:#555">**</span>kwargs):
+        add_message(self<span style="color:#555">.</span>request, stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30"></span><span style="color:#c30">&#39;You visited the homepage&#39;</span>)
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(IndexView, self)<span style="color:#555">.</span>get_context_data(<span style="color:#555">**</span>kwargs)
 
-    def form_valid(self, form):
-        login(self.request, form.get_user())
-        return super(IndexView, self).form_valid(form)
-</code></pre>
-
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">form_valid</span>(self, form):
+        login(self<span style="color:#555">.</span>request, form<span style="color:#555">.</span>get_user())
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(IndexView, self)<span style="color:#555">.</span>form_valid(form)
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>We&rsquo;re going to use <em>class based views</em>, of course. Notice Django Stored Messages let us make use of the builtin
 messages api, thus passing in a message of type <code>stored_messages.STORED_INFO</code> will cause that message to be stored on
@@ -154,17 +152,16 @@ will be extended from a <a href="https://github.com/masci/notification_example/b
 <p>This is a simple <code>TemplateView</code>, the only trick here is getting from the urlstring whether user wants to see all the
 notifications or only the <em>unread</em> ones:</p>
 
-<pre><code>from django.views.generic import TemplateView
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">django.views.generic</span> <span style="color:#069;font-weight:bold">import</span> TemplateView
 
-class MessagesView(TemplateView):
-    template_name = 'notification/messages.html'
+<span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">MessagesView</span>(TemplateView):
+    template_name <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;notification/messages.html&#39;</span>
 
-    def get(self, request, *args, **kwargs):
-        if 'unread' in request.GET:  # quick and dirty
-            kwargs['unread'] = True
-        return super(MessagesView, self).get(request, *args, **kwargs)
-</code></pre>
-
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get</span>(self, request, <span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
+        <span style="color:#069;font-weight:bold">if</span> <span style="color:#c30"></span><span style="color:#c30">&#39;unread&#39;</span> <span style="color:#000;font-weight:bold">in</span> request<span style="color:#555">.</span>GET:  <span style="color:#09f;font-style:italic"># quick and dirty</span>
+            kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;unread&#39;</span>] <span style="color:#555">=</span> True
+        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(MessagesView, self)<span style="color:#555">.</span>get(request, <span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs)
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>The view code is rather simple because all the magic is left to Django Stored Messages template tags and its REST api.
 The Html template for the message view will try to mimic GitHub&rsquo;s notification page,
@@ -175,33 +172,31 @@ this is the result:</p>
 
 <p>As you can see from this chunk:</p>
 
-<pre><code><div class="col-md-9">
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;&lt;<span style="color:#309;font-weight:bold">div</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;col-md-9&#34;</span>&gt;
 {% if not unread %}
     {% stored_messages_archive 100 %}
 {% else %}
     ...
 {% endif %}
-</div>
-</code></pre>
-
+&lt;/<span style="color:#309;font-weight:bold">div</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>If user requested the archive (i.e. to show messages that were already read), the template tag
 <code>stored_messages_archive</code> provided by Django Stored Messages will show a list of <code>100</code> messages rendering
 the template at <code>stored_messages/stored_messages_list.html</code>. Here is the template ovverrided to add Bootstrap3 classes:</p>
 
-<pre><code>{% if messages %}
-    <ul class="list-group">
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;{% if messages %}
+    &lt;<span style="color:#309;font-weight:bold">ul</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group&#34;</span>&gt;
         {% for message in messages %}
-            <li class="list-group-item">
+            &lt;<span style="color:#309;font-weight:bold">li</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group-item&#34;</span>&gt;
                 {{ message.message }}
-            </li>
+            &lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
         {% empty %}
-            <li class="list-group-item">No messages here!</li>
+            &lt;<span style="color:#309;font-weight:bold">li</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group-item&#34;</span>&gt;No messages here!&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
         {% endfor %}
-    </ul>
+    &lt;/<span style="color:#309;font-weight:bold">ul</span>&gt;
 {% endif %}
-</code></pre>
-
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>We will get into the details for the <code>else</code> branch in the messages template later.</p>
 
@@ -209,29 +204,27 @@ the template at <code>stored_messages/stored_messages_list.html</code>. Here is 
 
 <p>Nothing special here but notice the inclusion of the REST api urls coming from <code>stored_messages</code> package:</p>
 
-<pre><code>urlpatterns = patterns('',
-    url(r'^logout/$', 'django.contrib.auth.views.logout',  {'next_page': '/'}, name='logout'),
-    url(r'^$', IndexView.as_view(), name='home'),
-    url(r'^messages/$', MessagesView.as_view(), name='messages'),
-    url(r'^api/', include('stored_messages.urls')),
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>urlpatterns <span style="color:#555">=</span> patterns(<span style="color:#c30"></span><span style="color:#c30">&#39;&#39;</span>,
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^logout/$&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.auth.views.logout&#39;</span>,  {<span style="color:#c30"></span><span style="color:#c30">&#39;next_page&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;/&#39;</span>}, name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;logout&#39;</span>),
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^$&#39;</span>, IndexView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;home&#39;</span>),
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^messages/$&#39;</span>, MessagesView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;messages&#39;</span>),
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^api/&#39;</span>, include(<span style="color:#c30"></span><span style="color:#c30">&#39;stored_messages.urls&#39;</span>)),
 )
-</code></pre>
-
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <h2 id="final-touches">Final touches</h2>
 
 <p>To add some noise to the notification stream, we will add messages for the user when she logs in and out:</p>
 
-<pre><code>def _user_logged_in(*args, **kwargs):
-    add_message(kwargs['request'], stored_messages.STORED_INFO, 'You were logged in!')
-user_logged_in.connect(_user_logged_in)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">_user_logged_in</span>(<span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
+    add_message(kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;request&#39;</span>], stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30"></span><span style="color:#c30">&#39;You were logged in!&#39;</span>)
+user_logged_in<span style="color:#555">.</span>connect(_user_logged_in)
 
 
-def _user_logged_out(*args, **kwargs):
-    add_message(kwargs['request'], stored_messages.STORED_INFO, 'You were logged out!')
-user_logged_out.connect(_user_logged_out)
-</code></pre>
-
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">_user_logged_out</span>(<span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
+    add_message(kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;request&#39;</span>], stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30"></span><span style="color:#c30">&#39;You were logged out!&#39;</span>)
+user_logged_out<span style="color:#555">.</span>connect(_user_logged_out)
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>The Django app is complete now, time for some Javascript code!</p>
 
@@ -241,74 +234,69 @@ user_logged_out.connect(_user_logged_out)
 which let us retrieve unread messages and mark them as read. To interact with the api we use
 <a href="http://angularjs.org/">Angular</a>, for the sake of simplicity we use a single controller:</p>
 
-<pre><code>var messageApp = angular.module('messageApp', []);
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">var</span> messageApp <span style="color:#555">=</span> angular.module(<span style="color:#c30">&#39;messageApp&#39;</span>, []);
 
-messageApp.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
-    // Messages array
-    $scope.messages = {};
+messageApp.controller(<span style="color:#c30">&#39;MainCtrl&#39;</span>, [<span style="color:#c30">&#39;$scope&#39;</span>, <span style="color:#c30">&#39;$http&#39;</span>, <span style="color:#069;font-weight:bold">function</span> ($scope, $http) {
+    <span style="color:#09f;font-style:italic">// Messages array
+</span><span style="color:#09f;font-style:italic"></span>    $scope.messages <span style="color:#555">=</span> {};
 
-    // ...
-}]);
-</code></pre>
-
+    <span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span>}]);
+<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
 
 <p>Notice the injection of the <code>$http</code> object we will use to make http requests. The messages array will be filled with
 data coming from the api, then it will be available through the <code>$scope</code> object. For the angular application to work
 properly, the html code in our templates needs to be aware of the angular stuff - we do this in the <code>base.html</code> so that
 every page could use angular facilities:</p>
 
-<pre><code><!DOCTYPE html>
-<html ng-app="messageApp">
-    <head>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;<span style="color:#099">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">ng-app</span><span style="color:#555">=</span><span style="color:#c30">&#34;messageApp&#34;</span>&gt;
+    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
     ...
-</code></pre>
-
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>and:</p>
 
-<pre><code>...
-</head>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;...
+&lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
 
-<body ng-controller="MainCtrl">
-    <!-- navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+&lt;<span style="color:#309;font-weight:bold">body</span> <span style="color:#309">ng-controller</span><span style="color:#555">=</span><span style="color:#c30">&#34;MainCtrl&#34;</span>&gt;
+    <span style="color:#09f;font-style:italic">&lt;!-- navbar --&gt;</span>
+    &lt;<span style="color:#309;font-weight:bold">div</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;navbar navbar-inverse navbar-fixed-top&#34;</span>&gt;
     ...
-</code></pre>
-
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>Inside the controller, this code will be added to retrieve all the unread messages for the logged-in user:</p>
 
-<pre><code>// ...
-
-// retrieve Messages from the restAPI
-$http({
-    method: 'GET',
-    url: '//127.0.0.1:8000/api/inbox/'
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#09f;font-style:italic">// retrieve Messages from the restAPI
+</span><span style="color:#09f;font-style:italic"></span>$http({
+    method<span style="color:#555">:</span> <span style="color:#c30">&#39;GET&#39;</span>,
+    url<span style="color:#555">:</span> <span style="color:#c30">&#39;//127.0.0.1:8000/api/inbox/&#39;</span>
 })
-.success(function (data, status, headers, config) {
-    $scope.messages = data;
+.success(<span style="color:#069;font-weight:bold">function</span> (data, status, headers, config) {
+    $scope.messages <span style="color:#555">=</span> data;
 })
-.error(function (data, status, headers, config) {
-    // something went wrong :(
-});
+.error(<span style="color:#069;font-weight:bold">function</span> (data, status, headers, config) {
+    <span style="color:#09f;font-style:italic">// something went wrong :(
+</span><span style="color:#09f;font-style:italic"></span>});
 
-// ...
-</code></pre>
-
+<span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
 
 <p>If everything goes fine, <code>$scope.messages</code> will contain our messages and we can use them inside the DOM. To do this, we
 need some angularities inside the html, for example in the <code>message.html</code> template:</p>
 
-<pre><code>{% verbatim %}
-<ul class="list-group" ng-if="messages.length">
-  <li class="list-group-item" ng-repeat="message in messages">
-    {{ message.message.date | date:'MMM d, y h:mm:ss a' }} - {{ message.message.message }}
-      <a ng-click="markRead($index)" style="cursor:pointer">Mark as read</a>
-  </li>
-</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;{% verbatim %}
+&lt;<span style="color:#309;font-weight:bold">ul</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group&#34;</span> <span style="color:#309">ng-if</span><span style="color:#555">=</span><span style="color:#c30">&#34;messages.length&#34;</span>&gt;
+  &lt;<span style="color:#309;font-weight:bold">li</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group-item&#34;</span> <span style="color:#309">ng-repeat</span><span style="color:#555">=</span><span style="color:#c30">&#34;message in messages&#34;</span>&gt;
+    {{ message.message.date | date:&#39;MMM d, y h:mm:ss a&#39; }} - {{ message.message.message }}
+      &lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">ng-click</span><span style="color:#555">=</span><span style="color:#c30">&#34;markRead($index)&#34;</span> <span style="color:#309">style</span><span style="color:#555">=</span><span style="color:#c30">&#34;cursor:pointer&#34;</span>&gt;Mark as read&lt;/<span style="color:#309;font-weight:bold">a</span>&gt;
+  &lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">ul</span>&gt;
 {% endverbatim %}
-</code></pre>
-
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>The <code>ng-if</code> attribute determines if we have some messages to show. If we do have, the <code>ng-repeat</code> attribute will take
 care of iterating the messages and show them in the DOM through angular&rsquo;s template tags.</p>
@@ -319,35 +307,33 @@ be changed in angular but it&rsquo;s not generally advisable) we need to wrap an
 </blockquote>
 
 <p>In the html code above notice this:
-<pre><code><a ng-click="markRead($index)" style="cursor:pointer">Mark as read</a>
-</code></pre>
-</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;&lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">ng-click</span><span style="color:#555">=</span><span style="color:#c30">&#34;markRead($index)&#34;</span> <span style="color:#309">style</span><span style="color:#555">=</span><span style="color:#c30">&#34;cursor:pointer&#34;</span>&gt;Mark as read&lt;/<span style="color:#309;font-weight:bold">a</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div></p>
 
 <p>For every unread message, we provide a link and we tell angular that when user clicks it (<code>ng-click</code> attribute) the
 function <code>markRead()</code> has to be called with the parameter <code>$index</code>. We define that function inside the angular
 controller and attach it to the <code>$scope</code>:</p>
 
-<pre><code>// ...
-
-// mark messages read
-$scope.markRead = function (index) {
-    var id = $scope.messages[index].id;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#09f;font-style:italic">// mark messages read
+</span><span style="color:#09f;font-style:italic"></span>$scope.markRead <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> (index) {
+    <span style="color:#069;font-weight:bold">var</span> id <span style="color:#555">=</span> $scope.messages[index].id;
     $http({
-        method: 'POST',
-        url: '//127.0.0.1:8000/api/inbox/'+id+'/read/',
-        xsrfHeaderName: 'X-CSRFToken',
-        xsrfCookieName: 'csrftoken'
+        method<span style="color:#555">:</span> <span style="color:#c30">&#39;POST&#39;</span>,
+        url<span style="color:#555">:</span> <span style="color:#c30">&#39;//127.0.0.1:8000/api/inbox/&#39;</span><span style="color:#555">+</span>id<span style="color:#555">+</span><span style="color:#c30">&#39;/read/&#39;</span>,
+        xsrfHeaderName<span style="color:#555">:</span> <span style="color:#c30">&#39;X-CSRFToken&#39;</span>,
+        xsrfCookieName<span style="color:#555">:</span> <span style="color:#c30">&#39;csrftoken&#39;</span>
     })
-    .success(function (data, status, headers, config) {
-        $scope.messages.splice(index, 1);
+    .success(<span style="color:#069;font-weight:bold">function</span> (data, status, headers, config) {
+        $scope.messages.splice(index, <span style="color:#f60">1</span>);
     })
-    .error(function (data, status, headers, config) {
-        // something went wrong :(
-    })
+    .error(<span style="color:#069;font-weight:bold">function</span> (data, status, headers, config) {
+        <span style="color:#09f;font-style:italic">// something went wrong :(
+</span><span style="color:#09f;font-style:italic"></span>    })
 };
-// ...
-</code></pre>
-
+<span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
 
 <p>The parameter passed to <code>$http</code> contains all the logic needed to retrieve the csrf token from user&rsquo;s cookie and pass it
 to Django inside the <code>X-CSRFToken</code> header. For my experience, I&rsquo;ve never seen an easier way to do this (thank you so
@@ -359,33 +345,31 @@ DOM manipulation. Just fun.</p>
 <p>Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
 The code for the button is very similar to the one to mark messages read:</p>
 
-<pre><code><button type="button" class="btn btn-success" ng-click="markAllRead()">Mark all read</button>
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;&lt;<span style="color:#309;font-weight:bold">button</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;button&#34;</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;btn btn-success&#34;</span> <span style="color:#309">ng-click</span><span style="color:#555">=</span><span style="color:#c30">&#34;markAllRead()&#34;</span>&gt;Mark all read&lt;/<span style="color:#309;font-weight:bold">button</span>&gt;
+&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>This time the function name is <code>markAllRead</code> and we call it without parameters; the function is defined inside the
 controller:</p>
 
-<pre><code>// ...
-
-// mark all read
-$scope.markAllRead = function () {
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#09f;font-style:italic">// mark all read
+</span><span style="color:#09f;font-style:italic"></span>$scope.markAllRead <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">function</span> () {
     $http({
-        method: 'POST',
-        url: '//127.0.0.1:8000/api/mark_all_read/',
-        xsrfHeaderName: 'X-CSRFToken',
-        xsrfCookieName: 'csrftoken'
+        method<span style="color:#555">:</span> <span style="color:#c30">&#39;POST&#39;</span>,
+        url<span style="color:#555">:</span> <span style="color:#c30">&#39;//127.0.0.1:8000/api/mark_all_read/&#39;</span>,
+        xsrfHeaderName<span style="color:#555">:</span> <span style="color:#c30">&#39;X-CSRFToken&#39;</span>,
+        xsrfCookieName<span style="color:#555">:</span> <span style="color:#c30">&#39;csrftoken&#39;</span>
     })
-    .success(function(data, status, headers, config) {
-        $scope.messages.splice(0, $scope.messages.length);
+    .success(<span style="color:#069;font-weight:bold">function</span>(data, status, headers, config) {
+        $scope.messages.splice(<span style="color:#f60">0</span>, $scope.messages.length);
     })
-    .error(function(data, status, headers, config){
-        // something went wrong :(
-    })
+    .error(<span style="color:#069;font-weight:bold">function</span>(data, status, headers, config){
+        <span style="color:#09f;font-style:italic">// something went wrong :(
+</span><span style="color:#09f;font-style:italic"></span>    })
 };
-// ...
-</code></pre>
-
+<span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
 
 <p>The csrf boilerplate is the same (for the record, this could be easily avoided using some advanced angular features)
 and the logic is very similar: in case the request succeeded, the array of messages is cleared and the DOM reflects the
@@ -426,20 +410,25 @@ changes automagically.</p>
             <div class="row">
                 <div class="post col-lg-8 voffset4">
                     <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'dev-pippi';
-    var disqus_identifier = 'http:\/\/dev.pippi.im\/writing\/build-github-like-notifications-with-django-messages-and-angular-js\/';
-    var disqus_title = 'Build GitHub like notifications with Django messages and AngularJS';
-    var disqus_url = 'http:\/\/dev.pippi.im\/writing\/build-github-like-notifications-with-django-messages-and-angular-js\/';
-
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dev-pippi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
                 </div>
             </div>
             <footer>
