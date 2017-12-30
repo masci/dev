@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://dev.pippi.im/talk/how_to_port_your_Python_software_to_Go/</loc>
+    <loc>http://dev.pippi.im/talk/a-python-and-a-gopher/</loc>
+    <lastmod>2017-12-30T23:33:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://dev.pippi.im/talk/how_to_port_your_python_software_to_go/</loc>
     <lastmod>2017-01-24T11:30:00+00:00</lastmod>
   </url>
   
@@ -83,7 +89,7 @@
   
   <url>
     <loc>http://dev.pippi.im/</loc>
-    <lastmod>2017-01-24T11:30:00+00:00</lastmod>
+    <lastmod>2017-12-30T23:33:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -108,6 +114,11 @@
   <url>
     <loc>http://dev.pippi.im/tags/blogging/</loc>
     <lastmod>2013-08-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://dev.pippi.im/categories/</loc>
     <priority>0</priority>
   </url>
   
@@ -173,12 +184,13 @@
   
   <url>
     <loc>http://dev.pippi.im/tags/</loc>
+    <lastmod>2013-10-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://dev.pippi.im/talk/</loc>
-    <lastmod>2017-01-24T11:30:00+00:00</lastmod>
+    <lastmod>2017-12-30T23:33:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   

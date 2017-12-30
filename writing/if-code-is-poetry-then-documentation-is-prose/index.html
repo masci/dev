@@ -81,22 +81,20 @@ fact? Hell, no!</p>
 
 <p>Now what about something like this:</p>
 
-<pre><code>lock = threading.lock()
-lock.acquire()
-try:
-    print("Let's get critical")
-finally:
-    lock.release()
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>lock <span style="color:#555">=</span> threading<span style="color:#555">.</span>lock()
+lock<span style="color:#555">.</span>acquire()
+<span style="color:#069;font-weight:bold">try</span>:
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;Let&#39;s get critical&#34;</span>)
+<span style="color:#069;font-weight:bold">finally</span>:
+    lock<span style="color:#555">.</span>release()
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?</p>
 
-<pre><code>lock = threading.lock()
-with lock:
-    print("Let's get critical")
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>lock <span style="color:#555">=</span> threading<span style="color:#555">.</span>lock()
+<span style="color:#069;font-weight:bold">with</span> lock:
+    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30"></span><span style="color:#c30">&#34;Let&#39;s get critical&#34;</span>)
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
 form of poetry, or at least that it&rsquo;s possible to write code in a poetic fashion.</p>
@@ -127,14 +125,13 @@ a sudden silence: I was healed.
 <p>As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
 Let&rsquo;s see an example of well written code:</p>
 
-<pre><code>from itertools import chain, islice
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">itertools</span> <span style="color:#069;font-weight:bold">import</span> chain, islice
 
-def chunks(iterable, size, format=iter):
-    it = iter(iterable)
-    while True:
-        yield format(chain((it.next(),), islice(it, size - 1)))
-</code></pre>
-
+<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">chunks</span>(iterable, size, format<span style="color:#555">=</span><span style="color:#366">iter</span>):
+    it <span style="color:#555">=</span> <span style="color:#366">iter</span>(iterable)
+    <span style="color:#069;font-weight:bold">while</span> True:
+        <span style="color:#069;font-weight:bold">yield</span> format(chain((it<span style="color:#555">.</span><span style="color:#366">next</span>(),), islice(it, size <span style="color:#555">-</span> <span style="color:#f60">1</span>)))
+<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <blockquote>
 <p>Ok, give me a sec&hellip;</p>
@@ -218,20 +215,25 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
             <div class="row">
                 <div class="post col-lg-8 voffset4">
                     <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'dev-pippi';
-    var disqus_identifier = 'http:\/\/dev.pippi.im\/writing\/if-code-is-poetry-then-documentation-is-prose\/';
-    var disqus_title = 'If code is poetry, then documentation is prose';
-    var disqus_url = 'http:\/\/dev.pippi.im\/writing\/if-code-is-poetry-then-documentation-is-prose\/';
-
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dev-pippi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
                 </div>
             </div>
             <footer>
