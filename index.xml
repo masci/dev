@@ -6,7 +6,7 @@
     <description>Recent content on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Dec 2017 23:33:29 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jan 2017 11:30:00 +0000</lastBuildDate>
     
 	<atom:link href="http://dev.pippi.im/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,20 +14,12 @@
     <item>
       <title>A Python and a Gopher Walk into a Bar - Embedding Python in Go</title>
       <link>http://dev.pippi.im/talk/a-python-and-a-gopher/</link>
-      <pubDate>Sat, 30 Dec 2017 23:33:29 +0100</pubDate>
-      
-      <guid>http://dev.pippi.im/talk/a-python-and-a-gopher/</guid>
-      <description>Success stories about rewriting Python applications in Go are not big news anymore. The pros and cons are well known, best practices are in place, and the standard library is there to help. But what if you want to keep some of your Python code? When we chose to port the Datadog Agent to Go, we needed to maintain support for our existing library of plugins written in Python. During the talk we will share lessons learned from our experiences with cgo, the GIL and the quest for performance as we bridge multiple languages in a single application.</description>
-    </item>
-    
-    <item>
-      <title>How to port your Python software to Go without people noticing - a real story</title>
-      <link>http://dev.pippi.im/talk/how_to_port_your_python_software_to_go/</link>
       <pubDate>Tue, 24 Jan 2017 11:30:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/how_to_port_your_python_software_to_go/</guid>
-      <description>Success stories about rewriting Python applications in Go are not big news anymore. The pros and cons are well known, best practices are in place, the standard library is there to help. But what if there’s some Python code you would like to keep or worse, some you can’t get rid of?
-When we chose to port the Datadog Agent to Go, we had a requirement to maintain our plugin system in Python.</description>
+      <guid>http://dev.pippi.im/talk/a-python-and-a-gopher/</guid>
+      <description>Success stories about rewriting Python applications in Go are not big news anymore. The pros and cons are well known, best practices are in place, and the standard library is there to help.
+But what if you want to keep some of your Python code? When we chose to port the Datadog Agent to Go, we needed to maintain support for our existing library of plugins written in Python.
+During the talk we will share lessons learned from our experiences with cgo, the GIL and the quest for performance as we bridge multiple languages in a single application.</description>
     </item>
     
     <item>
