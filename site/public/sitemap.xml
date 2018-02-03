@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://dev.pippi.im/writing/manage-with-trello/</loc>
+    <lastmod>2018-02-03T16:47:03+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://dev.pippi.im/writing/protobuf-python/</loc>
     <lastmod>2017-06-08T00:00:00+01:00</lastmod>
   </url>
@@ -89,7 +94,13 @@
   
   <url>
     <loc>http://dev.pippi.im/</loc>
-    <lastmod>2017-06-08T00:00:00+01:00</lastmod>
+    <lastmod>2018-02-03T16:47:03+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://dev.pippi.im/tags/agile/</loc>
+    <lastmod>2018-02-03T16:47:03+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -159,6 +170,12 @@
   </url>
   
   <url>
+    <loc>http://dev.pippi.im/tags/management/</loc>
+    <lastmod>2018-02-03T16:47:03+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://dev.pippi.im/tags/oauth2/</loc>
     <lastmod>2013-11-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -190,13 +207,19 @@
   
   <url>
     <loc>http://dev.pippi.im/tags/</loc>
-    <lastmod>2013-10-22T00:00:00+00:00</lastmod>
+    <lastmod>2018-02-03T16:47:03+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://dev.pippi.im/talk/</loc>
     <lastmod>2017-01-24T11:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://dev.pippi.im/tags/trello/</loc>
+    <lastmod>2018-02-03T16:47:03+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -208,7 +231,7 @@
   
   <url>
     <loc>http://dev.pippi.im/writing/</loc>
-    <lastmod>2017-06-08T00:00:00+01:00</lastmod>
+    <lastmod>2018-02-03T16:47:03+01:00</lastmod>
     <priority>0</priority>
   </url>
   
