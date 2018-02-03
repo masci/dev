@@ -6,10 +6,19 @@
     <description>Recent content in Writings on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jun 2017 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 03 Feb 2018 16:47:03 +0100</lastBuildDate>
     
 	<atom:link href="http://dev.pippi.im/writing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How I manage a small team with the help of Trello</title>
+      <link>http://dev.pippi.im/writing/manage-with-trello/</link>
+      <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/manage-with-trello/</guid>
+      <description>This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&amp;rsquo;ll see how I didn&amp;rsquo;t invent anything and how this is only &amp;ldquo;yet another way&amp;rdquo; of composing existing tools and practices in order to implement a process that works for me.</description>
+    </item>
     
     <item>
       <title>Protobuf parsing in Python</title>
