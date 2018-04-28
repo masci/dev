@@ -6,10 +6,19 @@
     <description>Recent content in Writings on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Feb 2018 16:47:03 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 16 Apr 2018 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="http://dev.pippi.im/writing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cgo and Python</title>
+      <link>http://dev.pippi.im/writing/cgo-and-python/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0100</pubDate>
+      
+      <guid>http://dev.pippi.im/writing/cgo-and-python/</guid>
+      <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.</description>
+    </item>
     
     <item>
       <title>How I manage a small team with the help of Trello</title>
