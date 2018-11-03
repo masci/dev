@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Angularjs on /dev/</title>
-    <link>http://dev.pippi.im/tags/angularjs/</link>
+    <link>https://dev.pippi.im/tags/angularjs/</link>
     <description>Recent content in Angularjs on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 22 Oct 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://dev.pippi.im/tags/angularjs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dev.pippi.im/tags/angularjs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <link>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
       <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <guid>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>Foreword GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which remains unread until you actually read it; then it&amp;rsquo;s archived and removed from your inbox, which it happens could remain empty:
 For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called Message Framework and you can find it in the contrib package.</description>
     </item>
