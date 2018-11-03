@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{ template "theme/partials/head.html" . }}
+    {{ partial "head.html" . }}
     <body>
-        {{ template "theme/partials/navbar.html" . }}
+        {{ partial "navbar.html" . }}
         <div class="container">
             <h1>{{ .Title }}</h1>
             <div class="row">
@@ -19,8 +19,8 @@
                     </ul>
                 </div>
             </div>
-            {{ template "theme/partials/footer.html" . }}
+            {{ partial "footer.html" . }}
         </div>
-        {{ template "theme/partials/js.html" . }}
+        {{ partial "js.html" . }}
     </body>
 </html>
