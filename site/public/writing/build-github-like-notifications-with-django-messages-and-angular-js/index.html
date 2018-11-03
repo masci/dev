@@ -12,9 +12,6 @@
   
   
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  
   <link href="" rel="alternate" type="application/rss+xml" title="/dev/" />
 </head>
 
@@ -88,28 +85,28 @@ python manage.py startapp notification
 
 <p>Configure all the things! In <code>notification_example/settings.py</code> be sure to have these:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>PROJECT_ROOT <span style="color:#555">=</span> os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(os<span style="color:#555">.</span>path<span style="color:#555">.</span>abspath(os<span style="color:#555">.</span>path<span style="color:#555">.</span>dirname(__file__)), <span style="color:#c30"></span><span style="color:#c30">&#39;..&#39;</span>)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>PROJECT_ROOT <span style="color:#555">=</span> os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(os<span style="color:#555">.</span>path<span style="color:#555">.</span>abspath(os<span style="color:#555">.</span>path<span style="color:#555">.</span>dirname(__file__)), <span style="color:#c30">&#39;..&#39;</span>)
 
 DATABASES <span style="color:#555">=</span> {
-    <span style="color:#c30"></span><span style="color:#c30">&#39;default&#39;</span>: {
-        <span style="color:#c30"></span><span style="color:#c30">&#39;ENGINE&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;django.db.backends.sqlite3&#39;</span>,
-        <span style="color:#c30"></span><span style="color:#c30">&#39;NAME&#39;</span>: os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(PROJECT_ROOT, <span style="color:#c30"></span><span style="color:#c30">&#39;db.sqlite&#39;</span>),
+    <span style="color:#c30">&#39;default&#39;</span>: {
+        <span style="color:#c30">&#39;ENGINE&#39;</span>: <span style="color:#c30">&#39;django.db.backends.sqlite3&#39;</span>,
+        <span style="color:#c30">&#39;NAME&#39;</span>: os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(PROJECT_ROOT, <span style="color:#c30">&#39;db.sqlite&#39;</span>),
     }
 }
 
 INSTALLED_APPS <span style="color:#555">=</span> (
-    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.auth&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.contenttypes&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.sessions&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.sites&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.messages&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.staticfiles&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;notification&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;stored_messages&#39;</span>,
-    <span style="color:#c30"></span><span style="color:#c30">&#39;rest_framework&#39;</span>,
+    <span style="color:#c30">&#39;django.contrib.auth&#39;</span>,
+    <span style="color:#c30">&#39;django.contrib.contenttypes&#39;</span>,
+    <span style="color:#c30">&#39;django.contrib.sessions&#39;</span>,
+    <span style="color:#c30">&#39;django.contrib.sites&#39;</span>,
+    <span style="color:#c30">&#39;django.contrib.messages&#39;</span>,
+    <span style="color:#c30">&#39;django.contrib.staticfiles&#39;</span>,
+    <span style="color:#c30">&#39;notification&#39;</span>,
+    <span style="color:#c30">&#39;stored_messages&#39;</span>,
+    <span style="color:#c30">&#39;rest_framework&#39;</span>,
 )
 
-MESSAGE_STORAGE <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;stored_messages.storage.PersistentStorage&#39;</span>
+MESSAGE_STORAGE <span style="color:#555">=</span> <span style="color:#c30">&#39;stored_messages.storage.PersistentStorage&#39;</span>
 <span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
 <p>Now let&rsquo;s go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
@@ -128,12 +125,12 @@ viewing the messages, so we provide a login form directly inside the homepage. T
 <span style="color:#069;font-weight:bold">import</span> <span style="color:#0cf;font-weight:bold">stored_messages</span>
 
 <span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">IndexView</span>(FormView):
-    template_name <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;notification/homepage.html&#39;</span>
+    template_name <span style="color:#555">=</span> <span style="color:#c30">&#39;notification/homepage.html&#39;</span>
     form_class <span style="color:#555">=</span> AuthenticationForm
-    success_url <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;/&#39;</span>
+    success_url <span style="color:#555">=</span> <span style="color:#c30">&#39;/&#39;</span>
 
     <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_context_data</span>(self, <span style="color:#555">**</span>kwargs):
-        add_message(self<span style="color:#555">.</span>request, stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30"></span><span style="color:#c30">&#39;You visited the homepage&#39;</span>)
+        add_message(self<span style="color:#555">.</span>request, stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30">&#39;You visited the homepage&#39;</span>)
         <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(IndexView, self)<span style="color:#555">.</span>get_context_data(<span style="color:#555">**</span>kwargs)
 
     <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">form_valid</span>(self, form):
@@ -155,11 +152,11 @@ notifications or only the <em>unread</em> ones:</p>
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">django.views.generic</span> <span style="color:#069;font-weight:bold">import</span> TemplateView
 
 <span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">MessagesView</span>(TemplateView):
-    template_name <span style="color:#555">=</span> <span style="color:#c30"></span><span style="color:#c30">&#39;notification/messages.html&#39;</span>
+    template_name <span style="color:#555">=</span> <span style="color:#c30">&#39;notification/messages.html&#39;</span>
 
     <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get</span>(self, request, <span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
-        <span style="color:#069;font-weight:bold">if</span> <span style="color:#c30"></span><span style="color:#c30">&#39;unread&#39;</span> <span style="color:#000;font-weight:bold">in</span> request<span style="color:#555">.</span>GET:  <span style="color:#09f;font-style:italic"># quick and dirty</span>
-            kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;unread&#39;</span>] <span style="color:#555">=</span> True
+        <span style="color:#069;font-weight:bold">if</span> <span style="color:#c30">&#39;unread&#39;</span> <span style="color:#000;font-weight:bold">in</span> request<span style="color:#555">.</span>GET:  <span style="color:#09f;font-style:italic"># quick and dirty</span>
+            kwargs[<span style="color:#c30">&#39;unread&#39;</span>] <span style="color:#555">=</span> True
         <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(MessagesView, self)<span style="color:#555">.</span>get(request, <span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs)
 <span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
@@ -172,13 +169,13 @@ this is the result:</p>
 
 <p>As you can see from this chunk:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;&lt;<span style="color:#309;font-weight:bold">div</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;col-md-9&#34;</span>&gt;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;<span style="color:#999;font-weight:bold">&amp;lt;</span>div class=<span style="color:#999;font-weight:bold">&amp;quot;</span>col-md-9<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
 {% if not unread %}
     {% stored_messages_archive 100 %}
 {% else %}
     ...
 {% endif %}
-&lt;/<span style="color:#309;font-weight:bold">div</span>&gt;
+<span style="color:#999;font-weight:bold">&amp;lt;</span>/div<span style="color:#999;font-weight:bold">&amp;gt;</span>
 &lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>If user requested the archive (i.e. to show messages that were already read), the template tag
@@ -186,15 +183,15 @@ this is the result:</p>
 the template at <code>stored_messages/stored_messages_list.html</code>. Here is the template ovverrided to add Bootstrap3 classes:</p>
 
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;{% if messages %}
-    &lt;<span style="color:#309;font-weight:bold">ul</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group&#34;</span>&gt;
+    <span style="color:#999;font-weight:bold">&amp;lt;</span>ul class=<span style="color:#999;font-weight:bold">&amp;quot;</span>list-group<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
         {% for message in messages %}
-            &lt;<span style="color:#309;font-weight:bold">li</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group-item&#34;</span>&gt;
+            <span style="color:#999;font-weight:bold">&amp;lt;</span>li class=<span style="color:#999;font-weight:bold">&amp;quot;</span>list-group-item<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
                 {{ message.message }}
-            &lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+            <span style="color:#999;font-weight:bold">&amp;lt;</span>/li<span style="color:#999;font-weight:bold">&amp;gt;</span>
         {% empty %}
-            &lt;<span style="color:#309;font-weight:bold">li</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group-item&#34;</span>&gt;No messages here!&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+            <span style="color:#999;font-weight:bold">&amp;lt;</span>li class=<span style="color:#999;font-weight:bold">&amp;quot;</span>list-group-item<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>No messages here!<span style="color:#999;font-weight:bold">&amp;lt;</span>/li<span style="color:#999;font-weight:bold">&amp;gt;</span>
         {% endfor %}
-    &lt;/<span style="color:#309;font-weight:bold">ul</span>&gt;
+    <span style="color:#999;font-weight:bold">&amp;lt;</span>/ul<span style="color:#999;font-weight:bold">&amp;gt;</span>
 {% endif %}
 &lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
@@ -204,11 +201,11 @@ the template at <code>stored_messages/stored_messages_list.html</code>. Here is 
 
 <p>Nothing special here but notice the inclusion of the REST api urls coming from <code>stored_messages</code> package:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>urlpatterns <span style="color:#555">=</span> patterns(<span style="color:#c30"></span><span style="color:#c30">&#39;&#39;</span>,
-    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^logout/$&#39;</span>, <span style="color:#c30"></span><span style="color:#c30">&#39;django.contrib.auth.views.logout&#39;</span>,  {<span style="color:#c30"></span><span style="color:#c30">&#39;next_page&#39;</span>: <span style="color:#c30"></span><span style="color:#c30">&#39;/&#39;</span>}, name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;logout&#39;</span>),
-    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^$&#39;</span>, IndexView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;home&#39;</span>),
-    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^messages/$&#39;</span>, MessagesView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30"></span><span style="color:#c30">&#39;messages&#39;</span>),
-    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^api/&#39;</span>, include(<span style="color:#c30"></span><span style="color:#c30">&#39;stored_messages.urls&#39;</span>)),
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>urlpatterns <span style="color:#555">=</span> patterns(<span style="color:#c30">&#39;&#39;</span>,
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^logout/$&#39;</span>, <span style="color:#c30">&#39;django.contrib.auth.views.logout&#39;</span>,  {<span style="color:#c30">&#39;next_page&#39;</span>: <span style="color:#c30">&#39;/&#39;</span>}, name<span style="color:#555">=</span><span style="color:#c30">&#39;logout&#39;</span>),
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^$&#39;</span>, IndexView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30">&#39;home&#39;</span>),
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^messages/$&#39;</span>, MessagesView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30">&#39;messages&#39;</span>),
+    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^api/&#39;</span>, include(<span style="color:#c30">&#39;stored_messages.urls&#39;</span>)),
 )
 <span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
@@ -217,12 +214,12 @@ the template at <code>stored_messages/stored_messages_list.html</code>. Here is 
 <p>To add some noise to the notification stream, we will add messages for the user when she logs in and out:</p>
 
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">_user_logged_in</span>(<span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
-    add_message(kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;request&#39;</span>], stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30"></span><span style="color:#c30">&#39;You were logged in!&#39;</span>)
+    add_message(kwargs[<span style="color:#c30">&#39;request&#39;</span>], stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30">&#39;You were logged in!&#39;</span>)
 user_logged_in<span style="color:#555">.</span>connect(_user_logged_in)
 
 
 <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">_user_logged_out</span>(<span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
-    add_message(kwargs[<span style="color:#c30"></span><span style="color:#c30">&#39;request&#39;</span>], stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30"></span><span style="color:#c30">&#39;You were logged out!&#39;</span>)
+    add_message(kwargs[<span style="color:#c30">&#39;request&#39;</span>], stored_messages<span style="color:#555">.</span>STORED_INFO, <span style="color:#c30">&#39;You were logged out!&#39;</span>)
 user_logged_out<span style="color:#555">.</span>connect(_user_logged_out)
 <span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
 
@@ -242,27 +239,28 @@ messageApp.controller(<span style="color:#c30">&#39;MainCtrl&#39;</span>, [<span
 
     <span style="color:#09f;font-style:italic">// ...
 </span><span style="color:#09f;font-style:italic"></span>}]);
-<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
+<span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span>
+</code></pre></div>
 
 <p>Notice the injection of the <code>$http</code> object we will use to make http requests. The messages array will be filled with
 data coming from the api, then it will be available through the <code>$scope</code> object. For the angular application to work
 properly, the html code in our templates needs to be aware of the angular stuff - we do this in the <code>base.html</code> so that
 every page could use angular facilities:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;<span style="color:#099">&lt;!DOCTYPE html&gt;</span>
-&lt;<span style="color:#309;font-weight:bold">html</span> <span style="color:#309">ng-app</span><span style="color:#555">=</span><span style="color:#c30">&#34;messageApp&#34;</span>&gt;
-    &lt;<span style="color:#309;font-weight:bold">head</span>&gt;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;<span style="color:#999;font-weight:bold">&amp;lt;</span>!DOCTYPE html<span style="color:#999;font-weight:bold">&amp;gt;</span>
+<span style="color:#999;font-weight:bold">&amp;lt;</span>html ng-app=<span style="color:#999;font-weight:bold">&amp;quot;</span>messageApp<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
+    <span style="color:#999;font-weight:bold">&amp;lt;</span>head<span style="color:#999;font-weight:bold">&amp;gt;</span>
     ...
 &lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>and:</p>
 
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;...
-&lt;/<span style="color:#309;font-weight:bold">head</span>&gt;
+<span style="color:#999;font-weight:bold">&amp;lt;</span>/head<span style="color:#999;font-weight:bold">&amp;gt;</span>
 
-&lt;<span style="color:#309;font-weight:bold">body</span> <span style="color:#309">ng-controller</span><span style="color:#555">=</span><span style="color:#c30">&#34;MainCtrl&#34;</span>&gt;
-    <span style="color:#09f;font-style:italic">&lt;!-- navbar --&gt;</span>
-    &lt;<span style="color:#309;font-weight:bold">div</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;navbar navbar-inverse navbar-fixed-top&#34;</span>&gt;
+<span style="color:#999;font-weight:bold">&amp;lt;</span>body ng-controller=<span style="color:#999;font-weight:bold">&amp;quot;</span>MainCtrl<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
+    <span style="color:#999;font-weight:bold">&amp;lt;</span>!-- navbar --<span style="color:#999;font-weight:bold">&amp;gt;</span>
+    <span style="color:#999;font-weight:bold">&amp;lt;</span>div class=<span style="color:#999;font-weight:bold">&amp;quot;</span>navbar navbar-inverse navbar-fixed-top<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
     ...
 &lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
@@ -283,18 +281,19 @@ every page could use angular facilities:</p>
 </span><span style="color:#09f;font-style:italic"></span>});
 
 <span style="color:#09f;font-style:italic">// ...
-</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span>
+</code></pre></div>
 
 <p>If everything goes fine, <code>$scope.messages</code> will contain our messages and we can use them inside the DOM. To do this, we
 need some angularities inside the html, for example in the <code>message.html</code> template:</p>
 
 <div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;{% verbatim %}
-&lt;<span style="color:#309;font-weight:bold">ul</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group&#34;</span> <span style="color:#309">ng-if</span><span style="color:#555">=</span><span style="color:#c30">&#34;messages.length&#34;</span>&gt;
-  &lt;<span style="color:#309;font-weight:bold">li</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;list-group-item&#34;</span> <span style="color:#309">ng-repeat</span><span style="color:#555">=</span><span style="color:#c30">&#34;message in messages&#34;</span>&gt;
+<span style="color:#999;font-weight:bold">&amp;lt;</span>ul class=<span style="color:#999;font-weight:bold">&amp;quot;</span>list-group<span style="color:#999;font-weight:bold">&amp;quot;</span> ng-if=<span style="color:#999;font-weight:bold">&amp;quot;</span>messages.length<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
+  <span style="color:#999;font-weight:bold">&amp;lt;</span>li class=<span style="color:#999;font-weight:bold">&amp;quot;</span>list-group-item<span style="color:#999;font-weight:bold">&amp;quot;</span> ng-repeat=<span style="color:#999;font-weight:bold">&amp;quot;</span>message in messages<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>
     {{ message.message.date | date:&#39;MMM d, y h:mm:ss a&#39; }} - {{ message.message.message }}
-      &lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">ng-click</span><span style="color:#555">=</span><span style="color:#c30">&#34;markRead($index)&#34;</span> <span style="color:#309">style</span><span style="color:#555">=</span><span style="color:#c30">&#34;cursor:pointer&#34;</span>&gt;Mark as read&lt;/<span style="color:#309;font-weight:bold">a</span>&gt;
-  &lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
-&lt;/<span style="color:#309;font-weight:bold">ul</span>&gt;
+      <span style="color:#999;font-weight:bold">&amp;lt;</span>a ng-click=<span style="color:#999;font-weight:bold">&amp;quot;</span>markRead($index)<span style="color:#999;font-weight:bold">&amp;quot;</span> style=<span style="color:#999;font-weight:bold">&amp;quot;</span>cursor:pointer<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>Mark as read<span style="color:#999;font-weight:bold">&amp;lt;</span>/a<span style="color:#999;font-weight:bold">&amp;gt;</span>
+  <span style="color:#999;font-weight:bold">&amp;lt;</span>/li<span style="color:#999;font-weight:bold">&amp;gt;</span>
+<span style="color:#999;font-weight:bold">&amp;lt;</span>/ul<span style="color:#999;font-weight:bold">&amp;gt;</span>
 {% endverbatim %}
 &lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
@@ -307,7 +306,7 @@ be changed in angular but it&rsquo;s not generally advisable) we need to wrap an
 </blockquote>
 
 <p>In the html code above notice this:
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;&lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">ng-click</span><span style="color:#555">=</span><span style="color:#c30">&#34;markRead($index)&#34;</span> <span style="color:#309">style</span><span style="color:#555">=</span><span style="color:#c30">&#34;cursor:pointer&#34;</span>&gt;Mark as read&lt;/<span style="color:#309;font-weight:bold">a</span>&gt;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;<span style="color:#999;font-weight:bold">&amp;lt;</span>a ng-click=<span style="color:#999;font-weight:bold">&amp;quot;</span>markRead($index)<span style="color:#999;font-weight:bold">&amp;quot;</span> style=<span style="color:#999;font-weight:bold">&amp;quot;</span>cursor:pointer<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>Mark as read<span style="color:#999;font-weight:bold">&amp;lt;</span>/a<span style="color:#999;font-weight:bold">&amp;gt;</span>
 &lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div></p>
 
 <p>For every unread message, we provide a link and we tell angular that when user clicks it (<code>ng-click</code> attribute) the
@@ -333,7 +332,8 @@ controller and attach it to the <code>$scope</code>:</p>
 </span><span style="color:#09f;font-style:italic"></span>    })
 };
 <span style="color:#09f;font-style:italic">// ...
-</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span>
+</code></pre></div>
 
 <p>The parameter passed to <code>$http</code> contains all the logic needed to retrieve the csrf token from user&rsquo;s cookie and pass it
 to Django inside the <code>X-CSRFToken</code> header. For my experience, I&rsquo;ve never seen an easier way to do this (thank you so
@@ -345,7 +345,7 @@ DOM manipulation. Just fun.</p>
 <p>Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
 The code for the button is very similar to the one to mark messages read:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;&lt;<span style="color:#309;font-weight:bold">button</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;button&#34;</span> <span style="color:#309">class</span><span style="color:#555">=</span><span style="color:#c30">&#34;btn btn-success&#34;</span> <span style="color:#309">ng-click</span><span style="color:#555">=</span><span style="color:#c30">&#34;markAllRead()&#34;</span>&gt;Mark all read&lt;/<span style="color:#309;font-weight:bold">button</span>&gt;
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;<span style="color:#999;font-weight:bold">&amp;lt;</span>button type=<span style="color:#999;font-weight:bold">&amp;quot;</span>button<span style="color:#999;font-weight:bold">&amp;quot;</span> class=<span style="color:#999;font-weight:bold">&amp;quot;</span>btn btn-success<span style="color:#999;font-weight:bold">&amp;quot;</span> ng-click=<span style="color:#999;font-weight:bold">&amp;quot;</span>markAllRead()<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>Mark all read<span style="color:#999;font-weight:bold">&amp;lt;</span>/button<span style="color:#999;font-weight:bold">&amp;gt;</span>
 &lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
 
 <p>This time the function name is <code>markAllRead</code> and we call it without parameters; the function is defined inside the
@@ -369,7 +369,8 @@ controller:</p>
 </span><span style="color:#09f;font-style:italic"></span>    })
 };
 <span style="color:#09f;font-style:italic">// ...
-</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span></code></pre></div>
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/code&gt;&lt;/pre&gt;</span>
+</code></pre></div>
 
 <p>The csrf boilerplate is the same (for the record, this could be easily avoided using some advanced angular features)
 and the logic is very similar: in case the request succeeded, the array of messages is cleared and the DOM reflects the
@@ -410,7 +411,7 @@ changes automagically.</p>
             <div class="row">
                 <div class="post col-lg-8 voffset4">
                     <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
