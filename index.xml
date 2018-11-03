@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>/dev/</title>
-    <link>http://dev.pippi.im/</link>
+    <link>https://dev.pippi.im/</link>
     <description>Recent content on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Oct 2018 11:30:00 +0000</lastBuildDate>
     
-	<atom:link href="http://dev.pippi.im/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dev.pippi.im/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Project Layout Patterns in Go</title>
-      <link>http://dev.pippi.im/talk/project-layout-patterns-in-go/</link>
+      <link>https://dev.pippi.im/talk/project-layout-patterns-in-go/</link>
       <pubDate>Mon, 22 Oct 2018 11:30:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/project-layout-patterns-in-go/</guid>
+      <guid>https://dev.pippi.im/talk/project-layout-patterns-in-go/</guid>
       <description>You completed the tour, learned the language, got your pet project on Github. Time to start a new project, a big one: how do you organize code, tests, docs? During the talk I’ll try to save you some trial and error by sharing the lessons learned during a year spent coding a non trivial Go project.
 There’s no silver bullet to organize a non trivial Golang project, only good practices and experience.</description>
     </item>
     
     <item>
       <title>Cgo and Python</title>
-      <link>http://dev.pippi.im/writing/cgo-and-python/</link>
+      <link>https://dev.pippi.im/writing/cgo-and-python/</link>
       <pubDate>Mon, 16 Apr 2018 00:00:00 +0100</pubDate>
       
-      <guid>http://dev.pippi.im/writing/cgo-and-python/</guid>
+      <guid>https://dev.pippi.im/writing/cgo-and-python/</guid>
       <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.
 If you look at the new Datadog Agent, you might notice most of the codebase is written in Go, although the checks we use to gather metrics are still written in Python. This is possible because the Datadog Agent, a regular Go binary, embeds a CPython interpreter that can be called whenever it needs to execute Python code.</description>
     </item>
     
     <item>
       <title>How I manage a small team with the help of Trello</title>
-      <link>http://dev.pippi.im/writing/manage-with-trello/</link>
+      <link>https://dev.pippi.im/writing/manage-with-trello/</link>
       <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
       
-      <guid>http://dev.pippi.im/writing/manage-with-trello/</guid>
+      <guid>https://dev.pippi.im/writing/manage-with-trello/</guid>
       <description>This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&amp;rsquo;ll see how I didn&amp;rsquo;t invent anything and how this is only &amp;ldquo;yet another way&amp;rdquo; of composing existing tools and practices in order to implement a process that works for me.</description>
     </item>
     
     <item>
       <title>Protobuf parsing in Python</title>
-      <link>http://dev.pippi.im/writing/protobuf-python/</link>
+      <link>https://dev.pippi.im/writing/protobuf-python/</link>
       <pubDate>Thu, 08 Jun 2017 00:00:00 +0100</pubDate>
       
-      <guid>http://dev.pippi.im/writing/protobuf-python/</guid>
+      <guid>https://dev.pippi.im/writing/protobuf-python/</guid>
       <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.
 Recently we extended the Datadog Agent to support extracting additional metrics from Kubernetes using the kube-state-metrics service. Metrics are exported through an HTTP API that supports content negotiation so that one can choose between having the response body in plain text format or as a binary stream encoded using Protocol buffers.
 Binary formats are generally assumed to be faster and more efficient, but being Datadog we wanted to see the data and quantify the improvement.</description>
@@ -53,10 +53,10 @@ Binary formats are generally assumed to be faster and more efficient, but being 
     
     <item>
       <title>A Python and a Gopher Walk into a Bar - Embedding Python in Go</title>
-      <link>http://dev.pippi.im/talk/a-python-and-a-gopher/</link>
+      <link>https://dev.pippi.im/talk/a-python-and-a-gopher/</link>
       <pubDate>Tue, 24 Jan 2017 11:30:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/a-python-and-a-gopher/</guid>
+      <guid>https://dev.pippi.im/talk/a-python-and-a-gopher/</guid>
       <description>Success stories about rewriting Python applications in Go are not big news anymore. The pros and cons are well known, best practices are in place, and the standard library is there to help.
 But what if you want to keep some of your Python code? When we chose to port the Datadog Agent to Go, we needed to maintain support for our existing library of plugins written in Python.
 During the talk we will share lessons learned from our experiences with cgo, the GIL and the quest for performance as we bridge multiple languages in a single application.</description>
@@ -64,146 +64,146 @@ During the talk we will share lessons learned from our experiences with cgo, the
     
     <item>
       <title>Python - Go One Way</title>
-      <link>http://dev.pippi.im/talk/python_go_one_way/</link>
+      <link>https://dev.pippi.im/talk/python_go_one_way/</link>
       <pubDate>Fri, 04 Dec 2015 11:30:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/python_go_one_way/</guid>
+      <guid>https://dev.pippi.im/talk/python_go_one_way/</guid>
       <description>Rumor has it recently that a growing number of Python developers are migrating to Go through an impressive series of success stories; even if we don&amp;rsquo;t know the real numbers and it&amp;rsquo;s difficult to make a detailed picture of this phenomenon, the fact that Python devs are interested in Go is out of the question, just go to some mailing list, blog or Twitter account and check out yourself.
 During the talk we will see what Go can offer that is so attractive for a Pythonista to make them migrate code, tools, behaviours.</description>
     </item>
     
     <item>
       <title>How we stopped using the mouse and started drawing molecules with our fingertips</title>
-      <link>http://dev.pippi.im/talk/how_we_stopped_using_the_mouse_and_started_drawing_molecules_with_our_fingertips/</link>
+      <link>https://dev.pippi.im/talk/how_we_stopped_using_the_mouse_and_started_drawing_molecules_with_our_fingertips/</link>
       <pubDate>Tue, 06 Oct 2015 13:30:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/how_we_stopped_using_the_mouse_and_started_drawing_molecules_with_our_fingertips/</guid>
+      <guid>https://dev.pippi.im/talk/how_we_stopped_using_the_mouse_and_started_drawing_molecules_with_our_fingertips/</guid>
       <description>Porting to mobile a Qt desktop application that lets you draw molecules, crunches numbers, stores data, displays plot and graphs it’s something that goes far beyond converting a QWidget to a Qml component. You have to change user&amp;rsquo;s perspective, merging what they expect from a mobile application with what they expect from a scientific software. You have to outsource heavy computational parts and data storage. You have to code from scratch components that don’t exist yet in the Qml ecosystem.</description>
     </item>
     
     <item>
       <title>Django 1.7 on App Engine: it could work!</title>
-      <link>http://dev.pippi.im/talk/django_17_app_engine/</link>
+      <link>https://dev.pippi.im/talk/django_17_app_engine/</link>
       <pubDate>Wed, 27 May 2015 11:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/django_17_app_engine/</guid>
+      <guid>https://dev.pippi.im/talk/django_17_app_engine/</guid>
       <description>Django was actively supported at an early stage of the Python runtime in App Engine SDK through the notable django-nonrel framework, a fork of the original project that adds support for NoSql databases. But starting from the App Engine SDK 1.6.2, released more than two years ago, you can instead deploy Django’s official releases and take advantages from the whole stack of the framework.
 In less than half an hour we’ll see how we can easily deploy the latest version of Django on the Google Cloud Platform, taking advantage of the tools and services provided by App Engine, Cloud SQL and Cloud Storage.</description>
     </item>
     
     <item>
       <title>about</title>
-      <link>http://dev.pippi.im/page/about/</link>
+      <link>https://dev.pippi.im/page/about/</link>
       <pubDate>Fri, 04 Jul 2014 09:35:49 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/page/about/</guid>
+      <guid>https://dev.pippi.im/page/about/</guid>
       <description></description>
     </item>
     
     <item>
       <title>If code is poetry, then documentation is prose</title>
-      <link>http://dev.pippi.im/talk/code_is_poetry/</link>
+      <link>https://dev.pippi.im/talk/code_is_poetry/</link>
       <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/code_is_poetry/</guid>
+      <guid>https://dev.pippi.im/talk/code_is_poetry/</guid>
       <description>Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness; but without good documentation that explains what it does, you will likely end up with unsatisfied users or no users at all.
 If anyone had told me I would have spent more time writing documentation than coding, I would not have believed it, but that was before I discovered a simple but powerful law: “more documentation, more users, more contributors”.</description>
     </item>
     
     <item>
       <title>Se il codice è poesia, la documentazione è prosa</title>
-      <link>http://dev.pippi.im/talk/codice_poesia/</link>
+      <link>https://dev.pippi.im/talk/codice_poesia/</link>
       <pubDate>Sat, 24 May 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/codice_poesia/</guid>
+      <guid>https://dev.pippi.im/talk/codice_poesia/</guid>
       <description>Perché sarà pur vero che il codice ha l&amp;rsquo;eleganza del verso, può avere un suo ritmo e la sua espressività, ma senza una buona documentazione che ne spieghi il funzionamento, difficilmente avrete degli utenti soddisfatti.
 Se mi avessero detto che avrei finito con lo spendere molto più tempo sulla documentazione di un progetto che sul codice non ci avrei mai creduto, ma era prima di scoprire la semplice e potente implicazione &amp;ldquo;più documentazione, più utenti, più contributor&amp;rdquo;.</description>
     </item>
     
     <item>
       <title>If code is poetry, then documentation is prose</title>
-      <link>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</link>
+      <link>https://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</link>
       <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</guid>
+      <guid>https://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/</guid>
       <description>What is poetry? Before starting, let’s agree on some terminology. Obviously poetry is a literary form, a way to write down things I would say, but how do you recognize it, how can you say that is poetry and this is not? Well, according to my literary heritage (I’m italian) something is poetry when it has verse, rhyme and stanza; let’s see what they are and how we can recognize them.</description>
     </item>
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
+      <link>https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
       <description>Intro On of the features of Django Appengine Toolkit is simplifying the work needed to configure Google Cloud Storage as a static files storage for Django applications running on Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
 &amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;APPENGINE_TOOLKIT = { &amp;#39;APP_YAML&amp;#39;: os.path.join(BASE_DIR, &amp;#39;app.yaml&amp;#39;), &amp;#39;BUCKET_NAME&amp;#39;: &amp;#39;media-uploads&amp;#39;, } DEFAULT_FILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; STATICFILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt; A complete example This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files.</description>
     </item>
     
     <item>
       <title>Full­stack developer with Django and AngularJS</title>
-      <link>http://dev.pippi.im/talk/fullstack_angular_django/</link>
+      <link>https://dev.pippi.im/talk/fullstack_angular_django/</link>
       <pubDate>Sat, 26 Apr 2014 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/fullstack_angular_django/</guid>
+      <guid>https://dev.pippi.im/talk/fullstack_angular_django/</guid>
       <description>Durante il codelab ciascun partecipante vestirà i panni del full-stack developer, facendosi carico di tutti gli aspetti di un’applicazione web a partire dal backend per arrivare al frontend e curando tutti i dettagli di integrazione.
 La parte backend verrà sviluppata in linguaggio Python utilizzando Django, noto framework per lo sviluppo di applicazioni web caratterizzato da un ampio set di funzionalità che agevolano lo sviluppo rapido di applicazioni con architettura REST.</description>
     </item>
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <link>https://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <guid>https://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>Intro Django was actively supported at an early stage of the Python runtime in App Engine SDK through the notable django-nonrel framework, a fork of the original project that adds support for NoSql databases. But starting from the App Engine SDK 1.6.2, released more than two years ago, you can instead deploy Django&amp;rsquo;s official releases and take advantages from the whole stack using Google Cloud Sql.
 Case study We&amp;rsquo;re going to setup a minimal project using Zinnia, a blog engine built on top of Django and a fairly complex web application that leverages several components of the framework, a good benchmark for showing how easy can be deploying on App Engine.</description>
     </item>
     
     <item>
       <title>Make your Pony fly with Google App Engine</title>
-      <link>http://dev.pippi.im/talk/make_your_pony_fly/</link>
+      <link>https://dev.pippi.im/talk/make_your_pony_fly/</link>
       <pubDate>Sat, 16 Nov 2013 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/make_your_pony_fly/</guid>
+      <guid>https://dev.pippi.im/talk/make_your_pony_fly/</guid>
       <description>Django sta emergendo come framework di riferimento per lo sviluppo di applicazioni web in linguaggio Python; è facile da usare ed offre un set di funzionalità &amp;ldquo;full stack&amp;rdquo; che consente tra le altre cose lo sviluppo rapido di backend con architettura REST.
 Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l&amp;rsquo;arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.</description>
     </item>
     
     <item>
       <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
-      <link>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <link>https://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
       <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <guid>https://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
       <description>Who said authentication? If you have an HTTP endpoint which requires authentication, chances are that you&amp;rsquo;re using HTTP Basic auth or Digest. This was the case, you should immediately stop asking users for their passwords - let&amp;rsquo;s see why.
 It&amp;rsquo;s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the transmission occurs over SSL and it has some pros: it&amp;rsquo;s easy to implement and it uses the well known HTTP Authorization header, largely supported by almost all the HTTP clients out in the wild.</description>
     </item>
     
     <item>
       <title>Build GitHub like notifications with Django messages and AngularJS</title>
-      <link>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <link>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
       <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <guid>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
       <description>Foreword GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which remains unread until you actually read it; then it&amp;rsquo;s archived and removed from your inbox, which it happens could remain empty:
 For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called Message Framework and you can find it in the contrib package.</description>
     </item>
     
     <item>
       <title>Moving to Jekyll</title>
-      <link>http://dev.pippi.im/writing/moving-to-jekyll/</link>
+      <link>https://dev.pippi.im/writing/moving-to-jekyll/</link>
       <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/moving-to-jekyll/</guid>
+      <guid>https://dev.pippi.im/writing/moving-to-jekyll/</guid>
       <description>I started writing on a personal blog in November, 2006 and I choose a Wordpress instance at wordrpess.com at the time, because it was easy and it was free. My old blog consists of 79 articles in more than six years and considering the most of them are just suggested links or citations, it&amp;rsquo;s not much work in the end. Anyway, I&amp;rsquo;m trying to start this whole thing again so I registered a personal domain to host my stuff and take a look at Wordpress alternatives.</description>
     </item>
     
     <item>
       <title>Vintage Web Programming with Python</title>
-      <link>http://dev.pippi.im/talk/vintage_web_programming_python/</link>
+      <link>https://dev.pippi.im/talk/vintage_web_programming_python/</link>
       <pubDate>Sat, 30 Mar 2013 15:06:44 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/talk/vintage_web_programming_python/</guid>
+      <guid>https://dev.pippi.im/talk/vintage_web_programming_python/</guid>
       <description>Perche sprecare memoria e cicli macchina per produrre ad ogni richiesta dei client le pagine di un sito web? Un sito statico e sorprendentemente veloce, parco nei consumi delle risorse macchina e facile da installare anche nelle situazioni di web hosting piu` difficili. Mostreremo come un generatore di pagine statiche (acrylamid) unito ad uno dei linguaggi di templating html piu potenti sulla piazza (jinja2) possa generare siti tecnologicamente all’avanguardia e veloci come nessun framework dinamico potrebbe mai essere.</description>
     </item>
     

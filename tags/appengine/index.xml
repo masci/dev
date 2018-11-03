@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Appengine on /dev/</title>
-    <link>http://dev.pippi.im/tags/appengine/</link>
+    <link>https://dev.pippi.im/tags/appengine/</link>
     <description>Recent content in Appengine on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://dev.pippi.im/tags/appengine/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dev.pippi.im/tags/appengine/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Uploading files to Google Cloud Storage with Django</title>
-      <link>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
+      <link>https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
+      <guid>https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
       <description>Intro On of the features of Django Appengine Toolkit is simplifying the work needed to configure Google Cloud Storage as a static files storage for Django applications running on Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
 &amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;APPENGINE_TOOLKIT = { &amp;#39;APP_YAML&amp;#39;: os.path.join(BASE_DIR, &amp;#39;app.yaml&amp;#39;), &amp;#39;BUCKET_NAME&amp;#39;: &amp;#39;media-uploads&amp;#39;, } DEFAULT_FILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; STATICFILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt; A complete example This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files.</description>
     </item>
     
     <item>
       <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
-      <link>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <link>https://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
       <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <guid>https://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
       <description>Intro Django was actively supported at an early stage of the Python runtime in App Engine SDK through the notable django-nonrel framework, a fork of the original project that adds support for NoSql databases. But starting from the App Engine SDK 1.6.2, released more than two years ago, you can instead deploy Django&amp;rsquo;s official releases and take advantages from the whole stack using Google Cloud Sql.
 Case study We&amp;rsquo;re going to setup a minimal project using Zinnia, a blog engine built on top of Django and a fairly complex web application that leverages several components of the framework, a good benchmark for showing how easy can be deploying on App Engine.</description>
     </item>
