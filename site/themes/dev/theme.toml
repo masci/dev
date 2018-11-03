@@ -8,7 +8,7 @@ features = ["blog", ]
 [author]
     name = "masci"
     email = "mpippi@gmail.com"
-    url = "http://dev.pippi.im"
+    url = "https://dev.pippi.im"
 
 [original]
     author =  "Bootswatch"
