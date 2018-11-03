@@ -17,7 +17,8 @@
       <pubDate>Mon, 16 Apr 2018 00:00:00 +0100</pubDate>
       
       <guid>http://dev.pippi.im/writing/cgo-and-python/</guid>
-      <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.</description>
+      <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.
+If you look at the new Datadog Agent, you might notice most of the codebase is written in Go, although the checks we use to gather metrics are still written in Python. This is possible because the Datadog Agent, a regular Go binary, embeds a CPython interpreter that can be called whenever it needs to execute Python code.</description>
     </item>
     
     <item>
@@ -35,7 +36,9 @@
       <pubDate>Thu, 08 Jun 2017 00:00:00 +0100</pubDate>
       
       <guid>http://dev.pippi.im/writing/protobuf-python/</guid>
-      <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.</description>
+      <description>This blog post was hosted in the Datadog Engineering Blog, you can read it here.
+Recently we extended the Datadog Agent to support extracting additional metrics from Kubernetes using the kube-state-metrics service. Metrics are exported through an HTTP API that supports content negotiation so that one can choose between having the response body in plain text format or as a binary stream encoded using Protocol buffers.
+Binary formats are generally assumed to be faster and more efficient, but being Datadog we wanted to see the data and quantify the improvement.</description>
     </item>
     
     <item>

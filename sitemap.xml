@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://dev.pippi.im/talk/project-layout-patterns-in-go/</loc>
+    <lastmod>2018-10-22T11:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://dev.pippi.im/writing/cgo-and-python/</loc>
     <lastmod>2018-04-16T00:00:00+01:00</lastmod>
   </url>
@@ -99,7 +104,7 @@
   
   <url>
     <loc>http://dev.pippi.im/</loc>
-    <lastmod>2018-04-16T00:00:00+01:00</lastmod>
+    <lastmod>2018-10-22T11:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -230,7 +235,7 @@
   
   <url>
     <loc>http://dev.pippi.im/talk/</loc>
-    <lastmod>2017-01-24T11:30:00+00:00</lastmod>
+    <lastmod>2018-10-22T11:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

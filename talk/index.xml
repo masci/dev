@@ -6,10 +6,20 @@
     <description>Recent content in Talks on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jan 2017 11:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Oct 2018 11:30:00 +0000</lastBuildDate>
     
 	<atom:link href="http://dev.pippi.im/talk/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Layout Patterns in Go</title>
+      <link>http://dev.pippi.im/talk/project-layout-patterns-in-go/</link>
+      <pubDate>Mon, 22 Oct 2018 11:30:00 +0000</pubDate>
+      
+      <guid>http://dev.pippi.im/talk/project-layout-patterns-in-go/</guid>
+      <description>You completed the tour, learned the language, got your pet project on Github. Time to start a new project, a big one: how do you organize code, tests, docs? During the talk I’ll try to save you some trial and error by sharing the lessons learned during a year spent coding a non trivial Go project.
+There’s no silver bullet to organize a non trivial Golang project, only good practices and experience.</description>
+    </item>
     
     <item>
       <title>A Python and a Gopher Walk into a Bar - Embedding Python in Go</title>
