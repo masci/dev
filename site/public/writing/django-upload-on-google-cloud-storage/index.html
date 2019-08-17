@@ -41,13 +41,12 @@
 the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
 Google App Engine. Infact all you have to do is writing something like this in your settings.py module:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>APPENGINE_TOOLKIT <span style="color:#555">=</span> {
-    <span style="color:#c30">&#39;APP_YAML&#39;</span>: os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(BASE_DIR, <span style="color:#c30">&#39;app.yaml&#39;</span>),
-    <span style="color:#c30">&#39;BUCKET_NAME&#39;</span>: <span style="color:#c30">&#39;media-uploads&#39;</span>,
-}
-DEFAULT_FILE_STORAGE <span style="color:#555">=</span> <span style="color:#c30">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
-STATICFILE_STORAGE <span style="color:#555">=</span> <span style="color:#c30">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
-<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    APPENGINE_TOOLKIT <span style="color:#555">=</span> {
+        <span style="color:#c30">&#39;APP_YAML&#39;</span>: os<span style="color:#555">.</span>path<span style="color:#555">.</span>join(BASE_DIR, <span style="color:#c30">&#39;app.yaml&#39;</span>),
+        <span style="color:#c30">&#39;BUCKET_NAME&#39;</span>: <span style="color:#c30">&#39;media-uploads&#39;</span>,
+    }
+    DEFAULT_FILE_STORAGE <span style="color:#555">=</span> <span style="color:#c30">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
+    STATICFILE_STORAGE <span style="color:#555">=</span> <span style="color:#c30">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span></code></pre></div>
 
 <h2 id="a-complete-example">A complete example</h2>
 
@@ -60,14 +59,13 @@ Now let&rsquo;s take a look at the code.</p>
 
 <h3 id="the-model">The Model</h3>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Document</span>(models<span style="color:#555">.</span>Model):
-    docfile <span style="color:#555">=</span> models<span style="color:#555">.</span>FileField(upload_to<span style="color:#555">=</span><span style="color:#c30">&#39;documents/%Y/%m/</span><span style="color:#a00">%d</span><span style="color:#c30">&#39;</span>)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">Document</span>(models<span style="color:#555">.</span>Model):
+        docfile <span style="color:#555">=</span> models<span style="color:#555">.</span>FileField(upload_to<span style="color:#555">=</span><span style="color:#c30">&#39;documents/%Y/%m/</span><span style="color:#a00">%d</span><span style="color:#c30">&#39;</span>)
 
-    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">delete</span>(self, <span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
-        storage, path <span style="color:#555">=</span> self<span style="color:#555">.</span>docfile<span style="color:#555">.</span>storage, self<span style="color:#555">.</span>docfile<span style="color:#555">.</span>path
-        <span style="color:#366">super</span>(Document, self)<span style="color:#555">.</span>delete(<span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs)
-        storage<span style="color:#555">.</span>delete(path)
-<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
+        <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">delete</span>(self, <span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs):
+            storage, path <span style="color:#555">=</span> self<span style="color:#555">.</span>docfile<span style="color:#555">.</span>storage, self<span style="color:#555">.</span>docfile<span style="color:#555">.</span>path
+            <span style="color:#366">super</span>(Document, self)<span style="color:#555">.</span>delete(<span style="color:#555">*</span>args, <span style="color:#555">**</span>kwargs)
+            storage<span style="color:#555">.</span>delete(path)</code></pre></div>
 
 <p>Pretty easy, we have just one field containing the file. Notice the delete method we&rsquo;re going to use so that
 when an instance is deleted, the same will happen to corresponding file on Cloud Storage.</p>
@@ -77,15 +75,14 @@ when an instance is deleted, the same will happen to corresponding file on Cloud
 <p>Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
 the logic for the uploads, form included:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">FileManagerView</span>(CreateView):
-    model <span style="color:#555">=</span> Document
-    success_url <span style="color:#555">=</span> reverse_lazy(<span style="color:#c30">&#39;main&#39;</span>)
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">FileManagerView</span>(CreateView):
+        model <span style="color:#555">=</span> Document
+        success_url <span style="color:#555">=</span> reverse_lazy(<span style="color:#c30">&#39;main&#39;</span>)
 
-    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_context_data</span>(self, <span style="color:#555">**</span>kwargs):
-        kwargs[<span style="color:#c30">&#39;object_list&#39;</span>] <span style="color:#555">=</span> Document<span style="color:#555">.</span>objects<span style="color:#555">.</span><span style="color:#366">all</span>()
-        kwargs[<span style="color:#c30">&#39;fava&#39;</span>] <span style="color:#555">=</span> <span style="color:#c30">&#39;rava&#39;</span>
-        <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(FileManagerView, self)<span style="color:#555">.</span>get_context_data(<span style="color:#555">**</span>kwargs)
-<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
+        <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">get_context_data</span>(self, <span style="color:#555">**</span>kwargs):
+            kwargs[<span style="color:#c30">&#39;object_list&#39;</span>] <span style="color:#555">=</span> Document<span style="color:#555">.</span>objects<span style="color:#555">.</span><span style="color:#366">all</span>()
+            kwargs[<span style="color:#c30">&#39;fava&#39;</span>] <span style="color:#555">=</span> <span style="color:#c30">&#39;rava&#39;</span>
+            <span style="color:#069;font-weight:bold">return</span> <span style="color:#366">super</span>(FileManagerView, self)<span style="color:#555">.</span>get_context_data(<span style="color:#555">**</span>kwargs)</code></pre></div>
 
 <p>Since we need to show the list of files <strong>and</strong> the form to upload them on the same page, we cannot use a <code>CreateView</code> as is,
 what we need is a <code>CreateView</code> and <code>ListView</code> hybrid instead, thus the hack of overriding <code>get_context_data</code>: we inject the queryset
@@ -93,32 +90,30 @@ in the context so the template can render properly.</p>
 
 <p>The relevant html code in the template looks like this:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#309;font-weight:bold">pre</span>&gt;&lt;<span style="color:#309;font-weight:bold">code</span>&gt;<span style="color:#999;font-weight:bold">&amp;lt;</span>ul<span style="color:#999;font-weight:bold">&amp;gt;</span>
-{% for object in object_list %}
-  <span style="color:#999;font-weight:bold">&amp;lt;</span>li<span style="color:#999;font-weight:bold">&amp;gt;</span>
-    <span style="color:#999;font-weight:bold">&amp;lt;</span>form action=<span style="color:#999;font-weight:bold">&amp;quot;</span>{% url &#39;delete&#39; object.id %}<span style="color:#999;font-weight:bold">&amp;quot;</span> method=<span style="color:#999;font-weight:bold">&amp;quot;</span>post<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>{% csrf_token %}
-      <span style="color:#999;font-weight:bold">&amp;lt;</span>a href=<span style="color:#999;font-weight:bold">&amp;quot;</span>{{ object.docfile.url }}<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>{{ object.docfile.name }}<span style="color:#999;font-weight:bold">&amp;lt;</span>/a<span style="color:#999;font-weight:bold">&amp;gt;</span>
-      <span style="color:#999;font-weight:bold">&amp;lt;</span>input type=<span style="color:#999;font-weight:bold">&amp;quot;</span>submit<span style="color:#999;font-weight:bold">&amp;quot;</span> value=<span style="color:#999;font-weight:bold">&amp;quot;</span>Delete<span style="color:#999;font-weight:bold">&amp;quot;</span> /<span style="color:#999;font-weight:bold">&amp;gt;</span>
-    <span style="color:#999;font-weight:bold">&amp;lt;</span>/form<span style="color:#999;font-weight:bold">&amp;gt;</span>
-  <span style="color:#999;font-weight:bold">&amp;lt;</span>/li<span style="color:#999;font-weight:bold">&amp;gt;</span>
-{% empty %}
-  <span style="color:#999;font-weight:bold">&amp;lt;</span>li<span style="color:#999;font-weight:bold">&amp;gt;</span>No documents.<span style="color:#999;font-weight:bold">&amp;lt;</span>/li<span style="color:#999;font-weight:bold">&amp;gt;</span>
-{% endfor %}
-<span style="color:#999;font-weight:bold">&amp;lt;</span>/ul<span style="color:#999;font-weight:bold">&amp;gt;</span>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#309;font-weight:bold">ul</span>&gt;
+    {% for object in object_list %}
+      &lt;<span style="color:#309;font-weight:bold">li</span>&gt;
+        &lt;<span style="color:#309;font-weight:bold">form</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;{% url &#39;delete&#39; object.id %}&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;post&#34;</span>&gt;{% csrf_token %}
+          &lt;<span style="color:#309;font-weight:bold">a</span> <span style="color:#309">href</span><span style="color:#555">=</span><span style="color:#c30">&#34;{{ object.docfile.url }}&#34;</span>&gt;{{ object.docfile.name }}&lt;/<span style="color:#309;font-weight:bold">a</span>&gt;
+          &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Delete&#34;</span> /&gt;
+        &lt;/<span style="color:#309;font-weight:bold">form</span>&gt;
+      &lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+    {% empty %}
+      &lt;<span style="color:#309;font-weight:bold">li</span>&gt;No documents.&lt;/<span style="color:#309;font-weight:bold">li</span>&gt;
+    {% endfor %}
+    &lt;/<span style="color:#309;font-weight:bold">ul</span>&gt;
 
-<span style="color:#999;font-weight:bold">&amp;lt;</span>form  enctype=<span style="color:#999;font-weight:bold">&amp;quot;</span>multipart/form-data<span style="color:#999;font-weight:bold">&amp;quot;</span> action=<span style="color:#999;font-weight:bold">&amp;quot;&amp;quot;</span> method=<span style="color:#999;font-weight:bold">&amp;quot;</span>post<span style="color:#999;font-weight:bold">&amp;quot;&amp;gt;</span>{% csrf_token %}
-    {{ form.as_p }}
-    <span style="color:#999;font-weight:bold">&amp;lt;</span>input type=<span style="color:#999;font-weight:bold">&amp;quot;</span>submit<span style="color:#999;font-weight:bold">&amp;quot;</span> value=<span style="color:#999;font-weight:bold">&amp;quot;</span>Upload<span style="color:#999;font-weight:bold">&amp;quot;</span> /<span style="color:#999;font-weight:bold">&amp;gt;</span>
-<span style="color:#999;font-weight:bold">&amp;lt;</span>/form<span style="color:#999;font-weight:bold">&amp;gt;</span>
-&lt;/<span style="color:#309;font-weight:bold">code</span>&gt;&lt;/<span style="color:#309;font-weight:bold">pre</span>&gt;</code></pre></div>
+    &lt;<span style="color:#309;font-weight:bold">form</span>  <span style="color:#309">enctype</span><span style="color:#555">=</span><span style="color:#c30">&#34;multipart/form-data&#34;</span> <span style="color:#309">action</span><span style="color:#555">=</span><span style="color:#c30">&#34;&#34;</span> <span style="color:#309">method</span><span style="color:#555">=</span><span style="color:#c30">&#34;post&#34;</span>&gt;{% csrf_token %}
+        {{ form.as_p }}
+        &lt;<span style="color:#309;font-weight:bold">input</span> <span style="color:#309">type</span><span style="color:#555">=</span><span style="color:#c30">&#34;submit&#34;</span> <span style="color:#309">value</span><span style="color:#555">=</span><span style="color:#c30">&#34;Upload&#34;</span> /&gt;
+    &lt;/<span style="color:#309;font-weight:bold">form</span>&gt;</code></pre></div>
 
 <p>Notice we render a form for each file listed, so we can make a <code>POST</code> request directly, without passing for a confirmation view
 as usual when using <code>DeleteView</code> generics. Let&rsquo;s see the View code:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">FileRemoveView</span>(DeleteView):
-    model <span style="color:#555">=</span> Document
-    success_url <span style="color:#555">=</span> reverse_lazy(<span style="color:#c30">&#39;main&#39;</span>)
-<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#069;font-weight:bold">class</span> <span style="color:#0a8;font-weight:bold">FileRemoveView</span>(DeleteView):
+        model <span style="color:#555">=</span> Document
+        success_url <span style="color:#555">=</span> reverse_lazy(<span style="color:#c30">&#39;main&#39;</span>)</code></pre></div>
 
 <p>Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
 is deleted. Wow.</p>
@@ -127,18 +122,17 @@ is deleted. Wow.</p>
 
 <p>Quick and dirty: mount the two views to the urls:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>urlpatterns <span style="color:#555">=</span> patterns(<span style="color:#c30">&#39;&#39;</span>,
-    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^$&#39;</span>, FileManagerView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30">&#39;main&#39;</span>),
-    url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^delete/(?P&amp;lt;pk&amp;gt;\d+)/$&#39;</span>, FileRemoveView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30">&#39;delete&#39;</span>),
-)   
-<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    urlpatterns <span style="color:#555">=</span> patterns(<span style="color:#c30">&#39;&#39;</span>,
+        url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^$&#39;</span>, FileManagerView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30">&#39;main&#39;</span>),
+        url(<span style="color:#c30">r</span><span style="color:#c30">&#39;^delete/(?P&lt;pk&gt;\d+)/$&#39;</span>, FileRemoveView<span style="color:#555">.</span>as_view(), name<span style="color:#555">=</span><span style="color:#c30">&#39;delete&#39;</span>),
+    )   </code></pre></div>
 
 <p>That&rsquo;s all, have fun deploying on App Engine!</p>
 
                     <hr>
                     <ul class="pager">
-                         &nbsp;<li class="previous"><a href="https://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/"> Prev</a></li>
-                         &nbsp;<li class="next"><a href="https://dev.pippi.im/talk/fullstack_angular_django/"> Next</a></li>
+                         &nbsp;<li class="previous"><a href="https://dev.pippi.im/talk/fullstack_angular_django/"> Prev</a></li>
+                         &nbsp;<li class="next"><a href="https://dev.pippi.im/writing/if-code-is-poetry-then-documentation-is-prose/"> Next</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">

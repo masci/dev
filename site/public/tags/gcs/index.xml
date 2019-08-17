@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gcs on /dev/</title>
+    <title>gcs on /dev/</title>
     <link>https://dev.pippi.im/tags/gcs/</link>
-    <description>Recent content in Gcs on /dev/</description>
+    <description>Recent content in gcs on /dev/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
@@ -18,7 +18,7 @@
       
       <guid>https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
       <description>Intro On of the features of Django Appengine Toolkit is simplifying the work needed to configure Google Cloud Storage as a static files storage for Django applications running on Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
-&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;APPENGINE_TOOLKIT = { &amp;#39;APP_YAML&amp;#39;: os.path.join(BASE_DIR, &amp;#39;app.yaml&amp;#39;), &amp;#39;BUCKET_NAME&amp;#39;: &amp;#39;media-uploads&amp;#39;, } DEFAULT_FILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; STATICFILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt; A complete example This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files.</description>
+APPENGINE_TOOLKIT = { &amp;#39;APP_YAML&amp;#39;: os.path.join(BASE_DIR, &amp;#39;app.yaml&amp;#39;), &amp;#39;BUCKET_NAME&amp;#39;: &amp;#39;media-uploads&amp;#39;, } DEFAULT_FILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; STATICFILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; A complete example This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files.</description>
     </item>
     
   </channel>

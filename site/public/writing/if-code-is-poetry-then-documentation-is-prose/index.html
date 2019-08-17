@@ -78,20 +78,18 @@ fact? Hell, no!</p>
 
 <p>Now what about something like this:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>lock <span style="color:#555">=</span> threading<span style="color:#555">.</span>lock()
-lock<span style="color:#555">.</span>acquire()
-<span style="color:#069;font-weight:bold">try</span>:
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#555">&amp;</span>quot;Let<span style="color:#c30">&#39;s get critical&amp;quot;)</span><span style="color:#a00;background-color:#faa">
-</span><span style="color:#a00;background-color:#faa"></span><span style="color:#c30">finally:</span><span style="color:#a00;background-color:#faa">
-</span><span style="color:#a00;background-color:#faa"></span><span style="color:#c30">    lock.release()</span><span style="color:#a00;background-color:#faa">
-</span><span style="color:#a00;background-color:#faa"></span><span style="color:#c30">&lt;/code&gt;&lt;/pre&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    lock <span style="color:#555">=</span> threading<span style="color:#555">.</span>lock()
+    lock<span style="color:#555">.</span>acquire()
+    <span style="color:#069;font-weight:bold">try</span>:
+        <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Let&#39;s get critical&#34;</span>)
+    <span style="color:#069;font-weight:bold">finally</span>:
+        lock<span style="color:#555">.</span>release()</code></pre></div>
 
 <p>Do you get the aesthetic, the rhythm, the meaning? Maybe the meaning, but the rest is rather ordinary. And what about this?</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span>lock <span style="color:#555">=</span> threading<span style="color:#555">.</span>lock()
-<span style="color:#069;font-weight:bold">with</span> lock:
-    <span style="color:#069;font-weight:bold">print</span>(<span style="color:#555">&amp;</span>quot;Let<span style="color:#c30">&#39;s get critical&amp;quot;)</span><span style="color:#a00;background-color:#faa">
-</span><span style="color:#a00;background-color:#faa"></span><span style="color:#c30">&lt;/code&gt;&lt;/pre&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    lock <span style="color:#555">=</span> threading<span style="color:#555">.</span>lock()
+    <span style="color:#069;font-weight:bold">with</span> lock:
+        <span style="color:#069;font-weight:bold">print</span>(<span style="color:#c30">&#34;Let&#39;s get critical&#34;</span>)</code></pre></div>
 
 <p>Do you spot the difference? If not, you’re taste is broken, otherwise you get the point and we can agree that code could be a
 form of poetry, or at least that it&rsquo;s possible to write code in a poetic fashion.</p>
@@ -122,13 +120,12 @@ a sudden silence: I was healed.
 <p>As poets do, most developers can write beautiful and elegant code, they really enjoy doing it but how hard is reading their works?
 Let&rsquo;s see an example of well written code:</p>
 
-<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#555">&lt;</span>pre<span style="color:#555">&gt;&lt;</span>code<span style="color:#555">&gt;</span><span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">itertools</span> <span style="color:#069;font-weight:bold">import</span> chain, islice
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#069;font-weight:bold">from</span> <span style="color:#0cf;font-weight:bold">itertools</span> <span style="color:#069;font-weight:bold">import</span> chain, islice
 
-<span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">chunks</span>(iterable, size, format<span style="color:#555">=</span><span style="color:#366">iter</span>):
-    it <span style="color:#555">=</span> <span style="color:#366">iter</span>(iterable)
-    <span style="color:#069;font-weight:bold">while</span> True:
-        <span style="color:#069;font-weight:bold">yield</span> format(chain((it<span style="color:#555">.</span><span style="color:#366">next</span>(),), islice(it, size <span style="color:#555">-</span> <span style="color:#f60">1</span>)))
-<span style="color:#555">&lt;/</span>code<span style="color:#555">&gt;&lt;/</span>pre<span style="color:#555">&gt;</span></code></pre></div>
+    <span style="color:#069;font-weight:bold">def</span> <span style="color:#c0f">chunks</span>(iterable, size, format<span style="color:#555">=</span><span style="color:#366">iter</span>):
+        it <span style="color:#555">=</span> <span style="color:#366">iter</span>(iterable)
+        <span style="color:#069;font-weight:bold">while</span> True:
+            <span style="color:#069;font-weight:bold">yield</span> format(chain((it<span style="color:#555">.</span><span style="color:#366">next</span>(),), islice(it, size <span style="color:#555">-</span> <span style="color:#f60">1</span>)))</code></pre></div>
 
 <blockquote>
 <p>Ok, give me a sec&hellip;</p>
@@ -188,8 +185,8 @@ idea into the documentation, maybe that is not a good idea. Write the stories, w
 
                     <hr>
                     <ul class="pager">
-                         &nbsp;<li class="previous"><a href="https://dev.pippi.im/talk/codice_poesia/"> Prev</a></li>
-                         &nbsp;<li class="next"><a href="https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/"> Next</a></li>
+                         &nbsp;<li class="previous"><a href="https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/"> Prev</a></li>
+                         &nbsp;<li class="next"><a href="https://dev.pippi.im/talk/codice_poesia/"> Next</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">

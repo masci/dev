@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>management on /dev/</title>
+    <link>https://dev.pippi.im/tags/management/</link>
+    <description>Recent content in management on /dev/</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Feb 2018 16:47:03 +0100</lastBuildDate>
+    
+	<atom:link href="https://dev.pippi.im/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How I manage a small team with the help of Trello</title>
+      <link>https://dev.pippi.im/writing/manage-with-trello/</link>
+      <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/manage-with-trello/</guid>
+      <description>This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&amp;rsquo;ll see how I didn&amp;rsquo;t invent anything and how this is only &amp;ldquo;yet another way&amp;rdquo; of composing existing tools and practices in order to implement a process that works for me.</description>
+    </item>
+    
+  </channel>
+</rss>

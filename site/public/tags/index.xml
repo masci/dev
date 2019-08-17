@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on /dev/</title>
+    <link>https://dev.pippi.im/tags/</link>
+    <description>Recent content in Tags on /dev/</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Apr 2018 00:00:00 +0100</lastBuildDate>
+    
+	<atom:link href="https://dev.pippi.im/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>cgo</title>
+      <link>https://dev.pippi.im/tags/cgo/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/cgo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://dev.pippi.im/tags/golang/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://dev.pippi.im/tags/python/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>agile</title>
+      <link>https://dev.pippi.im/tags/agile/</link>
+      <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>management</title>
+      <link>https://dev.pippi.im/tags/management/</link>
+      <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trello</title>
+      <link>https://dev.pippi.im/tags/trello/</link>
+      <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/trello/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>protobuf</title>
+      <link>https://dev.pippi.im/tags/protobuf/</link>
+      <pubDate>Thu, 08 Jun 2017 00:00:00 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/protobuf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docs</title>
+      <link>https://dev.pippi.im/tags/docs/</link>
+      <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/docs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>appengine</title>
+      <link>https://dev.pippi.im/tags/appengine/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/appengine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>django</title>
+      <link>https://dev.pippi.im/tags/django/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gcs</title>
+      <link>https://dev.pippi.im/tags/gcs/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/gcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google</title>
+      <link>https://dev.pippi.im/tags/google/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloudsql</title>
+      <link>https://dev.pippi.im/tags/cloudsql/</link>
+      <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/cloudsql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>authentication</title>
+      <link>https://dev.pippi.im/tags/authentication/</link>
+      <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/authentication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oauth2</title>
+      <link>https://dev.pippi.im/tags/oauth2/</link>
+      <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/oauth2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://dev.pippi.im/tags/security/</link>
+      <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>angularjs</title>
+      <link>https://dev.pippi.im/tags/angularjs/</link>
+      <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/angularjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blogging</title>
+      <link>https://dev.pippi.im/tags/blogging/</link>
+      <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jekyll</title>
+      <link>https://dev.pippi.im/tags/jekyll/</link>
+      <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wordpress</title>
+      <link>https://dev.pippi.im/tags/wordpress/</link>
+      <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
