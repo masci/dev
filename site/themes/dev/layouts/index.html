@@ -1,90 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 {{ partial "head.html" . }}
-  <body>
-    {{ partial "navbar.html" . }}
 
-    <div class="container container-home">
-      <div class="row">
-        <div class="col-lg-12">
+<body>
+  {{ partial "navbar.html" . }}
 
-          <h1>About me</h1>
-          <p>
-            Software developer for over 10 years, more than half spent working on scientific visualization
-            and backend software for a private company, using C++ and Qt technologies. Then a lot of Python,
-            Django and web related applications. I can ops. Open source advocate and active contributor,
-            documentation fanatic, speaker at conferences (for the ❤ of sharing).
-            I wrote <a href="https://www.amazon.com/Python-Google-Engine-Massimiliano-Pippi/dp/1784398195/">a book</a> once.
-          </p>
-          <p>
-            Currently at <a href="">Datadog</a>, where I'm allowed to play with high scalable systems, a wide number
-            of different technologies, open source stuff and Golang.
-          </p>
+  <div class="container container-home">
+    <div class="row">
+      <div class="col-lg-12">
 
-          <h3>Writings</h3>
-          <p class="text-muted">
-            <small>These are the latest entries, check the <a href="/writing/">Archive</a> for a complete list</small>
-          </p>
-          <ul class="posts list-unstyled">
+        <h1>About me</h1>
+        <p>
+          Software developer for over 10 years, more than half spent working on scientific visualization
+          and backend software for a private company, using C++ and Qt technologies. Then a lot of Python,
+          Django and web related applications. I can ops. Open source advocate and active contributor,
+          documentation fanatic, speaker at conferences (for the ❤ of sharing).
+          I wrote <a href="https://www.amazon.com/Python-Google-Engine-Massimiliano-Pippi/dp/1784398195/">a book</a>
+          once.
+        </p>
+
+        <h3>Writings</h3>
+        <p class="text-muted">
+          <small>These are the latest entries, check the <a href="/writing/">Archive</a> for a complete list</small>
+        </p>
+        <ul class="posts list-unstyled">
           {{ range first 7 (where .Data.Pages "Section" "writing") }}
-            <li>
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
-            </li>
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
+          </li>
           {{ end }}
-          </ul>
+        </ul>
 
-          <h3>Talks</h3>
-          <p class="text-muted">
-            <small>These are the latest entries, check the <a href="/talk/">Archive</a> for a complete list</small>
-          </p>
-          <ul class="posts list-unstyled">
+        <h3>Talks</h3>
+        <p class="text-muted">
+          <small>These are the latest entries, check the <a href="/talk/">Archive</a> for a complete list</small>
+        </p>
+        <ul class="posts list-unstyled">
           {{ range first 7 (where .Data.Pages "Section" "talk") }}
-            <li>
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
-            </li>
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
+          </li>
           {{ end }}
-          </ul>
+        </ul>
 
-          <h3>Open Source Projects</h3>
-          <ul class="list-unstyled">
-            <li>
-              <a href="https://github.com/masci/flickr">Flickr.go</a> A Flickr client made for Gophers.
-            </li>
-            <li>
-              <a href="https://github.com/evonove/django-oauth-toolkit">Django OAuth Toolkit</a> OAuth goodies for the Djangonauts.
-            </li>
-            <li>
-              <a href="https://github.com/evonove/django-stored-messages">Django Stored Messages</a> django.contrib.messages on steroids.
-            </li>
-            <li>
-              <a href="https://github.com/masci/django-appengine-toolkit">Django Appengine Toolkit</a> Helper for deploying Django on Google App Engine
-            </li>
-            <li>
-              <a href="https://github.com/masci/dev">/dev/</a> This site
-            </li>
-          </ul>
-        </div>
+        <h3>Open Source Projects</h3>
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://github.com/masci/flickr">Flickr.go</a> A Flickr client made for Gophers.
+          </li>
+          <li>
+            <a href="https://github.com/evonove/django-oauth-toolkit">Django OAuth Toolkit</a> OAuth goodies for the
+            Djangonauts.
+          </li>
+          <li>
+            <a href="https://github.com/evonove/django-stored-messages">Django Stored Messages</a>
+            django.contrib.messages on steroids.
+          </li>
+          <li>
+            <a href="https://github.com/masci/django-appengine-toolkit">Django Appengine Toolkit</a> Helper for
+            deploying Django on Google App Engine
+          </li>
+          <li>
+            <a href="https://github.com/masci/dev">/dev/</a> This site
+          </li>
+        </ul>
       </div>
-
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="list-inline">
-            <li><a href="https://github.com/masci"><i class="fa fa-github fa-2x"></i></a></li>
-            <li><a href="https://twitter.com/maxpippi"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-            <li><a href="http://www.linkedin.com/in/masci"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
-            <li><a href="http://www.flickr.com/photos/masci"><i class="fa fa-flickr fa-2x"></i></a></li>
-          </ul>
-        </div>
-      </div>
-
-      {{ partial "footer.html" . }}
-
     </div>
 
-    {{ partial "js.html" . }}
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="list-inline">
+          <li><a href="https://github.com/masci"><i class="fa fa-github fa-2x"></i></a></li>
+          <li><a href="https://twitter.com/maxpippi"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+          <li><a href="http://www.linkedin.com/in/masci"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+          <li><a href="http://www.flickr.com/photos/masci"><i class="fa fa-flickr fa-2x"></i></a></li>
+        </ul>
+      </div>
+    </div>
 
-  </body>
+    {{ partial "footer.html" . }}
+
+  </div>
+
+  {{ partial "js.html" . }}
+
+</body>
+
 </html>
-
