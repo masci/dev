@@ -37,7 +37,7 @@
           <small>These are the latest entries, check the <a href="/talk/">Archive</a> for a complete list</small>
         </p>
         <ul class="posts list-unstyled">
-          {{ range first 10 (where .Data.Pages "Section" "talk") }}
+          {{ range first 5 (where .Data.Pages "Section" "talk") }}
           <li>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <time class="pull-right post-list">{{ .Date.Format "Mon, Jan 2, 2006" }}</h4></time>
