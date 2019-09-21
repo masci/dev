@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>/dev/</title>
+    <title>/dev/ by Massimiliano Pippi</title>
     <link>https://dev.pippi.im/</link>
-    <description>Recent content on /dev/</description>
+    <description>Recent content on /dev/ by Massimiliano Pippi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Oct 2018 11:30:00 +0000</lastBuildDate>
@@ -89,15 +89,6 @@ During the talk we will see what Go can offer that is so attractive for a Python
       <guid>https://dev.pippi.im/talk/django_17_app_engine/</guid>
       <description>Django was actively supported at an early stage of the Python runtime in App Engine SDK through the notable django-nonrel framework, a fork of the original project that adds support for NoSql databases. But starting from the App Engine SDK 1.6.2, released more than two years ago, you can instead deploy Django’s official releases and take advantages from the whole stack of the framework.
 In less than half an hour we’ll see how we can easily deploy the latest version of Django on the Google Cloud Platform, taking advantage of the tools and services provided by App Engine, Cloud SQL and Cloud Storage.</description>
-    </item>
-    
-    <item>
-      <title>about</title>
-      <link>https://dev.pippi.im/page/about/</link>
-      <pubDate>Fri, 04 Jul 2014 09:35:49 +0000</pubDate>
-      
-      <guid>https://dev.pippi.im/page/about/</guid>
-      <description></description>
     </item>
     
     <item>
