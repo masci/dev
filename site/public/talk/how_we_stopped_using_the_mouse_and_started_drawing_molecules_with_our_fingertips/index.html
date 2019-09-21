@@ -1,39 +1,83 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>How we stopped using the mouse and started drawing molecules with our fingertips // /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="John Doe" />
+  <meta name="description"
+    content="" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How we stopped using the mouse and started drawing molecules with our fingertips"/>
+<meta name="twitter:description" content="Porting to mobile a Qt desktop application that lets you draw molecules, crunches numbers, stores data, displays plot and graphs it’s something that goes far beyond converting a QWidget to a Qml component. You have to change user&rsquo;s perspective, merging what they expect from a mobile application with what they expect from a scientific software. You have to outsource heavy computational parts and data storage. You have to code from scratch components that don’t exist yet in the Qml ecosystem."/>
+
+  <meta property="og:title" content="How we stopped using the mouse and started drawing molecules with our fingertips" />
+<meta property="og:description" content="Porting to mobile a Qt desktop application that lets you draw molecules, crunches numbers, stores data, displays plot and graphs it’s something that goes far beyond converting a QWidget to a Qml component. You have to change user&rsquo;s perspective, merging what they expect from a mobile application with what they expect from a scientific software. You have to outsource heavy computational parts and data storage. You have to code from scratch components that don’t exist yet in the Qml ecosystem." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.pippi.im/talk/how_we_stopped_using_the_mouse_and_started_drawing_molecules_with_our_fingertips/" />
+<meta property="article:published_time" content="2015-10-06T13:30:00&#43;00:00"/>
+<meta property="article:modified_time" content="2015-10-06T13:30:00&#43;00:00"/>
 
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-  <meta charset="utf-8">
-  <title> How we stopped using the mouse and started drawing molecules with our fingertips &middot; /dev/ by Massimiliano Pippi </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://dev.pippi.im//css/bootstrap.min.css" media="screen">
-  <link rel="stylesheet" href="https://dev.pippi.im//css/dev.css">
-  <link href="https://dev.pippi.im//css/font-awesome.min.css" rel="stylesheet">
-  
-  
-  
-  <link href="" rel="alternate" type="application/rss+xml" title="/dev/ by Massimiliano Pippi" />
 </head>
 
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a href="/" class="navbar-brand">/dev/ by Massimiliano Pippi by Massimiliano Pippi</a>
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+              Massi here. Software developer, engineering manager, I can ops.
+        Open source advocate and contributor, documentation fanatic, speaker at conferences.
+        I wrote a book once.
+    </p>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
     </div>
-    <div class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        
-      </ul>
-    </div>
-  </div>
-</div>
-        <div class="container">
-            <h1>How we stopped using the mouse and started drawing molecules with our fingertips</h1>
-            <h5 id="wc"> 300 words by masci</h5>
-            <div class="row">
-                <div class="post col-lg-8">
-                    <p>Porting to mobile a Qt desktop application that lets you draw molecules, crunches numbers, stores data, displays plot and graphs it’s something that goes far beyond converting a QWidget to a Qml component. You have to change user&rsquo;s perspective, merging what they expect from a mobile application with what they expect from a scientific software. You have to
+  </header>
+  <main class="app-container">
+    
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">How we stopped using the mouse and started drawing molecules with our fingertips</h1>
+    <div class="post-meta"><div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+        Oct 6, 2015 - <b>Qt World Summit</b>
+      </div><div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-save">
+  <title>save</title>
+  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline>
+</svg>
+        <a href="https://speakerdeck.com/masci/how-we-stopped-using-the-mouse-and-started-drawing-molecules-with-our-fingertips-not-the-usual-porting-story">Slides</a>
+      </div><div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-save">
+  <title>save</title>
+  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline>
+</svg>
+        <a href="https://www.youtube.com/watch?v=XfuwRKloDkQ">Video</a>
+      </div></div>
+  </header>
+  <div class="post-content">
+    <p>Porting to mobile a Qt desktop application that lets you draw molecules, crunches numbers, stores data, displays plot and graphs it’s something that goes far beyond converting a QWidget to a Qml component. You have to change user&rsquo;s perspective, merging what they expect from a mobile application with what they expect from a scientific software. You have to
 outsource heavy computational parts and data storage. You have to code from scratch components that don’t exist yet in the Qml ecosystem.</p>
 
 <p>With the arrival of Qt 5 and the support for Android and iOS, we realized that simply moving our legacy code to the new version of the framework still keeping the QWidget approach wouldn’t be worth it: we needed to port our applications to Qml and open to a whole new set of platforms.</p>
@@ -48,74 +92,17 @@ outsource heavy computational parts and data storage. You have to code from scra
 <li>Develop a brand new interactive 2D plot with Qml in mind</li>
 </ul>
 
-<div class="embed video-player">
-<iframe class="youtube-player center-block" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/XfuwRKloDkQ" allowfullscreen frameborder="0">
-</iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/XfuwRKloDkQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-                    <hr>
-                </div>
-                <div class="col-lg-4">
-                    <div class="list-group voffset4">
-                        <div class="list-group-item">
-                            
-                            <h4 class="list-group-item-heading">CONFERENCE</h4>
-                            
-                            
-                            <div class="list-group-conference">
-                                <p class="list-group-item-text"><b>Qt World Summit</b></p>
-                                <p class="list-group-item-text">Tue, Oct 6, 2015</p>
-                            </div>
-                            
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">META</h4>
-                            
-                            <p class="list-group-item-text">
-                                <a href="https://speakerdeck.com/masci/how-we-stopped-using-the-mouse-and-started-drawing-molecules-with-our-fingertips-not-the-usual-porting-story">Slides</a>
-                            </p>
-                            
-                            <p class="list-group-item-text">
-                                <a href="https://www.youtube.com/watch?v=XfuwRKloDkQ">Video</a>
-                            </p>
-                            
-                        </div>
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading">LANG</h4>
-                            <p class="list-group-item-text">en</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <footer>
-  <div class="row">
-    <div class="col-lg-12">
-      <hr>
-      <small>
-        <ul class="list-unstyled">
-          <li class="pull-right"><a href="#top">Back to top</a></li>
-        </ul>
-        <p>
-          <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />Contents licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-        </p>
-        <p>
-          Original theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>,
-          code released under the <a href="https://github.com/masci/dev/blob/master/LICENSE">MIT License</a>.
-        </p>
-      </small>
-    </div>
   </div>
-</footer>
-        </div>
-        <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <div class="post-footer">
+    
+  </div>
+</article>
 
-  ga('create', 'UA-43125807-1', 'auto');
-  ga('send', 'pageview');
+  </main>
+</body>
 
-</script>
-    </body>
 </html>
