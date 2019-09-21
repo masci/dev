@@ -15,6 +15,10 @@ date = 2017-10-05T10:00:00Z
 name = "PyGotham"
 date = 2017-10-06T10:00:00Z
 
+[[conferences]]
+name = "dotGo"
+date = 2017-11-06T10:00:00Z
+
 [[material]]
 name = "Slides"
 url  = "https://speakerdeck.com/masci/a-python-and-a-gopher-walk-into-a-bar-embedding-python-in-go-1"
@@ -24,10 +28,12 @@ name = "Slides (lightning version)"
 url  = "https://speakerdeck.com/masci/a-python-and-a-gopher-walk-into-a-bar-embedding-python-in-go-dotgo2017"
 
 [[material]]
-name = "Video"
+name = "GothamGo Video"
 url  = "https://www.youtube.com/watch?v=egSvw7xYw9s"
 
-
+[[material]]
+name = "dotGo Video"
+url  = "https://www.youtube.com/watch?v=7XbyJW47L5U"
 +++
 
 Success stories about rewriting Python applications in Go are not big
@@ -41,5 +47,9 @@ existing library of plugins written in Python.
 During the talk we will share lessons learned from our experiences
 with cgo, the GIL and the quest for performance as we bridge multiple
 languages in a single application.
+
+{{% youtube 7XbyJW47L5U %}}
+
+---
 
 {{% youtube egSvw7xYw9s %}}

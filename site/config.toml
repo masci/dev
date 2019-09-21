@@ -1,8 +1,20 @@
 baseurl = "https://dev.pippi.im/"
 languageCode = "en-us"
-title = "/dev/"
+title = "/dev/ by Massimiliano Pippi"
 pygmentsstyle = "manni"
-disqusShortname = "dev-pippi"
 
 [params]
     AuthorName = "masci"
+    Avatar = "images/massi.png"
+    Description = """
+        Massi here. Software developer, engineering manager, I can ops.
+        Open source advocate and contributor, documentation fanatic, speaker at conferences.
+        I wrote a book once."""
+
+    [[params.social]]
+        name = "github"
+        url = "https://github.com/masci"
+
+    [[params.social]]
+        name = "linkedin"
+        url = "http://www.linkedin.com/in/masci"

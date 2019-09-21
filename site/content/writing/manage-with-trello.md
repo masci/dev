@@ -33,7 +33,7 @@ Let's see what those mean and how such blocks can be implemented with Trello.
 
 #### The Backlog
 
-![the Backlog in Trello](/images/rmsuypnd3poxy7vzhky8.png)
+{{< figure src="/images/rmsuypnd3poxy7vzhky8.png" title="the Backlog in Trello" width="100%">}}
 
 As a team, we don't usually work in isolation: interacting with Product Management, Customer Support, Documentation and other engineering teams is desirable and expected. The Backlog is the point of contact with the rest of the company and is the place where to put items like feature requests, bug reports or more in general any small, self contained task my team should work on - such items are represented with Trello cards. We sometimes put tasks ourselves on the Backlog, for example when priorities need to be discussed and evaluated.
 
@@ -46,7 +46,7 @@ It's fundamental to allocate some time to review the Backlog board, how often de
 
 #### The Sprint
 
-![the Sprint in Trello](/images/uzr6iot6nyegr8d1fvhe.png)
+{{< figure src="/images/uzr6iot6nyegr8d1fvhe.png" title="the Sprint in Trello" width="100%">}}
 
 The sprint board provides a picture of the current status of the team: what's done, who's working on what, what's waiting for a review and most important, what's blocked and why. For this to work, each card must have one or more owners, something we do on Trello by listing specific users in the "members" list. You can see how a Sprint board looks like in Trello [here](https://trello.com/b/zFlf1VII/sprint).
 
@@ -62,7 +62,7 @@ There's not much to discuss about the Sprint Board but there are a few caveats:
 
 #### The Roadmap
 
-![A roadmap in Trello](/images/38wlg3osr3dxpmbwip9z.png)
+{{< figure src="/images/38wlg3osr3dxpmbwip9z.png" title="the Roadmap in Trello" width="100%">}}
 
 Backlog and sprint boards are great to track the work of a team because it's extremely easy to answer questions like "What are you working on right now?", "What's next?", "Is there any blocker?" but what if you want to know the overall status of a specific project? On Trello you can use labels to link a card to a project but cards might be spread across Backlog and Sprint and while you can still filter, you can't avoid to go back and forth the two boards. Roadmaps can add another dimension you can look at your team's cards from.
 
