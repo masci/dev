@@ -17,11 +17,13 @@ jobs:
         with:
           args: -s site
 
-      - name: Publish site
+      - name: Push to master
         run: |
           git config --global user.email "mpippi@gmail.com"
           git config --global user.name "massi"
           git add -A
           git commit -m"rebuilding site from {{ github.sha }}"
           git push origin master
-          git push origin `git subtree split --prefix=site/public`:gh-pages --force
+
+      - name: Publish
+        run: git push origin `git subtree split --prefix=site/public`:gh-pages --force
