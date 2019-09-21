@@ -2,6 +2,7 @@ baseurl = "https://dev.pippi.im/"
 languageCode = "en-us"
 title = "/dev/ by Massimiliano Pippi"
 pygmentsstyle = "manni"
+googleAnalytics = "UA-43125807-1"
 
 [params]
     AuthorName = "masci"
