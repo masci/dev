@@ -2,8 +2,8 @@
 
 echo -e "\033[0;32mDeploying updates to Github...\033[0m"
 
-# Build the project. 
-hugo -t dev
+# Build the project.
+hugo -t m10c
 
 # Up one dir
 cd ..
