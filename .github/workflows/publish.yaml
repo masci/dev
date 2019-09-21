@@ -26,6 +26,7 @@ jobs:
 
       - name: Push to master
         run: |
+          git checkout master
           git add -A
           git commit -m"rebuilding site from ${{ github.sha }}"
           git push upstream master
