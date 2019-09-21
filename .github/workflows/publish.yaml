@@ -15,9 +15,9 @@ jobs:
 
       - name: Setup git
         run: |
-          git checkout master
           git config --global user.email "mpippi@gmail.com"
           git config --global user.name "massi"
+          git remote add origin https://${{ secrets.GH_PUSH_TOKEN }}@github.com/masci/dev
 
       - name: Build site
         uses: jakejarvis/hugo-build-action@master
