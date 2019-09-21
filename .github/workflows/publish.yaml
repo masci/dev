@@ -11,8 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-        with:
-          ref: master
 
       - name: Build site
         uses: jakejarvis/hugo-build-action@master
@@ -21,6 +19,7 @@ jobs:
 
       - name: Push to master
         run: |
+          git checkout master
           git config --global user.email "mpippi@gmail.com"
           git config --global user.name "massi"
           git add -A
