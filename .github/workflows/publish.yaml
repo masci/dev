@@ -10,7 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup git
+        run: |
+          git checkout master
+          git config --global user.email "mpippi@gmail.com"
+          git config --global user.name "massi"
 
       - name: Build site
         uses: jakejarvis/hugo-build-action@master
@@ -19,9 +26,6 @@ jobs:
 
       - name: Push to master
         run: |
-          git checkout master
-          git config --global user.email "mpippi@gmail.com"
-          git config --global user.name "massi"
           git add -A
           git commit -m"rebuilding site from ${{ github.sha }}"
           git push origin master
