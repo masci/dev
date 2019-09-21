@@ -22,7 +22,7 @@ jobs:
           git config --global user.email "mpippi@gmail.com"
           git config --global user.name "massi"
           git add -A
-          git commit -m"rebuilding site from {{ github.sha }}"
+          git commit -m"rebuilding site from ${{ github.sha }}"
           git push origin master
 
       - name: Publish
