@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "/dev/ by Massimiliano Pippi"
 pygmentsstyle = "manni"
 googleAnalytics = "UA-43125807-1"
+theme = "m10c"
 
 [params]
     AuthorName = "masci"
