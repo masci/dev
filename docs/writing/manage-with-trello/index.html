@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>How I manage a small team with the help of Trello // /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="John Doe" />
+  <meta name="description"
+    content="" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-43125807-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How I manage a small team with the help of Trello"/>
+<meta name="twitter:description" content="This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&rsquo;ll see how I didn&rsquo;t invent anything and how this is only &ldquo;yet another way&rdquo; of composing existing tools and practices in order to implement a process that works for me."/>
+
+  <meta property="og:title" content="How I manage a small team with the help of Trello" />
+<meta property="og:description" content="This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&rsquo;ll see how I didn&rsquo;t invent anything and how this is only &ldquo;yet another way&rdquo; of composing existing tools and practices in order to implement a process that works for me." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.pippi.im/writing/manage-with-trello/" />
+<meta property="article:published_time" content="2018-02-03T16:47:03&#43;01:00"/>
+<meta property="article:modified_time" content="2018-02-03T16:47:03&#43;01:00"/>
+
+
+</head>
+
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+              Massi here. Software developer, engineering manager, I can ops.
+        Open source advocate and contributor, documentation fanatic, speaker at conferences.
+        I wrote a book once.
+    </p>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
+    </div>
+  </header>
+  <main class="app-container">
+    
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">How I manage a small team with the help of Trello</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Feb 3, 2018
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          6 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://dev.pippi.im/tags/agile/">agile</a><a class="tag" href="https://dev.pippi.im/tags/management/">management</a><a class="tag" href="https://dev.pippi.im/tags/trello/">trello</a></div></div>
+    </header>
+    <div class="post-content">
+      
+
+<p>This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&rsquo;ll see how I didn&rsquo;t invent anything and how this is only &ldquo;yet another way&rdquo; of composing existing tools and practices in order to implement a process that works for me. So why another post?</p>
+
+<p>Well the problem is, it costed to me a lot of time and trial-and-error to get here and I decided to share my experience so that others can take inspiration, specially if some of the following apply:</p>
+
+<ol>
+<li>You&rsquo;re part of a small team, let&rsquo;s say 8 people or less.</li>
+<li>Your team is responsible of delivering new projects and maintaining existing ones.</li>
+<li>You have formal deadlines, objectives and goals.</li>
+<li>You want some time to spend working on the product and not on management.</li>
+<li>You want to keep things simple.</li>
+</ol>
+
+<h2 id="tools">Tools</h2>
+
+<p>My team is geographically distributed so we need remotely accessible tools to share informations. Beside the ubiquitous e-mail and instant messaging, the only management tool we use is Trello.</p>
+
+<p>Being general purpose, Trello offers a tiny fraction of the features one can find in specialised tools like Jira and Asana but this is actually a key point if you want to keep the management overhead at minimum for your team.</p>
+
+<h2 id="the-basics">The basics</h2>
+
+<p>My approach is based on three building blocks:</p>
+
+<ol>
+<li>The Backlog</li>
+<li>The Sprint</li>
+<li>The Roadmap</li>
+</ol>
+
+<p>Let&rsquo;s see what those mean and how such blocks can be implemented with Trello.</p>
+
+<h4 id="the-backlog">The Backlog</h4>
+
+<figure>
+    <img src="/images/rmsuypnd3poxy7vzhky8.png" width="100%"/> <figcaption>
+            <h4>the Backlog in Trello</h4>
+        </figcaption>
+</figure>
+
+
+<p>As a team, we don&rsquo;t usually work in isolation: interacting with Product Management, Customer Support, Documentation and other engineering teams is desirable and expected. The Backlog is the point of contact with the rest of the company and is the place where to put items like feature requests, bug reports or more in general any small, self contained task my team should work on - such items are represented with Trello cards. We sometimes put tasks ourselves on the Backlog, for example when priorities need to be discussed and evaluated.</p>
+
+<p>A Trello board is a perfect fit to implement a Backlog, see <a href="https://trello.com/b/0A4qO3OV/backlog">this basic example</a>. The number and type of lists can vary a lot depending on team activities but at least two columns should be there:</p>
+
+<ol>
+<li><em>Triage</em>: is where new tasks are parked waiting for a priority to be assigned.</li>
+<li><em>Next</em>: is where tasks are sent after a priority is assigned, waiting to be assigned and scheduled during an upcoming sprint.</li>
+</ol>
+
+<p>It&rsquo;s fundamental to allocate some time to review the Backlog board, how often depends on the workload. A fixed schedule works better for me but there are really no rules here. The review should involve managers and product managers who can help deciding priorities and engineers who can provide help on better defining the scope of a card, or the amount of work that a card implies.</p>
+
+<h4 id="the-sprint">The Sprint</h4>
+
+<figure>
+    <img src="/images/uzr6iot6nyegr8d1fvhe.png" width="100%"/> <figcaption>
+            <h4>the Sprint in Trello</h4>
+        </figcaption>
+</figure>
+
+
+<p>The sprint board provides a picture of the current status of the team: what&rsquo;s done, who&rsquo;s working on what, what&rsquo;s waiting for a review and most important, what&rsquo;s blocked and why. For this to work, each card must have one or more owners, something we do on Trello by listing specific users in the &ldquo;members&rdquo; list. You can see how a Sprint board looks like in Trello <a href="https://trello.com/b/zFlf1VII/sprint">here</a>.</p>
+
+<p>Most of the cards you see on the Sprint board come from the Backlog, specifically from the <em>Next</em> column. This process is formalised with a planning meeting that usually happens right before a sprint starts but you can also let people pick tasks from there when needed, since cards are supposed to be already scheduled and have a priority assigned.</p>
+
+<p>There&rsquo;s not much to discuss about the Sprint Board but there are a few caveats:</p>
+
+<ol>
+<li><p>The <em>TODO</em> column should contain only cards that are supposed to be done within the current sprint. Cards tend to pile up there, specially low priority ones so when this happens, I remove the owner and send them back to the Backlog, even on <em>Triage</em>: maybe the priority was wrong, the task poorly defined or even not needed in retrospective, that&rsquo;s ok.</p></li>
+
+<li><p>All the cards must have an owner! It might seem obvious but since most of the times you look at the sprint board with some filter active, orphan cards can become invisible.</p></li>
+
+<li><p>It&rsquo;s ok to skip the backlog board altogether and add a card directly on the sprint board: it&rsquo;s the case for bugfixes, or urgent tasks that pop up midpsprint but we try to keep this an exception.</p></li>
+</ol>
+
+<h4 id="the-roadmap">The Roadmap</h4>
+
+<figure>
+    <img src="/images/38wlg3osr3dxpmbwip9z.png" width="100%"/> <figcaption>
+            <h4>the Roadmap in Trello</h4>
+        </figcaption>
+</figure>
+
+
+<p>Backlog and sprint boards are great to track the work of a team because it&rsquo;s extremely easy to answer questions like &ldquo;What are you working on right now?&rdquo;, &ldquo;What&rsquo;s next?&rdquo;, &ldquo;Is there any blocker?&rdquo; but what if you want to know the overall status of a specific project? On Trello you can use labels to link a card to a project but cards might be spread across Backlog and Sprint and while you can still filter, you can&rsquo;t avoid to go back and forth the two boards. Roadmaps can add another dimension you can look at your team&rsquo;s cards from.</p>
+
+<p>Each card in a roadmap board represents a macro feature, or an <em>Epic</em>, and must contain a brief description along with one or more checklists. Each item in a checklist is a link to a card that might be in the backlog or the sprint board, see <a href="https://trello.com/b/WTSoEcD1/project-mayhem-roadmap">this Trello board</a> for an example.</p>
+
+<p>You&rsquo;d need one Trello board for each project you want to track; as for the backlog board, you can go wild with the number of lists but the following should always be there:</p>
+
+<ol>
+<li><em>Now</em>: epics that are currently under development.</li>
+<li><em>Next</em>: epics that should be done as soon as you have bandwidth.</li>
+<li><em>Later</em>: epics that have low priority and should be <em>eventually</em> done.</li>
+</ol>
+
+<p>Cards never leave a roadmap board, you&rsquo;re only supposed to move them across the lists, ideally from <em>Later</em> to <em>Next</em>, then to <em>Now</em> and finally archived (or moved to a <em>Done</em> list).</p>
+
+<p>Being a collection of tasks, epics represent a quite large chunk of work for a team but they might not be enough to track big features or long term goals; in this case you can group epics using a <em>Theme</em> that in Trello words can be represented with a label. Examples of themes might be <code>version:1.0</code> or <code>feature:SAML</code>. You can then filter a roadmap board by label to see what&rsquo;s the status of the project in regard of one particular theme.</p>
+
+<p>Managing a roadmap board requires some extra time, specially composing the checklists since it&rsquo;s all manual work, but in exchange you get a perfect view over the status of a project, something that might be extremely useful when discussing long term goals that span over multiple sprints or even over multiple quarters.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>I&rsquo;m still evaluating the tradeoff between the extra work of maintaining roadmaps and the ability to answer questions about the big picture but overall it&rsquo;s working pretty good and proof is I could finally find the time to write this piece. Should you have any feedback, please reach out on Twitter @maxpippi.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+  </main>
+</body>
+
+</html>

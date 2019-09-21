@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>django on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/django/</link>
+    <description>Recent content in django on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dev.pippi.im/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Uploading files to Google Cloud Storage with Django</title>
+      <link>https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/django-upload-on-google-cloud-storage/</guid>
+      <description>Intro On of the features of Django Appengine Toolkit is simplifying the work needed to configure Google Cloud Storage as a static files storage for Django applications running on Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
+APPENGINE_TOOLKIT = { &amp;#39;APP_YAML&amp;#39;: os.path.join(BASE_DIR, &amp;#39;app.yaml&amp;#39;), &amp;#39;BUCKET_NAME&amp;#39;: &amp;#39;media-uploads&amp;#39;, } DEFAULT_FILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; STATICFILE_STORAGE = &amp;#39;appengine_toolkit.storage.GoogleCloudStorage&amp;#39; A complete example This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files.</description>
+    </item>
+    
+    <item>
+      <title>Create a blog in minutes on App Engine with Django and Cloud Sql</title>
+      <link>https://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</link>
+      <pubDate>Mon, 10 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/create-a-blog-in-minutes-on-app-engine-with-django/</guid>
+      <description>Intro Django was actively supported at an early stage of the Python runtime in App Engine SDK through the notable django-nonrel framework, a fork of the original project that adds support for NoSql databases. But starting from the App Engine SDK 1.6.2, released more than two years ago, you can instead deploy Django&amp;rsquo;s official releases and take advantages from the whole stack using Google Cloud Sql.
+Case study We&amp;rsquo;re going to setup a minimal project using Zinnia, a blog engine built on top of Django and a fairly complex web application that leverages several components of the framework, a good benchmark for showing how easy can be deploying on App Engine.</description>
+    </item>
+    
+    <item>
+      <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
+      <link>https://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <description>Who said authentication? If you have an HTTP endpoint which requires authentication, chances are that you&amp;rsquo;re using HTTP Basic auth or Digest. This was the case, you should immediately stop asking users for their passwords - let&amp;rsquo;s see why.
+It&amp;rsquo;s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the transmission occurs over SSL and it has some pros: it&amp;rsquo;s easy to implement and it uses the well known HTTP Authorization header, largely supported by almost all the HTTP clients out in the wild.</description>
+    </item>
+    
+    <item>
+      <title>Build GitHub like notifications with Django messages and AngularJS</title>
+      <link>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <description>Foreword GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which remains unread until you actually read it; then it&amp;rsquo;s archived and removed from your inbox, which it happens could remain empty:
+For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called Message Framework and you can find it in the contrib package.</description>
+    </item>
+    
+  </channel>
+</rss>
