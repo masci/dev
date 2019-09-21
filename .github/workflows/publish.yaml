@@ -1,0 +1,25 @@
+name: publish
+
+on:
+  push:
+    branch:
+      - 'master'
+
+jobs:
+  publish-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build site
+        uses: jakejarvis/hugo-build-action@master
+        with:
+          args: -s site
+
+      - name: Publish site
+        run: |
+          git add -A
+          git commit -m"rebuilding site from {{ github.sha }}"
+          git push origin master
+          git push origin `git subtree split --prefix=site/public`:gh-pages --force
