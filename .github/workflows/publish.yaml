@@ -18,6 +18,8 @@ jobs:
           git config --global user.email "mpippi@gmail.com"
           git config --global user.name "massi"
           git remote add upstream https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git pull upstream master --ff-only
+          git checkout upstream/master
 
       - name: Build site
         uses: jakejarvis/hugo-build-action@master
