@@ -17,7 +17,8 @@ jobs:
         run: |
           git config --global user.email "mpippi@gmail.com"
           git config --global user.name "massi"
-          git remote add upstream https://${{ secrets.GITHUB_TOKEN }}:x-oauth-basic@github.com/masci/dev
+          git remote add upstream https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git pull upstream ${{ github.ref }} --ff-only
 
       - name: Build site
         uses: jakejarvis/hugo-build-action@master
@@ -26,10 +27,10 @@ jobs:
 
       - name: Push to master
         run: |
-          git checkout master
+          git checkout ${{ github.ref }}
           git add -A
           git commit -m"rebuilding site from ${{ github.sha }}"
-          git push upstream master
+          git push upstream ${{ github.ref }}
 
       - name: Publish
         run: git push upstream `git subtree split --prefix=site/public`:gh-pages --force
