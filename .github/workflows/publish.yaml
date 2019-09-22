@@ -27,10 +27,10 @@ jobs:
 
       - name: Push to master
         run: |
-          git checkout ${{ github.ref }}
+          git checkout master
           git add -A
           git commit -m"rebuilding site from ${{ github.sha }}"
-          git push upstream ${{ github.ref }}
+          git push upstream master
 
       - name: Publish
         run: git push upstream `git subtree split --prefix=site/public`:gh-pages --force
