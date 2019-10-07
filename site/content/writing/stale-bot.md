@@ -16,6 +16,8 @@ try, and this is the story of my second attempt at learning Actions.
 
 ## Introducing the Stale Bot
 
+<img src="/images/dominik-scythe-Sot0f3hQQ4Y-unsplash.jpg" alt="A GitHub stale bot" title="Photo by Dominik Scythe on Unsplash" width="100%"/>
+
 When I learn something new, it's vital for me to have some sort of prototype I
 can change and evolve as I ramp up on the subject. That's why after few basic
 experiments and a couple of easy projects ported from other CI/CD platforms, I
@@ -343,6 +345,8 @@ The job definition looks like this:
 You can find the complete workflow [here][5].
 
 ## Caveat and final considerations
+
+<img src="/images/lenin-estrada-OI1ToozsKBw-unsplash.jpg" alt="A happier GitHub bot" title="Photo by Lenin Estrada on Unsplash" width="100%"/>
 
 First thing first, this bot shouldn't be considered feature complete by any mean,
 the goal was just ramping up up on a new technology without getting bored. Now that
