@@ -104,10 +104,10 @@ on:
     types: [edited, milestoned, labeled]
 ```
 
-Our bot will be then summoned whan an issue is edited, a milestone is added or a
+Our bot will be then summoned when an issue is edited, a milestone is added or a
 label is attached. Since we also want the bot to be activated when somebody
 leaves a comment on the issue, we need one more event on our `on` mapping,
-specifically the `issue_added` event:
+specifically the `issue_comment` event:
 
 ```yaml
 on:
