@@ -16,7 +16,7 @@ jobs:
       - name: Setup git
         run: |
           git config --global user.email "mpippi@gmail.com"
-          git config --global user.name "massi"
+          git config --global user.name "masci"
           git remote add upstream https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Build site
