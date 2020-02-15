@@ -111,5 +111,3 @@ jobs:
 You can find more info and docs for the Action on the
 [GitHub Marketplace](https://github.com/marketplace/actions/setup-arduino-cli): if
 you like it, please leave us a star!
-
-We’re eager to hear your feedback, feel free to hit the Action repository and open an issue should you find any problem, or a feature request in case you want more from the action.
