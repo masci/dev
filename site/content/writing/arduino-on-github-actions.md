@@ -2,6 +2,7 @@
 title: "Arduino on GitHub Actions"
 date: 2019-11-14T15:53:40+02:00
 draft: false
+tags: ["github", "actions", "arduino"]
 ---
 
 **This blog post was hosted in the Arduino Engineering Blog, you can

@@ -6,10 +6,11 @@
     <li class="posts-list-item">
       <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
       <span class="posts-list-item-description">
+        {{ .PublishDate.Format "Jan 2, 2006" }}
+        - {{ partial "icon.html" (dict "ctx" $ "name" "tag" ) }}
         {{ range .Params.tags }}
         <a class="tag" href="tags/{{ . | urlize }}">{{ . }}</a>
         {{ end }}
-        {{ .PublishDate.Format "Jan 2, 2006" }}
         - {{ partial "icon.html" (dict "ctx" $ "name" "clock") }} {{ .ReadingTime }} min read
       </span>
     </li>

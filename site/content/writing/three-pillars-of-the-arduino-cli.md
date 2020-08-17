@@ -2,6 +2,7 @@
 title: "The three pillars of the Arduino CLI"
 date: 2020-07-06T00:00:00+02:00
 draft: false
+tags: ["golang", "arduino"]
 ---
 
 **This blog post was hosted in the Arduino Engineering Blog, you can
