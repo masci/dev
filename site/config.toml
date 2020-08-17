@@ -6,17 +6,26 @@ googleAnalytics = "UA-43125807-1"
 theme = "m10c"
 
 [params]
-    AuthorName = "masci"
-    Avatar = "images/massi.png"
-    Description = """
-        Massi here. Software developer, engineering manager, I can ops.
-        Open source advocate and contributor, documentation fanatic, speaker at conferences.
-        I wrote a book once."""
+AuthorName = "masci"
+Avatar = "images/massi.png"
+Description = """Massi here. Software developer, engineering manager, I can ops.
+    Open source advocate and contributor, documentation fanatic, speaker at conferences.
+    I wrote a book once."""
 
-    [[params.social]]
-        name = "github"
-        url = "https://github.com/masci"
+# Social Icons
+[[params.social]]
+name = "github"
+url = "https://github.com/masci"
+[[params.social]]
+name = "linkedin"
+url = "http://www.linkedin.com/in/masci"
 
-    [[params.social]]
-        name = "linkedin"
-        url = "http://www.linkedin.com/in/masci"
+# Active projects
+[[params.active_project]]
+name = "Intro to Kubernetes"
+url = "https://masci.github.io/k8s101/"
+description = "A 2-hours workshop to go from zero to Kubernetes"
+[[params.active_project]]
+name = "actions/datadog"
+url = "https://github.com/masci/datadog"
+description = "Send Datadog metrics and events from GitHub workflows"

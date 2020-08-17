@@ -1,20 +1,49 @@
 {{ define "main" }}
 <article>
-  <h1>{{ .Site.Title }}</h1>
+  <h2>Latest Articles</h2>
   <ul class="posts-list">
-    {{ range $index, $element := .Paginator.Pages }}
+    {{ range first 5 (where .Site.RegularPages "Type" "writing") }}
     <li class="posts-list-item">
       <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
       <span class="posts-list-item-description">
-        <a href="{{ $element.Type | absURL }}">{{ title $element.Type }}</a>
-        - {{ .PublishDate.Format "Jan 2, 2006" }}
-        {{ if eq $element.Type "writing" }}
-        - {{ partial "icon.html" (dict "ctx" $ "name" "clock") }} {{ .ReadingTime }} min read
+        {{ range .Params.tags }}
+        <a class="tag" href="tags/{{ . | urlize }}">{{ . }}</a>
         {{ end }}
+        {{ .PublishDate.Format "Jan 2, 2006" }}
+        - {{ partial "icon.html" (dict "ctx" $ "name" "clock") }} {{ .ReadingTime }} min read
       </span>
     </li>
     {{ end }}
   </ul>
-  {{ partial "pagination.html" $ }}
+  See <a href="/writing">all the articles</a>
+</article>
+
+<article>
+  <h2>Latest Talks</h2>
+  <ul class="posts-list">
+    {{ range first 5 (where .Site.RegularPages "Type" "talk") }}
+    <li class="posts-list-item">
+      <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
+      <span class="posts-list-item-description">
+        {{ .PublishDate.Format "Jan 2, 2006" }}
+      </span>
+    </li>
+    {{ end }}
+  </ul>
+  See <a href="/talk">all the talks</a>
+</article>
+
+<article>
+  <h2>Active projects</h2>
+  <ul class="posts-list">
+    {{ range .Site.Params.active_project }}
+    <li class="posts-list-item">
+      <a target="_blank" class="posts-list-item-title" href="{{ .url }}">{{ .name }}</a>
+      <span class="posts-list-item-description">
+        {{ .description }}
+      </span>
+    </li>
+    {{ end }}
+  </ul>
 </article>
 {{ end }}
