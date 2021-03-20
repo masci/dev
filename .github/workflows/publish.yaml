@@ -3,7 +3,7 @@ name: publish
 on:
   push:
     branch:
-      - 'master'
+      - "main"
 
 jobs:
   publish-site:
