@@ -29,3 +29,7 @@ description = "A 2-hours workshop to go from zero to Kubernetes"
 name = "actions/datadog"
 url = "https://github.com/masci/datadog"
 description = "Send Datadog metrics and events from GitHub workflows"
+[[params.active_project]]
+name = "drone-datadog"
+url = "https://github.com/masci/drone-datadog"
+description = "A drone.io plugin to send events and metrics to Datadog"
