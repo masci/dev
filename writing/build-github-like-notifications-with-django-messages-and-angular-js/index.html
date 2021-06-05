@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Build GitHub like notifications with Django messages and AngularJS // /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="John Doe" />
+  <meta name="description"
+    content="" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.59023e5fd38d6ecb0e1dfbb295077c3c67e00e3b9eb3feaf34b5a5e6b332897a.css" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-43125807-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Build GitHub like notifications with Django messages and AngularJS"/>
+<meta name="twitter:description" content="Foreword GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which remains unread until you actually read it; then it&rsquo;s archived and removed from your inbox, which it happens could remain empty:
+For those who don&rsquo;t know, Django ships a library for displaying &ldquo;one-time&rdquo; messages to the users, it&rsquo;s called Message Framework and you can find it in the contrib package."/>
+
+  <meta property="og:title" content="Build GitHub like notifications with Django messages and AngularJS" />
+<meta property="og:description" content="Foreword GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which remains unread until you actually read it; then it&rsquo;s archived and removed from your inbox, which it happens could remain empty:
+For those who don&rsquo;t know, Django ships a library for displaying &ldquo;one-time&rdquo; messages to the users, it&rsquo;s called Message Framework and you can find it in the contrib package." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/" /><meta property="article:section" content="writing" />
+<meta property="article:published_time" content="2013-10-22T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2013-10-22T00:00:00&#43;00:00" />
+
+
+
+</head>
+
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+      Massi here. Software developer, engineering manager, I can ops.
+    Open source advocate and contributor, documentation fanatic, speaker at conferences.
+    I wrote a book once.
+    </p>
+    <div>
+      See what I'm up to <a href="/now">now</a>.
+    </div>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
+    </div>
+  </header>
+  <main class="app-container">
+    
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Build GitHub like notifications with Django messages and AngularJS</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 22, 2013
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://dev.pippi.im/tags/django/">django</a><a class="tag" href="https://dev.pippi.im/tags/python/">python</a><a class="tag" href="https://dev.pippi.im/tags/angularjs/">angularjs</a></div></div>
+    </header>
+    <div class="post-content">
+      <h2 id="foreword">Foreword</h2>
+<p>GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which
+remains <em>unread</em> until you actually read it; then it&rsquo;s archived and removed from your <em>inbox</em>, which it happens could remain empty:</p>
+<p><img src="/images/github_notifications.png" alt="github inbox"></p>
+<p>For those who don&rsquo;t know, Django ships a library for displaying &ldquo;one-time&rdquo; messages to the users, it&rsquo;s called <em>Message
+Framework</em> and you can find it in the <code>contrib</code> package. Messages are <em>produced</em> during users' activity and delivered
+subsequently; in the meantime, they are stored in cookies or sessions.</p>
+<p>The ephemeral nature of Django&rsquo;s <code>contrib.messages</code> makes them not suitable for storing notifications in GitHub
+style: notifications have to be persisted until user actually reads it, messages instead are marked as read the moment
+they are, let&rsquo;s say, <em>observed</em>. Nevertheless Django message framework is flexible enough to let you provide your own
+storage policy, and third-party applications like <a href="https://github.com/evonove/django-stored-messages">Django Stored Messages</a>
+use this feature to store messages in a persistent way (specifically, an sql database).</p>
+<blockquote>
+<p>Disclaimer: The frontend code will make use of AngularJs even if I am a total newbie and I don&rsquo;t really know how to
+angular. If you are a newbie too, please go read <a href="http://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day/">this effective blog post</a>
+by Todd Motto and then come back here. If you&rsquo;re not an Angular newbie, please take into account my code could offend
+you.</p>
+</blockquote>
+<h2 id="the-application">The application</h2>
+<p>Fire up a virtualenv and install Django:</p>
+<pre><code>mkvirtualenv notification_example
+pip install django
+</code></pre>
+<p>Start an empty project:</p>
+<pre><code>django-admin.py startproject notification_example
+</code></pre>
+<p>&hellip;and an app:</p>
+<pre><code>cd notification_example
+python manage.py startapp notification
+</code></pre>
+<p>Now for some dependencies - install Django Stored Messages and <a href="http://http://django-rest-framework.org/">Django Rest Framework</a>:</p>
+<pre><code>pip install django-stored-messages djangorestframework
+</code></pre>
+<p>Configure all the things! In <code>notification_example/settings.py</code> be sure to have these:</p>
+<!-- raw HTML omitted -->
+<pre><code>DATABASES &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; {
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;: {
+        &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;ENGINE&amp;#39;&lt;/span&gt;: &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;django.db.backends.sqlite3&amp;#39;&lt;/span&gt;,
+        &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;NAME&amp;#39;&lt;/span&gt;: os&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;path&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;join(PROJECT_ROOT, &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;db.sqlite&amp;#39;&lt;/span&gt;),
+    }
+}
+
+INSTALLED_APPS &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; (
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;django.contrib.auth&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;django.contrib.contenttypes&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;django.contrib.sessions&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;django.contrib.sites&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;django.contrib.messages&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;django.contrib.staticfiles&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;notification&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;stored_messages&amp;#39;&lt;/span&gt;,
+    &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;rest_framework&amp;#39;&lt;/span&gt;,
+)
+
+MESSAGE_STORAGE &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;stored_messages.storage.PersistentStorage&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<p>Now let&rsquo;s go for some views. We will provide a view to serve the homepage, plus a view to show messages for the current
+logged in user.</p>
+<h2 id="the-homepage-view">The homepage view</h2>
+<p>Django Stored Messages can persist messages only when they are sent to a valid user, and such user has to login for
+viewing the messages, so we provide a login form directly inside the homepage. To produce some notifications, visiting the index will trigger a message as well. The code:</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;import&lt;/span&gt; &lt;span style=&quot;color:#0cf;font-weight:bold&quot;&gt;stored_messages&lt;/span&gt;
+
+&lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#0a8;font-weight:bold&quot;&gt;IndexView&lt;/span&gt;(FormView):
+    template_name &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;notification/homepage.html&amp;#39;&lt;/span&gt;
+    form_class &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; AuthenticationForm
+    success_url &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;
+
+    &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#c0f&quot;&gt;get_context_data&lt;/span&gt;(self, &lt;span style=&quot;color:#555&quot;&gt;**&lt;/span&gt;kwargs):
+        add_message(self&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;request, stored_messages&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;You visited the homepage&amp;#39;&lt;/span&gt;)
+        &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#366&quot;&gt;super&lt;/span&gt;(IndexView, self)&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;get_context_data(&lt;span style=&quot;color:#555&quot;&gt;**&lt;/span&gt;kwargs)
+
+    &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#c0f&quot;&gt;form_valid&lt;/span&gt;(self, form):
+        login(self&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;request, form&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;get_user())
+        &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#366&quot;&gt;super&lt;/span&gt;(IndexView, self)&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;form_valid(form)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<p>We&rsquo;re going to use <em>class based views</em>, of course. Notice Django Stored Messages let us make use of the builtin
+messages api, thus passing in a message of type <code>stored_messages.STORED_INFO</code> will cause that message to be stored on
+the database.
+The <a href="https://github.com/masci/notification_example/blob/master/templates/notification/homepage.html">homepage template</a>
+will be extended from a <a href="https://github.com/masci/notification_example/blob/master/templates/base.html">basic Boostrap3 template</a>, we&rsquo;re going onto details later.</p>
+<h2 id="the-message-view">The message view</h2>
+<p>This is a simple <code>TemplateView</code>, the only trick here is getting from the urlstring whether user wants to see all the
+notifications or only the <em>unread</em> ones:</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;class&lt;/span&gt; &lt;span style=&quot;color:#0a8;font-weight:bold&quot;&gt;MessagesView&lt;/span&gt;(TemplateView):
+    template_name &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;notification/messages.html&amp;#39;&lt;/span&gt;
+
+    &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#c0f&quot;&gt;get&lt;/span&gt;(self, request, &lt;span style=&quot;color:#555&quot;&gt;*&lt;/span&gt;args, &lt;span style=&quot;color:#555&quot;&gt;**&lt;/span&gt;kwargs):
+        &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt; &lt;span style=&quot;color:#000;font-weight:bold&quot;&gt;in&lt;/span&gt; request&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;GET:  &lt;span style=&quot;color:#09f;font-style:italic&quot;&gt;# quick and dirty&lt;/span&gt;
+            kwargs[&lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;unread&amp;#39;&lt;/span&gt;] &lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt; True
+        &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color:#366&quot;&gt;super&lt;/span&gt;(MessagesView, self)&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;get(request, &lt;span style=&quot;color:#555&quot;&gt;*&lt;/span&gt;args, &lt;span style=&quot;color:#555&quot;&gt;**&lt;/span&gt;kwargs)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<p>The view code is rather simple because all the magic is left to Django Stored Messages template tags and its REST api.
+The Html template for the message view will try to mimic GitHub&rsquo;s notification page,
+<a href="https://github.com/masci/notification_example/blob/master/templates/notification/messages.html">here is the code</a> and
+this is the result:</p>
+<p><img src="/images/messages.png" alt="messages screenshot"></p>
+<p>As you can see from this chunk:</p>
+<!-- raw HTML omitted -->
+<p>If user requested the archive (i.e. to show messages that were already read), the template tag
+<code>stored_messages_archive</code> provided by Django Stored Messages will show a list of <code>100</code> messages rendering
+the template at <code>stored_messages/stored_messages_list.html</code>. Here is the template ovverrided to add Bootstrap3 classes:</p>
+<!-- raw HTML omitted -->
+<p>We will get into the details for the <code>else</code> branch in the messages template later.</p>
+<h2 id="plug-the-urls">Plug the urls</h2>
+<p>Nothing special here but notice the inclusion of the REST api urls coming from <code>stored_messages</code> package:</p>
+<!-- raw HTML omitted -->
+<h2 id="final-touches">Final touches</h2>
+<p>To add some noise to the notification stream, we will add messages for the user when she logs in and out:</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;def&lt;/span&gt; &lt;span style=&quot;color:#c0f&quot;&gt;_user_logged_out&lt;/span&gt;(&lt;span style=&quot;color:#555&quot;&gt;*&lt;/span&gt;args, &lt;span style=&quot;color:#555&quot;&gt;**&lt;/span&gt;kwargs):
+    add_message(kwargs[&lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;request&amp;#39;&lt;/span&gt;], stored_messages&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;STORED_INFO, &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;You were logged out!&amp;#39;&lt;/span&gt;)
+user_logged_out&lt;span style=&quot;color:#555&quot;&gt;.&lt;/span&gt;connect(_user_logged_out)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<p>The Django app is complete now, time for some Javascript code!</p>
+<h2 id="the-rest">The REST</h2>
+<p>Even if Django Stored Messages has a template tag to show unread messages, for this demo we will use the REST api,
+which let us retrieve unread messages and mark them as read. To interact with the api we use
+<a href="http://angularjs.org/">Angular</a>, for the sake of simplicity we use a single controller:</p>
+<!-- raw HTML omitted -->
+<pre><code>messageApp.controller(&lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;MainCtrl&amp;#39;&lt;/span&gt;, [&lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;$scope&amp;#39;&lt;/span&gt;, &lt;span style=&quot;color:#c30&quot;&gt;&amp;#39;$http&amp;#39;&lt;/span&gt;, &lt;span style=&quot;color:#069;font-weight:bold&quot;&gt;function&lt;/span&gt; ($scope, $http) {
+    &lt;span style=&quot;color:#09f;font-style:italic&quot;&gt;// Messages array
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->        $scope.messages <!-- raw HTML omitted -->=<!-- raw HTML omitted --> {};</p>
+<pre><code>    &lt;span style=&quot;color:#09f;font-style:italic&quot;&gt;// ...
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->    }]);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Notice the injection of the <code>$http</code> object we will use to make http requests. The messages array will be filled with
+data coming from the api, then it will be available through the <code>$scope</code> object. For the angular application to work
+properly, the html code in our templates needs to be aware of the angular stuff - we do this in the <code>base.html</code> so that
+every page could use angular facilities:</p>
+<!-- raw HTML omitted -->
+<p>and:</p>
+<!-- raw HTML omitted -->
+<pre><code>&amp;lt;&lt;span style=&quot;color:#309;font-weight:bold&quot;&gt;body&lt;/span&gt; &lt;span style=&quot;color:#309&quot;&gt;ng-controller&lt;/span&gt;&lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color:#c30&quot;&gt;&amp;#34;MainCtrl&amp;#34;&lt;/span&gt;&amp;gt;
+    &lt;span style=&quot;color:#09f;font-style:italic&quot;&gt;&amp;lt;!-- navbar --&amp;gt;&lt;/span&gt;
+    &amp;lt;&lt;span style=&quot;color:#309;font-weight:bold&quot;&gt;div&lt;/span&gt; &lt;span style=&quot;color:#309&quot;&gt;class&lt;/span&gt;&lt;span style=&quot;color:#555&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color:#c30&quot;&gt;&amp;#34;navbar navbar-inverse navbar-fixed-top&amp;#34;&lt;/span&gt;&amp;gt;
+    ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<p>Inside the controller, this code will be added to retrieve all the unread messages for the logged-in user:</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;span style=&quot;color:#09f;font-style:italic&quot;&gt;// ...
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>If everything goes fine, <code>$scope.messages</code> will contain our messages and we can use them inside the DOM. To do this, we
+need some angularities inside the html, for example in the <code>message.html</code> template:</p>
+<!-- raw HTML omitted -->
+<p>The <code>ng-if</code> attribute determines if we have some messages to show. If we do have, the <code>ng-repeat</code> attribute will take
+care of iterating the messages and show them in the DOM through angular&rsquo;s template tags.</p>
+<blockquote>
+<p>Warning: we&rsquo;re mixing Django and Angular templates there and since they share the same template syntax (this could
+be changed in angular but it&rsquo;s not generally advisable) we need to wrap angular code inside Django&rsquo;s <code>verbatim</code> tags.</p>
+</blockquote>
+<p>In the html code above notice this:</p>
+<!-- raw HTML omitted -->
+<p>For every unread message, we provide a link and we tell angular that when user clicks it (<code>ng-click</code> attribute) the
+function <code>markRead()</code> has to be called with the parameter <code>$index</code>. We define that function inside the angular
+controller and attach it to the <code>$scope</code>:</p>
+<!-- raw HTML omitted -->
+<p>The parameter passed to <code>$http</code> contains all the logic needed to retrieve the csrf token from user&rsquo;s cookie and pass it
+to Django inside the <code>X-CSRFToken</code> header. For my experience, I&rsquo;ve never seen an easier way to do this (thank you so
+much, Angular!). After retrieving the database id for the <em>index-th</em> message, we call the <code>/api/inbox/{lookup}/read/</code>
+endpoint which marks that message as read. In case the request goes well (and this is where magics happen), we remove
+the element from the <code>$scope.messages</code> - angular will remove that element from the DOM afterwards. No code. No explicit
+DOM manipulation. Just fun.</p>
+<p>Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
+The code for the button is very similar to the one to mark messages read:</p>
+<!-- raw HTML omitted -->
+<p>This time the function name is <code>markAllRead</code> and we call it without parameters; the function is defined inside the
+controller:</p>
+<!-- raw HTML omitted -->
+<p>The csrf boilerplate is the same (for the record, this could be easily avoided using some advanced angular features)
+and the logic is very similar: in case the request succeeded, the array of messages is cleared and the DOM reflects the
+changes automagically.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/masci/notification_example">A working example is on GitHub</a></li>
+<li><a href="http://django-stored-messages.rtfd.org/">Django Stored Messages documentation</a></li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+  </main>
+</body>
+
+</html>
