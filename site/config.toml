@@ -33,3 +33,7 @@ description = "Send Datadog metrics and events from GitHub workflows"
 name = "drone-datadog"
 url = "https://github.com/masci/drone-datadog"
 description = "A drone.io plugin to send events and metrics to Datadog"
+[[params.active_project]]
+name = "Threadle"
+url = "https://github.com/masci/threadle"
+description = "Ingest metrics from a Datadog Agent and send them to a custom storage using different plugins"
