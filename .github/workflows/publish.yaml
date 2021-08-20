@@ -28,4 +28,4 @@ jobs:
         run: |
           git add -A
           git commit -m"rebuilding site from ${{ github.sha }}"
-          git push upstream `git subtree split --prefix=site/public`:gh-pages --force
+          git push upstream `git subtree split --prefix=site/public --ignore-joins`:gh-pages --force
