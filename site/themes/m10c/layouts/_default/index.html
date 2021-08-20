@@ -1,8 +1,8 @@
 {{ define "main" }}
 <article>
-  <h2>Latest Articles</h2>
+  <h2>Articles</h2>
   <ul class="posts-list">
-    {{ range first 5 (where .Site.RegularPages "Type" "writing") }}
+    {{ range first 3 (where .Site.RegularPages "Type" "writing") }}
     <li class="posts-list-item">
       <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
       <span class="posts-list-item-description">
@@ -20,7 +20,7 @@
 </article>
 
 <article>
-  <h2>Latest Talks</h2>
+  <h2>Talks</h2>
   <ul class="posts-list">
     {{ range first 3 (where .Site.RegularPages "Type" "talk") }}
     <li class="posts-list-item">
@@ -32,6 +32,21 @@
     {{ end }}
   </ul>
   See <a href="/talk">all the talks</a>
+</article>
+
+<article>
+  <h2>Book reviews and notes</h2>
+  <ul class="posts-list">
+    {{ range first 3 (where .Site.RegularPages "Type" "book") }}
+    <li class="posts-list-item">
+      <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }} {{ .Params.rating}}</a>
+      <span class="posts-list-item-description">
+        {{ .PublishDate.Format "Jan 2, 2006" }}
+      </span>
+    </li>
+    {{ end }}
+  </ul>
+  See <a href="/book">all the books</a>
 </article>
 
 <article>
