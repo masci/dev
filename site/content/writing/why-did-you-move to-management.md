@@ -30,9 +30,10 @@ Often times I took the lateral step to management because I needed to move forwa
 was just too heavy for an IC: one time it was to organize a team the way I envisioned, another time to help
 with hiring, another time to deliver a risky project that was stalling, or that time that I picked
 up the lead role on the team that nobody wanted to join (probably the biggest success in my career
-so far ❤️). I like to build stuff that works and that's useful to people, and as an IC this can be a
-very well crafted piece of code needed to implement a certain feature; but as a manager, this can be
-a full fledged team capable of a bigger impact on the product than your code alone.
+so far ❤️). I like to build stuff that works and that's useful to people, and as an IC this can be
+achieved through a very well crafted piece of code implementing a certain feature; but as a manager,
+I can achieve a goal through a full fledged team capable of a bigger impact on the product than my
+code alone could ever have.
 
 ### Driver n.2: Talent Spotting
 
@@ -60,4 +61,4 @@ but reality is obviously more complex than this. Since I tend to go back and for
 management, I find myself in the need to make decisions more often than people with a more "stable"
 career, and the factors contributing to such decisions are many and possibly different
 every time. Several of those are negative factors (frustration, money, pride, boredom even) so it's
-important for me to recognize them and bring back the focus on drivers number one and two.
+important for me to recognize them and bring back the focus solely on drivers number one and two.
