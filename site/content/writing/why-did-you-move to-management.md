@@ -4,8 +4,8 @@ date: 2021-08-22T11:31:38+02:00
 tags: ["management"]
 ---
 
-From time to time, I get various declinations of the same question: why did I decide to move
-to engineering management? It's not always in job interviews: it might be a colleague, somebody
+From time to time, I get various declinations of the same question: _why did you decide to move
+to engineering management?_ It's not necessarily in job interviews: it might be a colleague, somebody
 I'm mentoring, or a friend of mine. Even my wife asks, sometimes out of genuine curiosity, other
 times more in a _"why did you do this to yourself"_ fashion - so I thought it might be interesting to
 articulate an answer in written form.
@@ -21,12 +21,12 @@ leadership roles:
 
 These days I'm working hard to become a better engineering manager, but I can't exclude that I might
 go back to full time coding in the future, hopefully even as a better programmer. I like to talk
-about _drivers_ in my job, so here follows a list of what _drives_ me towards engineering
-management.
+a lot about [drivers](https://www.danpink.com/books/drive/) in my job, so here follows a list of what
+_drives_ me towards engineering management.
 
 ### Driver n.1: Amplifying
 
-Many times I took the lateral step to management because I needed to move forward something that
+Often times I took the lateral step to management because I needed to move forward something that
 was just too heavy for an IC: one time it was to organize a team the way I envisioned, another time to help
 with hiring, another time to deliver a risky project that was stalling, or that time that I picked
 up the lead role on the team that nobody wanted to join (probably the biggest success in my career
@@ -59,5 +59,5 @@ I like mentioning these 3 drivers when I try to explain why did I become an engi
 but reality is obviously more complex than this. Since I tend to go back and forth between coding and
 management, I find myself in the need to make decisions more often than people with a more "stable"
 career, and the factors contributing to such decisions are many and possibly different
-every time. Several of those are bad factors (frustration, money, pride, desire of showing off, boredom
-even) and it's vital for me to recognize them and bring back the focus on drivers number one and two.
+every time. Several of those are negative factors (frustration, money, pride, boredom even) so it's
+important for me to recognize them and bring back the focus on drivers number one and two.
