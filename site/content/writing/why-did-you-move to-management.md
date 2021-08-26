@@ -56,7 +56,7 @@ The risk is to **actually hurt people**, and rest assured most of those issues a
 
 ### Conclusions
 
-I like mentioning these 3 drivers when I try to explain why did I become an engineering manager,
+I like mentioning these three drivers when I try to explain why did I become an engineering manager,
 but reality is obviously more complex than this. Since I tend to go back and forth between coding and
 management, I find myself in the need to make decisions more often than people with a more "stable"
 career, and the factors contributing to such decisions are many and possibly different
