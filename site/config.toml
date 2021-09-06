@@ -6,7 +6,7 @@ googleAnalytics = "UA-43125807-1"
 theme = "m10c"
 
 [params]
-AuthorName = "masci"
+AuthorName = "Massimiliano Pippi"
 Avatar = "images/massi.png"
 Description = """Massi here. Software developer, engineering manager, I can ops.
     Open source advocate and contributor, documentation fanatic, speaker at conferences.
