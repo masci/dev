@@ -2,15 +2,15 @@
 <html lang="{{ .Site.LanguageCode | default "en-us" }}">
 
 <head>
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} // {{ .Site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
   <meta charset="utf-8" />
   {{ hugo.Generator }}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="{{ .Site.Params.author | default "John Doe" }}" />
-  <meta property="og:image" content="https://dev.pippi.im/images/massi-og.png" />
+  <meta name="author" content="{{ .Site.Params.AuthorName  }}" />
+  <meta property="og:image" content="https://dev.pippi.im{{ .Params.Image | default "/images/massi-og.png" }}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="description"
-    content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
+    content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Title }}{{ end }}" />
   {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
   <link rel="stylesheet" href="{{ $style.Permalink }}" />
 
