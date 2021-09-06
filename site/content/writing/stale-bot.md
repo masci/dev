@@ -3,6 +3,7 @@ title: "Make a stale bot, learn GitHub Actions"
 date: 2019-09-22T15:53:40+02:00
 draft: false
 tags: ["github", "actions", "typescript"]
+image: "/images/dominik-scythe-Sot0f3hQQ4Y-unsplash.jpg"
 ---
 
 A few months ago I had the chance to play with the first Beta of [GitHub Actions][6]
@@ -28,9 +29,9 @@ minimum recourse to 3rd party Actions.
 The requirements are admittedly idiotic but they made a good excuse to learn
 how to:
 
-* use scheduled Workflows
-* execute jobs conditionally
-* interact with the GitHub API from a Workflow
+- use scheduled Workflows
+- execute jobs conditionally
+- interact with the GitHub API from a Workflow
 
 ## Requirements
 
@@ -64,10 +65,10 @@ We have to tell GitHub when we want to run our Workflow and we can do it with th
 keyword `on`. According to our requirements, the Workflow should be triggered by
 different events:
 
-* Every night, to attach the `stale` label and to close issues that've
-been stale long enough.
-* Every time the issue is edited, or a label or milestone is attached.
-* Every time somebody leaves a comment on the issue.
+- Every night, to attach the `stale` label and to close issues that've
+  been stale long enough.
+- Every time the issue is edited, or a label or milestone is attached.
+- Every time somebody leaves a comment on the issue.
 
 To run a Workflow periodically at a given time, we can use the `schedule` keyword,
 followed by one or more intervals defined in [POSIX syntax][0], like in a `crontab`
@@ -76,7 +77,7 @@ file. For example, if we want our bot to run every night at midnight, we add:
 ```yaml
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron: "0 0 * * *"
 ```
 
 To also run the workflow every time an issue has activity, we add the `issues`
@@ -85,7 +86,7 @@ keyword, so that the previous snippet will look like this:
 ```yaml
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron: "0 0 * * *"
   issues:
 ```
 
@@ -100,7 +101,7 @@ by listing them explicitly in a sequence under the keyword `types`, like this:
 ```yaml
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron: "0 0 * * *"
   issues:
     types: [edited, milestoned, labeled]
 ```
@@ -113,7 +114,7 @@ specifically the `issue_comment` event:
 ```yaml
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron: "0 0 * * *"
   issues:
     types: [edited, milestoned, labeled]
   issue_comment:
@@ -134,7 +135,7 @@ choose the platform on which our workflow will run, we pick Linux, specifically
 ```yaml
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron: "0 0 * * *"
   issues:
     types: [edited, milestoned, labeled]
   issue_comment:
@@ -184,7 +185,7 @@ The logic for this job will be the following:
 1. Get a list of all open issues.
 1. For each one, get the time and date of the last update.
 1. If the difference between now and the last update for an issue is above a certain
-threshold, attach a label called `stale` to it.
+   threshold, attach a label called `stale` to it.
 
 The code will look like this (I'll paste only the job definition for brevity):
 
@@ -234,8 +235,7 @@ off by the cron scheduler. To do so, we can use the `if` keyword on our job:
 - name: Mark stale
   uses: actions/github-script@0.2.0
   if: github.event_name == 'schedule'
-  with:
-    ...
+  with: ...
 ```
 
 The job will be then skipped unless the statement in the `if` value is true.
@@ -299,7 +299,7 @@ it's been marked as stale for a certain amount of time. The logic is the followi
 
 1. Load all the issues having the `stale` label attached.
 1. For each one, compute the difference between now and the last update of the
-issue (we assume it concides with the moment the `stale` label was added)
+   issue (we assume it concides with the moment the `stale` label was added)
 1. If the difference is above our threshold, close the issue.
 
 The job definition looks like this:
@@ -361,21 +361,21 @@ discussing: the code we wrote is just a piece of text defined in a yaml file tha
 GitHub will happily pass to the entrypoint of the `actions/github-script` action.
 This means few terrible things:
 
-* No syntax highlighting
-* No code validation
-* No tests
+- No syntax highlighting
+- No code validation
+- No tests
 
 Which can turn into respectively:
 
-* A miserable user experience for authors and contributors
-* A frustrating development cycle
-* Bugs and poor performance
+- A miserable user experience for authors and contributors
+- A frustrating development cycle
+- Bugs and poor performance
 
 This is actually very interesting because this problem can help us to better
 define what the boundaries of a Workflow should be. I'd phrase like this:
 
 > If a workflow contains more than two lines of logic in plain text form, it's
-time to write a custom Action.
+> time to write a custom Action.
 
 With a custom Action (whether Javascript or container based) you can
 dramatically simplify the workflow definition while having tests and the
@@ -383,7 +383,7 @@ ability to exercise your code locally. You could also look at this problem
 symmetrically:
 
 > If your problem can be solved with two lines of logic, writing a custom Action
-is probably overkill
+> is probably overkill
 
 I'm a big fun of custom Actions and I enjoy Typescript, but I have to say they
 don't come for free: you basically need to write a full fledged
