@@ -2,6 +2,7 @@
 title: "Why did you move to management?"
 date: 2021-08-22T11:31:38+02:00
 tags: ["management"]
+image: "/images/undraw_Personal_settings_re_i6w4.png"
 ---
 
 From time to time, I get various declinations of the same question: _why did you decide to move
