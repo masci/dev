@@ -3,7 +3,8 @@ title: "Make a stale bot, learn GitHub Actions"
 date: 2019-09-22T15:53:40+02:00
 draft: false
 tags: ["github", "actions", "typescript"]
-image: "/images/dominik-scythe-Sot0f3hQQ4Y-unsplash.jpg"
+images:
+  - "/images/dominik-scythe-Sot0f3hQQ4Y-unsplash.jpg"
 ---
 
 A few months ago I had the chance to play with the first Beta of [GitHub Actions][6]
