@@ -3,7 +3,7 @@ title: "Resilient Management by Lara Hogan"
 description: ""
 category:
 tags: ["leadership", "management"]
-date: 2021-10-30T16:00:00+02:00
+date: 2021-10-30
 slug: "resilient-management"
 rating: "★★★☆☆"
 ---
