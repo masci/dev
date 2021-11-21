@@ -2,7 +2,7 @@
 <article>
   <h2>Articles</h2>
   <ul class="posts-list">
-    {{ range first 3 (where .Site.RegularPages "Type" "writing") }}
+    {{ range first 5 (where .Site.RegularPages "Type" "writing") }}
     <li class="posts-list-item">
       <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
       <span class="posts-list-item-description">
@@ -22,7 +22,7 @@
 <article>
   <h2>Talks</h2>
   <ul class="posts-list">
-    {{ range first 3 (where .Site.RegularPages "Type" "talk") }}
+    {{ range first 5 (where .Site.RegularPages "Type" "talk") }}
     <li class="posts-list-item">
       <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
       <span class="posts-list-item-description">
@@ -32,6 +32,20 @@
     {{ end }}
   </ul>
   See <a href="/talk">all the talks</a>
+</article>
+
+<article>
+  <h2>Active projects</h2>
+  <ul class="posts-list">
+    {{ range .Site.Params.active_project }}
+    <li class="posts-list-item">
+      <a target="_blank" class="posts-list-item-title" href="{{ .url }}">{{ .name }}</a>
+      <span class="posts-list-item-description">
+        {{ .description }}
+      </span>
+    </li>
+    {{ end }}
+  </ul>
 </article>
 
 <article>
@@ -47,19 +61,5 @@
     {{ end }}
   </ul>
   See <a href="/book">all the books</a>
-</article>
-
-<article>
-  <h2>Active projects</h2>
-  <ul class="posts-list">
-    {{ range .Site.Params.active_project }}
-    <li class="posts-list-item">
-      <a target="_blank" class="posts-list-item-title" href="{{ .url }}">{{ .name }}</a>
-      <span class="posts-list-item-description">
-        {{ .description }}
-      </span>
-    </li>
-    {{ end }}
-  </ul>
 </article>
 {{ end }}
