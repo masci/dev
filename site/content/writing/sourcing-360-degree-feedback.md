@@ -1,7 +1,6 @@
 ---
 title: "Sourcing 360 Degree Feedback"
 date: 2021-11-19T17:11:35+01:00
-draft: true
 tags: ["management"]
 images:
   - "/images/undraw_Work_chat_re_qes4.png"
