@@ -55,9 +55,9 @@ they provide is anonymous or not.
 
 ### 2. Ask questions
 
-Asking specific questions is a win-win situation. It's be easier for you to elaborate the
+Asking specific questions is a win-win situation. It's easier for you to elaborate the
 results: the topics covered, the length of the answers, the tone will be most likely similar
-for different people. It's also be easier for the person you're asking, because a blank page
+for different people. It's also easier for the person you're asking, because a blank page
 to fill can be intimidating; instead, in front of a list of questions, they can go one by one
 answering what they can, being able to roughly guess what are your expectations. For each
 question, be sure you ask for one and one thing only, you should optimize for short answers.
