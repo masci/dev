@@ -6,6 +6,7 @@ tags: ["leadership", "management"]
 date: 2019-12-01
 slug: "peopleware"
 rating: "★★★★☆"
+cover: "/images/peopleware.jpeg"
 ---
 
 I believe this is the mother of all the management books I've read so far: I can trace

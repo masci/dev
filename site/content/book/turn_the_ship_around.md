@@ -6,6 +6,7 @@ tags: ["leadership"]
 date: 2021-08-17T16:23:40+02:00
 slug: "turn-the-ship-around"
 rating: "★★★★☆"
+cover: "/images/turn_the_ship_around.jpg"
 ---
 
 I was skeptical at first because leadership and management style in the military are not really

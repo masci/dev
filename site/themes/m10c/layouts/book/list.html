@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  Contents are not paginated, use CTRL+F to search this page.
+  <ul class="posts-list">
+    {{ range .Pages }}
+    <li class="posts-list-item">
+      <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
+      <span class="posts-list-item-description">
+        {{ .PublishDate.Format "Jan 2, 2006" }}
+      </span>
+      {{ with .Params.cover }}<img style="float: left;margin-right: 1em;" src="{{ . }}" />{{ end }}
+      {{ .Summary | safeHTML }}
+      <a href="{{ .Permalink }}">Read book notes</a>.</p>
+      <div style="clear: both;"></div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ partial "pagination.html" $ }}
+</article>
+{{ end }}

@@ -6,6 +6,7 @@ tags: ["leadership", "management"]
 date: 2021-10-30
 slug: "resilient-management"
 rating: "★★★☆☆"
+cover: "/images/resilient_management.jpg"
 ---
 
 I liked the fact that the book is short, goes straight to the point, contains mostly
