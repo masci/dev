@@ -13,6 +13,8 @@ practical advices and methods to manage an engineering team (the target audience
 opinion is line managers). Similarly to "The Manager's Path" by Camille Fournier, you
 can keep this book on your desk and use it whenever you need it, like a manual.
 
+<!--more-->
+
 I didn't like that most of the contents come from Lara's blog, so if you're already one
 of her readers you won't find anything new. I still think the purchase is worth the money
 because contents are very well organized across the four sections, and getting the same

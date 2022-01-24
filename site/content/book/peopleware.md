@@ -10,8 +10,9 @@ rating: "★★★★☆"
 
 I believe this is the mother of all the management books I've read so far: I can trace
 back most of the concepts that nowadays are common in engineering management to a
-paragraph, or a simple quote from this book - I believe this text has inspired an army
-of leaders during the past 30 years.
+paragraph, or a simple quote from this book.
+
+<!--more-->
 
 The title says it all, the authors focus on the _people_ component of _people management_,
 something that we take for granted in 2019, but the first edition dates back to 1987. The

@@ -12,6 +12,8 @@ I was skeptical at first because leadership and management style in the military
 my cup of tea, but this is different: the author seems to have the same feelings, except he was
 a submarine commander in the US Navy.
 
+<!--more-->
+
 The whole book is about turning the leader-follower approach used in the Navy into a leader-leader
 management style, explaining why the latter works better in a nuclear submarine. The author explains
 how Control, Competence and Clarity are the key requirements that will allow any org to delegate
