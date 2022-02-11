@@ -54,6 +54,15 @@ Software delivery capabilities can be grouped in five categories:
   - Provide resources and tools that make work meaningful
   - Support and embody transformational leadership
 
+### The four KPIs of delivery performance
+
+- delivery lead time
+  - time from customer request to customer satisfaction
+  - time of design and validation + time to release
+- deployment frequency
+- MTTR (Mean Time To Restore)
+- Change fail rate
+
 ### Other notes
 
 - Improvements in software delivery are always possible as long as  leadership provides consistent
