@@ -53,7 +53,7 @@
   <ul class="posts-list">
     {{ range first 10 (where .Site.RegularPages "Type" "book") }}
     <li class="posts-list-item">
-      <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Params.rating}}  {{ .Title }}</a>
+      <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Params.rating}}  <span style="color:white">{{ .Title }}</span> {{.Description}}</a>
       <span class="posts-list-item-description">
         {{ .PublishDate.Format "Jan 2, 2006" }}
       </span>
