@@ -1,6 +1,6 @@
 ---
-title: "Peopleware by T. De Marco and T. Lister (3rd ed.)"
-description: ""
+title: "Peopleware"
+description: "by T. De Marco and T. Lister (3rd ed.)"
 category:
 tags: ["leadership", "management"]
 date: 2019-12-01

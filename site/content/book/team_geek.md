@@ -1,6 +1,6 @@
 ---
-title: "Team Geek by Brian W. Fitzpatrick, Ben Collins-Sussman"
-description: ""
+title: "Team Geek"
+description: "by Brian W. Fitzpatrick, Ben Collins-Sussman"
 category:
 tags: ["management"]
 date: 2013-07-11

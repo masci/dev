@@ -1,6 +1,6 @@
 ---
-title: "Accelerate by Nicole Forsgren PhD, Jez Humble, Gene Kim"
-description: ""
+title: "Accelerate"
+description: "by Nicole Forsgren PhD, Jez Humble, Gene Kim"
 category:
 tags: ["devops", "agile", "management"]
 date: 2022-02-03T10:58:25+01:00

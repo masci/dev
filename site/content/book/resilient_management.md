@@ -1,6 +1,6 @@
 ---
-title: "Resilient Management by Lara Hogan"
-description: ""
+title: "Resilient Management"
+description: "by Lara Hogan"
 category:
 tags: ["leadership", "management"]
 date: 2021-10-30

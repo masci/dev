@@ -1,6 +1,6 @@
 ---
-title: "Turn the Ship Around! by L. David Marquet"
-description: ""
+title: "Turn the Ship Around!"
+description: "by L. David Marquet"
 category:
 tags: ["leadership"]
 date: 2021-08-17T16:23:40+02:00
