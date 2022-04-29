@@ -34,6 +34,10 @@ url  = "https://www.youtube.com/watch?v=egSvw7xYw9s"
 [[material]]
 name = "dotGo Video"
 url  = "https://www.youtube.com/watch?v=7XbyJW47L5U"
+
+[[material]]
+name = "PyGotham Video"
+url  = "https://www.youtube.com/watch?v=yrEi5ezq2-c"
 +++
 
 Success stories about rewriting Python applications in Go are not big
