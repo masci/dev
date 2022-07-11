@@ -2,8 +2,7 @@ name: publish
 
 on:
   push:
-    branch:
-      - $default-branch
+    branches: [ $default-branch ]
 
 jobs:
   publish-site:
