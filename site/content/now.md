@@ -1,6 +1,6 @@
 ---
 title: "What I'm doing Now"
-date: 2022-02-18
+date: 2022-10-29
 draft: false
 layout: now
 ---
@@ -9,26 +9,23 @@ Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](h
 
 # Work
 
-I joined [Elastic](https://elastic.co) mid-pandemic in 2020 as a Senior Engineering Manager - changing
-job during the pandemic felt weird and was emotionally challenging but there isn't any other place
-I'd like to be during these funky times; I can work from home, fully supported in taking care of the
-family (myself included) whenever I need to.
+I joined [deepset](https://deepset.ai) mid 2022 as the Team Lead for Open Source Engineering. It's an early stage startup,
+a challenge that's also an immense learning resource (and something that was sitting on my professional TODO list :). The
+culture is great and they're good and talented people working on disruptive technology. Wearing multiple hats, I have the
+chance to revamp my coding skills, keep growing as a manager and learning a lot about product management. And 100% Open Source.
 
 # Life
 
 Random stuff that's going on:
 
-- After being on a diet during the whole winter and spring 2020/2021, I touched my lowest weight in May 2021.
-  These days I'm not following any strict regimen, I'm more into "good habits" when it comes to food. I
-  took back about 3 kilograms but staying on this weight is effortless at this point.
-- I'm still teaching myself basic financial education, I should've done this 25 years ago but I like
-  thinking it's never too late to start doing the right thing.
-- I keep practicing guitar, my gear consists of a [Seagull S60][seagull s60] acoustic guitar and an
+- Quoting myself from the last update: "I'm not following any strict regimen, I'm more into "good habits" when it comes to food".
+  ...aaaaand I peaked at 108 and had to go back on a diet, yay!
+- I'm building a house! (I mean, I'm paying professionals to do that, but it's built on my specs!)
+- I keep practicing guitar and studying music, my gear consists of a [Seagull S60][seagull s60] acoustic guitar and an
   [Acus One Forstrings 5T][acus one] amplifier. I recently acquired a travel guitar, a
   [Crafter Mino][crafter mino] and it's unbelievable how much more I'm playing it compared to the S60. I
   think the fact that's smaller and lighter (along with a great sound and volume) makes super easy to pick
   it up whenever I have a second to sit down.
-- I keep adding notes to my Zettelkasten and I finally used to [write something!](https://dev.pippi.im/writing/sourcing-360-degree-feedback/)
 
 # Inspiring notes
 
