@@ -29,7 +29,7 @@ Random stuff that's going on:
 
 # Inspiring notes
 
-- [_See, managers tell you where you are. Leaders [...] tell you where you're going._][art of leadership]
+- [_See, managers tell you where you are. Leaders (...) tell you where you're going._][art of leadership]
 - [_Management is not a promotion, management is a change of profession._][charity pendulum]
 - [_Would you buy a car if it eats 100 liters per 100 kilometers? How about 1000 liters? With computers, we do that all the time._][software disenchantment]
 - [_You only have this one crazy and precious life. That’s why you owe it to yourself to see who you can become, and how far you can go._][13 things]
