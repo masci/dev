@@ -1,12 +1,10 @@
 ---
-title: "Rapid Prototyping Web Services Python: make it don't fake it."
+title: "Rapid Prototyping Web Services in Python: make it, don't fake it!"
 date: 2022-11-05T10:22:34+01:00
 tags: ["python"]
 images:
   - "/images/undraw_fast_loading_re_8oi3.png"
 ---
-
-# Rapid prototyping web services in Python: make it instead of faking it.
 
 {{<figure src="/images/mark-konig-1UMrSoItdDE-unsplash.jpg" title="Photo by Mark König on Unsplash" width="100%">}}
 
