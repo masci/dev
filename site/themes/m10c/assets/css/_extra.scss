@@ -8,3 +8,14 @@ hr.footer::before {
   display: block;
   text-align: center;
 }
+figcaption {
+  color: white;
+  font-style: italic;
+  text-align: center;
+  font-size: .6em;
+  border: 0;
+}
+// Hugo puts a <h4> inside the figcaption, let's remove the top margin
+h4 {
+  margin-top: 0px;
+}
