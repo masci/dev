@@ -144,7 +144,7 @@ this is the result:
 
 As you can see from this chunk:
 
-{{% highlight html %}}
+```html
     <div class="col-md-9">
     {% if not unread %}
         {% stored_messages_archive 100 %}
@@ -158,7 +158,7 @@ If user requested the archive (i.e. to show messages that were already read), th
 `stored_messages_archive` provided by Django Stored Messages will show a list of `100` messages rendering
 the template at `stored_messages/stored_messages_list.html`. Here is the template ovverrided to add Bootstrap3 classes:
 
-{{% highlight html %}}
+```html
     {% if messages %}
         <ul class="list-group">
             {% for message in messages %}
@@ -213,7 +213,7 @@ Even if Django Stored Messages has a template tag to show unread messages, for t
 which let us retrieve unread messages and mark them as read. To interact with the api we use
 [Angular](http://angularjs.org/), for the sake of simplicity we use a single controller:
 
-{{% highlight javascript %}}
+```js
     var messageApp = angular.module('messageApp', []);
 
     messageApp.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
@@ -229,7 +229,7 @@ data coming from the api, then it will be available through the `$scope` object.
 properly, the html code in our templates needs to be aware of the angular stuff - we do this in the `base.html` so that
 every page could use angular facilities:
 
-{{% highlight html %}}
+```html
     <!DOCTYPE html>
     <html ng-app="messageApp">
         <head>
@@ -238,7 +238,7 @@ every page could use angular facilities:
 
 and:
 
-{{% highlight html %}}
+```html
     ...
     </head>
 
@@ -250,7 +250,7 @@ and:
 
 Inside the controller, this code will be added to retrieve all the unread messages for the logged-in user:
 
-{{% highlight javascript %}}
+```js
     // ...
 
     // retrieve Messages from the restAPI
@@ -271,7 +271,7 @@ Inside the controller, this code will be added to retrieve all the unread messag
 If everything goes fine, `$scope.messages` will contain our messages and we can use them inside the DOM. To do this, we
 need some angularities inside the html, for example in the `message.html` template:
 
-{{% highlight html %}}
+```html
     {% verbatim %}
     <ul class="list-group" ng-if="messages.length">
       <li class="list-group-item" ng-repeat="message in messages">
@@ -289,7 +289,7 @@ care of iterating the messages and show them in the DOM through angular's templa
 > be changed in angular but it's not generally advisable) we need to wrap angular code inside Django's `verbatim` tags.
 
 In the html code above notice this:
-{{% highlight html %}}
+```html
     <a ng-click="markRead($index)" style="cursor:pointer">Mark as read</a>
 ```
 
@@ -297,7 +297,7 @@ For every unread message, we provide a link and we tell angular that when user c
 function `markRead()` has to be called with the parameter `$index`. We define that function inside the angular
 controller and attach it to the `$scope`:
 
-{{% highlight javascript %}}
+```js
     // ...
 
     // mark messages read
@@ -329,14 +329,14 @@ DOM manipulation. Just fun.
 Since Django Stored Messages api exposes an endpoint to mark all messages read, we provide a button to do exactly this.
 The code for the button is very similar to the one to mark messages read:
 
-{{% highlight html %}}
+```html
     <button type="button" class="btn btn-success" ng-click="markAllRead()">Mark all read</button>
 ```
 
 This time the function name is `markAllRead` and we call it without parameters; the function is defined inside the
 controller:
 
-{{% highlight javascript %}}
+```js
     // ...
 
     // mark all read

@@ -70,7 +70,7 @@ in the context so the template can render properly.
 
 The relevant html code in the template looks like this:
 
-{{% highlight html %}}
+```html
     <ul>
     {% for object in object_list %}
       <li>
