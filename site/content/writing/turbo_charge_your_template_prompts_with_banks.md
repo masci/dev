@@ -7,13 +7,13 @@ images:
 ---
 
 
-Like many others, I've been playing with prompt engineering a lot lately and I came up with my very own prompt template
-engine: [Banks](https://github.com/masci/banks). The project isn't really much more than a toy, but inspired by
-[this langchain tutorial](https://www.pinecone.io/learn/langchain-prompt-templates/) from Pinecone, I decided to take
-it out for a spin.
+Like many others, I've been playing with prompt engineering a lot lately and ended up with my very own prompt template
+engine: [Banks](https://github.com/masci/banks). Heavily based on Jinja2, the project isn't really much more than a toy,
+but inspired by [this langchain tutorial](https://www.pinecone.io/learn/langchain-prompt-templates/) from Pinecone,
+I decided to take it out for a spin.
 
 ## A basic example
-Working with a very basic example, Banks and langchain don't look very much different, let's start with the latter:
+Working with a very basic example, Banks and Langchain don't look very much different, let's start with the latter:
 
 ```py
 from langchain import PromptTemplate
@@ -82,10 +82,15 @@ print(
 )
 ```
 
-The output will be exactly the same, but as you can see the relative code would be very similar. One notable difference is tht with Banks you can put comments in your prompt template using the special tag `{# ... #}`, very useful to annotate your prompts.
+The output will be exactly the same, and as you can see the relative code is very similar. One notable difference is
+that with Banks, you can put comments in the template itself using a special tag `{# ... #}`, very useful to annotate
+your prompts.
 
 ## A more complex example: few-shots prompt template
-Let's move to a more interesting example, a few-shots prompt. Langchain has a special Python class called `FewShotPromptTemplate` you can use to render a specific template for such a prompt. You have to know of which parts the prompt consists (instruction, context, examples, question, etc...) and configure the class accordingly. Let's see the example from Pinecone's article:
+
+Let's move to a more interesting example: a few-shots prompt. Langchain has a special Python class called `FewShotPromptTemplate` you can use to render a specific template for this specific prompt. You have to know of which
+parts the prompt consists of (instruction, context, examples, question, etc...) and configure the class accordingly.
+Let's see the example from Pinecone's article:
 
 ```py
 from langchain import FewShotPromptTemplate, PromptTemplate
@@ -158,7 +163,8 @@ User: What is the meaning of life?
 AI:
 ```
 
-To lower cognitive load, Banks doesn't make any assumption around prompts' components, prompts are just prompts. In this case, for example, there's no difference between, say, the context and the examples section. The code would look like this:
+To lower cognitive load, Banks doesn't make any assumption around prompts' components: prompts are just prompts.
+In this case there's no difference between, say, the prefix and the examples section. The code would look like this:
 
 ```py
 from banks import Prompt
@@ -196,7 +202,11 @@ query = "What is the meaning of life?"
 print(few_shot_prompt_template.text(data={"query": query, "examples": examples}))
 ```
 
-The output will look exactly the same, white spaces included. Note how Banks implements the Python mantra "explicit is better than implicit": by just looking at the template, you already have an idea of what the output will be, already before rendering the final prompt. Moreover, you are fully in control of the output, for example let's see how we can remove the blank lines in the final output. With Banks there's no need to touch the Python code, all the changes can be done in the prompt template directly. To test this out, let's change the `template` variable like this:
+The output will look exactly the same, white spaces included. Note how Banks implements the Python mantra "explicit is
+better than implicit": by just looking at the template, you already have an idea of what the output will be, way
+before rendering the final prompt. Moreover, you are fully in control of the rendering process: for example, let's see
+how we can remove the blank lines in the final output. With Banks there's no need to touch the Python code, all the
+changes can be done directly in the prompt template. To test this out, let's change the `template` variable like this:
 
 ```py
 template = """The following are excerpts from conversations with an AI
@@ -211,7 +221,7 @@ User: {{ query }}
 """
 ```
 
-Note we just removed the blank lines from the template. The output will look like this:
+Note how we only removed the blank lines from the template. The output will look like this:
 
 ```
 The following are excerpts from conversations with an AI
@@ -229,7 +239,13 @@ User: What is the meaning of life?
 ```
 
 ## Control the examples
-Again from the Pinecone's article, there's an interesting example showing Langchain's capability to generate the examples in a way that the overall size of the generated prompt is below a certain value specified by the user. By using a special Python class called `LengthBasedExampleSelector`, the `FewShotPromptTemplate` class will be able to pick a suitable subset of the examples to generate the final text. In all honesty I don't fully understand how the `max_length` parameter works, plus I'm getting different results from the original blog article, anyways here's the code:
+
+Again, from the Pinecone's article, there's an interesting example showing Langchain's capability to generate the
+examples in a way that the overall size of the generated prompt stays below a certain value specified by the user.
+By using a special Python class called `LengthBasedExampleSelector`, the `FewShotPromptTemplate` class will be able to
+select a suitable subset of examples to generate the final text. In all honesty I don't fully understand how the
+`max_length` parameter works, plus I'm getting different results from the original blog article,
+anyways here's the code:
 
 ```py
 from langchain import FewShotPromptTemplate, PromptTemplate
@@ -299,7 +315,9 @@ print(dynamic_prompt_template.format(query="How do birds fly?"))
 
 ```
 
-Banks doesn't have a corresponding feature but I thought this was actually a good opportunity to show how moving the logic from Python to the prompt template itself is more explicit and flexible enough to do something like this in case you want to control the final prompt size:
+Banks doesn't have a corresponding feature, but I thought this was actually a good opportunity to show how pushong the
+logic out of Python to the prompt template itself is explicit and flexible enough to do something like this, in case
+you want to control the final prompt size:
 
 ```py
 from banks import Prompt
@@ -361,9 +379,21 @@ print(
 ```
 
 ## Conclusions
-While I don't want Banks to be an alternative to something as powerful as Langchain, it was fun to see if and how this tiny library could keep up with a full-fledged LLM framework. If you can take away one concept from this article, I hope this is my design choice of moving complexity out of Python and into the template itself for two very practical reasons:
-1. I want to share my prompt templates with others, and having to send around Colabs or Python snippets is annoying.
-2. I want the process to be explicit, I want to know why a certain prompt was rendered in a certain way, I want comments in my template so I can explain to my colleagues why I did this or that.
-3. I don't want my prompts to adhere to any convention, I want to put the context at the end and the examples at the top when I'm testing a LLM.
+
+While I don't want Banks to be an alternative to something as powerful as Langchain, it was fun to see if and how this
+tiny library could keep up with a full-fledged LLM framework. If you can take away one concept from this article, I
+hope this is my design choice of moving complexity out of Python and into the template itself, mostly for practical
+reasons:
+
+1. I want to be able to share my prompt templates with others, and having to send around Colabs or Python snippets is
+   often suboptimal.
+2. I want the process to be explicit; I want to know why a certain prompt was rendered in a certain way; I want comments
+   in my template so I can explain to my colleagues why I added this or that piece of text.
+3. I don't want my prompts to adhere to any convention: I want to be able to put the context at the end and the examples
+   at the top if I feel so (and believe me, this is super useful when you test a new LLM).
+
 ## Try out Banks!
-Banks is basically Jinja2 on steroids, and it can do much more than what you see in this article. Do you know it can generate examples while rendering a template? [Go check it out](https://github.com/masci/banks) and please star the repo!
+
+Banks is basically Jinja2 on steroids, and it can do much more than what you see in this article. For example, do you
+know it can generate examples while rendering a template? [Go check it out](https://github.com/masci/banks) and please
+star the repo!
