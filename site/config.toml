@@ -41,3 +41,20 @@ description = "Ingest metrics from a Datadog Agent and send them to a custom sto
 name = "actions/elastic-logs"
 url = "https://github.com/masci/elastic-logs"
 description = "Fetch logs from GitHub workflows and ingest them to Elasticsearch"
+
+# Syntax highlight
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'catppuccin-macchiato'
+    tabWidth = 4
