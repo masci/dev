@@ -3,7 +3,7 @@ title: "Turbo charge your template prompts with Banks"
 date: 2023-06-13T00:22:34+01:00
 tags: ["python", "nlp", "llm"]
 images:
-  - "/images/undraw_fast_loading_re_8oi3.png"
+  - "/images/undraw_Content_team_re_6rlg.png"
 ---
 
 
