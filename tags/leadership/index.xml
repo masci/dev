@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>leadership on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/leadership/</link>
+    <description>Recent content in leadership on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Feb 2022 10:36:57 +0100</lastBuildDate><atom:link href="https://dev.pippi.im/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Art of Leadership</title>
+      <link>https://dev.pippi.im/book/art-of-leadership/</link>
+      <pubDate>Fri, 18 Feb 2022 10:36:57 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/book/art-of-leadership/</guid>
+      <description>&lt;p&gt;Very much like &amp;ldquo;The Manager&amp;rsquo;s Path&amp;rdquo;, this is another book you should keep on your desk
+and access randomly as you need it. Most of the &amp;ldquo;small things&amp;rdquo; target upper management
+but I recommend this book to line managers and individual contributors too as this is
+a good reference for what you should expect from your manager.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Resilient Management</title>
+      <link>https://dev.pippi.im/book/resilient-management/</link>
+      <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/resilient-management/</guid>
+      <description>&lt;p&gt;I liked the fact that the book is short, goes straight to the point, contains mostly
+practical advices and methods to manage an engineering team (the target audience in my
+opinion is line managers). Similarly to &amp;ldquo;The Manager&amp;rsquo;s Path&amp;rdquo; by Camille Fournier, you
+can keep this book on your desk and use it whenever you need it, like a manual.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Turn the Ship Around!</title>
+      <link>https://dev.pippi.im/book/turn-the-ship-around/</link>
+      <pubDate>Tue, 17 Aug 2021 16:23:40 +0200</pubDate>
+      
+      <guid>https://dev.pippi.im/book/turn-the-ship-around/</guid>
+      <description>&lt;p&gt;I was skeptical at first because leadership and management style in the military are not really
+my cup of tea, but this is different: the author seems to have the same feelings, except he was
+a submarine commander in the US Navy.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Peopleware</title>
+      <link>https://dev.pippi.im/book/peopleware/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/peopleware/</guid>
+      <description>&lt;p&gt;I believe this is the mother of all the management books I&amp;rsquo;ve read so far: I can trace
+back most of the concepts that nowadays are common in engineering management to a
+paragraph, or a simple quote from this book.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
