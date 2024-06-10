@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Peopleware - /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.111.3">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Massimiliano Pippi" />
+  <meta name="description" content="Peopleware" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.66dc5ff1b2ffcc465c37385641ad836294f37f5f00dc4a10304ca1e7ad4f3979.css" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-43125807-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Peopleware"/>
+<meta name="twitter:description" content="by T. De Marco and T. Lister (3rd ed.)"/>
+
+  <meta property="og:title" content="Peopleware" />
+<meta property="og:description" content="by T. De Marco and T. Lister (3rd ed.)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.pippi.im/book/peopleware/" /><meta property="article:section" content="book" />
+<meta property="article:published_time" content="2019-12-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-01T00:00:00+00:00" />
+
+
+</head>
+
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+      Massi here. Software developer, engineering manager, I can ops.
+    Open source advocate and contributor, documentation fanatic, speaker at conferences.
+    I wrote a book once.
+    </p>
+    <div>
+      See what I'm up to <a href="/now">now</a>.
+    </div>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
+    </div>
+  </header>
+  <main class="app-container">
+    
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Peopleware</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Dec 1, 2019
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://dev.pippi.im/tags/leadership/">leadership</a><a class="tag" href="https://dev.pippi.im/tags/management/">management</a></div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-list">
+  <title>list</title>
+  <line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line>
+</svg>
+          ★★★★☆
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <img style="margin-top: 1em;" src="/images/peopleware.jpeg" />
+      <p>I believe this is the mother of all the management books I&rsquo;ve read so far: I can trace
+back most of the concepts that nowadays are common in engineering management to a
+paragraph, or a simple quote from this book.</p>
+<p>The title says it all, the authors focus on the <em>people</em> component of <em>people management</em>,
+something that we take for granted in 2019, but the first edition dates back to 1987. The
+book covers several aspects of the people management (including the organization of the office
+space) and most of the concepts can be applied to different industries.</p>
+<p>My copy is full of bookmarks so I can use it as a reference manual when I need to, this is
+definitely a book that should be kept on your desk, the list of notes I transcribed doesn&rsquo;t
+make justice to its contents.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><em>The &ldquo;make a cheeseburger, sell a cheeseburger&rdquo; mentality can be fatal in your development area</em>.
+Management techniques that work in production (food, cars, tangible goods) mostly don&rsquo;t work in
+development (i.e. when the output concerns people)</li>
+<li><em>One example of just such a less-perceptive manager was a boss who showed extreme signs of being
+threatened by his people&rsquo;s individuality</em>. Individuals are always unique: for managers applying a
+&ldquo;production world&rdquo; style this is a problem while for &ldquo;people managers&rdquo; this is a resource</li>
+<li><em>Workaholism is an illness, but not an illness like alcoholism that affects only the unlucky few. Workaholism is more like the common cold: Everyone has a bout of it every now and then</em>. Consider some of
+the things that organizations typically do to improve productivity:
+<ul>
+<li>Pressure people to put in more hours</li>
+<li>Mechanize the process of product development</li>
+<li>Compromise the quality of the product</li>
+<li>Standardize procedures</li>
+</ul>
+</li>
+<li>Improving productivity without considering the risk of making the job less interesting and less enjoyable will increase turnover.</li>
+<li><em>Workers kept under extreme pressure will begin to sacrifice quality.</em></li>
+<li><em>We managers tend to think of quality as just another attribute of the product, something that may be
+supplied in varying degrees according to the needs of the marketplace. It&rsquo;s like the chocolate sauce you
+pour onto a homemade sundae: more for people who want more, and less for people who want less</em></li>
+<li><em>The builders&rsquo; view of quality, on the other end, is very different. Since their self-esteem is strongly
+tied to the quality of the product, they tend to impose quality standards on their own.</em> Builders
+(software developers included) tend to impose quality standards on their own</li>
+<li><em>Quality, far beyond that required by the end user, is a means to higher productivity</em>. If you let the
+buyer set quality they will most likely accept a cheaper cost/quality tradeoff causing &ldquo;the flight from
+excellence&rdquo;</li>
+<li><em>It mattered a lot who your pair was. If you were paired with someone who did well, you did well, too.
+If you pair mate took forever to finish, so did you. If your pair mate didn&rsquo;t finish the exercise at all,
+you probably didn&rsquo;t either.</em></li>
+<li><em>Data collected on the individual&rsquo;s performance has to be used only to benefit that individual. The
+measurement scheme is an exercise in self-assessment, and only the sanitized averages are made available
+to the boss.</em> Measuring work is useful but it has to be clear that it&rsquo;s for the benefit of the workers,
+not for threaten or add burden. Management has to cut itself out of the loop.</li>
+<li><em>The worker who tries and tries to get into flow and is interrupted each time is not a happy person. He
+gets tantalizingly close to involvement only to be bounced back into awareness of his surroundings.</em>
+A few days not being able to get into the flow might cost your employee.</li>
+<li><em>People have to be assured that it&rsquo;s not their fault if they can only manage one or two uninterrupted
+hours a week; rather it&rsquo;s the organization&rsquo;s fault for not providing a flow-conductive environment.</em> If
+employees can&rsquo;t get into flow, it&rsquo;s most certainly their company&rsquo;s fault.</li>
+<li><em>E-Factor = Uninterrupted Hours / Body-present hours</em>. The e-factor measures how the environment affects
+workers&rsquo; ability to get into flow</li>
+<li><em>The first step toward a sane environment is a program of repeated assertion. If you believe that the
+environment is working against you, you&rsquo;ve got to start saying so. You&rsquo;ll need to create a forum for other
+people to chime in, too, perhaps with a survey of people&rsquo;s assessment of their working conditions.</em></li>
+<li><em>The most successful manager is the one who shakes up the local entropy to bring in the right people and
+let them be themselves, even though they may deviate from the corporate norm. Your organization may have
+rigor mortis, but your little piece of it can hop and skip.</em></li>
+<li>In order to lead without positional authority you have to do:
+<ul>
+<li>Step up to the task</li>
+<li>Be evidently fit for the task</li>
+<li>Prepare for the task by doing the required homework ahead of time</li>
+<li>Maximize value to everyone</li>
+<li>Do it all with humor and obvious goodwill</li>
+</ul>
+</li>
+<li><em>It takes a bit of a rebel to help even the best innovation achieve its promise: rebel leadership. The
+rebel supplied the time to innovate - you take a key person away from billable work (this may constitute
+constructive disobedience on your part) in order to pursue a nascent vision.</em></li>
+<li><em>Alan Kay defines technology as whatever is around you today but was not there when you were growing up.
+He further observes that what was already around you when you were growing up has a name: it&rsquo;s called
+environment. One generation&rsquo;s technology is the next generation&rsquo;s environment.</em></li>
+<li><em>On the best teams, different individuals provide occasional leadership, taking charge in areas where
+they have particular strengths. No one is a permanent leader, because that person would then cease to
+be a peer and the team interaction would begin to break down. <strong>The structure of a team is a network, not a
+hierarchy</strong>.</em></li>
+</ul>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+  </main>
+</body>
+
+</html>

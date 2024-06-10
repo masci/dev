@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>management on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/management/</link>
+    <description>Recent content in management on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dev.pippi.im/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What You Do Is Who You Are: How to Create Your Business Culture</title>
+      <link>https://dev.pippi.im/book/what-you-do-is-what-you-are/</link>
+      <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/what-you-do-is-what-you-are/</guid>
+      <description>&lt;p&gt;I can&amp;rsquo;t recall another time when reading a book made me uncomfortable. The book is supposed to teach you how to set up
+a strong culture in your company but to do so it uses examples from: a controversial military leader, a feudal system
+well known for its rigid hierarchies, a perpetrator of multiple genocides and last but not least, a prison gang leader.
+I kinda see the idea behind the book, but the execution is terrible, peaking with the cringey quotes from rap songs at
+the beginning of each chapter. The book contains great stories and good insights but you have to dig, not sure it was
+worth it.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Art of Leadership</title>
+      <link>https://dev.pippi.im/book/art-of-leadership/</link>
+      <pubDate>Fri, 18 Feb 2022 10:36:57 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/book/art-of-leadership/</guid>
+      <description>&lt;p&gt;Very much like &amp;ldquo;The Manager&amp;rsquo;s Path&amp;rdquo;, this is another book you should keep on your desk
+and access randomly as you need it. Most of the &amp;ldquo;small things&amp;rdquo; target upper management
+but I recommend this book to line managers and individual contributors too as this is
+a good reference for what you should expect from your manager.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Accelerate</title>
+      <link>https://dev.pippi.im/book/accelerate/</link>
+      <pubDate>Thu, 03 Feb 2022 10:58:25 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/book/accelerate/</guid>
+      <description>&lt;p&gt;The book consists of two, very different parts, plus a case study from the ING bank. Part one
+is a must read explanation of how DevOps practices can massively impact the business in a positive
+way and why. The second part is an explanation of the science that supports the claims presented in
+Part two.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sourcing 360 Degree Feedback</title>
+      <link>https://dev.pippi.im/writing/sourcing-360-degree-feedback/</link>
+      <pubDate>Fri, 19 Nov 2021 17:11:35 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/sourcing-360-degree-feedback/</guid>
+      <description>The 360 degree feedback (or just &amp;ldquo;360 feedback&amp;rdquo;) is named after the multiple sources from where the feedback is gathered: it can be upward (from somebody reporting to that person), downward (from that person&amp;rsquo;s managers) and lateral (from a peer, or from a cross-functional team member). I don&amp;rsquo;t resort very often on the 360 feedback &amp;ldquo;as a process&amp;rdquo;, but it admittedly provides several advantages:
+It&amp;rsquo;s useful to uncover blind spots: other people look at things from a different angle and might help you surface the unexpected It&amp;rsquo;s more balanced: you get (or give) feedback gathered from a diverse group of individuals instead of just one person, lowering the impact of the bias that will inevitably come with the feedback I sometimes resort to 360 feedback in situations where these advantages shine: for example when I know I have several blind spots to cover (took a new reporter, joined a new organization) or to prepare performance reviews or promotion cases, where I can&amp;rsquo;t afford my positive or negative bias to have a crucial impact.</description>
+    </item>
+    
+    <item>
+      <title>Resilient Management</title>
+      <link>https://dev.pippi.im/book/resilient-management/</link>
+      <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/resilient-management/</guid>
+      <description>&lt;p&gt;I liked the fact that the book is short, goes straight to the point, contains mostly
+practical advices and methods to manage an engineering team (the target audience in my
+opinion is line managers). Similarly to &amp;ldquo;The Manager&amp;rsquo;s Path&amp;rdquo; by Camille Fournier, you
+can keep this book on your desk and use it whenever you need it, like a manual.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Why did you move to management?</title>
+      <link>https://dev.pippi.im/writing/why-did-you-move-to-management/</link>
+      <pubDate>Sun, 22 Aug 2021 11:31:38 +0200</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/why-did-you-move-to-management/</guid>
+      <description>From time to time, I get various declinations of the same question: why did you decide to move to engineering management? It&amp;rsquo;s not necessarily in job interviews: it might be a colleague, somebody I&amp;rsquo;m mentoring, or a friend of mine. Even my wife asks, sometimes out of genuine curiosity, other times more in a &amp;ldquo;why did you do this to yourself&amp;rdquo; fashion - so I thought it might be interesting to articulate an answer in written form.</description>
+    </item>
+    
+    <item>
+      <title>Peopleware</title>
+      <link>https://dev.pippi.im/book/peopleware/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/peopleware/</guid>
+      <description>&lt;p&gt;I believe this is the mother of all the management books I&amp;rsquo;ve read so far: I can trace
+back most of the concepts that nowadays are common in engineering management to a
+paragraph, or a simple quote from this book.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How I manage a small team with the help of Trello</title>
+      <link>https://dev.pippi.im/writing/manage-with-trello/</link>
+      <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/manage-with-trello/</guid>
+      <description>This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&amp;rsquo;ll see how I didn&amp;rsquo;t invent anything and how this is only &amp;ldquo;yet another way&amp;rdquo; of composing existing tools and practices in order to implement a process that works for me. So why another post?</description>
+    </item>
+    
+    <item>
+      <title>Team Geek</title>
+      <link>https://dev.pippi.im/book/team-geek/</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/team-geek/</guid>
+      <description>&lt;p&gt;The authors keep saying a sort of mantra during the book: &lt;strong&gt;HRT&lt;/strong&gt;, an acronym that stands
+for Humility, Respect and Trust. Apply this mantra and you will soon become an excellent
+team player, whatever your job is.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
