@@ -1,4 +1,5 @@
 .DS_Store
 *.swp
 site/resources
+site/public
 *.lock

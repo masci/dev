@@ -22,6 +22,10 @@ url = "http://www.linkedin.com/in/masci"
 
 # Active projects
 [[params.active_project]]
+name = "banks"
+url = "https://github.com/masci/banks"
+description = "LLM prompt language based on Jinja"
+[[params.active_project]]
 name = "Intro to Kubernetes"
 url = "https://masci.github.io/k8s101/"
 description = "A 2-hours workshop to go from zero to Kubernetes"
@@ -29,18 +33,7 @@ description = "A 2-hours workshop to go from zero to Kubernetes"
 name = "actions/datadog"
 url = "https://github.com/masci/datadog"
 description = "Send Datadog metrics and events from GitHub workflows"
-[[params.active_project]]
-name = "drone-datadog"
-url = "https://github.com/masci/drone-datadog"
-description = "A drone.io plugin to send events and metrics to Datadog"
-[[params.active_project]]
-name = "Threadle"
-url = "https://github.com/masci/threadle"
-description = "Ingest metrics from a Datadog Agent and send them to a custom storage using different plugins"
-[[params.active_project]]
-name = "banks"
-url = "https://github.com/masci/banks"
-description = "LLM prompt language based on Jinja"
+
 
 # Syntax highlight
 [markup]
