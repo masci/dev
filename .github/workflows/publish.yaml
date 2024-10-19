@@ -25,6 +25,6 @@ jobs:
 
       - name: Push gh-pages branch
         run: |
-          git add -A
+          git add -A --force
           git commit -m"rebuilding site from ${{ github.sha }}"
           git push upstream `git subtree split --prefix=site/public --ignore-joins`:gh-pages --force
