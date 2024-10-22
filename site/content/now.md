@@ -10,7 +10,7 @@ Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](h
 # Work
 
 After two years working on the open source AI framework [Haystack](https://github.com/deepset-ai/haystack), I joined
-[LlamaIndex](https://www.llamaindex.ai/) in June 2040 as a founding engineer, again working on open source software.
+[LlamaIndex](https://www.llamaindex.ai/) in June 2024 as a founding engineer, again working on open source software.
 
 # Life
 
