@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nlp on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/nlp/</link>
+    <description>Recent content in nlp on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Jun 2023 00:22:34 +0100</lastBuildDate><atom:link href="https://dev.pippi.im/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Turbo charge your template prompts with Banks</title>
+      <link>https://dev.pippi.im/writing/turbo_charge_your_template_prompts_with_banks/</link>
+      <pubDate>Tue, 13 Jun 2023 00:22:34 +0100</pubDate>
+      
+      <guid>https://dev.pippi.im/writing/turbo_charge_your_template_prompts_with_banks/</guid>
+      <description>Like many others, I&amp;rsquo;ve been playing with prompt engineering a lot lately and ended up with my very own prompt template engine: Banks. Heavily based on Jinja2, the project isn&amp;rsquo;t really much more than a toy, but inspired by this langchain tutorial from Pinecone, I decided to take it out for a spin.
+A basic example Working with a very basic example, Banks and Langchain don&amp;rsquo;t look very much different, let&amp;rsquo;s start with the latter:</description>
+    </item>
+    
+  </channel>
+</rss>

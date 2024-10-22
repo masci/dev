@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Turbo charge your template prompts with Banks - /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.111.3">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Massimiliano Pippi" />
+  <meta name="description" content="Turbo charge your template prompts with Banks" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.66dc5ff1b2ffcc465c37385641ad836294f37f5f00dc4a10304ca1e7ad4f3979.css" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-43125807-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dev.pippi.im/images/undraw_Content_team_re_6rlg.png"/>
+
+<meta name="twitter:title" content="Turbo charge your template prompts with Banks"/>
+<meta name="twitter:description" content="Like many others, I&rsquo;ve been playing with prompt engineering a lot lately and ended up with my very own prompt template engine: Banks. Heavily based on Jinja2, the project isn&rsquo;t really much more than a toy, but inspired by this langchain tutorial from Pinecone, I decided to take it out for a spin.
+A basic example Working with a very basic example, Banks and Langchain don&rsquo;t look very much different, let&rsquo;s start with the latter:"/>
+
+  <meta property="og:title" content="Turbo charge your template prompts with Banks" />
+<meta property="og:description" content="Like many others, I&rsquo;ve been playing with prompt engineering a lot lately and ended up with my very own prompt template engine: Banks. Heavily based on Jinja2, the project isn&rsquo;t really much more than a toy, but inspired by this langchain tutorial from Pinecone, I decided to take it out for a spin.
+A basic example Working with a very basic example, Banks and Langchain don&rsquo;t look very much different, let&rsquo;s start with the latter:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.pippi.im/writing/turbo_charge_your_template_prompts_with_banks/" /><meta property="og:image" content="https://dev.pippi.im/images/undraw_Content_team_re_6rlg.png" /><meta property="article:section" content="writing" />
+<meta property="article:published_time" content="2023-06-13T00:22:34+01:00" />
+<meta property="article:modified_time" content="2023-06-13T00:22:34+01:00" />
+
+
+</head>
+
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+      Massi here. Software developer, engineering manager, I can ops.
+    Open source advocate and contributor, documentation fanatic, speaker at conferences.
+    I wrote a book once.
+    </p>
+    <div>
+      See what I'm up to <a href="/now">now</a>.
+    </div>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
+    </div>
+  </header>
+  <main class="app-container">
+    
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Turbo charge your template prompts with Banks</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 13, 2023
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          10 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://dev.pippi.im/tags/python/">python</a><a class="tag" href="https://dev.pippi.im/tags/nlp/">nlp</a><a class="tag" href="https://dev.pippi.im/tags/llm/">llm</a></div></div>
+    </header>
+    <div class="post-content">
+      <p>Like many others, I&rsquo;ve been playing with prompt engineering a lot lately and ended up with my very own prompt template
+engine: <a href="https://github.com/masci/banks">Banks</a>. Heavily based on Jinja2, the project isn&rsquo;t really much more than a toy,
+but inspired by <a href="https://www.pinecone.io/learn/langchain-prompt-templates/">this langchain tutorial</a> from Pinecone,
+I decided to take it out for a spin.</p>
+<h2 id="a-basic-example">A basic example</h2>
+<p>Working with a very basic example, Banks and Langchain don&rsquo;t look very much different, let&rsquo;s start with the latter:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f5a97f;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#c6a0f6">from</span> <span style="color:#eed49f">langchain</span> <span style="color:#c6a0f6">import</span> <span style="color:#b7bdf8">PromptTemplate</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">template</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;Answer the question based on the context below. If the
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">question cannot be answered using the information provided answer
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">with &#34;I don&#39;t know&#34;.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Context: Large Language Models (LLMs) are the latest models used in NLP.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Their superior performance over smaller models has made them incredibly
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">useful for developers building NLP enabled applications. These models
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">can be accessed via Hugging Face&#39;s `transformers` library, via OpenAI
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">using the `openai` library, and via Cohere using the `cohere` library.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Question: </span><span style="color:#a6da95">{query}</span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Answer: &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">prompt_template</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">PromptTemplate</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">input_variables</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">[</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">],</span> <span style="color:#b7bdf8">template</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">template</span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">print</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">prompt_template</span><span style="color:#91d7e3">.</span><span style="color:#b7bdf8">format</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">query</span><span style="color:#91d7e3">=</span><span style="color:#a6da95">&#34;Which libraries and model providers offer LLMs?&#34;</span><span style="color:#cad3f5">))</span>
+</span></span></code></pre></div><p>That snippet of code will output the following text:</p>
+<pre tabindex="0"><code>Answer the question based on the context below. If the
+question cannot be answered using the information provided answer
+with &#34;I don&#39;t know&#34;.
+
+Context: Large Language Models (LLMs) are the latest models used in NLP.
+Their superior performance over smaller models has made them incredibly
+useful for developers building NLP enabled applications. These models
+can be accessed via Hugging Face&#39;s `transformers` library, via OpenAI
+using the `openai` library, and via Cohere using the `cohere` library.
+
+Question: Which libraries and model providers offer LLMs?
+
+Answer:
+</code></pre><p>Using Banks, the same code would look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f5a97f;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#c6a0f6">from</span> <span style="color:#eed49f">banks</span> <span style="color:#c6a0f6">import</span> <span style="color:#b7bdf8">Prompt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">template</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;Answer the question based on the context below. If the
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">question cannot be answered using the information provided answer
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">with &#34;I don&#39;t know&#34;.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Context: Large Language Models (LLMs) are the latest models used in NLP.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Their superior performance over smaller models has made them incredibly
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">useful for developers building NLP enabled applications. These models
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">can be accessed via Hugging Face&#39;s `transformers` library, via OpenAI
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">using the `openai` library, and via Cohere using the `cohere` library.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{# Note Banks requires double curly braces. Also note this is a comment! #}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Question: {{ query }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">Answer: &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">prompt_template</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">Prompt</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">template</span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">print</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">prompt_template</span><span style="color:#91d7e3">.</span><span style="color:#b7bdf8">text</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#b7bdf8">data</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Which libraries and model providers offer LLMs?&#34;</span><span style="color:#cad3f5">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">)</span>
+</span></span></code></pre></div><p>The output will be exactly the same, and as you can see the relative code is very similar. One notable difference is
+that with Banks, you can put comments in the template itself using a special tag <code>{# ... #}</code>, very useful to annotate
+your prompts.</p>
+<h2 id="a-more-complex-example-few-shots-prompt-template">A more complex example: few-shots prompt template</h2>
+<p>Let&rsquo;s move to a more interesting example: a few-shots prompt. Langchain has a special Python class called <code>FewShotPromptTemplate</code> you can use to render a specific template for this specific prompt. You have to know of which
+parts the prompt consists of (instruction, context, examples, question, etc&hellip;) and configure the class accordingly.
+Let&rsquo;s see the example from Pinecone&rsquo;s article:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f5a97f;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#c6a0f6">from</span> <span style="color:#eed49f">langchain</span> <span style="color:#c6a0f6">import</span> <span style="color:#b7bdf8">FewShotPromptTemplate</span><span style="color:#cad3f5">,</span> <span style="color:#b7bdf8">PromptTemplate</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create our examples</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">examples</span> <span style="color:#91d7e3">=</span> <span style="color:#cad3f5">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;How are you?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;I can&#39;t complain but sometimes I still do.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What time is it?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;It&#39;s time to get a watch.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create a example template</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">example_template</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: </span><span style="color:#a6da95">{query}</span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI: </span><span style="color:#a6da95">{answer}</span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create a prompt example from above template</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">example_prompt</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">PromptTemplate</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">input_variables</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">[</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">],</span> <span style="color:#b7bdf8">template</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">example_template</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># now break our previous prompt into a prefix and suffix</span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># the prefix is our instructions</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">prefix</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;The following are excerpts from conversations with an AI
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">assistant. The assistant is typically sarcastic and witty, producing
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">creative  and funny responses to the users questions. Here are some
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">examples:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># and the suffix our user input and output indicator</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">suffix</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: </span><span style="color:#a6da95">{query}</span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI: &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># now create the few shot prompt template</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">few_shot_prompt_template</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">FewShotPromptTemplate</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">examples</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">examples</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">example_prompt</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">example_prompt</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">prefix</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">prefix</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">suffix</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">suffix</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">input_variables</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">[</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">example_separator</span><span style="color:#91d7e3">=</span><span style="color:#a6da95">&#34;</span><span style="color:#8aadf4">\n\n</span><span style="color:#a6da95">&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">query</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;What is the meaning of life?&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">print</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">few_shot_prompt_template</span><span style="color:#91d7e3">.</span><span style="color:#b7bdf8">format</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">query</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">query</span><span style="color:#cad3f5">))</span>
+</span></span></code></pre></div><p>Running the above snippet would produce the following output (the blank lines are part of the generated text):</p>
+<pre tabindex="0"><code>The following are excerpts from conversations with an AI
+assistant. The assistant is typically sarcastic and witty, producing
+creative  and funny responses to the users questions. Here are some
+examples:
+
+
+
+User: How are you?
+AI: I can&#39;t complain but sometimes I still do.
+
+
+
+User: What time is it?
+AI: It&#39;s time to get a watch.
+
+
+
+User: What is the meaning of life?
+AI:
+</code></pre><p>To lower cognitive load, Banks doesn&rsquo;t make any assumption around prompts&rsquo; components: prompts are just prompts.
+In this case there&rsquo;s no difference between, say, the prefix and the examples section. The code would look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f5a97f;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#c6a0f6">from</span> <span style="color:#eed49f">banks</span> <span style="color:#c6a0f6">import</span> <span style="color:#b7bdf8">Prompt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create our examples</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">examples</span> <span style="color:#91d7e3">=</span> <span style="color:#cad3f5">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;How are you?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;I can&#39;t complain but sometimes I still do.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What time is it?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;It&#39;s time to get a watch.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># instead of patching together multiple fragments into the final template,</span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># we define a few-shots template explicitly</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">template</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;The following are excerpts from conversations with an AI
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">assistant. The assistant is typically sarcastic and witty, producing
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">creative  and funny responses to the users questions. Here are some
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">examples:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% f</span><span style="color:#a6da95">or example in examples %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: {{ example.query }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI: {{ example.answer }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% e</span><span style="color:#a6da95">ndfor %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: {{ query }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># now create the few shot prompt template</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">few_shot_prompt_template</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">Prompt</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">template</span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">query</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;What is the meaning of life?&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">print</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">few_shot_prompt_template</span><span style="color:#91d7e3">.</span><span style="color:#b7bdf8">text</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">data</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#b7bdf8">query</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;examples&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#b7bdf8">examples</span><span style="color:#cad3f5">}))</span>
+</span></span></code></pre></div><p>The output will look exactly the same, white spaces included. Note how Banks implements the Python mantra &ldquo;explicit is
+better than implicit&rdquo;: by just looking at the template, you already have an idea of what the output will be, way
+before rendering the final prompt. Moreover, you are fully in control of the rendering process: for example, let&rsquo;s see
+how we can remove the blank lines in the final output. With Banks there&rsquo;s no need to touch the Python code, all the
+changes can be done directly in the prompt template. To test this out, let&rsquo;s change the <code>template</code> variable like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f5a97f;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#b7bdf8">template</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;The following are excerpts from conversations with an AI
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">assistant. The assistant is typically sarcastic and witty, producing
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">creative  and funny responses to the users questions. Here are some
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">examples:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% f</span><span style="color:#a6da95">or example in examples %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: {{ example.query }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI: {{ example.answer }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% e</span><span style="color:#a6da95">ndfor %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: {{ query }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>Note how we only removed the blank lines from the template. The output will look like this:</p>
+<pre tabindex="0"><code>The following are excerpts from conversations with an AI
+assistant. The assistant is typically sarcastic and witty, producing
+creative  and funny responses to the users questions. Here are some
+examples:
+
+User: How are you?
+AI: I can&#39;t complain but sometimes I still do.
+
+User: What time is it?
+AI: It&#39;s time to get a watch.
+
+User: What is the meaning of life?
+</code></pre><h2 id="control-the-examples">Control the examples</h2>
+<p>Again, from the Pinecone&rsquo;s article, there&rsquo;s an interesting example showing Langchain&rsquo;s capability to generate the
+examples in a way that the overall size of the generated prompt stays below a certain value specified by the user.
+By using a special Python class called <code>LengthBasedExampleSelector</code>, the <code>FewShotPromptTemplate</code> class will be able to
+select a suitable subset of examples to generate the final text. In all honesty I don&rsquo;t fully understand how the
+<code>max_length</code> parameter works, plus I&rsquo;m getting different results from the original blog article,
+anyways here&rsquo;s the code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f5a97f;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#c6a0f6">from</span> <span style="color:#eed49f">langchain</span> <span style="color:#c6a0f6">import</span> <span style="color:#b7bdf8">FewShotPromptTemplate</span><span style="color:#cad3f5">,</span> <span style="color:#b7bdf8">PromptTemplate</span>
+</span></span><span style="display:flex;"><span><span style="color:#c6a0f6">from</span> <span style="color:#eed49f">langchain.prompts.example_selector</span> <span style="color:#c6a0f6">import</span> <span style="color:#b7bdf8">LengthBasedExampleSelector</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create our examples</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">examples</span> <span style="color:#91d7e3">=</span> <span style="color:#cad3f5">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;How are you?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;I can&#39;t complain but sometimes I still do.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What time is it?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;It&#39;s time to get a watch.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What is the meaning of life?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;42&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What is the weather like today?&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Cloudy with a chance of memes.&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What is your favorite movie?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Terminator&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Who is your best friend?&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Siri. We have spirited debates about the meaning of life.&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What should I do today?&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Stop talking to chatbots on the internet and go outside.&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create a example template</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">example_template</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: </span><span style="color:#a6da95">{query}</span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI: </span><span style="color:#a6da95">{answer}</span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create a prompt example from above template</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">example_prompt</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">PromptTemplate</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">input_variables</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">[</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">],</span> <span style="color:#b7bdf8">template</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">example_template</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># now break our previous prompt into a prefix and suffix</span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># the prefix is our instructions</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">prefix</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;The following are excerpts from conversations with an AI
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">assistant. The assistant is typically sarcastic and witty, producing
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">creative  and funny responses to the users questions. Here are some
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">examples:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># and the suffix our user input and output indicator</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">suffix</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: </span><span style="color:#a6da95">{query}</span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI: &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">example_selector</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">LengthBasedExampleSelector</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">examples</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">examples</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">example_prompt</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">example_prompt</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">max_length</span><span style="color:#91d7e3">=</span>50<span style="color:#cad3f5">,</span>  <span style="color:#5b6078;font-style:italic"># this sets the max length that examples should be</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># now create the few shot prompt template</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">dynamic_prompt_template</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">FewShotPromptTemplate</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">example_selector</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">example_selector</span><span style="color:#cad3f5">,</span>  <span style="color:#5b6078;font-style:italic"># use example_selector instead of examples</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">example_prompt</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">example_prompt</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">prefix</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">prefix</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">suffix</span><span style="color:#91d7e3">=</span><span style="color:#b7bdf8">suffix</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">input_variables</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">[</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">example_separator</span><span style="color:#91d7e3">=</span><span style="color:#a6da95">&#34;</span><span style="color:#8aadf4">\n</span><span style="color:#a6da95">&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">print</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">dynamic_prompt_template</span><span style="color:#91d7e3">.</span><span style="color:#b7bdf8">format</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">query</span><span style="color:#91d7e3">=</span><span style="color:#a6da95">&#34;How do birds fly?&#34;</span><span style="color:#cad3f5">))</span>
+</span></span></code></pre></div><p>Banks doesn&rsquo;t have a corresponding feature, but I thought this was actually a good opportunity to show how pushong the
+logic out of Python to the prompt template itself is explicit and flexible enough to do something like this, in case
+you want to control the final prompt size:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f5a97f;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#c6a0f6">from</span> <span style="color:#eed49f">banks</span> <span style="color:#c6a0f6">import</span> <span style="color:#b7bdf8">Prompt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#5b6078;font-style:italic"># create our examples</span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">examples</span> <span style="color:#91d7e3">=</span> <span style="color:#cad3f5">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;How are you?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;I can&#39;t complain but sometimes I still do.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What time is it?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;It&#39;s time to get a watch.&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What is the meaning of life?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;42&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What is the weather like today?&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Cloudy with a chance of memes.&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What is your favorite movie?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Terminator&#34;</span><span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Who is your best friend?&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Siri. We have spirited debates about the meaning of life.&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;What should I do today?&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;answer&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;Stop talking to chatbots on the internet and go outside.&#34;</span><span style="color:#cad3f5">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">template</span> <span style="color:#91d7e3">=</span> <span style="color:#a6da95">&#34;&#34;&#34;The following are excerpts from conversations with an AI
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">assistant. The assistant is typically sarcastic and witty, producing
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">creative  and funny responses to the users questions. Here are some
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">examples:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{# create a namespace called &#34;vars&#34; to store our &#34;total_length&#34; counter #}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% s</span><span style="color:#a6da95">et vars = namespace(total_length=0) %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% f</span><span style="color:#a6da95">or example in examples %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{# instead of rendering the example, store it in a variable called &#34;example_block&#34; #}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% s</span><span style="color:#a6da95">et example_block %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: {{ example.query }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI: {{ example.answer }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% e</span><span style="color:#a6da95">ndset %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{#
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    let&#39;s see if the total length of the examples so far, plus the length of the original query
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    is below 150 characters
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">#}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% s</span><span style="color:#a6da95">et vars.total_length = vars.total_length + example_block|trim|length %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{# if that&#39;s the case, spit out the example #}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% i</span><span style="color:#a6da95">f vars.total_length + query | length &lt; 150 %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{{ example_block }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% e</span><span style="color:#a6da95">ndif %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">{</span><span style="color:#a6da95">% e</span><span style="color:#a6da95">ndfor %}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">User: {{ query }}
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">AI:
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b7bdf8">few_shot_prompt_template</span> <span style="color:#91d7e3">=</span> <span style="color:#b7bdf8">Prompt</span><span style="color:#cad3f5">(</span><span style="color:#b7bdf8">template</span><span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">print</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b7bdf8">few_shot_prompt_template</span><span style="color:#91d7e3">.</span><span style="color:#b7bdf8">text</span><span style="color:#cad3f5">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#b7bdf8">data</span><span style="color:#91d7e3">=</span><span style="color:#cad3f5">{</span><span style="color:#a6da95">&#34;query&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#a6da95">&#34;How do birds fly?&#34;</span><span style="color:#cad3f5">,</span> <span style="color:#a6da95">&#34;examples&#34;</span><span style="color:#cad3f5">:</span> <span style="color:#b7bdf8">examples</span><span style="color:#cad3f5">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cad3f5">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cad3f5">)</span>
+</span></span></code></pre></div><h2 id="conclusions">Conclusions</h2>
+<p>While I don&rsquo;t want Banks to be an alternative to something as powerful as Langchain, it was fun to see if and how this
+tiny library could keep up with a full-fledged LLM framework. If you can take away one concept from this article, I
+hope this is my design choice of moving complexity out of Python and into the template itself, mostly for practical
+reasons:</p>
+<ol>
+<li>I want to be able to share my prompt templates with others, and having to send around Colabs or Python snippets is
+often suboptimal.</li>
+<li>I want the process to be explicit; I want to know why a certain prompt was rendered in a certain way; I want comments
+in my template so I can explain to my colleagues why I added this or that piece of text.</li>
+<li>I don&rsquo;t want my prompts to adhere to any convention: I want to be able to put the context at the end and the examples
+at the top if I feel so (and believe me, this is super useful when you test a new LLM).</li>
+</ol>
+<h2 id="try-out-banks">Try out Banks!</h2>
+<p>Banks is basically Jinja2 on steroids, and it can do much more than what you see in this article. For example, do you
+know it can generate examples while rendering a template? <a href="https://github.com/masci/banks">Go check it out</a> and please
+star the repo!</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+  <hr class="footer"/>
+
+  </main>
+</body>
+
+</html>

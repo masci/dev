@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ai on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/ai/</link>
+    <description>Recent content in ai on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dev.pippi.im/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rebooting AI</title>
+      <link>https://dev.pippi.im/book/rebooting-ai/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/rebooting-ai/</guid>
+      <description>&lt;p&gt;The book accurately describes the problems with the current trend of AI development, problems from which large language
+models and tools like ChatGPT greatly suffer. Only the book was written &lt;em&gt;before&lt;/em&gt; ChatGPT! It&amp;rsquo;s impressive how actual the
+book can be, and even more impressive is learning how these problems have been known for years now and the industry
+seems to just not care.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Atlas of AI</title>
+      <link>https://dev.pippi.im/book/atlas-of-ai/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dev.pippi.im/book/atlas-of-ai/</guid>
+      <description>This book is a masterpiece: the metaphor of the atlas, the many thorough notes, the data behind each chapter is just amazing. The author also shows fine technical skills that let her jump from politics to hardware and algorithms flawlessly as the narrative requires. This book is an eye-opener for those who think about modern AI as &amp;ldquo;software&amp;rdquo;, whereas the environmental and human costs are massive.</description>
+    </item>
+    
+  </channel>
+</rss>

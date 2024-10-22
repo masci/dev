@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Rapid Prototyping Web Services in Python: make it, don&#39;t fake it! - /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.111.3">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Massimiliano Pippi" />
+  <meta name="description" content="Rapid Prototyping Web Services in Python: make it, don&#39;t fake it!" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.66dc5ff1b2ffcc465c37385641ad836294f37f5f00dc4a10304ca1e7ad4f3979.css" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-43125807-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dev.pippi.im/images/undraw_fast_loading_re_8oi3.png"/>
+
+<meta name="twitter:title" content="Rapid Prototyping Web Services in Python: make it, don&#39;t fake it!"/>
+<meta name="twitter:description" content="Photo by Mark König on Unsplash From Wikipedia:
+Rapid prototyping is a group of techniques used to quickly fabricate a scale model of a physical part
+Good enough Trying out a physical product for a fraction of its cost can be extremely effective, in fact we do the same with software. We draw sketches and wireframes for websites or applications, and sometimes they&rsquo;re clickable; you can see legit data and images, the whole user experience closely resembles the &ldquo;real thing&rdquo;."/>
+
+  <meta property="og:title" content="Rapid Prototyping Web Services in Python: make it, don&#39;t fake it!" />
+<meta property="og:description" content="Photo by Mark König on Unsplash From Wikipedia:
+Rapid prototyping is a group of techniques used to quickly fabricate a scale model of a physical part
+Good enough Trying out a physical product for a fraction of its cost can be extremely effective, in fact we do the same with software. We draw sketches and wireframes for websites or applications, and sometimes they&rsquo;re clickable; you can see legit data and images, the whole user experience closely resembles the &ldquo;real thing&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.pippi.im/writing/rapid-prototyping-web-services-python/" /><meta property="og:image" content="https://dev.pippi.im/images/undraw_fast_loading_re_8oi3.png" /><meta property="article:section" content="writing" />
+<meta property="article:published_time" content="2022-11-05T10:22:34+01:00" />
+<meta property="article:modified_time" content="2022-11-05T10:22:34+01:00" />
+
+
+</head>
+
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+      Massi here. Software developer, engineering manager, I can ops.
+    Open source advocate and contributor, documentation fanatic, speaker at conferences.
+    I wrote a book once.
+    </p>
+    <div>
+      See what I'm up to <a href="/now">now</a>.
+    </div>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
+    </div>
+  </header>
+  <main class="app-container">
+    
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Rapid Prototyping Web Services in Python: make it, don&#39;t fake it!</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Nov 5, 2022
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          4 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://dev.pippi.im/tags/python/">python</a></div></div>
+    </header>
+    <div class="post-content">
+      <figure><img src="/images/mark-konig-1UMrSoItdDE-unsplash.jpg" width="100%"/><figcaption>
+            <h4>Photo by Mark König on Unsplash</h4>
+        </figcaption>
+</figure>
+
+<p>From Wikipedia:</p>
+<blockquote>
+<p>Rapid prototyping is a group of techniques used to quickly fabricate a scale model of a physical part</p>
+</blockquote>
+<h2 id="good-enough">Good enough</h2>
+<p>Trying out a physical product for a fraction of its cost can be extremely effective, in fact we do
+the same with software. We draw <strong>sketches</strong> and <strong>wireframes</strong> for websites or applications,
+and sometimes they&rsquo;re clickable; you can see legit data and images, the whole user experience closely
+resembles the &ldquo;real thing&rdquo;. But it&rsquo;s not as common to interact with a real web service at an early
+stage of the prototyping process, let&rsquo;s see why.</p>
+<p>Recently I was validating an idea for a security software with some friends, and after hours and
+hours of user stories, countless diagrams and workflows, it was time to prototype the mobile
+application. We decided to invest very little time on it: in the end, an extremely rough UI would
+have sufficed, and the backend could be mocked within the app itself, right? Right?</p>
+<p>Well, that would be the norm. A web service has a basic set of requirements that puts a lot of
+overhead onto the prototyping process: it needs to be available on the internet, which implies you
+need an IP address, a domain name, a web server running 24/7 and possibly a way to store data&hellip; All
+of this to mock one component of the final product. No wonders that the common way to prototype a web
+service is pretending there is one, with the client making calls to itself and self-serving fake
+data. But I think there&rsquo;s a better alternative, and it&rsquo;s almost as fast.</p>
+<h2 id="fast-enough">Fast enough</h2>
+<p>Curious to see if I could come with a better solution than hardcoding a mocked service into our
+client application in the same amount of time, I started coding a full-fledged backend application to
+serve our API. I picked the fastest tools I know for this job: <a href="https://python-poetry.org">Poetry</a> to
+manage the Python project, <a href="https://faker.readthedocs.io/en/master/">faker</a> to generate dummy data,
+<a href="https://fastapi.tiangolo.com">FastAPI</a> to implement the endpoints,
+<a href="https://www.uvicorn.org">uvicorn</a> to serve the API and Docker to run the whole thing.</p>
+<p>Starting from scratch, it took me a couple of hours to get the first endpoint return something from a
+running container, probably slower than hardcoding the service in the client, but fast enough.
+Problem was, this only worked on my laptop - far from ideal.</p>
+<p>The ability to involve the stakeholders, your team and possibly early users and get feedback in fast,
+short iterations is instrumental during this phase of the product development: we had an <code>apk</code> to
+send around for testing, and attaching a long list of instructions about how to run it along with its
+companion Docker backend container was not an option.</p>
+<h2 id="simple-enough">Simple enough</h2>
+<p>I insisted, looking for a way to make the backend container available on the internet and allow
+testers to validate the product by setting up the mobile app alone. This was quite the opposite of
+&ldquo;rapid prototyping&rdquo;, but I wasn&rsquo;t blocking the rest of the team and being in between switching jobs I
+had some time to invest - and the investment eventually paid off.</p>
+<p>Do you remember the slogan <em>There&rsquo;s an app for that™</em> (yes, it&rsquo;s a trademark)? Same goes for the long
+list of turnkey solutions offered by the many cloud providers around: do you need to expose a running
+container to the Internet? There&rsquo;s a service for that!</p>
+<p>I went with Google Cloud Run because I&rsquo;m most proficient in GCP technologies, but you can easily find
+its AWS and Azure cousins. The mechanism is the same for all those services:</p>
+<ul>
+<li>Put your web service in a container</li>
+<li>Push the image to the registry they tell you</li>
+<li>The cloud provider creates a third-level domain name for your service, pulls the image, runs the container, end of the story.</li>
+</ul>
+<p>That&rsquo;s exactly that simple! It&rsquo;s so simple that (like the big git-ops nerd I am) I automated
+everything using Github actions. Push a commit to <code>main</code>? The action will build the container, push
+to the registry, tell GCP to update the Cloud Run instance. Push to <code>dev</code>? Same story, but deployment
+goes in a different, &ldquo;staging&rdquo; Cloud Run instance (ok I didn&rsquo;t need this one, that was purely for
+fun).</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>I published my project on Github as a
+<a href="https://github.com/masci/fastapi-template">repository template</a>: the README and the code should
+provide the technical context I didn&rsquo;t want to add here. If you need to quickly deploy a web service,
+give it a shot!</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+  <hr class="footer"/>
+
+  </main>
+</body>
+
+</html>
