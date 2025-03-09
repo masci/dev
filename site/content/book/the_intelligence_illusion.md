@@ -3,7 +3,7 @@ title: "The Intelligence Illusion: a practical guide to the business risks of Ge
 description: "by Baldur Bjarnason"
 category:
 tags: ["ai", "technology"]
-date: 2024-09-18
+date: 2025-03-09
 slug: "intelligence-illusion"
 rating: "★★★★★"
 cover: "/images/the_intelligence_illusion.jpg"
