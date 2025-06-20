@@ -27,6 +27,7 @@ Random stuff that's going on:
 - [_Management is not a promotion, management is a change of profession._][charity pendulum]
 - [_Would you buy a car if it eats 100 liters per 100 kilometers? How about 1000 liters? With computers, we do that all the time._][software disenchantment]
 - [_You only have this one crazy and precious life. That’s why you owe it to yourself to see who you can become, and how far you can go._][13 things]
+- [_This is the original sin of software dev: it’s a pop culture where we’re trained to accept gossip as evidence._][Trusting your own judgement]
 
 [seagull s60]: http://www.seagullguitars.com/en/products/160-s6-original-qit
 [acus one]: https://www.acus-sound.it/en/one-forstrings/5-oneforstrings-5t.html
@@ -35,3 +36,4 @@ Random stuff that's going on:
 [13 things]: https://medium.com/@zdravko/13-things-you-need-to-give-up-if-you-want-to-be-successful-44b5b9b06a26
 [software disenchantment]: https://tonsky.me/blog/disenchantment/?utm_source=pocket_mylist
 [art of leadership]: https://www.oreilly.com/library/view/the-art-of/9781492045687/
+[Trusting your own judgement]: https://www.baldurbjarnason.com/2025/trusting-your-own-judgement-on-ai/
