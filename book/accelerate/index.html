@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Accelerate - /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.111.3">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Massimiliano Pippi" />
+  <meta name="description" content="Accelerate" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.66dc5ff1b2ffcc465c37385641ad836294f37f5f00dc4a10304ca1e7ad4f3979.css" />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-43125807-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Accelerate"/>
+<meta name="twitter:description" content="by Nicole Forsgren PhD, Jez Humble, Gene Kim"/>
+
+  <meta property="og:title" content="Accelerate" />
+<meta property="og:description" content="by Nicole Forsgren PhD, Jez Humble, Gene Kim" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev.pippi.im/book/accelerate/" /><meta property="article:section" content="book" />
+<meta property="article:published_time" content="2022-02-03T10:58:25+01:00" />
+<meta property="article:modified_time" content="2022-02-03T10:58:25+01:00" />
+
+
+</head>
+
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+      Massi here. Software developer, engineering manager, I can ops.
+    Open source advocate and contributor, documentation fanatic, speaker at conferences.
+    I wrote a book once.
+    </p>
+    <div>
+      See what I'm up to <a href="/now">now</a>.
+    </div>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
+    </div>
+  </header>
+  <main class="app-container">
+    
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Accelerate</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Feb 3, 2022
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://dev.pippi.im/tags/devops/">devops</a><a class="tag" href="https://dev.pippi.im/tags/agile/">agile</a><a class="tag" href="https://dev.pippi.im/tags/management/">management</a></div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-list">
+  <title>list</title>
+  <line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line>
+</svg>
+          ★★★☆☆
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <img style="margin-top: 1em;" src="/images/accelerate.png" />
+      <p>The book consists of two, very different parts, plus a case study from the ING bank. Part one
+is a must read explanation of how DevOps practices can massively impact the business in a positive
+way and why. The second part is an explanation of the science that supports the claims presented in
+Part two.</p>
+<p>Part two might not be extremely interesting for DevOps engineers, still it is written in a way that
+can be understood without a strong background in statistics and sociology - I skimmed through the
+more technical parts and I enjoyed the rest.</p>
+<h2 id="notes">Notes</h2>
+<h3 id="definition-of-software-delivery-capability">Definition of software delivery capability</h3>
+<p>Software delivery capabilities can be grouped in five categories:</p>
+<ul>
+<li>Continuous delivery
+<ul>
+<li>Use version control for everything</li>
+<li>Automate deployments</li>
+<li>Implement CI and test automation</li>
+<li>Use trunk-based development</li>
+<li>Support test data management</li>
+<li>Integrate security into software design</li>
+<li>Implement CD</li>
+</ul>
+</li>
+<li>Architecture
+<ul>
+<li>Use loosely coupled architecture</li>
+<li>Let engineers use the tools of choice</li>
+</ul>
+</li>
+<li>Product and process
+<ul>
+<li>Gather and implement customer feedback</li>
+<li>Make the flow of work visible</li>
+<li>Work in small batches</li>
+<li>Foster and enable team experimentation</li>
+</ul>
+</li>
+<li>Lean management and monitoring
+<ul>
+<li>Have a lightweight approval process</li>
+<li>Monitor across app and infra to inform business decisions</li>
+<li>Check system health proactively</li>
+<li>Use WIP (work-in-process) limits</li>
+<li>Visualize work</li>
+</ul>
+</li>
+<li>Culture
+<ul>
+<li>Support a generative culture (see Ron Westrum categories)</li>
+<li>Encourage and support learning</li>
+<li>Support and facilitate collaboration</li>
+<li>Provide resources and tools that make work meaningful</li>
+<li>Support and embody transformational leadership</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-four-kpis-of-delivery-performance">The four KPIs of delivery performance</h3>
+<ul>
+<li>delivery lead time
+<ul>
+<li>time from customer request to customer satisfaction</li>
+<li>time of design and validation + time to release</li>
+</ul>
+</li>
+<li>deployment frequency</li>
+<li>MTTR (Mean Time To Restore)</li>
+<li>Change fail rate</li>
+</ul>
+<h3 id="other-notes">Other notes</h3>
+<ul>
+<li>Improvements in software delivery are always possible as long as  leadership provides consistent
+support (time, actions, resources) and demonstrating a true commitment to improvement, and as long
+as team members commit themselves to the work.</li>
+<li>Organizational culture can exist at three levels (Schein 1985):
+<ul>
+<li>basic assumptions
+<ul>
+<li>the least “visible” of the levels—and are the things that we just “know,”
+(and may find difficult to articulate) after we have been long enough in a team.</li>
+</ul>
+</li>
+<li>values
+<ul>
+<li>They influence group interactions and activities by establishing social norms, which shape the actions of group
+members and provide contextual rules (Bansal 2003). These are quite often the “culture” we think of when we talk
+about the culture of a team and an organization.</li>
+</ul>
+</li>
+<li>artifacts
+<ul>
+<li>artifacts can include written mission statements or creeds, technology, formal procedures, or even heroes and
+rituals (See Elastic&rsquo;s &ldquo;Source Code&rdquo;)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Westrum grouped orgs into four types
+<ul>
+<li><strong>Pathological</strong> (power-oriented) organizations, characterized by large amounts of fear and
+threat. People often hoard information or withhold it for political reasons, or distort it to
+make themselves look better.</li>
+<li><strong>Bureaucratic</strong> (rule-oriented) organizations protect departments. Those in the department
+want to maintain their “turf,” insist on their own rules, and generally do things by the
+book—their book.</li>
+<li><strong>Generative</strong> (performance-oriented) organizations focus on the mission. How do we accomplish
+our goal? Everything is subordinated to good performance, to doing what we are supposed to do.</li>
+</ul>
+</li>
+<li>Information is key in gnerative orgs and Westrum provides three characteristics of good
+information:
+<ul>
+<li>It provides answers to the questions that the receiver needs answered.</li>
+<li>It is timely.</li>
+<li>It is presented in such a way that it can be effectively used by the receiver.</li>
+</ul>
+</li>
+<li>Westrum’s description of a rule-oriented culture is where following the rules is considered more
+important than achieving the mission, there are generative orgs within the public sector for e
+example, or startups that are clearly pathological.</li>
+<li>A good culture requires trust and cooperation between people across the organization, so it
+reflects the level of collaboration and trust inside the organization.</li>
+<li>In a team with a good type of culture, not only is better information available for making
+decisions, but those decisions are more easily reversed if they turn out to be wrong because the
+team is more likely to be open and transparent rather than closed and hierarchical.</li>
+<li>Teams with these cultural norms are likely to do a better job with their people, since problems are more rapidly
+discovered and addressed.</li>
+<li>The way to change culture is not to first change how people think, but instead to start by changing how people behave</li>
+<li>Implementing continuous delivery means creating multiple feedback loops to ensure that high-quality software gets
+delivered to users more frequently and more reliably.</li>
+<li><strong>What&rsquo;s CD?</strong> When implemented correctly, the process of releasing new versions to users should be a routine
+activity that can be performed on demand at any time. Continuous delivery requires that developers and testers, as well
+as UX, product, and operations people, collaborate effectively throughout the delivery process.</li>
+<li>our research found that improvements in CD brought payoffs in the way that work felt. This means that investments in
+technology are also investments in people, and these investments will make our technology process more sustainable</li>
+<li>we first have to find some way to measure quality. This is challenging because quality is very contextual and
+subjective. As software quality expert Jerry Weinberg says, “Quality is value to some person” (Weinberg 1992, p. 7).</li>
+<li>Proxy variables for quality:
+<ul>
+<li>The quality and performance of applications, as perceived by those working on them</li>
+<li>The percentage of time spent on rework or unplanned work</li>
+<li>The percentage of time spent working on defects identified by end users</li>
+</ul>
+</li>
+<li>How can we ensure that paying attention to security doesn’t reduce development throughput?
+<ul>
+<li>This is the focus of the second aspect of this capability: information security should be integrated into the
+entire software delivery lifecycle from development through operations.</li>
+</ul>
+</li>
+<li>Our recommendation based on these results is to use a lightweight change approval process based on peer review,
+such as pair programming or intrateam code review, combined with a deployment pipeline to detect and reject bad changes.</li>
+<li>This idea is a form of risk management theater: we check boxes so that when something goes wrong, we can say that at
+least we followed the process. At best, this process only introduces time delays and handoffs.</li>
+<li>Technology managers, like so many other well-meaning managers, often try to fix the person while ignoring the work
+environment,</li>
+<li>Last but not least, employees must be given the authority to make decisions that affect their work and their jobs,
+particularly in areas where they are responsible for the outcomes.</li>
+<li>A latent construct is a way of measuring something that can’t be measured directly.
+<ul>
+<li>We can ask for the temperature of a room or the response time of a website—these things we can measure directly.</li>
+<li>A good example of something that can’t be measured directly is organizational culture.
+<ul>
+<li>We can’t take a team’s or an organization’s organizational culture “temperature”</li>
+<li>we need to measure culture by measuring its component parts (called manifest variables), and we measure these
+component parts through survey questions.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+  </main>
+</body>
+
+</html>
