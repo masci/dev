@@ -1,7 +1,7 @@
 +++
 date = 2018-10-22T11:30:00Z
 title = "Project Layout Patterns in Go"
-lang = "en"
+
 
 [[conferences]]
 name = "Golab"
@@ -31,4 +31,4 @@ During the talk I’ll show some lessons learned while building from the ground 
 a Golang project that now has more than 600 source files, dozens of packages and
 the tooling needed to build binaries, packages and Docker images.
 
-{{% youtube 3gQa1LWwuzk %}}
+{{< youtube 3gQa1LWwuzk >}}

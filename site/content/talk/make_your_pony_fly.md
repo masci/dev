@@ -1,7 +1,7 @@
 +++
 date = 2013-11-16T15:06:44Z
 title = "Make your Pony fly with Google App Engine"
-lang = "it"
+
 
 [[conferences]]
 name = "GDG DevFest Rome"
@@ -22,4 +22,4 @@ Django sta emergendo come framework di riferimento per lo sviluppo di applicazio
 
 Unite questo alla facilità di deployment di applicazioni web fornita da Google App Engine ed otterrete l'arma definitiva per lo sviluppo di servizi web fruibili da piattaforme mobili.
 
-{{% youtube 9Jbp7L2JqGU %}}
+{{< youtube 9Jbp7L2JqGU >}}

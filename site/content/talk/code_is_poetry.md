@@ -1,7 +1,7 @@
 +++
 date = 2014-05-24T15:06:44Z
 title = "If code is poetry, then documentation is prose"
-lang = "en"
+
 
 [[conferences]]
 name = "PyCon5"
@@ -17,15 +17,15 @@ url  = "https://www.youtube.com/watch?v=Yovew2KMbI4"
 
 +++
 
-Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness; 
-but without good documentation that explains what it does, you will likely end up with 
+Yes, code might be poetry, showing the elegance of the verses, rhythm, expressiveness;
+but without good documentation that explains what it does, you will likely end up with
 unsatisfied users or no users at all.
 
-If anyone had told me I would have spent more time writing documentation than coding, 
-I would not have believed it, but that was before I discovered a simple but powerful 
+If anyone had told me I would have spent more time writing documentation than coding,
+I would not have believed it, but that was before I discovered a simple but powerful
 law: “more documentation, more users, more contributors”.
 
-During the talk we will see which are the foundations of good documentation and how 
+During the talk we will see which are the foundations of good documentation and how
 documentation can let your open source project take off.
 
-{{% youtube Yovew2KMbI4 %}}
+{{< youtube Yovew2KMbI4 >}}

@@ -1,7 +1,7 @@
 +++
 date = 2024-05-16T15:06:44Z
 title = "Finding the needle: a deep dive into the rewriting of Haystack "
-lang = "en"
+
 
 [[conferences]]
 name = "Pycon US"

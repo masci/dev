@@ -57,7 +57,7 @@
       <span class="posts-list-item-description">
         {{ .PublishDate.Format "Jan 2, 2006" }}
       </span>
-      {{ trim .Summary "</p>" | safeHTML }} <a href="{{ .Permalink }}">Read book notes</a>.</p>
+      {{ trim .Summary "</p>" | safeHTML }} <a href="{{ .Permalink }}">...more</a></p>
     </li>
     {{ end }}
   </ul>

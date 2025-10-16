@@ -348,7 +348,7 @@ You can find the complete workflow [here][5].
 
 ## Caveat and final considerations
 
-<img src="/images/lenin-estrada-OI1ToozsKBw-unsplash.jpg" alt="A happier GitHub bot" title="Photo by Lenin Estrada on Unsplash" width="100%"/>
+{{< figure src="/images/lenin-estrada-OI1ToozsKBw-unsplash.jpg" alt="A happier GitHub bot" title="Photo by Lenin Estrada on Unsplash" width="100%" >}}
 
 First thing first, this bot shouldn't be considered feature complete by any mean,
 the goal was just ramping up up on a new technology without getting bored. Now that

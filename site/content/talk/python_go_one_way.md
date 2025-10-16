@@ -1,7 +1,7 @@
 +++
 date = 2015-12-04T11:30:00Z
 title = "Python - Go One Way"
-lang = "it"
+
 
 [[conferences]]
 name = "Golab"

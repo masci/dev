@@ -1,7 +1,7 @@
 +++
 date = 2017-01-24T11:30:00Z
 title = "A Python and a Gopher Walk into a Bar - Embedding Python in Go"
-lang = "en"
+
 
 [[conferences]]
 name = "Golab"
@@ -52,8 +52,8 @@ During the talk we will share lessons learned from our experiences
 with cgo, the GIL and the quest for performance as we bridge multiple
 languages in a single application.
 
-{{% youtube 7XbyJW47L5U %}}
+{{< youtube 7XbyJW47L5U >}}
 
 ---
 
-{{% youtube egSvw7xYw9s %}}
+{{< youtube egSvw7xYw9s >}}
