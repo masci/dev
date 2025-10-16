@@ -21,7 +21,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          args: -s site
+          extended: true
 
       - name: Build site
         run: hugo -s site
