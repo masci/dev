@@ -2,7 +2,7 @@ name: publish
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   publish-site:
@@ -18,10 +18,13 @@ jobs:
           git config --global user.name "masci"
           git remote add upstream https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-      - name: Build site
-        uses: jakejarvis/hugo-build-action@master
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
         with:
           args: -s site
+
+      - name: Build site
+        run: hugo -s site
 
       - name: Push gh-pages branch
         run: |
