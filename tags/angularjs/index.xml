@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angularjs on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/angularjs/</link>
+    <description>Recent content in Angularjs on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Oct 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/angularjs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build GitHub like notifications with Django messages and AngularJS</title>
+      <link>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</link>
+      <pubDate>Tue, 22 Oct 2013 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/writing/build-github-like-notifications-with-django-messages-and-angular-js/</guid>
+      <description>&lt;h2 id=&#34;foreword&#34;&gt;Foreword&lt;/h2&gt;&#xA;&lt;p&gt;GitHub has a very nice notification system, very similar to a plain old email inbox. You receive a notification which&#xA;remains &lt;em&gt;unread&lt;/em&gt; until you actually read it; then it&amp;rsquo;s archived and removed from your &lt;em&gt;inbox&lt;/em&gt;, which it happens could remain empty:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://dev.pippi.im/images/github_notifications.png&#34; alt=&#34;github inbox&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;For those who don&amp;rsquo;t know, Django ships a library for displaying &amp;ldquo;one-time&amp;rdquo; messages to the users, it&amp;rsquo;s called &lt;em&gt;Message&#xA;Framework&lt;/em&gt; and you can find it in the &lt;code&gt;contrib&lt;/code&gt; package. Messages are &lt;em&gt;produced&lt;/em&gt; during users&amp;rsquo; activity and delivered&#xA;subsequently; in the meantime, they are stored in cookies or sessions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
