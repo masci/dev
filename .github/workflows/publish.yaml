@@ -32,7 +32,7 @@ jobs:
           git commit -m"rebuilding site from ${{ github.sha }}"
           git push upstream `git subtree split --prefix=site/public --ignore-joins`:gh-pages --force
 
-      - name: Update Github profile
+      - name: Update GitHub profile
         run: |
           curl -sX POST \
           -H "Accept: application/vnd.github.v3+json" \
