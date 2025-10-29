@@ -26,7 +26,7 @@ jobs:
       - name: Build site
         run: hugo -s site
 
-      - name: Push gh-pages branch
+      - name: Push the gh-pages branch
         run: |
           git add -A --force
           git commit -m"rebuilding site from ${{ github.sha }}"
