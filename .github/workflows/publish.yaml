@@ -34,7 +34,7 @@ jobs:
 
       - name: Update Github profile
         run: |
-          curl -X POST \
+          curl -sX POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GH_PAT }}" \
           https://api.github.com/repos/masci/masci/dispatches \
