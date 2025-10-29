@@ -5,24 +5,33 @@ draft: false
 layout: now
 ---
 
-Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](https://sive.rs/nowff).
+_Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](https://sive.rs/nowff)._
 
-# Work
+### 👷 Work
 
 After two years working on the open source AI framework [Haystack](https://github.com/deepset-ai/haystack), I joined
 [LlamaIndex](https://www.llamaindex.ai/) in June 2024 as a founding engineer, again working on open source software.
-I'm now in-between jobs, detoxing from AI fatigue, decluttering my digital life and reading a lot, also fiction.
+I'm now in-between jobs, detoxing from AI fatigue, decluttering my digital life and reading a lot, mostly fiction.
 
-# Life
+- 💻 Current languages, sorted by proficiency DESC: `.py`, `.go`, `.ts`, `.rs`
+- ⚒️ Current topics: AI workflows, deployment strategies
+
+### 👨‍👩‍👧‍👦 Life
 
 Random stuff that's going on:
 
-- It's been quite some time now since I moved to my new home, and I realized that houses are living creatures requiring
-  constant attention and maintenance.
-- I keep practicing guitar and studying music, my gear consists of a [Seagull S60][seagull s60] acoustic guitar, an
-  [Acus One Forstrings 5T][acus one] amplifier and a travel guitar, a [Crafter Mino][crafter mino].
+- I've spent several hours reordering my bookshelf, organizing 300+ volumes and syncing my Goodreads account.
+- I removed all social media apps from my phone. My reading throughput went through the roof.
+  Fuck short attention spans.
+- Also fuck LinkedIn, I've set it up to forward messages to my email, I'll keep my professional
+  profile updated but I'm not doomscrolling anymore.
+- Houses are living creatures requiring constant attention and maintenance. Contractors help
+  keeping expenses down by never showing up.
+- I keep practicing guitar and studying music, my gear still consists of a [Seagull S60][seagull s60]
+  acoustic guitar, an [Acus One Forstrings 5T][acus one] amplifier and a travel guitar,
+  a [Crafter Mino][crafter mino].
 
-# Inspiring notes
+### 💭 Inspiring notes
 
 - [_See, managers tell you where you are. Leaders (...) tell you where you're going._][art of leadership]
 - [_Management is not a promotion, management is a change of profession._][charity pendulum]
