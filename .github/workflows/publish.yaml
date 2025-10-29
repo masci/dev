@@ -31,3 +31,11 @@ jobs:
           git add -A --force
           git commit -m"rebuilding site from ${{ github.sha }}"
           git push upstream `git subtree split --prefix=site/public --ignore-joins`:gh-pages --force
+
+      - name: Update Github profile
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GH_PAT }}" \
+          https://api.github.com/repos/masci/masci/dispatches \
+          -d '{"event_type": "update"}'
