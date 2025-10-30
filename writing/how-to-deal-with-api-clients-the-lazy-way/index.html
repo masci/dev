@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>How to deal with API clients, the lazy way - from code generation to release management - /dev/ by Massimiliano Pippi</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.152.2">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Massimiliano Pippi" />
+  <meta name="description" content="How to deal with API clients, the lazy way - from code generation to release management" />
+  <link rel="stylesheet" href="https://dev.pippi.im/css/main.min.66dc5ff1b2ffcc465c37385641ad836294f37f5f00dc4a10304ca1e7ad4f3979.css" />
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to deal with API clients, the lazy way - from code generation to release management">
+  <meta name="twitter:description" content="This blog post was hosted in the Arduino Engineering Blog, you can read it here.
+The Arduino IoT Cloud platform aims to make it very simple for anyone to develop and manage IoT applications and its REST API plays a key role in this search for simplicity. The IoT Cloud API at its core consists of a set of endpoints exposed by a backend service, but this alone is not enough to provide a full-fledge product to your users. What you need on top of your API service are:">
+
+  <meta property="og:url" content="https://dev.pippi.im/writing/how-to-deal-with-api-clients-the-lazy-way/">
+  <meta property="og:site_name" content="/dev/ by Massimiliano Pippi">
+  <meta property="og:title" content="How to deal with API clients, the lazy way - from code generation to release management">
+  <meta property="og:description" content="This blog post was hosted in the Arduino Engineering Blog, you can read it here.
+The Arduino IoT Cloud platform aims to make it very simple for anyone to develop and manage IoT applications and its REST API plays a key role in this search for simplicity. The IoT Cloud API at its core consists of a set of endpoints exposed by a backend service, but this alone is not enough to provide a full-fledge product to your users. What you need on top of your API service are:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writing">
+    <meta property="article:published_time" content="2020-03-05T00:00:00+02:00">
+    <meta property="article:modified_time" content="2020-03-05T00:00:00+02:00">
+    <meta property="article:tag" content="Golang">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Openapi">
+
+
+</head>
+
+<body>
+  <header class="app-header">
+    <a href="https://dev.pippi.im/"><img class="app-header-avatar"
+        src="/images/massi.png"
+        alt="John Doe" /></a>
+    <h1>/about/</h1>
+    <p>
+      Massi here. Software developer, engineering manager, I can ops.
+    Open source advocate and contributor, documentation fanatic, speaker at conferences.
+    I wrote a book once.
+    </p>
+    <div>
+      See what I'm up to <a href="/now">now</a>.
+    </div>
+    <div class="app-header-social">
+      
+      <a target="_blank" href="https://github.com/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+      
+      <a target="_blank" href="http://www.linkedin.com/in/masci"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+      
+    </div>
+  </header>
+  <main class="app-container">
+    
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">How to deal with API clients, the lazy way - from code generation to release management</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Mar 5, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          6 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://dev.pippi.im/tags/golang/">Golang</a><a class="tag" href="https://dev.pippi.im/tags/python/">Python</a><a class="tag" href="https://dev.pippi.im/tags/openapi/">Openapi</a></div></div>
+    </header>
+    <div class="post-content">
+      <p><strong>This blog post was hosted in the Arduino Engineering Blog, you can
+<a href="https://blog.arduino.cc/2020/03/05/how-to-deal-with-api-clients-the-lazy-way-from-code-generation-to-release-management/">read it here</a>.</strong></p>
+<p>The Arduino IoT Cloud platform aims to make it very simple for anyone to develop
+and manage IoT applications and its REST API plays a key role in this search for
+simplicity. The IoT Cloud API at its core consists of a set of endpoints exposed
+by a backend service, but this alone is not enough to provide a full-fledge
+product to your users. What you need on top of your API service are:</p>
+<ul>
+<li>Good documentation explaining how to use the service.</li>
+<li>A number of plug-n-play API clients that can be used to abstract the API from
+different programming languages.</li>
+</ul>
+<p>Both those features are difficult to maintain because they get outdated pretty
+easily as your API evolves but clients are particularly challenging: they’re
+written in different programming languages and for each of those you should
+provide idiomatic code that works and is distributed according to best practices
+defined by each language’s ecosystem.
+Depending on how many languages you want to support, your engineering team might
+not have the resources needed to cover them all, and borrowing engineers from
+other teams just to release a specific client doesn’t scale much.
+Being in this exact situation, the IoT Cloud team at Arduino had no other choice
+than streamlining the entire process and automate as much as we could. This
+article describes how we provide documentation and clients for the IoT Cloud
+API.</p>
+<h1 id="clients-generation-workflow">Clients generation workflow</h1>
+<p>When the API changes, a number of steps must be taken in order to ship an
+updated version of the clients, as it’s summarized in the following drawing.</p>
+<figure><img src="/images/workflow-gen.png" width="100%"><figcaption>
+      <h4>Generation workflow</h4>
+    </figcaption>
+</figure>
+
+<p>As you can see, what happens after an engineer releases an updated version of
+the API essentially boils down to the following macro steps:</p>
+<ul>
+<li>Fresh code is generated for each supported client.</li>
+<li>A new version of the client is released to the public.</li>
+</ul>
+<h2 id="the-generation-process">The generation process</h2>
+<h3 id="part-1-api-definition">Part 1: API definition</h3>
+<p>Every endpoint provided by the IoT Cloud API is listed within a Yaml file in
+OpenAPI v3 format, something like this (the full API spec is <a href="https://github.com/arduino/clients-iot-api/tree/master/spec/v2">here</a>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span> /v2/things/{id}/sketch:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">delete</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#c6a0f6">operationId</span>: things_v2#deleteSketch
+</span></span><span style="display:flex;"><span>      <span style="color:#c6a0f6">parameters</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#c6a0f6">description</span>: The id of the thing
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">in</span>: path
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">name</span>: id
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">required</span>: <span style="color:#f5a97f">true</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">schema</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#c6a0f6">type</span>: string
+</span></span><span style="display:flex;"><span>      <span style="color:#c6a0f6">responses</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;200&#34;</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#c6a0f6">content</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#c6a0f6">application/json</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#c6a0f6">schema</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#c6a0f6">$ref</span>: <span style="color:#a6da95">&#39;#/components/schemas/ArduinoThing&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#c6a0f6">description</span>: OK
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;401&#34;</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#c6a0f6">description</span>: Unauthorized
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#34;404&#34;</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#c6a0f6">description</span>: Not Found
+</span></span></code></pre></div><p>The format is designed to be human-readable, which is great because we start
+from a version automatically generated by our backend software that we manually
+fine-tune to get better results from the generation process. At this stage, you
+might need some help from the language experts in your team in order to perform
+some trial and error and determine how good the generated code is. Once you’ve
+found a configuration that works, operating the generator doesn’t require any
+specific skill, the reason why we were able to automate it.</p>
+<h3 id="part-2-code-generation">Part 2: code generation</h3>
+<p>To generate the API clients in different programming languages we support, along
+with API documentation we use a CLI tool called <a href="https://github.com/OpenAPITools/openapi-generator">openapi-generator</a>. The generator
+parses the OpenAPI definition file and produces a number of source code modules
+in a folder on the filesystem of your choice. If you have more than one client
+to generate, you will notice very soon how cumbersome the process can get: you
+might need to invoke openapi-generator multiple times, with different
+parameters, targeting different places in the filesystem, maybe different git
+repositories; when the generation step is done, you have to go through all the
+generated code, add it to version control, maybe tag, push to a remote… You get
+the gist.</p>
+<p>To streamline the process described above we use another CLI tool, called
+<a href="https://github.com/DataDog/apigentools">Apigentools</a>, which wraps the execution of openapi-generator according to a
+configuration you can keep under version control. Once Apigentools is
+configured, it takes zero knowledge of the toolchain to generate the clients -
+literally anybody can do it, including an automated pipeline on a CI system.</p>
+<h3 id="part-3-automation">Part 3: automation</h3>
+<p>Whenever the API changes, the OpenAPI definition file hosted in a GitHub
+<a href="https://github.com/arduino/clients-iot-api">repository</a> is updated accordingly,
+usually by one of the backend engineers of the team. A Pull Request is opened,
+reviewed and finally merged on the master branch. When the team is ready to
+generate a new version of the clients, we push a special git tag in semver
+format and a GitHub workflow immediately starts running Apigentools, using a
+configuration stored in the same repository. If you look at the main
+configuration file, you might notice for each language we want to generate
+clients for, there’s a parameter called ‘github_repo_name’: this is a killer
+feature of Apigentools that let us push the automation process beyond the
+original plan. Apigentools can output the generated code to a local git
+repository, adding the changes in a new branch that’s automatically created and
+pushed to a remote on GitHub.</p>
+<h2 id="the-release-process">The release process</h2>
+<p>To ease the release process and to better organize the code, each API client has
+its own repo: you’ll find Python code in
+<a href="https://github.com/arduino/iot-client-py">https://github.com/arduino/iot-client-py</a>, Go code in
+<a href="https://github.com/arduino/iot-client-go">https://github.com/arduino/iot-client-go</a> and so on and so forth. Once
+Apigentools finishes its run, you end up with new branches containing the latest
+updates pushed to each one of the clients’ repositories on GitHub. As the branch
+is pushed, another GitHub workflow starts (see the one from the Python client as
+an example) and opens a Pull Request, asking to merge the changes on the master
+branch. The maintainers of each client receive a Slack notification and are
+asked to review those Pull Requests - from now on, the process is mostly manual.</p>
+<p>It doesn’t make much sense automate further, mainly for two reasons:</p>
+<ul>
+<li>Each client has its own release mechanism: Python has to be packaged in a
+Wheel and pushed to PyPI, Javascript has to be pushed to NPM, for Golang a tag
+is enough, docs have to be made publicly accessible.</li>
+<li>We want to be sure a human validates the code before it’s generally available
+through an official release.</li>
+</ul>
+<h1 id="conclusions">Conclusions</h1>
+<p>We’ve been generating API clients for the IoT Cloud API like this for a few
+months, performing multiple releases for each supported programming language and
+we now have a good idea of the pros and cons of this approach.</p>
+<p>On the bright side:</p>
+<ul>
+<li>The process is straightforward, easy to read, easy to understand.</li>
+<li>The system requires very little knowledge to be operated.</li>
+<li>The time between a change in the OpenAPI spec and a client release is within
+minutes.</li>
+<li>We had an engineer working two weeks to set up the system and the feeling is
+that we’re close to paying off that investment if we didn’t already.</li>
+</ul>
+<p>On the not-so-bright side:</p>
+<ul>
+<li>If operating the system is trivial, debugging the pipeline if something goes
+awry requires a high level of skill to deep dive into the tools described in
+this article.</li>
+<li>If you stumble upon a weird bug on openapi-generator and the bug doesn’t get
+attention, contributing patches upstream might be extremely difficult because
+the codebase is complex.</li>
+</ul>
+<p>Overall we’re happy with the results and we’ll keep building up features on top
+of the workflow described here. A big shout out to the folks behind
+<a href="https://github.com/OpenAPITools/openapi-generator">openapi-generator</a> and <a href="https://github.com/DataDog/apigentools">Apigentools</a>!</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+  <hr class="footer"/>
+
+  </main>
+</body>
+
+</html>
