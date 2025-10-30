@@ -7,7 +7,7 @@ layout: now
 
 _Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](https://sive.rs/nowff)._
 
-<!--- content -->
+<!--- content --->
 
 ### 👷 Work
 
