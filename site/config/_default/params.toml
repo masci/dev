@@ -4,5 +4,5 @@ article.showAuthor = false
 
 [homepage]
 layout = "profile"
-showrecent = false
+showrecent = true
 recentLimit = 3

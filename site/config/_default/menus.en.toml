@@ -4,7 +4,7 @@ pageRef = "now"
 weight = 10
 
 [[main]]
-name = "Stuff I wrote"
+name = "Stuff I write"
 pageRef = "writing"
 weight = 20
 
@@ -14,7 +14,7 @@ pageRef = "book"
 weight = 30
 
 [[main]]
-name = "Stuff I presented"
+name = "Stuff I say"
 pageRef = "talk"
 weight = 40
 

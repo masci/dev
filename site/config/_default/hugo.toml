@@ -14,7 +14,7 @@ mainSections = ["writing"]
 [params.author]
 name = "Massimiliano Pippi"
 image = "img/massi.jpeg"
-headline = "Development, Leavening, Leadership, Delivery. In no particular order."
+headline = "Software developer, engineering manager, I can ops."
 bio = "A little bit about me"
 links = [
     { github = "https://github.com/masci" }
