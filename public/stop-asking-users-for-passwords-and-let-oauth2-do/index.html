@@ -1,0 +1,595 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Stop asking users for passwords and let OAuth2 do the job instead &middot; /dev/ by Massimiliano Pippi</title>
+    <meta name="title" content="Stop asking users for passwords and let OAuth2 do the job instead &middot; /dev/ by Massimiliano Pippi" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="http://localhost:1313/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="http://localhost:1313/css/main.bundle.min.2abed97d6210907523664b7e6725ba691bc95b0ee54b6e46cff169dfba68ae29.css"
+    integrity="sha256-Kr7ZfWIQkHUjZkt&#43;ZyW6aRvJWw7lS25Gz/Fp37porik="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        Who said authentication? #If you have an HTTP endpoint which requires authentication, chances are that you&rsquo;re using HTTP Basic auth or
+Digest. This was the case, you should immediately stop asking users for their passwords - let&rsquo;s see why.
+It&rsquo;s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the
+transmission occurs over SSL and it has some pros: it&rsquo;s easy to implement and it uses the well known
+HTTP Authorization header, largely supported
+by almost all the HTTP clients out in the wild.
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="http://localhost:1313/stop-asking-users-for-passwords-and-let-oauth2-do/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/stop-asking-users-for-passwords-and-let-oauth2-do/">
+  <meta property="og:site_name" content="/dev/ by Massimiliano Pippi">
+  <meta property="og:title" content="Stop asking users for passwords and let OAuth2 do the job instead">
+  <meta property="og:description" content="Who said authentication? #If you have an HTTP endpoint which requires authentication, chances are that you’re using HTTP Basic auth or Digest. This was the case, you should immediately stop asking users for their passwords - let’s see why.
+It’s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the transmission occurs over SSL and it has some pros: it’s easy to implement and it uses the well known HTTP Authorization header, largely supported by almost all the HTTP clients out in the wild.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writing">
+    <meta property="article:published_time" content="2013-11-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2013-11-10T00:00:00+00:00">
+    <meta property="article:tag" content="Django">
+    <meta property="article:tag" content="Oauth2">
+    <meta property="article:tag" content="Security">
+    <meta property="article:tag" content="Authentication">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stop asking users for passwords and let OAuth2 do the job instead">
+  <meta name="twitter:description" content="Who said authentication? #If you have an HTTP endpoint which requires authentication, chances are that you’re using HTTP Basic auth or Digest. This was the case, you should immediately stop asking users for their passwords - let’s see why.
+It’s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the transmission occurs over SSL and it has some pros: it’s easy to implement and it uses the well known HTTP Authorization header, largely supported by almost all the HTTP clients out in the wild.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Writings",
+    "name": "Stop asking users for passwords and let OAuth2 do the job instead",
+    "headline": "Stop asking users for passwords and let OAuth2 do the job instead",
+    
+    "abstract": "\u003ch2 id=\u0022who-said-authentication\u0022 class=\u0022relative group\u0022\u003eWho said authentication? \u003cspan class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100\u0022\u003e\u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022 style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#who-said-authentication\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\u003c\/span\u003e\u003c\/h2\u003e\u003cp\u003eIf you have an HTTP endpoint which requires authentication, chances are that you\u0026rsquo;re using HTTP Basic auth or\nDigest. This was the case, you should immediately stop asking users for their passwords - let\u0026rsquo;s see why.\u003c\/p\u003e\n\u003cp\u003eIt\u0026rsquo;s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the\ntransmission occurs over SSL and it has some pros: it\u0026rsquo;s easy to implement and it uses the well known\n\u003ca href=\u0022http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.8\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003eHTTP Authorization header\u003c\/a\u003e, largely supported\nby almost all the HTTP clients out in the wild.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/stop-asking-users-for-passwords-and-let-oauth2-do\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Massimiliano Pippi"
+    },
+    "copyrightYear": "2013",
+    "dateCreated": "2013-11-10T00:00:00\u002b00:00",
+    "datePublished": "2013-11-10T00:00:00\u002b00:00",
+    
+    "dateModified": "2013-11-10T00:00:00\u002b00:00",
+    
+    "keywords": ["django","oauth2","security","authentication"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1053"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Dev by Massimiliano Pippi",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/writing/",
+       "name": "Writings",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Stop Asking Users for Passwords and Let Oauth2 Do the Job Instead",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+    <meta name="author" content="Massimiliano Pippi" />
+  
+  
+    
+      <link href="https://github.com/masci" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >/dev/ by Massimiliano Pippi</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/now/"
+                  title="What I&#39;m doing Now"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Now</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/writing/"
+                  title="Writings"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I write</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/book/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I read</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/talk/"
+                  title="Talks"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I say</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="https://github.com/masci/dev"
+                  title=""
+                  target="_blank"
+                  >
+                    <span
+                      class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"
+                    ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Stop asking users for passwords and let OAuth2 do the job instead
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2013-11-10 00:00:00 &#43;0000 UTC">10 November 2013</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <h2 id="who-said-authentication" class="relative group">Who said authentication? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#who-said-authentication" aria-label="Anchor">#</a></span></h2><p>If you have an HTTP endpoint which requires authentication, chances are that you&rsquo;re using HTTP Basic auth or
+Digest. This was the case, you should immediately stop asking users for their passwords - let&rsquo;s see why.</p>
+<p>It&rsquo;s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the
+transmission occurs over SSL and it has some pros: it&rsquo;s easy to implement and it uses the well known
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8" target="_blank" rel="noreferrer">HTTP Authorization header</a>, largely supported
+by almost all the HTTP clients out in the wild.</p>
+<p>But what if an user falls in a SSL based man-in-the-middle attack (see section 4.8 of the
+<a href="http://www.ietf.org/rfc/rfc2617.txt" target="_blank" rel="noreferrer">rfc2617</a>)? Her credentials would be compromised and
+when you realize it, you could be forced to suspend user&rsquo;s account or reset her password at minimum.</p>
+<p>And what if your web resource is accessed by third party services? You would force users to reveal their password
+to another party to let them access their own data, and if your users are smart, they would feel very uncomfortable
+with that. Moreover, if some user changes her password on your server, access would be denied to other services.</p>
+<p>You can avoid the hassle using a token instead of an username and password pair: you can change it whenever you
+want without users caring about, you can revoke it at any time in case of trouble without suspending user accounts,
+you can give it to other parties with the consensus of your users without making them reveal any secret. Token
+authentication is practical and secure, but how to implement it?</p>
+<p>Well, I have some good news: there&rsquo;s a protocol for that, and that protocol has an RFC standard. It&rsquo;s called
+OAuth2.</p>
+<h2 id="oauth2-ftw" class="relative group">OAuth2 FTW <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#oauth2-ftw" aria-label="Anchor">#</a></span></h2><p>It was not so much time ago that I&rsquo;ve been considering OAuth2 solely a tricky protocol used to authorize a
+service to access data provided by another service, and there are still people with the same misbelief. OAuth2
+can easily replace Basic auth over SSL and there are plenty of good libraries that make the implementation a charm.</p>
+<p>The OAuth2 world is token-centric: you have to retrieve an access token and use it on every request to the server
+when authentication is required; for whatever reason you want, you can easily get another, brand new
+token at any time (if the server supports it, this behaviour is optional indeed); you can give your token to
+third parties and let them access your resources &ldquo;as they were you&rdquo;; every token may have a <em>scope</em>, a list of
+things that it&rsquo;s allowed to do or do not; you can revoke the token at any time if you want (and so can the server).</p>
+<p>OAuth2 offers different strategies (called <em>flows</em>) to let users retrieve their token, and actually some of them
+are rather complex. Since we&rsquo;re trying to replace Basic auth, let&rsquo;s see an OAuth2 flow which is as much as
+simple, the <em>Resource owner password-based grant</em>: users provide their username and password only once to obtain
+an access token that can be used to access resources on the server.</p>
+<p>You can easily try by yourself how this authentication method works using a real world OAuth2 provider as a server
+and curl on your local machine as a client.</p>
+<h3 id="register-an-app" class="relative group">Register an app <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#register-an-app" aria-label="Anchor">#</a></span></h3><p>Go to <a href="http://django-oauth-toolkit.herokuapp.com/" target="_blank" rel="noreferrer">OAuth2 Playground</a>, a fully functional OAuth2 provider written
+in Django using <a href="https://github.com/evonove/django-oauth-toolkit" target="_blank" rel="noreferrer">Django OAuth Toolkit</a> library, follow the menu
+<em>OAuth2 Provider &ndash;&gt; Register an Application</em> and login with test/test username and
+password. Give a name to your application (this is particulary useful in some flows), choose suitable values for
+<em>client id</em> and <em>client secret</em> fields or leave the defaults (they&rsquo;re automatically generated in a safe way by
+the system), choose <em>Public</em> as <em>Client type</em> and <em>Resource owner password-based</em> as <em>Authorization grant type</em>.
+For the OAuth2 flow you&rsquo;re going to use there&rsquo;s no need of any <em>Redirect uris</em> so you can leave that field blank.
+Hit <em>save</em> to finally register your application on the OAuth2 provider.</p>
+<h3 id="grab-your-token" class="relative group">Grab your token <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#grab-your-token" aria-label="Anchor">#</a></span></h3><p>Now we need a token to access resources on the Playground server. We will ask for a token for our Application
+and the user <em>test</em> of whom we know username and password; the url where retrieve the token is <em>/o/token</em>
+(every OAuth2 provider has its own url mapping of course), let&rsquo;s go there with curl:</p>
+<pre><code>curl -d &quot;grant_type=password&amp;client_id=your_client_id_here&amp;username=test&amp;password=test&quot; http://django-oauth-toolkit.herokuapp.com/o/token/
+</code></pre>
+<p>If everything goes smooth, server will answer with something like this:</p>
+<pre><code>{
+    &quot;refresh_token&quot;: &quot;a_refresh_token_here&quot;,
+    &quot;token_type&quot;: &quot;Bearer&quot;,
+    &quot;scope&quot;: &quot;example&quot;,
+    &quot;access_token&quot;: &quot;the_access_token&quot;,
+    &quot;expires_in&quot;: 36000
+}
+</code></pre>
+<p>The server provided also a refresh token, a second token which can be swapped for a new access token
+at any time before the current one expires. With the access token provided, we can authenticate against the server
+using <code>Authorization</code> header and providing our access token. In this example, we&rsquo;re going to access detailed data
+for our application through a proper endpoint:</p>
+<pre><code>curl -H &quot;Authorization: Bearer the_access_token_here&quot; http://django-oauth-toolkit.herokuapp.com/api/v1/applications/your_client_id_here/
+</code></pre>
+<p>If the server successfully authenticate and the scopes provided are enough to access the data we requested, we will
+receive a response in json format similar to this:</p>
+<pre><code>[{
+    &quot;model&quot;: &quot;example.myapplication&quot;,
+    &quot;pk&quot;: 2,
+    &quot;fields&quot;: {
+        &quot;client_type&quot;: &quot;public&quot;,
+        &quot;user&quot;: 2,
+        &quot;client_id&quot;: &quot;&quot;,
+        &quot;name&quot;: &quot;My own APP&quot;,
+        &quot;authorization_grant_type&quot;: &quot;password&quot;,
+        &quot;client_secret&quot;: &quot;&quot;,
+        &quot;description&quot;: &quot;&quot;,
+        &quot;redirect_uris&quot;: &quot;&quot;
+    }
+}]
+</code></pre>
+<p>From now on, our credentials are represented by the access token, with benefits for both users and the service provider:
+the token can be revoked by the server if needed (account suspension, abuse of the service, etc.), or can be revoked
+by ourselves if we do not want to access that service anymore. Or it can be refreshed with a new token if we fear our
+old one would be compromised. We had to provide username and password just once but now we can use the token anywhere
+we need to authenticate: a third party service or a mobile app for example.</p>
+<h2 id="so-what" class="relative group">So what? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#so-what" aria-label="Anchor">#</a></span></h2><p>Even if security level is similar, using OAuth2 allows much more control and flexibility than using username and password,
+provided that communication occurs over SSL. Well, the server has to manage a slightly more complex workflow when using
+OAuth2 (think about applications registration and tokens management), but since OAuth2 is a standard described in
+<a href="http://tools.ietf.org/html/rfc6749" target="_blank" rel="noreferrer">RFC6749</a> there are plenty of libraries and software components which implement the
+protocol and can be used to drastically reduce the code needed.</p>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="http://localhost:1313/writing/2013/build-github-like-notifications-with-django-messages-and-angular-js/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Build GitHub like notifications with Django messages and AngularJS</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2013-10-22 00:00:00 &#43;0000 UTC">22 October 2013</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="http://localhost:1313/create-a-blog-in-minutes-on-app-engine-with-django/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Create a blog in minutes on App Engine with Django and Cloud Sql</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2014-02-10 00:00:00 &#43;0000 UTC">10 February 2014</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Massimiliano Pippi
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/docs/</link>
+    <description>Recent content in Docs on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 24 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>If code is poetry, then documentation is prose</title>
+      <link>http://localhost:1313/if-code-is-poetry-then-documentation-is-prose/</link>
+      <pubDate>Sat, 24 May 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/if-code-is-poetry-then-documentation-is-prose/</guid>
+      <description>&lt;h2 id=&#34;what-is-poetry&#34; class=&#34;relative group&#34;&gt;What is poetry? &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#what-is-poetry&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Before starting, let’s agree on some terminology. Obviously poetry is a literary form, a way to write down things I would say,&#xA;but how do you recognize it, how can you say that is poetry and this is not? Well, according to my literary heritage (I’m italian)&#xA;something is poetry when it has verse, rhyme and stanza; let’s see what they are and how we can recognize them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

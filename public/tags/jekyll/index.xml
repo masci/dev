@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jekyll on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/jekyll/</link>
+    <description>Recent content in Jekyll on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Aug 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving to Jekyll</title>
+      <link>http://localhost:1313/moving-to-jekyll/</link>
+      <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/moving-to-jekyll/</guid>
+      <description>&lt;p&gt;I started writing on a personal blog in November, 2006 and I choose a Wordpress instance at&#xA;wordrpess.com at the time, because it was easy and it was free. &lt;a href=&#34;http://masci.wordpress.com&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;My old blog&lt;/a&gt;&#xA;consists of 79 articles in more than six years and considering the most of them are just suggested&#xA;links or citations, it&amp;rsquo;s not much work in the end. Anyway, I&amp;rsquo;m trying to start this whole&#xA;thing again so I registered a personal domain to host my stuff and take a look at&#xA;Wordpress alternatives.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

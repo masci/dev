@@ -1,0 +1,707 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Python Tooling at Scale: LlamaIndex’s Monorepo Overhaul &middot; /dev/ by Massimiliano Pippi</title>
+    <meta name="title" content="Python Tooling at Scale: LlamaIndex’s Monorepo Overhaul &middot; /dev/ by Massimiliano Pippi" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="http://localhost:1313/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="http://localhost:1313/css/main.bundle.min.2abed97d6210907523664b7e6725ba691bc95b0ee54b6e46cff169dfba68ae29.css"
+    integrity="sha256-Kr7ZfWIQkHUjZkt&#43;ZyW6aRvJWw7lS25Gz/Fp37porik="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        This blog post was hosted in the LlamaIndex Blog, you can
+read it here.
+When we talk about LlamaIndex, we’re actually referring to an ecosystem consisting of more than 650 Python packages,
+mostly Integrations and Packs. All these packages share a single GitHub repository, what engineers fondly call a
+“monorepo”. In this article, we’re going to introduce LlamaDev, our new tool for managing monorepos at scale, and
+explain the challenges we ran into with existing tooling to get us to this point.
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="http://localhost:1313/python-tooling-at-scale/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/python-tooling-at-scale/">
+  <meta property="og:site_name" content="/dev/ by Massimiliano Pippi">
+  <meta property="og:title" content="Python Tooling at Scale: LlamaIndex’s Monorepo Overhaul">
+  <meta property="og:description" content="This blog post was hosted in the LlamaIndex Blog, you can read it here.
+When we talk about LlamaIndex, we’re actually referring to an ecosystem consisting of more than 650 Python packages, mostly Integrations and Packs. All these packages share a single GitHub repository, what engineers fondly call a “monorepo”. In this article, we’re going to introduce LlamaDev, our new tool for managing monorepos at scale, and explain the challenges we ran into with existing tooling to get us to this point.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writing">
+    <meta property="article:published_time" content="2025-05-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-21T00:00:00+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Github">
+    <meta property="og:image" content="http://localhost:1313/python-tooling-at-scale/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/python-tooling-at-scale/feature.png">
+  <meta name="twitter:title" content="Python Tooling at Scale: LlamaIndex’s Monorepo Overhaul">
+  <meta name="twitter:description" content="This blog post was hosted in the LlamaIndex Blog, you can read it here.
+When we talk about LlamaIndex, we’re actually referring to an ecosystem consisting of more than 650 Python packages, mostly Integrations and Packs. All these packages share a single GitHub repository, what engineers fondly call a “monorepo”. In this article, we’re going to introduce LlamaDev, our new tool for managing monorepos at scale, and explain the challenges we ran into with existing tooling to get us to this point.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Writings",
+    "name": "Python Tooling at Scale: LlamaIndex’s Monorepo Overhaul",
+    "headline": "Python Tooling at Scale: LlamaIndex’s Monorepo Overhaul",
+    
+    "abstract": "\u003cp\u003e\u003cstrong\u003eThis blog post was hosted in the LlamaIndex Blog, you can\n\u003ca href=\u0022https:\/\/www.llamaindex.ai\/blog\/python-tooling-at-scale-llamaindex-s-monorepo-overhaul\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003eread it here\u003c\/a\u003e.\u003c\/strong\u003e\u003c\/p\u003e\n\u003cp\u003eWhen we talk about LlamaIndex, we’re actually referring to an ecosystem consisting of more than 650 Python packages,\nmostly Integrations and Packs. All these packages share a single GitHub repository, what engineers fondly call a\n“monorepo”. In this article, we’re going to introduce LlamaDev, our new tool for managing monorepos at scale, and\nexplain the challenges we ran into with existing tooling to get us to this point.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/python-tooling-at-scale\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Massimiliano Pippi"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-05-21T00:00:00\u002b00:00",
+    "datePublished": "2025-05-21T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-05-21T00:00:00\u002b00:00",
+    
+    "keywords": ["python","github"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2136"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Dev by Massimiliano Pippi",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/writing/",
+       "name": "Writings",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Python Tooling at Scale Llama Index’s Monorepo Overhaul",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+    <meta name="author" content="Massimiliano Pippi" />
+  
+  
+    
+      <link href="https://github.com/masci" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >/dev/ by Massimiliano Pippi</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/now/"
+                  title="What I&#39;m doing Now"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Now</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/writing/"
+                  title="Writings"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I write</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/book/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I read</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/talk/"
+                  title="Talks"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I say</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="https://github.com/masci/dev"
+                  title=""
+                  target="_blank"
+                  >
+                    <span
+                      class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"
+                    ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Python Tooling at Scale: LlamaIndex’s Monorepo Overhaul
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-05-21 00:00:00 &#43;0000 UTC">21 May 2025</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+        <div class="prose">
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mb-6 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="http://localhost:1313/python-tooling-at-scale/feature_hu_f5d5ea35726de077.webp 330w,http://localhost:1313/python-tooling-at-scale/feature_hu_263969288598715c.webp 660w
+            
+              
+                ,http://localhost:1313/python-tooling-at-scale/feature_hu_6a85dee8652b9bc1.webp 917w
+              
+            
+            
+              
+                ,http://localhost:1313/python-tooling-at-scale/feature_hu_6a85dee8652b9bc1.webp 917w
+              
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="917"
+        height="482"
+        class="mb-6 rounded-md"
+        
+        
+        
+          src="http://localhost:1313/python-tooling-at-scale/feature_hu_2088e864140cd49c.png" srcset="http://localhost:1313/python-tooling-at-scale/feature_hu_e7a8424149e6b97e.png 330w,http://localhost:1313/python-tooling-at-scale/feature_hu_2088e864140cd49c.png 660w
+          
+            ,http://localhost:1313/python-tooling-at-scale/feature.png 917w
+          
+          
+            ,http://localhost:1313/python-tooling-at-scale/feature.png 917w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+          
+        </div>
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p><strong>This blog post was hosted in the LlamaIndex Blog, you can
+<a href="https://www.llamaindex.ai/blog/python-tooling-at-scale-llamaindex-s-monorepo-overhaul" target="_blank" rel="noreferrer">read it here</a>.</strong></p>
+<p>When we talk about LlamaIndex, we’re actually referring to an ecosystem consisting of more than 650 Python packages,
+mostly Integrations and Packs. All these packages share a single GitHub repository, what engineers fondly call a
+“monorepo”. In this article, we’re going to introduce LlamaDev, our new tool for managing monorepos at scale, and
+explain the challenges we ran into with existing tooling to get us to this point.</p>
+<h2 id="the-challenge-650-dependency-trees" class="relative group">The challenge: 650+ dependency trees <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-challenge-650-dependency-trees" aria-label="Anchor">#</a></span></h2><p>Each Python package in the monorepo is published on PyPI and comes with its own pyproject.toml file. For those not
+familiar with the ecosystem, a pyproject.toml file for a modern Python package is a one stop shop defining several
+aspects of the package lifecycle: its dependencies, its release version number, the Python and operating system
+versions supported, and how tools like linters and type checkers should behave with that specific package. Most
+packages have tests, and some have an additional list of development dependencies.</p>
+<p>Integrations and Packs have some code in common, shipped through a foundational package called llama-index-core that
+pretty much every package in the ecosystem depends on. Additionally, they can depend on each other, for example
+llama-index-llms-azure-openai requires llama-index-llms-openai to work. As you can imagine, this has a few implications
+for the testing strategy, such as:</p>
+<ul>
+<li>If we touch llama-index-core in a pull request, tests for most of the packages in the monorepo need to be triggered
+to ensure they keep working after that change</li>
+<li>If we touch something like llama-index-llms-openai, we need to find which are the packages depending on it and test
+them to ensure they still work</li>
+</ul>
+<h2 id="developing-is-easyish" class="relative group">Developing is easy(ish) <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#developing-is-easyish" aria-label="Anchor">#</a></span></h2><p>The experience of developing in one of these packages varies. Sometimes we work on a single, self-contained Integration
+with no additional LlamaIndex dependencies other than llama-index-core. That’s the happy path, where we test our code
+against a certain version of the core package and if it works, it works.</p>
+<p>Sometimes we work on a package that has dependents in the monorepo. In this case, we need to ensure our changes work
+for the package itself without disrupting other packages. Sometimes we work on the core package, where we need to be
+extra careful not to introduce breaking changes that might impact the whole monorepo.</p>
+<p>Last but not least, we do our best to support multiple Python and operating system versions in our packages, which for
+the vast majority means Python 3.9 all the way up to 3.12+ on three operating systems: Windows, Mac and Linux.</p>
+<h2 id="maintaining-is-hard" class="relative group">Maintaining is hard <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#maintaining-is-hard" aria-label="Anchor">#</a></span></h2><p>The first thing you want in a monorepo is consistency. Even a slight difference in the way tests are executed or
+packages are built can complicate cross-platform support and turn batch operations across the monorepo into a nightmare.
+The risk of ending up with 650+ slightly different packages is very high, specially in the Python ecosystem, so the
+first tool we brought in was a Python project manager.</p>
+<p>A Python project manager usually relies on the pyproject.toml file to provide features like building and publishing a
+package, managing dependencies and lockfiles, defining scripts and automation tasks, preparing virtual environments to
+work on the code in isolation with different version of Python.</p>
+<h2 id="first-iteration-poetry-for-individual-packages" class="relative group">First iteration: Poetry for individual packages <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#first-iteration-poetry-for-individual-packages" aria-label="Anchor">#</a></span></h2><p>Our tool of choice was Poetry: feature complete, very well established in the Python community, it served us well for
+over than a year. Working with Poetry on a single package is a breeze: with its expressive command line interface it
+can set up specific Python versions and build virtual environments, so that running the tests while iterating on the
+code becomes very easy. But don’t get too excited: we work on a monorepo, where even the easiest things become complex.</p>
+<p>While Poetry is great to work in isolation on a single package, it doesn’t really know about package dependencies. For
+example, it cannot know that a certain package depending on us actually sits in a sibling directory of the same git
+repository. Being in the same repository, we could easily trigger the tests to verify that our changes upstream didn’t
+break the dependents, but Poetry just doesn’t have the information to do this.</p>
+<h2 id="first-iteration-pants-for-build-management" class="relative group">First iteration: Pants for build management <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#first-iteration-pants-for-build-management" aria-label="Anchor">#</a></span></h2><p>And thus we had to introduce another tool: we needed a build system, preferably designed to explicitly work within a
+monorepo. A build system is a piece of software that automates the process of building source code into artifacts,
+taking care of all the intermediate steps. For a Python codebase, this means to set up a virtual environment for a
+certain Python version, fetch and install dependencies, run the tests, build the wheel packages, and optionally to
+publish them to some global registry like PyPI.</p>
+<p>We chose Pants for the job, and again it served us well for more than one year. Pants explicitly supports Python
+projects and is particularly smart in detecting which tests to trigger across multiple packages in the monorepo when
+the upstream has changed. It also comes with a powerful caching system that can sensibly speed up the setup of each
+build environment.</p>
+<h2 id="version-10-worked-for-a-year" class="relative group">Version 1.0 worked for a year <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#version-10-worked-for-a-year" aria-label="Anchor">#</a></span></h2><p>To recap, for well over a year this was the tech stack used in the LlamaIndex monorepo:</p>
+<ul>
+<li>Poetry to manage the single Python projects.</li>
+<li>Pants to orchestrate testing across different packages (we didn’t use the build features).</li>
+<li>Github actions to automate Pants and Poetry runs on pull requests and git pushes.</li>
+</ul>
+<p>Our setup was working, but admittedly had a few minor flaws. The problem with minor flaws is that they tend to become
+less and less minor as the system scales. A one-second operation on a single package doesn’t seem much, until you have
+to repeat it 650 times and now an automated job takes 10 minutes.</p>
+<h2 id="problems-of-scale-build-speeds-and-caching-servers" class="relative group">Problems of scale: build speeds and caching servers <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#problems-of-scale-build-speeds-and-caching-servers" aria-label="Anchor">#</a></span></h2><p>Let’s start with Poetry. The tool works pretty well and we could express sophisticated dependency requirements, but the
+dependency solver can be very slow at times. Add it to the fact that pip is the only installer available, and the
+overhead working on a package can be measured in seconds. Again, you won’t probably notice working on a single package,
+but without Pants caching virtual environments, an extensive run of unit tests on the monorepo could take a very long
+time.</p>
+<p>Speaking of Pants, it came with its own set of flaws. The first one we encountered was setup: while defining targets
+and dependencies is a hell of a task, but at least something you do once then profit, the caching system was more
+demanding. We had to host a service on AWS behind a public address so it could be used from Github workflows. And the
+caching server is not something you deploy once and forget. We had to scale it up a couple of times, add two redundant
+instances behind a load balancer, resize storage a couple of times. Sometimes Github workflows failed with weird errors,
+only to find out later that the caching server was unresponsive or behaving erratically. All understandable, but given
+the size of our team, it was expensive to maintain in terms of resources and money.</p>
+<h2 id="problems-of-control-logging-inconsistency-and-more" class="relative group">Problems of control: logging, inconsistency and more <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#problems-of-control-logging-inconsistency-and-more" aria-label="Anchor">#</a></span></h2><p>And that’s not all: Pants’ sophisticated caching comes with an additional price. The Python virtual environments used
+during a build are managed by Pants internally with pip. You don’t have much control over it, the environments are not
+easily accessible, and this has a few implications.</p>
+<ul>
+<li>First of all, Pants understands and can rely on Poetry configurations, but it doesn’t invoke it directly.
+This means a test run in the CI is different from a test run invoked locally with Poetry.</li>
+<li>Second, Pants logging is really verbose, and messages related to installation or dependency problems are not easy to
+find and debug. Depending on the type of the error, at times even tests failures can be hard to find in the logs.</li>
+<li>Lastly, running Pants locally is not easy and we don’t ask contributors to do that, but this means sometimes pull
+requests show failures that cannot be reproduced locally, making the developer experience quite poor.</li>
+</ul>
+<h2 id="why-we-needed-version-20" class="relative group">Why we needed version 2.0 <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#why-we-needed-version-20" aria-label="Anchor">#</a></span></h2><p>To recap, these are the problems we were facing as the size of the monorepo increased:</p>
+<ul>
+<li>Slow iterations due to dependency management struggles.</li>
+<li>Maintaining the build system was a burden.</li>
+<li>Debugging CI runs was hard.</li>
+<li>Contributing to the project was hard.</li>
+</ul>
+<p>Looking back at our past Slack conversations, it’s been a while since we started fiddling with the idea of replacing
+pip with uv to take advantage of its huge speedups at install time, but we only recently had time available to make a
+serious attempt. Here’s what happened.</p>
+<h2 id="migrating-projects-to-uv-from-poetry" class="relative group">Migrating projects to uv from Poetry <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#migrating-projects-to-uv-from-poetry" aria-label="Anchor">#</a></span></h2><p>The original task was quite vague, it essentially read something like “use uv everywhere so we can to shorten the CI
+feedback loop”. We didn’t want to get rid of existing tooling, just introduce a new one that looked promising.</p>
+<p>Pants has a section in the docs mentioning uv, so we were optimistic there could be a way to make the two coexist. That
+optimism lasted about a hour, the time needed to go through the docs, browse some threads in the Pants Discord server
+and realize that no, Pants cannot use uv instead of pip internally. There’s a third-party plugin that does that, but we
+didn’t want to add another layer of complexity on something that we already barely controlled, so we canned that idea.</p>
+<p>Plan B: we could still call uv within the Poetry projects, so at least we would speed up local development, no? No.
+Poetry doesn’t support uv and it won’t in the foreseeable future. Luckily uv is much more than a replacement for pip,
+it’s actually a very powerful Python project manager. So we took it for a spin and migrated a few packages to see what
+changes would be required. This got off to a very good start. If you have uv installed, migrating a package is
+literally one command you run on the folder containing the pyproject.toml file:</p>
+<p>uvx migrate-to-uv</p>
+<p>We won’t say we were impressed by how fast it was to install dependencies for a package, because that was expected.
+What we fell in love with was everything else: uv is simple, tidy, expressive. uv run &ndash; is so powerful you won’t need
+to activate a virtual environment in your life ever again. Some of us, Homebrew hardcore users, let a Python project
+manager tool install a Python distribution for the first time ever. It didn’t take us very long to make the call and
+say goodbye to Poetry. If the developer experience was so good for us, contributors would certainly appreciate.</p>
+<h2 id="how-to-manage-builds-in-20" class="relative group">How to manage builds in 2.0? <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#how-to-manage-builds-in-20" aria-label="Anchor">#</a></span></h2><p>Still we weren’t happy. The CI still wouldn&rsquo;t benefit from uv and contributors would still have to struggle with cryptic
+failures in pull request checks. Something was itching, and you don’t work on something like LlamaIndex if you don’t
+scratch. So we scratched.</p>
+<p>We are not so crazy to think we could rewrite something like Pants and replace it, but we were only using about 20% of
+Pants features, and we definitely are more than 20% crazy. So we rewrote the code detecting the dependency graphs of all
+the packages in the monorepo, relying on the pyproject.toml files alone. On top of that, we added some code to detect
+what packages should be tested in every pull request, given the files that were changed. Then some code to invoke pytest
+and grab only the logs that matter. Then some logic to avoid failing the CI jobs with untestable packages or unrelated
+failures. Then we decided all this code could be turned into a custom made tool.</p>
+<h2 id="introducing-llamadev" class="relative group">Introducing LlamaDev <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#introducing-llamadev" aria-label="Anchor">#</a></span></h2><p>We’ve called our new tool LlamaDev and any contributor can run it from a clone of the monorepo with uv run llama-dev.</p>
+<p>The list of improvements we introduced since we switched from Poetry+Pants to uv+LlamaDev is long:</p>
+<ul>
+<li>Average time for a complete test run (without computing coverage) of all 600+ packages is about 20% faster,
+corresponding to about 6 minutes less.</li>
+<li>Depending on the specific package, partial test runs are even faster. For example, changing an integration with
+many dependants like llama-index-llms-openai went from about 11 minutes down to 4.</li>
+<li>Logs are much clearer now, and contributors can see exactly what happened if a check failed.</li>
+<li>Contributors can run llama-dev locally and reproduce exactly what was done in the CI system if some debugging is
+needed.</li>
+<li>Lockfiles are now checked into the repository for better build reproducibility.</li>
+<li>We don’t rely anymore on external resources, all the computing needed is on Github actions.</li>
+</ul>
+<p>And this obviously goes on top of everything uv does to improve the day-to-day when working on any Python project.</p>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="http://localhost:1313/turbo_charge_your_template_prompts_with_banks/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Turbo charge your template prompts with Banks</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2023-06-13 00:22:34 &#43;0100 &#43;0100">13 June 2023</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="http://localhost:1313/the-coding-interview-in-2025/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >The coding interview in 2025</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-05 08:31:38 &#43;0200 CEST">5 September 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Massimiliano Pippi
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

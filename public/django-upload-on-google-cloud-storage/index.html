@@ -1,0 +1,586 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Uploading files to Google Cloud Storage with Django &middot; /dev/ by Massimiliano Pippi</title>
+    <meta name="title" content="Uploading files to Google Cloud Storage with Django &middot; /dev/ by Massimiliano Pippi" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="http://localhost:1313/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="http://localhost:1313/css/main.bundle.min.2abed97d6210907523664b7e6725ba691bc95b0ee54b6e46cff169dfba68ae29.css"
+    integrity="sha256-Kr7ZfWIQkHUjZkt&#43;ZyW6aRvJWw7lS25Gz/Fp37porik="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        Intro #On of the features of Django Appengine Toolkit is simplifying
+the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
+Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
+    APPENGINE_TOOLKIT = {
+        &#39;APP_YAML&#39;: os.path.join(BASE_DIR, &#39;app.yaml&#39;),
+        &#39;BUCKET_NAME&#39;: &#39;media-uploads&#39;,
+    }
+    DEFAULT_FILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
+    STATICFILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39;
+A complete example #This repo contains a minimalistic Django project
+implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just
+one app implementing all the logic, defining the model and exposing the views. For detailed instructions on how to
+setup a Django project on App Engine with django-appengine-toolkit please check out
+this blog post.
+Now let&rsquo;s take a look at the code.
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="http://localhost:1313/django-upload-on-google-cloud-storage/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/django-upload-on-google-cloud-storage/">
+  <meta property="og:site_name" content="/dev/ by Massimiliano Pippi">
+  <meta property="og:title" content="Uploading files to Google Cloud Storage with Django">
+  <meta property="og:description" content="Intro #On of the features of Django Appengine Toolkit is simplifying the work needed to configure Google Cloud Storage as a static files storage for Django applications running on Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
+APPENGINE_TOOLKIT = { &#39;APP_YAML&#39;: os.path.join(BASE_DIR, &#39;app.yaml&#39;), &#39;BUCKET_NAME&#39;: &#39;media-uploads&#39;, } DEFAULT_FILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39; STATICFILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39; A complete example #This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just one app implementing all the logic, defining the model and exposing the views. For detailed instructions on how to setup a Django project on App Engine with django-appengine-toolkit please check out this blog post. Now let’s take a look at the code.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writing">
+    <meta property="article:published_time" content="2014-05-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2014-05-02T00:00:00+00:00">
+    <meta property="article:tag" content="Django">
+    <meta property="article:tag" content="Google">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Appengine">
+    <meta property="article:tag" content="Gcs">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Uploading files to Google Cloud Storage with Django">
+  <meta name="twitter:description" content="Intro #On of the features of Django Appengine Toolkit is simplifying the work needed to configure Google Cloud Storage as a static files storage for Django applications running on Google App Engine. Infact all you have to do is writing something like this in your settings.py module:
+APPENGINE_TOOLKIT = { &#39;APP_YAML&#39;: os.path.join(BASE_DIR, &#39;app.yaml&#39;), &#39;BUCKET_NAME&#39;: &#39;media-uploads&#39;, } DEFAULT_FILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39; STATICFILE_STORAGE = &#39;appengine_toolkit.storage.GoogleCloudStorage&#39; A complete example #This repo contains a minimalistic Django project implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just one app implementing all the logic, defining the model and exposing the views. For detailed instructions on how to setup a Django project on App Engine with django-appengine-toolkit please check out this blog post. Now let’s take a look at the code.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Writings",
+    "name": "Uploading files to Google Cloud Storage with Django",
+    "headline": "Uploading files to Google Cloud Storage with Django",
+    
+    "abstract": "\u003ch2 id=\u0022intro\u0022 class=\u0022relative group\u0022\u003eIntro \u003cspan class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100\u0022\u003e\u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022 style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#intro\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\u003c\/span\u003e\u003c\/h2\u003e\u003cp\u003eOn of the features of \u003ca href=\u0022https:\/\/github.com\/masci\/django-appengine-toolkit\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003eDjango Appengine Toolkit\u003c\/a\u003e is simplifying\nthe work needed to configure Google Cloud Storage as a static files storage for Django applications running on\nGoogle App Engine. Infact all you have to do is writing something like this in your settings.py module:\u003c\/p\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-py\u0022 data-lang=\u0022py\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    APPENGINE_TOOLKIT \u003cspan style=\u0022color:#91d7e3;font-weight:bold\u0022\u003e=\u003c\/span\u003e {\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e        \u003cspan style=\u0022color:#a6da95\u0022\u003e\u0026#39;APP_YAML\u0026#39;\u003c\/span\u003e: os\u003cspan style=\u0022color:#91d7e3;font-weight:bold\u0022\u003e.\u003c\/span\u003epath\u003cspan style=\u0022color:#91d7e3;font-weight:bold\u0022\u003e.\u003c\/span\u003ejoin(BASE_DIR, \u003cspan style=\u0022color:#a6da95\u0022\u003e\u0026#39;app.yaml\u0026#39;\u003c\/span\u003e),\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e        \u003cspan style=\u0022color:#a6da95\u0022\u003e\u0026#39;BUCKET_NAME\u0026#39;\u003c\/span\u003e: \u003cspan style=\u0022color:#a6da95\u0022\u003e\u0026#39;media-uploads\u0026#39;\u003c\/span\u003e,\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    }\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    DEFAULT_FILE_STORAGE \u003cspan style=\u0022color:#91d7e3;font-weight:bold\u0022\u003e=\u003c\/span\u003e \u003cspan style=\u0022color:#a6da95\u0022\u003e\u0026#39;appengine_toolkit.storage.GoogleCloudStorage\u0026#39;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    STATICFILE_STORAGE \u003cspan style=\u0022color:#91d7e3;font-weight:bold\u0022\u003e=\u003c\/span\u003e \u003cspan style=\u0022color:#a6da95\u0022\u003e\u0026#39;appengine_toolkit.storage.GoogleCloudStorage\u0026#39;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003ch2 id=\u0022a-complete-example\u0022 class=\u0022relative group\u0022\u003eA complete example \u003cspan class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100\u0022\u003e\u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022 style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#a-complete-example\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\u003c\/span\u003e\u003c\/h2\u003e\u003cp\u003e\u003ca href=\u0022https:\/\/github.com\/masci\/django_cloudstorage_example\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003eThis repo\u003c\/a\u003e contains a minimalistic Django project\nimplementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just\none app implementing all the logic, defining the model and exposing the views. For detailed instructions on how to\nsetup a Django project on App Engine with \u003ccode\u003edjango-appengine-toolkit\u003c\/code\u003e please check out\n\u003ca href=\u0022http:\/\/dev.pippi.im\/2014\/02\/10\/create-a-blog-in-minutes-on-app-engine-with-django\/\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003ethis blog post\u003c\/a\u003e.\nNow let\u0026rsquo;s take a look at the code.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/django-upload-on-google-cloud-storage\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Massimiliano Pippi"
+    },
+    "copyrightYear": "2014",
+    "dateCreated": "2014-05-02T00:00:00\u002b00:00",
+    "datePublished": "2014-05-02T00:00:00\u002b00:00",
+    
+    "dateModified": "2014-05-02T00:00:00\u002b00:00",
+    
+    "keywords": ["django","google","python","appengine","gcs"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "458"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/",
+       "name": "Dev by Massimiliano Pippi",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "http://localhost:1313/writing/",
+       "name": "Writings",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Uploading Files to Google Cloud Storage With Django",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+    <meta name="author" content="Massimiliano Pippi" />
+  
+  
+    
+      <link href="https://github.com/masci" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >/dev/ by Massimiliano Pippi</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/now/"
+                  title="What I&#39;m doing Now"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Now</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/writing/"
+                  title="Writings"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I write</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/book/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I read</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/talk/"
+                  title="Talks"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I say</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="https://github.com/masci/dev"
+                  title=""
+                  target="_blank"
+                  >
+                    <span
+                      class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600"
+                    ><span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+</span></span></a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Uploading files to Google Cloud Storage with Django
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2014-05-02 00:00:00 &#43;0000 UTC">2 May 2014</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <h2 id="intro" class="relative group">Intro <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#intro" aria-label="Anchor">#</a></span></h2><p>On of the features of <a href="https://github.com/masci/django-appengine-toolkit" target="_blank" rel="noreferrer">Django Appengine Toolkit</a> is simplifying
+the work needed to configure Google Cloud Storage as a static files storage for Django applications running on
+Google App Engine. Infact all you have to do is writing something like this in your settings.py module:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    APPENGINE_TOOLKIT <span style="color:#91d7e3;font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#39;APP_YAML&#39;</span>: os<span style="color:#91d7e3;font-weight:bold">.</span>path<span style="color:#91d7e3;font-weight:bold">.</span>join(BASE_DIR, <span style="color:#a6da95">&#39;app.yaml&#39;</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6da95">&#39;BUCKET_NAME&#39;</span>: <span style="color:#a6da95">&#39;media-uploads&#39;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    DEFAULT_FILE_STORAGE <span style="color:#91d7e3;font-weight:bold">=</span> <span style="color:#a6da95">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
+</span></span><span style="display:flex;"><span>    STATICFILE_STORAGE <span style="color:#91d7e3;font-weight:bold">=</span> <span style="color:#a6da95">&#39;appengine_toolkit.storage.GoogleCloudStorage&#39;</span>
+</span></span></code></pre></div><h2 id="a-complete-example" class="relative group">A complete example <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#a-complete-example" aria-label="Anchor">#</a></span></h2><p><a href="https://github.com/masci/django_cloudstorage_example" target="_blank" rel="noreferrer">This repo</a> contains a minimalistic Django project
+implementing a file storage application that lets users upload, listing, retrieve and delete files. The project has just
+one app implementing all the logic, defining the model and exposing the views. For detailed instructions on how to
+setup a Django project on App Engine with <code>django-appengine-toolkit</code> please check out
+<a href="http://dev.pippi.im/2014/02/10/create-a-blog-in-minutes-on-app-engine-with-django/" target="_blank" rel="noreferrer">this blog post</a>.
+Now let&rsquo;s take a look at the code.</p>
+<h3 id="the-model" class="relative group">The Model <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-model" aria-label="Anchor">#</a></span></h3><div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#c6a0f6">class</span> <span style="color:#eed49f">Document</span>(models<span style="color:#91d7e3;font-weight:bold">.</span>Model):
+</span></span><span style="display:flex;"><span>        docfile <span style="color:#91d7e3;font-weight:bold">=</span> models<span style="color:#91d7e3;font-weight:bold">.</span>FileField(upload_to<span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#39;documents/%Y/%m/</span><span style="color:#a6da95">%d</span><span style="color:#a6da95">&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">def</span> <span style="color:#8aadf4">delete</span>(<span style="color:#91d7e3">self</span>, <span style="color:#91d7e3;font-weight:bold">*</span>args, <span style="color:#91d7e3;font-weight:bold">**</span>kwargs):
+</span></span><span style="display:flex;"><span>            storage, path <span style="color:#91d7e3;font-weight:bold">=</span> <span style="color:#91d7e3">self</span><span style="color:#91d7e3;font-weight:bold">.</span>docfile<span style="color:#91d7e3;font-weight:bold">.</span>storage, <span style="color:#91d7e3">self</span><span style="color:#91d7e3;font-weight:bold">.</span>docfile<span style="color:#91d7e3;font-weight:bold">.</span>path
+</span></span><span style="display:flex;"><span>            <span style="color:#91d7e3">super</span>(Document, <span style="color:#91d7e3">self</span>)<span style="color:#91d7e3;font-weight:bold">.</span>delete(<span style="color:#91d7e3;font-weight:bold">*</span>args, <span style="color:#91d7e3;font-weight:bold">**</span>kwargs)
+</span></span><span style="display:flex;"><span>            storage<span style="color:#91d7e3;font-weight:bold">.</span>delete(path)
+</span></span></code></pre></div><p>Pretty easy, we have just one field containing the file. Notice the delete method we&rsquo;re going to use so that
+when an instance is deleted, the same will happen to corresponding file on Cloud Storage.</p>
+<h3 id="the-views" class="relative group">The views <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-views" aria-label="Anchor">#</a></span></h3><p>Hail to the Class Based Views! Look at how few lines of code we need for the main view, implementing the listing and
+the logic for the uploads, form included:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#c6a0f6">class</span> <span style="color:#eed49f">FileManagerView</span>(CreateView):
+</span></span><span style="display:flex;"><span>        model <span style="color:#91d7e3;font-weight:bold">=</span> Document
+</span></span><span style="display:flex;"><span>        success_url <span style="color:#91d7e3;font-weight:bold">=</span> reverse_lazy(<span style="color:#a6da95">&#39;main&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">def</span> <span style="color:#8aadf4">get_context_data</span>(<span style="color:#91d7e3">self</span>, <span style="color:#91d7e3;font-weight:bold">**</span>kwargs):
+</span></span><span style="display:flex;"><span>            kwargs[<span style="color:#a6da95">&#39;object_list&#39;</span>] <span style="color:#91d7e3;font-weight:bold">=</span> Document<span style="color:#91d7e3;font-weight:bold">.</span>objects<span style="color:#91d7e3;font-weight:bold">.</span>all()
+</span></span><span style="display:flex;"><span>            kwargs[<span style="color:#a6da95">&#39;fava&#39;</span>] <span style="color:#91d7e3;font-weight:bold">=</span> <span style="color:#a6da95">&#39;rava&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#c6a0f6">return</span> <span style="color:#91d7e3">super</span>(FileManagerView, <span style="color:#91d7e3">self</span>)<span style="color:#91d7e3;font-weight:bold">.</span>get_context_data(<span style="color:#91d7e3;font-weight:bold">**</span>kwargs)
+</span></span></code></pre></div><p>Since we need to show the list of files <strong>and</strong> the form to upload them on the same page, we cannot use a <code>CreateView</code> as is,
+what we need is a <code>CreateView</code> and <code>ListView</code> hybrid instead, thus the hack of overriding <code>get_context_data</code>: we inject the queryset
+in the context so the template can render properly.</p>
+<p>The relevant html code in the template looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>    &lt;<span style="color:#c6a0f6">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    {% for object in object_list %}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#c6a0f6">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#c6a0f6">form</span> <span style="color:#8aadf4">action</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;{% url &#39;delete&#39; object.id %}&#34;</span> <span style="color:#8aadf4">method</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;post&#34;</span>&gt;{% csrf_token %}
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#c6a0f6">a</span> <span style="color:#8aadf4">href</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;{{ object.docfile.url }}&#34;</span>&gt;{{ object.docfile.name }}&lt;/<span style="color:#c6a0f6">a</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#c6a0f6">input</span> <span style="color:#8aadf4">type</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;submit&#34;</span> <span style="color:#8aadf4">value</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;Delete&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#c6a0f6">form</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#c6a0f6">li</span>&gt;
+</span></span><span style="display:flex;"><span>    {% empty %}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#c6a0f6">li</span>&gt;No documents.&lt;/<span style="color:#c6a0f6">li</span>&gt;
+</span></span><span style="display:flex;"><span>    {% endfor %}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#c6a0f6">ul</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#c6a0f6">form</span>  <span style="color:#8aadf4">enctype</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;multipart/form-data&#34;</span> <span style="color:#8aadf4">action</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;&#34;</span> <span style="color:#8aadf4">method</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;post&#34;</span>&gt;{% csrf_token %}
+</span></span><span style="display:flex;"><span>        {{ form.as_p }}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#c6a0f6">input</span> <span style="color:#8aadf4">type</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;submit&#34;</span> <span style="color:#8aadf4">value</span><span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#34;Upload&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#c6a0f6">form</span>&gt;
+</span></span></code></pre></div><p>Notice we render a form for each file listed, so we can make a <code>POST</code> request directly, without passing for a confirmation view
+as usual when using <code>DeleteView</code> generics. Let&rsquo;s see the View code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#c6a0f6">class</span> <span style="color:#eed49f">FileRemoveView</span>(DeleteView):
+</span></span><span style="display:flex;"><span>        model <span style="color:#91d7e3;font-weight:bold">=</span> Document
+</span></span><span style="display:flex;"><span>        success_url <span style="color:#91d7e3;font-weight:bold">=</span> reverse_lazy(<span style="color:#a6da95">&#39;main&#39;</span>)
+</span></span></code></pre></div><p>Ok, this was short. Basically we only need to tell to the class based view which is the model and where to go once the istance
+is deleted. Wow.</p>
+<h3 id="the-urls" class="relative group">The urls <span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-urls" aria-label="Anchor">#</a></span></h3><p>Quick and dirty: mount the two views to the urls:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    urlpatterns <span style="color:#91d7e3;font-weight:bold">=</span> patterns(<span style="color:#a6da95">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>        url(<span style="color:#ed8796">r</span><span style="color:#a6da95">&#39;^$&#39;</span>, FileManagerView<span style="color:#91d7e3;font-weight:bold">.</span>as_view(), name<span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#39;main&#39;</span>),
+</span></span><span style="display:flex;"><span>        url(<span style="color:#ed8796">r</span><span style="color:#a6da95">&#39;^delete/(?P&lt;pk&gt;\d+)/$&#39;</span>, FileRemoveView<span style="color:#91d7e3;font-weight:bold">.</span>as_view(), name<span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#a6da95">&#39;delete&#39;</span>),
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><p>That&rsquo;s all, have fun deploying on App Engine!</p>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="http://localhost:1313/create-a-blog-in-minutes-on-app-engine-with-django/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Create a blog in minutes on App Engine with Django and Cloud Sql</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2014-02-10 00:00:00 &#43;0000 UTC">10 February 2014</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="http://localhost:1313/if-code-is-poetry-then-documentation-is-prose/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >If code is poetry, then documentation is prose</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2014-05-24 00:00:00 &#43;0000 UTC">24 May 2014</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2025
+            Massimiliano Pippi
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

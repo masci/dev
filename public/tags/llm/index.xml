@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Llm on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/llm/</link>
+    <description>Recent content in Llm on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Jun 2023 00:22:34 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Turbo charge your template prompts with Banks</title>
+      <link>http://localhost:1313/turbo_charge_your_template_prompts_with_banks/</link>
+      <pubDate>Tue, 13 Jun 2023 00:22:34 +0100</pubDate>
+      <guid>http://localhost:1313/turbo_charge_your_template_prompts_with_banks/</guid>
+      <description>&lt;p&gt;Like many others, I&amp;rsquo;ve been playing with prompt engineering a lot lately and ended up with my very own prompt template&#xA;engine: &lt;a href=&#34;https://github.com/masci/banks&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Banks&lt;/a&gt;. Heavily based on Jinja2, the project isn&amp;rsquo;t really much more than a toy,&#xA;but inspired by &lt;a href=&#34;https://www.pinecone.io/learn/langchain-prompt-templates/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;this langchain tutorial&lt;/a&gt; from Pinecone,&#xA;I decided to take it out for a spin.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-basic-example&#34; class=&#34;relative group&#34;&gt;A basic example &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#a-basic-example&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Working with a very basic example, Banks and Langchain don&amp;rsquo;t look very much different, let&amp;rsquo;s start with the latter:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

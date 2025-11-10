@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Protobuf on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/protobuf/</link>
+    <description>Recent content in Protobuf on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Jun 2017 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/protobuf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protobuf parsing in Python</title>
+      <link>http://localhost:1313/protobuf-python/</link>
+      <pubDate>Thu, 08 Jun 2017 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/protobuf-python/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;This blog post was hosted in the Datadog Engineering Blog, you can&#xA;&lt;a href=&#34;https://www.datadoghq.com/blog/engineering/protobuf-parsing-in-python/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;read it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Recently we extended the &lt;a href=&#34;https://github.com/DataDog/dd-agent&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Datadog Agent&lt;/a&gt; to&#xA;support extracting additional metrics from Kubernetes using the&#xA;&lt;a href=&#34;https://github.com/kubernetes/kube-state-metrics&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;kube-state-metrics&lt;/a&gt;&#xA;service. Metrics are exported through an HTTP API that supports&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Content_negotiation&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;content negotiation&lt;/a&gt;&#xA;so that one can choose between having the response body in plain text format or&#xA;as a binary stream encoded using Protocol buffers.&lt;/p&gt;&#xA;&lt;p&gt;Binary formats are generally assumed to be faster and more efficient, but being&#xA;Datadog we wanted to see the data and quantify the improvement.  We hope the&#xA;results documented here will help save you time and improve performance in your&#xA;own code. But before we dive into our findings, let&amp;rsquo;s start with Protocol&#xA;buffers 101.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

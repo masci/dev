@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/devops/</link>
+    <description>Recent content in Devops on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Feb 2022 10:58:25 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Accelerate</title>
+      <link>http://localhost:1313/book/accelerate/</link>
+      <pubDate>Thu, 03 Feb 2022 10:58:25 +0100</pubDate>
+      <guid>http://localhost:1313/book/accelerate/</guid>
+      <description>&lt;p&gt;The book consists of two, very different parts, plus a case study from the ING bank. Part one&#xA;is a must read explanation of how DevOps practices can massively impact the business in a positive&#xA;way and why. The second part is an explanation of the science that supports the claims presented in&#xA;Part two.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

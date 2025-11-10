@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Health on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/health/</link>
+    <description>Recent content in Health on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 26 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/health/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notes on a Nervous Planet</title>
+      <link>http://localhost:1313/book/notes-on-a-nervous-planet/</link>
+      <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/book/notes-on-a-nervous-planet/</guid>
+      <description>&lt;p&gt;First book I read from the author, I&amp;rsquo;m now curious to read the others. For being an essay the prose is a bit strange,&#xA;some chapters are shorts, some longer, some seem aphorisms&amp;hellip; But you get used to it pretty fast and you get more and&#xA;more into the point of view of the author as you progress.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Actions on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/actions/</link>
+    <description>Recent content in Actions on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 14 Nov 2019 15:53:40 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/actions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arduino on GitHub Actions</title>
+      <link>http://localhost:1313/arduino-on-github-actions/</link>
+      <pubDate>Thu, 14 Nov 2019 15:53:40 +0200</pubDate>
+      <guid>http://localhost:1313/arduino-on-github-actions/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;This blog post was hosted in the Arduino Engineering Blog, you can&#xA;&lt;a href=&#34;https://blog.arduino.cc/2019/11/14/arduino-on-github-actions/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;read it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/features/actions&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;GitHub Actions&lt;/a&gt; is the name of the SDLC&#xA;(Software Development Life Cycle) system introduced by GitHub about a year ago,&#xA;currently in public beta and now approaching the general availability status.&#xA;When you read SDLC, think about some sort of CI/CD system that’s generic enough&#xA;to let you define a sequence of operations not necessarily limited to build,&#xA;test, and deploy code: GitHub Actions can help you automate processes in code&#xA;reviews, issue triaging, and repository management.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Make a stale bot, learn GitHub Actions</title>
+      <link>http://localhost:1313/stale-bot/</link>
+      <pubDate>Sun, 22 Sep 2019 15:53:40 +0200</pubDate>
+      <guid>http://localhost:1313/stale-bot/</guid>
+      <description>&lt;p&gt;A few months ago I had the chance to play with the first Beta of &lt;a href=&#34;https://help.github.com/en/articles/about-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;GitHub Actions&lt;/a&gt;&#xA;but for some reasons it didn&amp;rsquo;t click for me: the point-and-click interface, the&#xA;HCL syntax and the confusion in the market place put me back to my comfort zone,&#xA;in the good company of the usual CI/CD systems we all have been using for years now.&lt;/p&gt;&#xA;&lt;p&gt;Fast forward to a few weeks ago, when GitHub announced that Actions were finally&#xA;approaching general availability; a couple of days later, my personal GitHub&#xA;account was promptly enrolled in the Beta program. It was time to give it another&#xA;try, and this is the story of my second attempt at learning Actions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

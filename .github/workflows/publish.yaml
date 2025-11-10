@@ -24,13 +24,13 @@ jobs:
           extended: true
 
       - name: Build site
-        run: hugo -s site
+        run: hugo
 
       - name: Push the gh-pages branch
         run: |
           git add -A --force
           git commit -m"rebuilding site from ${{ github.sha }}"
-          git push upstream `git subtree split --prefix=site/public --ignore-joins`:gh-pages --force
+          git push upstream `git subtree split --prefix=public --ignore-joins`:gh-pages --force
 
       - name: Update GitHub profile
         run: |
