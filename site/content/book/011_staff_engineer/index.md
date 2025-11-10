@@ -6,7 +6,6 @@ tags: ["career", "software"]
 date: 2023-07-03
 slug: "staff-engineer"
 rating: "★★☆☆☆"
-cover: "/images/staff_engineer.png"
 ---
 
 I am a bit disappointed with this book, because compared to other titles, this is solely dedicated to the role

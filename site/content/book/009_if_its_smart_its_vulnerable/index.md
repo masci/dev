@@ -6,7 +6,6 @@ tags: ["security", "technology"]
 date: 2022-11-04
 slug: "if-its-smart-its-vulnerable"
 rating: "★★★★☆"
-cover: "/images/if_its_smart_its_vulnerable.jpg"
 ---
 
 This is a must read for your non-tech savvy audience: parents, kids, your friends

@@ -6,7 +6,6 @@ tags: ["management", "business", "culture"]
 date: 2025-10-16T11:09:53+02:00
 slug: anything-you-want
 rating: "★★★★★"
-cover: "/images/anything_you_want.png"
 ---
 
 Very inspiring, going through the book was like listening to the author telling his story to a friend. The style is

@@ -6,7 +6,6 @@ tags: ["biography", "culture"]
 date: 2024-02-15
 slug: "elon-musk"
 rating: "★★★★☆"
-cover: "/images/elon-musk.jpg"
 ---
 
 Great read as any biography from Walter Isaacson, it's a massive volume but it was very enjoyable and fast to read.

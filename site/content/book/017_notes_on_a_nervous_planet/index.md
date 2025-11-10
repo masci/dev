@@ -6,7 +6,6 @@ tags: ["health", "psychology"]
 date: 2025-07-26
 slug: "notes-on-a-nervous-planet"
 rating: "★★★★★"
-cover: "/images/notes_on_a_nervous_planet.jpg"
 ---
 
 First book I read from the author, I'm now curious to read the others. For being an essay the prose is a bit strange,

@@ -6,7 +6,6 @@ tags: ["culture", "leadership"]
 date: 2022-03-22
 slug: "the-culture-map"
 rating: "★★★★☆"
-cover: "/images/the-culture-map.jpg"
 ---
 
 Must-read for anybody interacting with other cultures, whether it's for work or not. I had several ah-ah! moments

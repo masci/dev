@@ -6,7 +6,6 @@ tags: ["ai", "technology"]
 date: 2025-03-09
 slug: "intelligence-illusion"
 rating: "★★★★★"
-cover: "/images/the_intelligence_illusion.jpg"
 ---
 
 At the time I'm writing, this is the best book you can read to form an opinion

@@ -6,7 +6,6 @@ tags: ["ai", "technology"]
 date: 2023-07-10
 slug: "atlas-of-ai"
 rating: "★★★★★"
-cover: "/images/atlas_of_ai.jpg"
 ---
 
 This book is a masterpiece: the metaphor of the atlas, the many thorough notes, the data behind each chapter is just

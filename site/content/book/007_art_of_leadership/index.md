@@ -6,7 +6,6 @@ tags: ["leadership", "management"]
 date: 2022-02-18T10:36:57+01:00
 slug: "art-of-leadership"
 rating: "★★★★☆"
-cover: "/images/art_of_leadership.png"
 ---
 
 Very much like "The Manager's Path", this is another book you should keep on your desk

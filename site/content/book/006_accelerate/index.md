@@ -6,7 +6,6 @@ tags: ["devops", "agile", "management"]
 date: 2022-02-03T10:58:25+01:00
 slug: "accelerate"
 rating: "★★★☆☆"
-cover: "/images/accelerate.png"
 ---
 
 The book consists of two, very different parts, plus a case study from the ING bank. Part one

@@ -1,0 +1,3 @@
++++
+cascade.showReadingTime = false
++++

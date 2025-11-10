@@ -6,7 +6,6 @@ tags: ["ai", "technology"]
 date: 2024-09-18
 slug: "rebooting-ai"
 rating: "★★★★☆"
-cover: "/images/rebooting_ai.jpg"
 ---
 
 The book accurately describes the problems with the current trend of AI development, problems from which large language

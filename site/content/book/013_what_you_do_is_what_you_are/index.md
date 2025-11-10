@@ -6,7 +6,6 @@ tags: ["management", "culture"]
 date: 2023-07-15
 slug: "what-you-do-is-what-you-are"
 rating: "★★☆☆☆"
-cover: "/images/what_you_do_is_what_you_are.jpg"
 ---
 
 I can't recall another time when reading a book made me uncomfortable. The book is supposed to teach you how to set up

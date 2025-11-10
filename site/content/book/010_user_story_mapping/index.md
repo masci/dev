@@ -6,7 +6,6 @@ tags: ["product", "agile"]
 date: 2022-11-22
 slug: "user-story-mapping"
 rating: "★★★★☆"
-cover: "/images/user_story_mapping.jpg"
 ---
 
 This is the first product-management hands-on book I read, and for somebody starting

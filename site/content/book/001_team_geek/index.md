@@ -6,7 +6,6 @@ tags: ["management"]
 date: 2013-07-11
 slug: "team-geek"
 rating: "★★★★☆"
-cover: "/images/team_geek.jpg"
 ---
 
 The authors keep saying a sort of mantra during the book: **HRT**, an acronym that stands

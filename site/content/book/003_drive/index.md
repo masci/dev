@@ -6,7 +6,6 @@ tags: ["leadership", "motivation"]
 date: 2020-10-30
 slug: "drive"
 rating: "★★★★★"
-cover: "/images/drive.jpg"
 ---
 
 I read this book because a colleague highly recommended it to me, but it took me a while to get into it. The basic
