@@ -1,0 +1,28 @@
+[[main]]
+name = "Now"
+pageRef = "now"
+weight = 10
+
+[[main]]
+name = "Stuff I write"
+pageRef = "writing"
+weight = 20
+
+[[main]]
+name = "Stuff I read"
+pageRef = "book"
+weight = 30
+
+[[main]]
+name = "Stuff I say"
+pageRef = "talk"
+weight = 40
+
+[[main]]
+name = "GitHub"
+url = "https://github.com/masci/dev"
+weight = 100
+[main.params]
+icon = "github"
+showName = false
+target = "_blank"

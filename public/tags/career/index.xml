@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Career on /dev/ by Massimiliano Pippi</title>
+    <link>http://localhost:1313/tags/career/</link>
+    <description>Recent content in Career on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/career/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Staff Engineer</title>
+      <link>http://localhost:1313/book/staff-engineer/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/book/staff-engineer/</guid>
+      <description>&lt;p&gt;I am a bit disappointed with this book, because compared to other titles, this is solely dedicated to the role&#xA;of Staff Engineer and I was hoping it could go in depth and give more actionable suggestions. Turns out the&#xA;only practical advices you can get out of it are in the first pages - it could&amp;rsquo;ve been a blog post. I wouldn&amp;rsquo;t&#xA;recommend it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
