@@ -2,7 +2,7 @@
 title: "What I'm doing Now"
 date: 2025-10-30
 draft: false
-layout: now
+showReadingTime: false
 ---
 
 _Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](https://sive.rs/nowff)._
