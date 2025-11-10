@@ -4,44 +4,15 @@ title = "/dev/ by Massimiliano Pippi"
 pygmentsstyle = "manni"
 mainSections = ["writing"]
 
-# [params]
-# AuthorName = "Massimiliano Pippi"
-# Avatar = "images/massi.png"
-# Description = """Massi here. Software developer, engineering manager, I can ops.
-#     Open source advocate and contributor, documentation fanatic, speaker at conferences.
-#     I wrote a book once."""
-
 [params.author]
 name = "Massimiliano Pippi"
 image = "img/massi.jpeg"
 headline = "Software developer, engineering manager, I can ops."
 bio = "A little bit about me"
 links = [
-    { github = "https://github.com/masci" }
+    { github = "https://github.com/masci" },
+    { linkedin = "http://www.linkedin.com/in/masci"}
 ]
-
-# Social Icons
-[[params.social]]
-name = "github"
-url = "https://github.com/masci"
-[[params.social]]
-name = "linkedin"
-url = "http://www.linkedin.com/in/masci"
-
-# Active projects
-[[params.active_project]]
-name = "banks"
-url = "https://github.com/masci/banks"
-description = "LLM prompt language based on Jinja"
-[[params.active_project]]
-name = "Intro to Kubernetes"
-url = "https://masci.github.io/k8s101/"
-description = "A 2-hours workshop to go from zero to Kubernetes"
-[[params.active_project]]
-name = "actions/datadog"
-url = "https://github.com/masci/datadog"
-description = "Send Datadog metrics and events from GitHub workflows"
-
 
 # Syntax highlight
 [markup]
