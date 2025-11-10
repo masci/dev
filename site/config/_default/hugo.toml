@@ -2,14 +2,23 @@ baseurl = "https://dev.pippi.im/"
 languageCode = "en-us"
 title = "/dev/ by Massimiliano Pippi"
 pygmentsstyle = "manni"
-theme = "m10c"
+mainSections = ["writing"]
 
-[params]
-AuthorName = "Massimiliano Pippi"
-Avatar = "images/massi.png"
-Description = """Massi here. Software developer, engineering manager, I can ops.
-    Open source advocate and contributor, documentation fanatic, speaker at conferences.
-    I wrote a book once."""
+# [params]
+# AuthorName = "Massimiliano Pippi"
+# Avatar = "images/massi.png"
+# Description = """Massi here. Software developer, engineering manager, I can ops.
+#     Open source advocate and contributor, documentation fanatic, speaker at conferences.
+#     I wrote a book once."""
+
+[params.author]
+name = "Massimiliano Pippi"
+image = "img/massi.jpeg"
+headline = "Development, Leavening, Leadership, Delivery. In no particular order."
+bio = "A little bit about me"
+links = [
+    { github = "https://github.com/masci" }
+]
 
 # Social Icons
 [[params.social]]

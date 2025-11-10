@@ -1,0 +1,8 @@
+colorScheme = "avocado"
+footer.showAppearanceSwitcher = true
+article.showAuthor = false
+
+[homepage]
+layout = "profile"
+showrecent = false
+recentLimit = 3
