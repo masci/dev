@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>/dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/book/</link>
+    <description>Recent content on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Oct 2025 11:09:53 +0200</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anything You Want</title>
+      <link>https://dev.pippi.im/book/anything-you-want/</link>
+      <pubDate>Thu, 16 Oct 2025 11:09:53 +0200</pubDate>
+      <guid>https://dev.pippi.im/book/anything-you-want/</guid>
+      <description>&lt;p&gt;Very inspiring, going through the book was like listening to the author telling his story to a friend. The style is&#xA;minimalistic, no tricks to produce more pages, no repetitions, always straight to the point.&#xA;It really makes you want start your own business, and not for the money but rather for the journey and fulfillment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Notes on a Nervous Planet</title>
+      <link>https://dev.pippi.im/book/notes-on-a-nervous-planet/</link>
+      <pubDate>Sat, 26 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/notes-on-a-nervous-planet/</guid>
+      <description>&lt;p&gt;First book I read from the author, I&amp;rsquo;m now curious to read the others. For being an essay the prose is a bit strange,&#xA;some chapters are shorts, some longer, some seem aphorisms&amp;hellip; But you get used to it pretty fast and you get more and&#xA;more into the point of view of the author as you progress.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Intelligence Illusion: a practical guide to the business risks of Generative AI</title>
+      <link>https://dev.pippi.im/book/intelligence-illusion/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/intelligence-illusion/</guid>
+      <description>&lt;p&gt;At the time I&amp;rsquo;m writing, this is the best book you can read to form an opinion&#xA;around the &amp;ldquo;dysfunctions, risks, and flaws of generative models&amp;rdquo;&#xA;that very rarely reach the mainstream.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rebooting AI</title>
+      <link>https://dev.pippi.im/book/rebooting-ai/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/rebooting-ai/</guid>
+      <description>&lt;p&gt;The book accurately describes the problems with the current trend of AI development, problems from which large language&#xA;models and tools like ChatGPT greatly suffer. Only the book was written &lt;em&gt;before&lt;/em&gt; ChatGPT! It&amp;rsquo;s impressive how actual the&#xA;book can be, and even more impressive is learning how these problems have been known for years now and the industry&#xA;seems to just not care.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Elon Musk</title>
+      <link>https://dev.pippi.im/book/elon-musk/</link>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/elon-musk/</guid>
+      <description>&lt;p&gt;Great read as any biography from Walter Isaacson, it&amp;rsquo;s a massive volume but it was very enjoyable and fast to read.&#xA;Love him or hate him, Musk is a very influential individual for our time, and the book unveiled for me several&#xA;details about the events that made him &amp;ldquo;Elon&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What You Do Is Who You Are: How to Create Your Business Culture</title>
+      <link>https://dev.pippi.im/book/what-you-do-is-what-you-are/</link>
+      <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/what-you-do-is-what-you-are/</guid>
+      <description>&lt;p&gt;I can&amp;rsquo;t recall another time when reading a book made me uncomfortable. The book is supposed to teach you how to set up&#xA;a strong culture in your company but to do so it uses examples from: a controversial military leader, a feudal system&#xA;well known for its rigid hierarchies, a perpetrator of multiple genocides and last but not least, a prison gang leader.&#xA;I kinda see the idea behind the book, but the execution is terrible, peaking with the cringey quotes from rap songs at&#xA;the beginning of each chapter. The book contains great stories and good insights but you have to dig, not sure it was&#xA;worth it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Atlas of AI</title>
+      <link>https://dev.pippi.im/book/atlas-of-ai/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/atlas-of-ai/</guid>
+      <description>&lt;p&gt;This book is a masterpiece: the metaphor of the atlas, the many thorough notes, the data behind each chapter is just&#xA;amazing. The author also shows fine technical skills that let her jump from politics to hardware and algorithms&#xA;flawlessly as the narrative requires. This book is an eye-opener for those who think about modern AI as &amp;ldquo;software&amp;rdquo;,&#xA;whereas the environmental and human costs are massive.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Staff Engineer</title>
+      <link>https://dev.pippi.im/book/staff-engineer/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/staff-engineer/</guid>
+      <description>&lt;p&gt;I am a bit disappointed with this book, because compared to other titles, this is solely dedicated to the role&#xA;of Staff Engineer and I was hoping it could go in depth and give more actionable suggestions. Turns out the&#xA;only practical advices you can get out of it are in the first pages - it could&amp;rsquo;ve been a blog post. I wouldn&amp;rsquo;t&#xA;recommend it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>User Story Mapping</title>
+      <link>https://dev.pippi.im/book/user-story-mapping/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/user-story-mapping/</guid>
+      <description>&lt;p&gt;This is the first product-management hands-on book I read, and for somebody starting&#xA;from zero, I think it does a good job at setting the reader on the right path towards&#xA;answering the question &amp;ldquo;How do you build a product that delights users?&amp;rdquo;. For me it&amp;rsquo;s&#xA;a reference book - I started experimenting some techniques described in the first&#xA;chapters with my team before finishing the book, and I keep going back to it as&#xA;I get more experience on USM. Probably not a great book for a casual reading about&#xA;product management, also because it tends to be repetitive.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>If It&#39;s Smart, It&#39;s Vulnerable</title>
+      <link>https://dev.pippi.im/book/if-its-smart-its-vulnerable/</link>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/if-its-smart-its-vulnerable/</guid>
+      <description>&lt;p&gt;This is a must read for your non-tech savvy audience: parents, kids, your friends&#xA;who think they know how to navigate the Internet. It&amp;rsquo;s not very technical and can be&#xA;easily understood with a minimum of familiarity with the modern devices that are&#xA;normally available in our houses.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Culture Map</title>
+      <link>https://dev.pippi.im/book/the-culture-map/</link>
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/the-culture-map/</guid>
+      <description>&lt;p&gt;Must-read for anybody interacting with other cultures, whether it&amp;rsquo;s for work or not. I had several ah-ah! moments&#xA;reading the book, it can be a life-saver if you struggle at times navigating people situations: very often it&amp;rsquo;s a&#xA;cultural problem that you&amp;rsquo;re facing, and you can work around it if you know where it stems from.&lt;/p&gt;&#xA;&lt;p&gt;Can be used as a reference tool, getting to the part you need in the moment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Art of Leadership</title>
+      <link>https://dev.pippi.im/book/art-of-leadership/</link>
+      <pubDate>Fri, 18 Feb 2022 10:36:57 +0100</pubDate>
+      <guid>https://dev.pippi.im/book/art-of-leadership/</guid>
+      <description>&lt;p&gt;Very much like &amp;ldquo;The Manager&amp;rsquo;s Path&amp;rdquo;, this is another book you should keep on your desk&#xA;and access randomly as you need it. Most of the &amp;ldquo;small things&amp;rdquo; target upper management&#xA;but I recommend this book to line managers and individual contributors too as this is&#xA;a good reference for what you should expect from your manager.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Accelerate</title>
+      <link>https://dev.pippi.im/book/accelerate/</link>
+      <pubDate>Thu, 03 Feb 2022 10:58:25 +0100</pubDate>
+      <guid>https://dev.pippi.im/book/accelerate/</guid>
+      <description>&lt;p&gt;The book consists of two, very different parts, plus a case study from the ING bank. Part one&#xA;is a must read explanation of how DevOps practices can massively impact the business in a positive&#xA;way and why. The second part is an explanation of the science that supports the claims presented in&#xA;Part two.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Resilient Management</title>
+      <link>https://dev.pippi.im/book/resilient-management/</link>
+      <pubDate>Sat, 30 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/resilient-management/</guid>
+      <description>&lt;p&gt;I liked the fact that the book is short, goes straight to the point, contains mostly&#xA;practical advices and methods to manage an engineering team (the target audience in my&#xA;opinion is line managers). Similarly to &amp;ldquo;The Manager&amp;rsquo;s Path&amp;rdquo; by Camille Fournier, you&#xA;can keep this book on your desk and use it whenever you need it, like a manual.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Turn the Ship Around!</title>
+      <link>https://dev.pippi.im/book/turn-the-ship-around/</link>
+      <pubDate>Tue, 17 Aug 2021 16:23:40 +0200</pubDate>
+      <guid>https://dev.pippi.im/book/turn-the-ship-around/</guid>
+      <description>&lt;p&gt;I was skeptical at first because leadership and management style in the military are not really&#xA;my cup of tea, but this is different: the author seems to have the same feelings, except he was&#xA;a submarine commander in the US Navy.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Drive</title>
+      <link>https://dev.pippi.im/book/drive/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/drive/</guid>
+      <description>&lt;p&gt;I read this book because a colleague highly recommended it to me, but it took me a while to get into it. The basic&#xA;concept of intrinsic vs. extrinsic motivation is really easy to grasp, but at a first glance the book might seem&#xA;repetitive. Well, it&amp;rsquo;s not, and the many details and nuances around the main concept are the real value proposition&#xA;of this book.&lt;/p&gt;&#xA;&lt;p&gt;I collected plenty of highlights from the book that apply to both my work and personal experience, note for myself: go&#xA;review them periodically!&lt;/p&gt;&#xA;&lt;p&gt;I don&amp;rsquo;t recommend picking this up as the traditional &amp;ldquo;management manual&amp;rdquo;, it doesn&amp;rsquo;t work like that :).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Peopleware</title>
+      <link>https://dev.pippi.im/book/peopleware/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/peopleware/</guid>
+      <description>&lt;p&gt;I believe this is the mother of all the management books I&amp;rsquo;ve read so far: I can trace&#xA;back most of the concepts that nowadays are common in engineering management to a&#xA;paragraph, or a simple quote from this book.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Team Geek</title>
+      <link>https://dev.pippi.im/book/team-geek/</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/team-geek/</guid>
+      <description>&lt;p&gt;The authors keep saying a sort of mantra during the book: &lt;strong&gt;HRT&lt;/strong&gt;, an acronym that stands&#xA;for Humility, Respect and Trust. Apply this mantra and you will soon become an excellent&#xA;team player, whatever your job is.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
