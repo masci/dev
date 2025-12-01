@@ -1,0 +1,20 @@
+{{ $level := .Level }}
+{{ $text := .Text | safeHTML }}
+{{ $anchor := .Anchor | safeURL }}
+
+{{ $level := .Level }}
+{{ $text := .Text | safeHTML }}
+{{ $anchor := .Anchor | safeURL }}
+
+<h{{ $level }} id="{{ $anchor }}">
+    {{- with .Attributes.icon -}}
+        {{ $image := resources.Get . }}
+        <img
+            src="{{ $image.RelPermalink }}"
+            alt="company logo"
+            class="h3-png-icon"
+            aria-hidden="true"
+        >
+    {{- end -}}
+    {{ $text }}
+</h{{ $level }}>

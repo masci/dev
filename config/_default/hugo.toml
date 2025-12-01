@@ -18,3 +18,7 @@ links = [
 [markup]
   [markup.highlight]
     style = 'catppuccin-macchiato'
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        title = true
