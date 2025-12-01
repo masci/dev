@@ -19,6 +19,11 @@ pageRef = "talk"
 weight = 40
 
 [[main]]
+name = "cv"
+pageRef = "resume"
+weight = 50
+
+[[main]]
 name = "GitHub"
 url = "https://github.com/masci/dev"
 weight = 100
