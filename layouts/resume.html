@@ -1,0 +1,11 @@
+{{ define "main" }}
+<button onclick="window.print()" class="print-button">🖨️ Printed version</button>
+<article class="max-w-full">
+    <header>
+        <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title | emojify }}</h1>
+        <div>{{ .Params.tagline }}</div>
+    </header>
+    <section class="prose mt-6 max-w-full dark:prose-invert">{{ .Content | emojify }}</section>
+    <footer class="pt-8">{{ partial "sharing-links.html" . }}</footer>
+</article>
+{{ end }}

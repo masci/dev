@@ -1,26 +1,24 @@
 ---
 title: "Massimiliano Pippi"
 date: 2025-11-29T10:00:00Z
-layout: "simple"
+layout: "resume"
+tagline: "Engineering Lead"
 ---
 
-Engineering Lead
+## Contacts
 
-* Corciano - Italy
-* mpippi@gmail.com
-* https://dev.pippi.im
-* https://github.com/masci
+* Email: mpippi@gmail.com
+* Website: https://dev.pippi.im
+* Github profile: https://github.com/masci
 
 ## Skills
 
 *   **Programming:** Python (expert), Golang (proficient), C, C++ (prior experiences).
 *   **Management:** I managed distributed teams in the range of 4 to 12 people.
-*   **Other:** I love speaking at technical conferences and I can write technical articles and documentation. I am an Open Source fan and contributor.
 
 ## Writings
 
-I'm the author of **Python for Google App Engine**, published by Packt in January, 2015.
-ISBN 13: **9781784398194**
+I'm the author of **Python for Google App Engine**, published by Packt in January, 2015, ISBN 13: 9781784398194
 
 ## Experience
 
@@ -138,15 +136,14 @@ team environment under short deadlines in more than a project.
 *   [**Banks**](https://github.com/masci/banks): a Python library based on Jinja providing a set of tools to ease the generation and management of meaningful LLM prompts.
 *   [**masci/datadog**](https://github.com/masci/datadog): a Github Action to publish Datadog metrics and events from GitHub workflows.
 *   [**Haystack**](https://github.com/deepset-ai/haystack): an orchestration framework to build customizable, production-ready LLM applications.
-*   [**Arduino CLI**](https://github.com/arduino/arduino-cli): a command line tool that aims to be an all-in-one tool to work with any Arduino compatible board and platforms.
 
 ## Certifications
 
-*   RHCE Red Hat Certified Engineer
+*   **RHCE** Red Hat Certified Engineer, certificate n. 111-175-410 obtained October 28, 2011
 
 ## Community Initiatives
 
 *   **2014-2015 DjangoVillage**
-    Member of the organization committee of the first italian Django Conference officially supported by the Django Software Foundation. http://2014.djangovillage.it
+    Member of the organization committee of the first italian Django Conference officially supported by the Django Software Foundation. [http://2014.djangovillage.it](https://web.archive.org/web/20160323134909/http://2014.djangovillage.it/en)
 *   **2013-2015 Tinker Garage APS**
     I was the Chairman of a non-profit organization involved in the promotion of new technologies in schools.

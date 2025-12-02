@@ -3,3 +3,129 @@
     margin: 0em 0.5em 0em 0em;
     display: inline;
 }
+
+.print-button {
+    margin-bottom: 2em;
+}
+
+@media print {
+    body {
+        font-family: Calibri, sans-serif;
+        font-size: 10pt;
+        color: #000;
+        background-color: #fff;
+        margin: 1cm;
+    }
+
+    .prose {
+        li {
+            margin-top: -0.6em;
+            margin-bottom: -0.6em;
+        }
+        h2 {
+            margin-top: 1.2em;
+            margin-bottom: 0.2em;
+        }
+        h3 {
+            margin-bottom: 0.1em;
+        }
+        p {
+            margin-top: 0em;
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+    }
+
+    /* Hide elements that don't make sense on a printed page */
+    .h3-png-icon,
+    .print-button,
+    footer,
+    nav,
+    .menu,
+    .sidebar,
+    .sticky,
+    .actions {
+        display: none;
+    }
+
+    /* Ensure the main content takes up the full printable area */
+    main,
+    article,
+    .content,
+    #main,
+    #content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+    }
+
+    /* Style links for printing */
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    /* Don't show URL for email */
+    a[href^="mailto:"]:after {
+        content: "";
+    }
+
+    /* Don't show URL for anchors */
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    /* Don't show image URLs when they are linked */
+    a > img:after {
+        content: "";
+    }
+
+    /* General image handling */
+    img {
+        max-width: 100% !important;
+    }
+
+    /* Experience icons: try to keep them, but not too large */
+    .experience-icon {
+        max-width: 16px;
+        max-height: 16px;
+        vertical-align: middle;
+    }
+
+    /* Avoid breaking headings and lists across pages */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    blockquote,
+    .experience {
+        break-inside: avoid;
+    }
+
+    h2 h3 {
+        break-before: auto;
+        break-after: avoid;
+    }
+
+    /* Add space between experience sections */
+    .experience {
+        margin-bottom: 20px;
+    }
+
+    /* Font sizes for headings */
+    h1 {
+        font-size: 22pt;
+    }
+    h2 {
+        font-size: 16pt;
+    }
+    h3 {
+        font-size: 12pt;
+    }
+}
