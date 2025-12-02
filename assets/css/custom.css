@@ -10,7 +10,7 @@
 
 @media print {
     body {
-        font-family: serif;
+        font-family: Calibri, sans-serif;
         font-size: 10pt;
         color: #000;
         background-color: #fff;
@@ -67,11 +67,6 @@
         text-decoration: underline;
     }
 
-    /* Show the URL after links, so they are clickable on the PDF */
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
     /* Don't show URL for email */
     a[href^="mailto:"]:after {
         content: "";
@@ -110,12 +105,12 @@
     ol,
     blockquote,
     .experience {
-        page-break-inside: avoid;
+        break-inside: avoid;
     }
 
-    h2 {
-        page-break-before: auto;
-        page-break-after: avoid;
+    h2 h3 {
+        break-before: auto;
+        break-after: avoid;
     }
 
     /* Add space between experience sections */
