@@ -1,15 +1,15 @@
 ---
 title: "Massimiliano Pippi"
 date: 2025-11-29T10:00:00Z
-layout: "simple"
+layout: "resume"
+tagline: "Engineering Lead"
 ---
 
-Engineering Lead
+## Contacts
 
-* Corciano - Italy
-* mpippi@gmail.com
-* https://dev.pippi.im
-* https://github.com/masci
+* Email: mpippi@gmail.com
+* Website: https://dev.pippi.im
+* Github profile: https://github.com/masci
 
 ## Skills
 
