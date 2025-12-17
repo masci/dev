@@ -8,7 +8,7 @@ layout: "simple"
 
 _Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](https://sive.rs/nowff)._
 
-{{< badge >}}  Last updated: November 10, 2025 {{< /badge >}}
+{{< badge >}} Last updated: {{< build-date >}} {{< /badge >}}
 
 <!--- content --->
 ### 📝 Recent writings

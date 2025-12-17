@@ -1,0 +1,3 @@
+{{- /* Build-time date. `hugo.BuildDate` can be overridden (e.g. in CI) and may be empty in some contexts, so we fallback to `now`. */ -}}
+{{- (or hugo.BuildDate now) | time.Format "January 2, 2006" -}}
+
