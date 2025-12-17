@@ -28,18 +28,22 @@ I'm now in-between jobs, detoxing from AI fatigue, decluttering my digital life 
 
 ### 👨‍👩‍👧‍👦 Life
 
-Random stuff that's going on:
+I'm currently reading [Jupiter's Travels](https://www.goodreads.com/book/show/63417.Jupiter_s_Travels) by Ted Simon
+and [Build a Large Language Model](https://www.goodreads.com/book/show/209234015-build-a-large-language-model) by
+Sebastian Raschka. I've spent several hours reordering my bookshelf, organizing 300+ volumes and syncing my Goodreads 
+account.
 
-- I've spent several hours reordering my bookshelf, organizing 300+ volumes and syncing my Goodreads account.
-- I removed all social media apps from my phone. My reading throughput went through the roof.
-  Fuck short attention spans.
-- Also fuck LinkedIn, I've set it up to forward messages to my email, I'll keep my professional
-  profile updated but I'm not doomscrolling anymore.
-- Houses are living creatures requiring constant attention and maintenance. Contractors help
-  keeping expenses down by never showing up.
-- I keep practicing guitar and studying music, my gear still consists of a [Seagull S60][seagull s60]
-  acoustic guitar, an [Acus One Forstrings 5T][acus one] amplifier and a travel guitar,
-  a [Crafter Mino][crafter mino].
+I removed all social media apps from my phone. My reading throughput went through the roof. Fuck short attention spans.
+And fuck LinkedIn, I've set it up to forward messages to my email, I'll use it to browse others' profiles but
+I'm not doomscrolling anymore.
+  
+I said on multiple occasions that ouses are living creatures requiring constant attention and maintenance and contractors help
+keeping expenses down by never showing up. But recently I witnessed a black swan having one contractor respecting deadlines
+and doing an amazing job on my driveway. I'm still amazed.
+
+I keep practicing guitar and studying music, my gear still consists of a [Seagull S60][seagull s60]
+acoustic guitar, an [Acus One Forstrings 5T][acus one] amplifier and a travel guitar,
+a [Crafter Mino][crafter mino].
 
 ### 💭 Inspiring notes
 
