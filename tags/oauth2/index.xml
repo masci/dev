@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oauth2 on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/oauth2/</link>
+    <description>Recent content in Oauth2 on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/oauth2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stop asking users for passwords and let OAuth2 do the job instead</title>
+      <link>https://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</link>
+      <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/writing/stop-asking-users-for-passwords-and-let-oauth2-do/</guid>
+      <description>&lt;h2 id=&#34;who-said-authentication&#34;&gt;Who said authentication?&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;If you have an HTTP endpoint which requires authentication, chances are that you&amp;rsquo;re using HTTP Basic auth or&#xA;Digest. This was the case, you should immediately stop asking users for their passwords - let&amp;rsquo;s see why.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s not a matter of security per-se, I mean HTTP Basic auth is reasonably fine in many situations where the&#xA;transmission occurs over SSL and it has some pros: it&amp;rsquo;s easy to implement and it uses the well known&#xA;&lt;a href=&#34;http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.8&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;HTTP Authorization header&lt;/a&gt;, largely supported&#xA;by almost all the HTTP clients out in the wild.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agile on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/agile/</link>
+    <description>Recent content in Agile on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>User Story Mapping</title>
+      <link>https://dev.pippi.im/book/user-story-mapping/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/user-story-mapping/</guid>
+      <description>&lt;p&gt;This is the first product-management hands-on book I read, and for somebody starting&#xA;from zero, I think it does a good job at setting the reader on the right path towards&#xA;answering the question &amp;ldquo;How do you build a product that delights users?&amp;rdquo;. For me it&amp;rsquo;s&#xA;a reference book - I started experimenting some techniques described in the first&#xA;chapters with my team before finishing the book, and I keep going back to it as&#xA;I get more experience on USM. Probably not a great book for a casual reading about&#xA;product management, also because it tends to be repetitive.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Accelerate</title>
+      <link>https://dev.pippi.im/book/accelerate/</link>
+      <pubDate>Thu, 03 Feb 2022 10:58:25 +0100</pubDate>
+      <guid>https://dev.pippi.im/book/accelerate/</guid>
+      <description>&lt;p&gt;The book consists of two, very different parts, plus a case study from the ING bank. Part one&#xA;is a must read explanation of how DevOps practices can massively impact the business in a positive&#xA;way and why. The second part is an explanation of the science that supports the claims presented in&#xA;Part two.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How I manage a small team with the help of Trello</title>
+      <link>https://dev.pippi.im/writing/manage-with-trello/</link>
+      <pubDate>Sat, 03 Feb 2018 16:47:03 +0100</pubDate>
+      <guid>https://dev.pippi.im/writing/manage-with-trello/</guid>
+      <description>&lt;p&gt;This is not about agile management theory, something I know very little about; this is what I do to keep a small team of engineers on track without allocating 100% of my time to management. If you keep reading, you&amp;rsquo;ll see how I didn&amp;rsquo;t invent anything and how this is only &amp;ldquo;yet another way&amp;rdquo; of composing existing tools and practices in order to implement a process that works for me. So why another post?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
