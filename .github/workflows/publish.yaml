@@ -22,6 +22,8 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           extended: true
+          # Remove the pin once https://github.com/gohugoio/hugo/issues/14282 is fixed
+          hugo-version: '0.152.2'
 
       - name: Build site
         run: hugo
