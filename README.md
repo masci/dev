@@ -7,3 +7,10 @@ webiste at [https://dev.pippi.im](https://dev.pippi.im). HTML contents are
 generated from Markdown sources using [Hugo](https://gohugo.io/) and hosted on
 GitHub Pages. A GitHub workflow automatically deploys the website at every
 commit on the `main` branch of this repo.
+
+## Usage
+
+To create a new book entry:
+```sh
+$ hugo new book/019_book_title_in_snake_case/index.md
+```
