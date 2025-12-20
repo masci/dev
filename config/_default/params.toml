@@ -1,6 +1,10 @@
 colorScheme = "sapphire"
-footer.showAppearanceSwitcher = true
-article.showAuthor = false
+
+[article]
+showAuthor = false
+
+[footer]
+showAppearanceSwitcher = true
 
 [homepage]
 layout = "profile"
