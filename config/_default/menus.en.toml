@@ -31,3 +31,12 @@ weight = 100
 icon = "github"
 showName = false
 target = "_blank"
+
+[[main]]
+name = "Bluesky"
+url = "https://bsky.app/profile/massi.pippi.im"
+weight = 110
+[main.params]
+icon = "bluesky"
+showName = false
+target = "_blank"
