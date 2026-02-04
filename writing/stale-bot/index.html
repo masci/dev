@@ -1,0 +1,1042 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Make a stale bot, learn GitHub Actions &middot; /dev/ by Massimiliano Pippi</title>
+    <meta name="title" content="Make a stale bot, learn GitHub Actions &middot; /dev/ by Massimiliano Pippi" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="https://dev.pippi.im/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://dev.pippi.im/css/main.bundle.min.0d7741ba9cbb18cda8b216ec427899086537d4305eba3c52d7c5d21c5506f0ce.css"
+    integrity="sha256-DXdBupy7GM2oshbsQniZCGU31DBeujxS18XSHFUG8M4="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        A few months ago I had the chance to play with the first Beta of GitHub Actions
+but for some reasons it didn&rsquo;t click for me: the point-and-click interface, the
+HCL syntax and the confusion in the market place put me back to my comfort zone,
+in the good company of the usual CI/CD systems we all have been using for years now.
+Fast forward to a few weeks ago, when GitHub announced that Actions were finally
+approaching general availability; a couple of days later, my personal GitHub
+account was promptly enrolled in the Beta program. It was time to give it another
+try, and this is the story of my second attempt at learning Actions.
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="https://dev.pippi.im/writing/stale-bot/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://dev.pippi.im/writing/stale-bot/">
+  <meta property="og:site_name" content="/dev/ by Massimiliano Pippi">
+  <meta property="og:title" content="Make a stale bot, learn GitHub Actions">
+  <meta property="og:description" content="A few months ago I had the chance to play with the first Beta of GitHub Actions but for some reasons it didn’t click for me: the point-and-click interface, the HCL syntax and the confusion in the market place put me back to my comfort zone, in the good company of the usual CI/CD systems we all have been using for years now.
+Fast forward to a few weeks ago, when GitHub announced that Actions were finally approaching general availability; a couple of days later, my personal GitHub account was promptly enrolled in the Beta program. It was time to give it another try, and this is the story of my second attempt at learning Actions.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writing">
+    <meta property="article:published_time" content="2019-09-22T15:53:40+02:00">
+    <meta property="article:modified_time" content="2019-09-22T15:53:40+02:00">
+    <meta property="article:tag" content="Github">
+    <meta property="article:tag" content="Actions">
+    <meta property="article:tag" content="Typescript">
+    <meta property="og:image" content="https://dev.pippi.im/writing/stale-bot/feature.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dev.pippi.im/writing/stale-bot/feature.jpg">
+  <meta name="twitter:title" content="Make a stale bot, learn GitHub Actions">
+  <meta name="twitter:description" content="A few months ago I had the chance to play with the first Beta of GitHub Actions but for some reasons it didn’t click for me: the point-and-click interface, the HCL syntax and the confusion in the market place put me back to my comfort zone, in the good company of the usual CI/CD systems we all have been using for years now.
+Fast forward to a few weeks ago, when GitHub announced that Actions were finally approaching general availability; a couple of days later, my personal GitHub account was promptly enrolled in the Beta program. It was time to give it another try, and this is the story of my second attempt at learning Actions.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Writings",
+    "name": "Make a stale bot, learn GitHub Actions",
+    "headline": "Make a stale bot, learn GitHub Actions",
+    
+    "abstract": "\u003cp\u003eA few months ago I had the chance to play with the first Beta of \u003ca href=\u0022https:\/\/help.github.com\/en\/articles\/about-github-actions\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003eGitHub Actions\u003c\/a\u003e\nbut for some reasons it didn\u0026rsquo;t click for me: the point-and-click interface, the\nHCL syntax and the confusion in the market place put me back to my comfort zone,\nin the good company of the usual CI\/CD systems we all have been using for years now.\u003c\/p\u003e\n\u003cp\u003eFast forward to a few weeks ago, when GitHub announced that Actions were finally\napproaching general availability; a couple of days later, my personal GitHub\naccount was promptly enrolled in the Beta program. It was time to give it another\ntry, and this is the story of my second attempt at learning Actions.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/dev.pippi.im\/writing\/stale-bot\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Massimiliano Pippi"
+    },
+    "copyrightYear": "2019",
+    "dateCreated": "2019-09-22T15:53:40\u002b02:00",
+    "datePublished": "2019-09-22T15:53:40\u002b02:00",
+    
+    "dateModified": "2019-09-22T15:53:40\u002b02:00",
+    
+    "keywords": ["github","actions","typescript"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2178"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "https://dev.pippi.im/",
+       "name": "Dev by Massimiliano Pippi",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://dev.pippi.im/writing/",
+       "name": "Writings",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Make a Stale Bot, Learn Git Hub Actions",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+    <meta name="author" content="Massimiliano Pippi" />
+  
+  
+    
+      <link href="https://github.com/masci" rel="me" />
+    
+      <link href="https://bsky.app/profile/massi.pippi.im" rel="me" />
+    
+      <link href="http://www.linkedin.com/in/masci" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+
+  
+  <script
+    data-goatcounter="https://massi.goatcounter.com/count"
+    async
+    src="//gc.zgo.at/count.js"
+></script>
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >/dev/ by Massimiliano Pippi</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/now/"
+                  title="What I&#39;m doing Now"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Now</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/writing/"
+                  title="Writings"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I write</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/book/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I read</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/talk/"
+                  title="Talks"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I say</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/resume/"
+                  title="Massimiliano Pippi"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >cv</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Make a stale bot, learn GitHub Actions
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2019-09-22 15:53:40 &#43;0200 &#43;0200">22 September 2019</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+        <div class="prose">
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mb-6 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="https://dev.pippi.im/writing/stale-bot/feature_hu_a2ea8a032b173b91.webp 330w,https://dev.pippi.im/writing/stale-bot/feature_hu_896876d18b070798.webp 660w
+            
+              ,https://dev.pippi.im/writing/stale-bot/feature_hu_305ffa0f9ce508f0.webp 1024w
+            
+            
+              ,https://dev.pippi.im/writing/stale-bot/feature_hu_8241568c3da85421.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="4928"
+        height="2845"
+        class="mb-6 rounded-md"
+        
+        
+        
+          src="https://dev.pippi.im/writing/stale-bot/feature_hu_3a95a3af440ed18b.jpg" srcset="https://dev.pippi.im/writing/stale-bot/feature_hu_172e8ef11056cafa.jpg 330w,https://dev.pippi.im/writing/stale-bot/feature_hu_3a95a3af440ed18b.jpg 660w
+          
+            ,https://dev.pippi.im/writing/stale-bot/feature_hu_41b79c4d223c3263.jpg 1024w
+          
+          
+            ,https://dev.pippi.im/writing/stale-bot/feature_hu_b9bbc567f0629f14.jpg 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+          
+        </div>
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p>A few months ago I had the chance to play with the first Beta of <a href="https://help.github.com/en/articles/about-github-actions" target="_blank" rel="noreferrer">GitHub Actions</a>
+but for some reasons it didn&rsquo;t click for me: the point-and-click interface, the
+HCL syntax and the confusion in the market place put me back to my comfort zone,
+in the good company of the usual CI/CD systems we all have been using for years now.</p>
+<p>Fast forward to a few weeks ago, when GitHub announced that Actions were finally
+approaching general availability; a couple of days later, my personal GitHub
+account was promptly enrolled in the Beta program. It was time to give it another
+try, and this is the story of my second attempt at learning Actions.</p>
+
+
+
+
+
+
+
+
+<h2 id="introducing-the-stale-bot">Introducing the Stale Bot
+</h2>
+<p>When I learn something new, it&rsquo;s vital for me to have some sort of prototype I
+can change and evolve as I ramp up on the subject. That&rsquo;s why after few basic
+experiments and a couple of easy projects ported from other CI/CD platforms, I
+challenged myself to write a GitHub bot implemented in a single Workflow with
+minimum recourse to 3rd party Actions.</p>
+<p>The requirements are admittedly idiotic but they made a good excuse to learn
+how to:</p>
+<ul>
+<li>use scheduled Workflows</li>
+<li>execute jobs conditionally</li>
+<li>interact with the GitHub API from a Workflow</li>
+</ul>
+
+
+
+
+
+
+
+
+<h2 id="requirements">Requirements
+</h2>
+<p>A stale bot is an automated mechanism responsible for marking issues and pull
+requests as &ldquo;stale&rdquo; when there&rsquo;s no activity around them after a given amount of
+time. For the sake of simplicity, we&rsquo;ll limit the scope of the bot to issues
+only.</p>
+<p>The requirements are the following. For each issue on a GitHub repository:</p>
+<ol>
+<li>Apply the label <code>stale</code> after 30 days without any kind of activity,</li>
+<li>remove the label <code>stale</code> when there&rsquo;s activity on the issue,</li>
+<li>close the issue if it&rsquo;s been <code>stale</code> for more than 15 days.</li>
+</ol>
+
+
+
+
+
+
+
+
+<h2 id="create-the-workflow">Create the Workflow
+</h2>
+<p>First of all, let&rsquo;s create a GitHub Workflow. You can do it from the GitHub UI
+or by simply creating a yaml file under <code>.github/workflows/</code> at the root
+of your repo. You might have different Workflows defined for a single repo and
+the name of the file can be whatever, in my case it is <code>stalebot.yaml</code>. We also
+have to give our Workflow a name that will be displayed in GitHub UI: let&rsquo;s call
+it &ldquo;Stale Bot&rdquo;. Our yaml file will look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#c6a0f6">name</span>: Stale Bot
+</span></span></code></pre></div>
+
+
+
+
+
+
+
+<h2 id="determine-when-the-workflow-has-to-run">Determine when the Workflow has to run
+</h2>
+<p>We have to tell GitHub when we want to run our Workflow and we can do it with the
+keyword <code>on</code>. According to our requirements, the Workflow should be triggered by
+different events:</p>
+<ul>
+<li>Every night, to attach the <code>stale</code> label and to close issues that&rsquo;ve
+been stale long enough.</li>
+<li>Every time the issue is edited, or a label or milestone is attached.</li>
+<li>Every time somebody leaves a comment on the issue.</li>
+</ul>
+<p>To run a Workflow periodically at a given time, we can use the <code>schedule</code> keyword,
+followed by one or more intervals defined in <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07" target="_blank" rel="noreferrer">POSIX syntax</a>, like in a <code>crontab</code>
+file. For example, if we want our bot to run every night at midnight, we add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#c6a0f6">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">schedule</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#c6a0f6">cron</span>: <span style="color:#a6da95">&#34;0 0 * * *&#34;</span>
+</span></span></code></pre></div><p>To also run the workflow every time an issue has activity, we add the <code>issues</code>
+keyword, so that the previous snippet will look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#c6a0f6">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">schedule</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#c6a0f6">cron</span>: <span style="color:#a6da95">&#34;0 0 * * *&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">issues</span>:
+</span></span></code></pre></div><p>GitHub API sends different events for different things that happen to issues:
+by leaving the <code>issues</code> mapping empty, we accept the defaults. You can
+see what&rsquo;s the default for any value of the <code>on</code> keyword in the docs
+<a href="https://help.github.com/en/articles/events-that-trigger-workflows#about-workflow-events" target="_blank" rel="noreferrer">page about events</a>; in our case, the default value for <code>issues</code> is
+<a href="https://help.github.com/en/articles/events-that-trigger-workflows#issues-event-issues" target="_blank" rel="noreferrer">&ldquo;any possible kind of interaction&rdquo;</a> which is a bit too much.
+That&rsquo;s not a problem because we can limit the kind of events that trigger our bot
+by listing them explicitly in a sequence under the keyword <code>types</code>, like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#c6a0f6">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">schedule</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#c6a0f6">cron</span>: <span style="color:#a6da95">&#34;0 0 * * *&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">issues</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">types</span>: [edited, milestoned, labeled]
+</span></span></code></pre></div><p>Our bot will be then summoned when an issue is edited, a milestone is added or a
+label is attached. Since we also want the bot to be activated when somebody
+leaves a comment on the issue, we need one more event on our <code>on</code> mapping,
+specifically the <code>issue_comment</code> event:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#c6a0f6">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">schedule</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#c6a0f6">cron</span>: <span style="color:#a6da95">&#34;0 0 * * *&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">issues</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">types</span>: [edited, milestoned, labeled]
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">issue_comment</span>:
+</span></span></code></pre></div><p>The default <code>types</code> for the <code>issue_comment</code> event work for us, no need to add a
+<code>types</code> keyword here.</p>
+
+
+
+
+
+
+
+
+<h2 id="define-the-jobs">Define the jobs
+</h2>
+<p>A Workflow consists of a set of <strong>jobs</strong> that will be run in parallel; each
+job consists of a sequence of <strong>steps</strong> that will be run one after another.
+We&rsquo;re going to define a single job named <code>stale-bot-logic</code> containing
+one step for each requirement we have, for a total of three steps. Since we can
+choose the platform on which our workflow will run, we pick Linux, specifically
+<code>ubuntu-latest</code>. Let&rsquo;s add this to our workflow yaml definition:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#c6a0f6">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">schedule</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#c6a0f6">cron</span>: <span style="color:#a6da95">&#34;0 0 * * *&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">issues</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">types</span>: [edited, milestoned, labeled]
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">issue_comment</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c6a0f6">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">stale-bot-logic</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">runs-on</span>: ubuntu-latest
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">steps</span>:
+</span></span></code></pre></div><p>A step can either run a command on the host running the Workflow, or run a
+Docker container or execute a special kind of node.js applications called <em>Actions</em>.
+There are a lot of Actions available, ready to be included in a Workflow;
+to have a better idea you can browse the GitHub <a href="https://github.com/marketplace" target="_blank" rel="noreferrer">market place</a> - chances are
+that somebody else already solved a problem you&rsquo;re having and no wheels will be
+reinvented that day.</p>
+
+
+
+
+
+
+
+
+<h3 id="mark-issue-stale">Mark issue stale
+</h3>
+<p>The first step of the job will be marking an issue as stale after a certain
+amount of time: this means we need to query the GitHub API and guess
+what: there&rsquo;s an Action for that. The Action we need is called
+<code>actions/github-script</code> and it&rsquo;ll be the only one we&rsquo;re going to use. It exposes
+a Javascript client that can make API calls straight from the yaml code. The
+Workflow will then look more or less like this (<code>on</code> section omitted for brevity):</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#c6a0f6">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">stale-bot</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">runs-on</span>: ubuntu-latest
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#c6a0f6">name</span>: Mark stale
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">uses</span>: actions/github-script@0.2.0
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#c6a0f6">github-token</span>: ${{ github.token }}
+</span></span><span style="display:flex;"><span>          <span style="color:#c6a0f6">script</span>: // Here it goes some Javascript code that uses the GitHub API client
+</span></span></code></pre></div><p>The <code>uses</code> keyword will tell the CI system we want to use a certain action at the
+version <code>0.2.0</code>. Actions may expose few parameters you can use to configure their
+behaviour (refer to each Action&rsquo;s docs for the details) and that&rsquo;s what the <code>with</code>
+keyword is for: we&rsquo;ll pass in a valid GitHub token using the param <code>github-token</code>
+and some Javascript code using the param <code>script</code>.</p>
+<p>The logic for this job will be the following:</p>
+<ol>
+<li>Get a list of all open issues.</li>
+<li>For each one, get the time and date of the last update.</li>
+<li>If the difference between now and the last update for an issue is above a certain
+threshold, attach a label called <code>stale</code> to it.</li>
+</ol>
+<p>The code will look like this (I&rsquo;ll paste only the job definition for brevity):</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#c6a0f6">name</span>: Mark stale
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">uses</span>: actions/github-script@0.2.0
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">with</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">github-token</span>: ${{github.token}}
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">script</span>: |<span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // Fetch the list of all open issues
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const opts = github.issues.listForRepo.endpoint.merge({
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        ...context.repo,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        state: &#39;open&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      });
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const issues = await github.paginate(opts);
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // How many days of inactivity before we mark the issue stale
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const elapsedDays = 30
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // Get the time window in milliseconds
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const elapsed = elapsedDays * 24 * 60 * 60 * 1000;
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const now = new Date().getTime();
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      for (const issue of issues) {
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        // Ignore issues below the threshold
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        if (now - new Date(issue.updated_at).getTime() &lt; elapsed) {
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          continue;
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        // If we got here, mark as stale.
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        github.issues.addLabels({
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          ...context.repo,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          issue_number: issue.number,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          labels: [&#39;stale&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        });
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      }</span>
+</span></span></code></pre></div><p>That&rsquo;s pretty much all the code we need but there&rsquo;s one detail we need to take
+care of: according to the <code>on</code> configuration we defined earlier, the Workflow
+will run every day as a cron job and also every time an issue is updated. There&rsquo;s
+no need to have the &ldquo;Mark Stale&rdquo; job run every time an issue is updated (obviously
+an issue that gets updated is not stale) and we want to skip its execution in this
+case. In other words, we want to run the step only when the Workflow was kicked
+off by the cron scheduler. To do so, we can use the <code>if</code> keyword on our job:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#c6a0f6">name</span>: Mark stale
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">uses</span>: actions/github-script@0.2.0
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">if</span>: github.event_name == &#39;schedule&#39;
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">with</span>: ...
+</span></span></code></pre></div><p>The job will be then skipped unless the statement in the <code>if</code> value is true.
+That&rsquo;s Javascript code and you can access several objects called <em>contexts</em> from
+there, in this case we&rsquo;re accessing the <code>event_name</code> field of the
+<a href="https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions#github-context" target="_blank" rel="noreferrer"><code>github</code> context</a>.</p>
+
+
+
+
+
+
+
+
+<h3 id="remove-stale-label">Remove stale label
+</h3>
+<p>Sometimes a stale issue gets noticed and some activity kicks off again. In this
+case, we need to remove the <code>stale</code> label as soon as possible. We use
+the <code>github-script</code> Action again and this time we&rsquo;ll ask the CI system to
+skip the job unless the source event is either an issue update or a new comment.
+Note how we use a slightly more complex <code>if</code> clause here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#c6a0f6">name</span>: Remove stale
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">if</span>: github.event_name == &#39;issues&#39; || github.event_name == &#39;issue_comment&#39;
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">uses</span>: actions/github-script@0.2.0
+</span></span></code></pre></div><p>This time the logic will be the following:</p>
+<ol>
+<li>Get all the labels of the issue that triggered the Workflow.</li>
+<li>Search whether it has a <code>stale</code> label and remove it.</li>
+</ol>
+<p>The final job definition will than be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#c6a0f6">name</span>: Remove stale
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">if</span>: github.event_name == &#39;issues&#39; || github.event_name == &#39;issue_comment&#39;
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">uses</span>: actions/github-script@0.2.0
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">with</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">github-token</span>: ${{github.token}}
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">script</span>: |<span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // Fetch the list of labels attached to the issue that
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // triggered the workflow
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const opts = github.issues.listLabelsOnIssue.endpoint.merge({
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        ...context.repo,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        issue_number: context.issue.number
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      });
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const labels = await github.paginate(opts);
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      for (const label of labels) {
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        // If the issue has a label named &#39;stale&#39;, remove it
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        if (label.name === &#39;stale&#39;) {
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          await github.issues.removeLabel({
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">            ...context.repo,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">            issue_number: context.issue.number,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">            name: &#39;stale&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          })
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          return;
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      }</span>
+</span></span></code></pre></div>
+
+
+
+
+
+
+
+<h3 id="close-stale">Close stale
+</h3>
+<p>We&rsquo;ve one last job left to complete our stale bot: an issue should be closed in case
+it&rsquo;s been marked as stale for a certain amount of time. The logic is the following:</p>
+<ol>
+<li>Load all the issues having the <code>stale</code> label attached.</li>
+<li>For each one, compute the difference between now and the last update of the
+issue (we assume it concides with the moment the <code>stale</code> label was added)</li>
+<li>If the difference is above our threshold, close the issue.</li>
+</ol>
+<p>The job definition looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#c6a0f6">name</span>: Close stale
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">if</span>: github.event_name == &#39;schedule&#39;
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">uses</span>: actions/github-script@0.2.0
+</span></span><span style="display:flex;"><span>  <span style="color:#c6a0f6">with</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">github-token</span>: ${{github.token}}
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">script</span>: |<span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // Fetch the list of all open issues that have the &#39;stale&#39; label
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // attached
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const opts = github.issues.listForRepo.endpoint.merge({
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        ...context.repo,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        state: &#39;open&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        labels: [&#39;stale&#39;],
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      });
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const issues = await github.paginate(opts);
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      // How many days of inactivity before we close a stale issue
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const elapsedDays = 15
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const elapsed = elapsedDays * 24 * 60 * 60 * 1000;
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      const now = new Date().getTime();
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      for (const issue of issues) {
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        // Ignore issues below the threshold
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        if (now - new Date(issue.updated_at).getTime() &lt; elapsed) {
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          // This is how to print debug informations
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          console.log(&#39;skip issue &#39; + issue.number);
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          continue;
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        }
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        // If we arrive here, the issue has to be closed
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        console.log(&#39;closing issue &#39; + issue.number);
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        await github.issues.update({
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          ...context.repo,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          issue_number: issue.number,
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">          state: &#39;closed&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">        });
+</span></span></span><span style="display:flex;"><span><span style="color:#6e738d">      }</span>
+</span></span></code></pre></div><p>You can find the complete workflow <a href="https://github.com/masci/stalebot/blob/master/.github/workflows/stalebot.yml" target="_blank" rel="noreferrer">here</a>.</p>
+
+
+
+
+
+
+
+
+<h2 id="caveat-and-final-considerations">Caveat and final considerations
+</h2>
+
+  
+  
+  
+  
+  
+
+  
+  
+  <figure class="mx-auto my-0 rounded-md">
+    
+      
+      
+
+
+
+
+
+
+
+
+  
+    <picture
+      class="mx-auto my-0 rounded-md"
+      
+    >
+      
+      
+      
+      
+        <source
+          
+            srcset="https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_672f40245de34ac3.webp 330w,https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_5840e11bd8101a48.webp 660w
+            
+              ,https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_880941dc284b80db.webp 1024w
+            
+            
+              ,https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_73cca6e4a6e5d0c9.webp 1320w
+            "
+          
+          sizes="100vw"
+          type="image/webp"
+        />
+      
+      <img
+        width="5000"
+        height="3333"
+        class="mx-auto my-0 rounded-md"
+        alt="A happier GitHub bot"
+        loading="lazy" decoding="async"
+        
+          src="https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_534926c6639d47cf.jpg" srcset="https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_e9fb42fbd049ea03.jpg 330w,https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_534926c6639d47cf.jpg 660w
+          
+            ,https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_9b92176c15ffab6c.jpg 1024w
+          
+          
+            ,https://dev.pippi.im/writing/stale-bot/lenin-estrada-OI1ToozsKBw-unsplash_hu_20286aa0e2c98de.jpg 1320w
+          "
+          sizes="100vw"
+        
+      />
+    </picture>
+  
+
+
+    
+  </figure>
+
+
+<p>First thing first, this bot shouldn&rsquo;t be considered feature complete by any mean,
+the goal was just ramping up up on a new technology without getting bored. Now that
+you&rsquo;re more familiar with GitHub Actions, a bunch of different and possibly more
+efficient workflows to solve the same problems might have popped into your mind
+already; if you need a stale bot for your project, I wouldn&rsquo;t see any problem
+on keep going this way and make the implementation better.</p>
+<p>That said, there&rsquo;s a subtle problem with this approach that I think it&rsquo;s worth
+discussing: the code we wrote is just a piece of text defined in a yaml file that
+GitHub will happily pass to the entrypoint of the <code>actions/github-script</code> action.
+This means few terrible things:</p>
+<ul>
+<li>No syntax highlighting</li>
+<li>No code validation</li>
+<li>No tests</li>
+</ul>
+<p>Which can turn into respectively:</p>
+<ul>
+<li>A miserable user experience for authors and contributors</li>
+<li>A frustrating development cycle</li>
+<li>Bugs and poor performance</li>
+</ul>
+<p>This is actually very interesting because this problem can help us to better
+define what the boundaries of a Workflow should be. I&rsquo;d phrase like this:</p>
+<blockquote>
+<p>If a workflow contains more than two lines of logic in plain text form, it&rsquo;s
+time to write a custom Action.</p>
+</blockquote>
+<p>With a custom Action (whether Javascript or container based) you can
+dramatically simplify the workflow definition while having tests and the
+ability to exercise your code locally. You could also look at this problem
+symmetrically:</p>
+<blockquote>
+<p>If your problem can be solved with two lines of logic, writing a custom Action
+is probably overkill</p>
+</blockquote>
+<p>I&rsquo;m a big fun of custom Actions and I enjoy Typescript, but I have to say they
+don&rsquo;t come for free: you basically need to write a full fledged
+Node application and whether this is a problem or not, it&rsquo;s up to you.</p>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="https://dev.pippi.im/writing/cgo-and-python/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Cgo and Python</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2018-04-16 00:00:00 &#43;0100 &#43;0100">16 April 2018</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="https://dev.pippi.im/writing/arduino-on-github-actions/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Arduino on GitHub Actions</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2019-11-14 15:53:40 &#43;0200 &#43;0200">14 November 2019</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2026
+            Massimiliano Pippi
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

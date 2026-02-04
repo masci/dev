@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Product on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/product/</link>
+    <description>Recent content in Product on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/product/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>User Story Mapping</title>
+      <link>https://dev.pippi.im/book/user-story-mapping/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/user-story-mapping/</guid>
+      <description>&lt;p&gt;This is the first product-management hands-on book I read, and for somebody starting&#xA;from zero, I think it does a good job at setting the reader on the right path towards&#xA;answering the question &amp;ldquo;How do you build a product that delights users?&amp;rdquo;. For me it&amp;rsquo;s&#xA;a reference book - I started experimenting some techniques described in the first&#xA;chapters with my team before finishing the book, and I keep going back to it as&#xA;I get more experience on USM. Probably not a great book for a casual reading about&#xA;product management, also because it tends to be repetitive.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

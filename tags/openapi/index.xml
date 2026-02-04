@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openapi on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/openapi/</link>
+    <description>Recent content in Openapi on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0200</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/openapi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to deal with API clients, the lazy way - from code generation to release management</title>
+      <link>https://dev.pippi.im/writing/how-to-deal-with-api-clients-the-lazy-way/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0200</pubDate>
+      <guid>https://dev.pippi.im/writing/how-to-deal-with-api-clients-the-lazy-way/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;This blog post was hosted in the Arduino Engineering Blog, you can&#xA;&lt;a href=&#34;https://blog.arduino.cc/2020/03/05/how-to-deal-with-api-clients-the-lazy-way-from-code-generation-to-release-management/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;read it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The Arduino IoT Cloud platform aims to make it very simple for anyone to develop&#xA;and manage IoT applications and its REST API plays a key role in this search for&#xA;simplicity. The IoT Cloud API at its core consists of a set of endpoints exposed&#xA;by a backend service, but this alone is not enough to provide a full-fledge&#xA;product to your users. What you need on top of your API service are:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
