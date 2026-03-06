@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cgo on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/cgo/</link>
+    <description>Recent content in Cgo on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Apr 2018 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/cgo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cgo and Python</title>
+      <link>https://dev.pippi.im/writing/cgo-and-python/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0100</pubDate>
+      <guid>https://dev.pippi.im/writing/cgo-and-python/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;This blog post was hosted in the Datadog Engineering Blog, you can&#xA;&lt;a href=&#34;https://www.datadoghq.com/blog/engineering/cgo-and-python/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;read it here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you look at the &lt;a href=&#34;https://github.com/DataDog/datadog-agent/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;new Datadog Agent&lt;/a&gt;,&#xA;you might notice most of the codebase is written in Go, although the checks we&#xA;use to gather metrics are still written in Python. This is possible because the&#xA;Datadog Agent, a regular Go binary, &lt;a href=&#34;https://docs.python.org/2/extending/embedding.html&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;embeds&lt;/a&gt; a CPython interpreter that&#xA;can be called whenever it needs to execute Python code. This process can be made&#xA;transparent using an abstraction layer so that you can still write idiomatic Go&#xA;code even when there&amp;rsquo;s Python running under the hood.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

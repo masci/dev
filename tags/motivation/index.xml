@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Motivation on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/motivation/</link>
+    <description>Recent content in Motivation on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 30 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/motivation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drive</title>
+      <link>https://dev.pippi.im/book/drive/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/drive/</guid>
+      <description>&lt;p&gt;I read this book because a colleague highly recommended it to me, but it took me a while to get into it. The basic&#xA;concept of intrinsic vs. extrinsic motivation is really easy to grasp, but at a first glance the book might seem&#xA;repetitive. Well, it&amp;rsquo;s not, and the many details and nuances around the main concept are the real value proposition&#xA;of this book.&lt;/p&gt;&#xA;&lt;p&gt;I collected plenty of highlights from the book that apply to both my work and personal experience, note for myself: go&#xA;review them periodically!&lt;/p&gt;&#xA;&lt;p&gt;I don&amp;rsquo;t recommend picking this up as the traditional &amp;ldquo;management manual&amp;rdquo;, it doesn&amp;rsquo;t work like that :).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
