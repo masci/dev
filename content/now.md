@@ -19,12 +19,11 @@ _Yet another [now](https://nownownow.com/about) page inspired by [Derek Sivers](
 
 ### 👷 Work
 
-After two years working on the open source AI framework [Haystack](https://github.com/deepset-ai/haystack), I joined
-[LlamaIndex](https://www.llamaindex.ai/) in June 2024 as a founding engineer, again working on open source software.
-I'm now in-between jobs, detoxing from AI fatigue, decluttering my digital life and reading a lot, mostly fiction.
+I'm currently working on integrating AI in observability products, with particular focus on 
+LLM evaluation and benchmarks.
 
 - 💻 Current languages, sorted by proficiency DESC: `.py`, `.go`, `.ts`, `.rs`
-- ⚒️ Current topics: AI workflows, deployment strategies
+- ⚒️ Current topics: AI workflows, LLM evaluation
 
 ### 👨‍👩‍👧‍👦 Life
 
@@ -33,13 +32,21 @@ and [Build a Large Language Model](https://www.goodreads.com/book/show/209234015
 Sebastian Raschka. I've spent several hours reordering my bookshelf, organizing 300+ volumes and syncing my Goodreads 
 account.
 
-I removed all social media apps from my phone. My reading throughput went through the roof. Fuck short attention spans.
-And fuck LinkedIn, I've set it up to forward messages to my email, I'll use it to browse others' profiles but
-I'm not doomscrolling anymore.
+In a moment in history where the free press is particularly fucked up, I'm currently supporting 
+independent journalists:
+- [404 Media](https://www.404media.co) for all the things about technology investigations and reports
+- [Ed Zitron](https://www.wheresyoured.at) for a perspective on AI that's grounded in numbers and facts
+- [Domani](https://www.editorialedomani.it) is one of the last remaining newspapers in Italy with actual journalists making journalism
+Plus a bunch of other newsletters and small independent onliner newspapers I support occasionally.
+
+After removing all social media apps from my phone, I've spent some time rebuilding my attention span and I went
+back to some reading and writing on Bluesky, it has its problems but it's an ok platform for now.
+Still fuck LinkedIn, I've removed all my personal data and set it up to forward messages to my email. I still have 
+to use it for work when I hire people, and for the occasional public shaming of screenshots from dumb AI influencers.
   
-I said on multiple occasions that ouses are living creatures requiring constant attention and maintenance and contractors help
-keeping expenses down by never showing up. But recently I witnessed a black swan having one contractor respecting deadlines
-and doing an amazing job on my driveway. I'm still amazed.
+Recently enjoying taking care of the green surroundings of my house, I've bought two chainsaws of different sizes to
+trim trees and bushes accordingly. I learned that mistakes can cost you years when dealing with trees, it makes you
+think and put things in perspective. 
 
 I keep practicing guitar and studying music, my gear still consists of a [Seagull S60][seagull s60]
 acoustic guitar, an [Acus One Forstrings 5T][acus one] amplifier and a travel guitar,
