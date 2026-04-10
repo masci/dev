@@ -116,7 +116,7 @@ applications, integrating software components, and writing documentation. I was 
 technologies.
 
 ### Molecular Discovery Ltd, London (Remote) {icon="/img/moldiscovery.png"}
-**Software Engineer** *1/2010 - 4/2015*
+**Software Engineer** *9/2004 - 1/2010*
 
 I developed multiplatform, commercial cheminformatic desktop softwares with Qt libraries in C and C++. I worked in a
 team environment under short deadlines in more than a project.
