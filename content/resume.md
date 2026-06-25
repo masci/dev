@@ -22,6 +22,11 @@ I'm the author of **Python for Google App Engine**, published by Packt in Januar
 
 ## Experience
 
+### Elastic, Remote {icon="/img/elastic.png"}
+**Tech Lead** *11/2025*
+
+Leading the team responsible for evaluations of internal AI workloads in the Observability solution, along with the relevant tooling and SDKs.
+
 ### LlamaIndex, SF (Remote) {icon="/img/llamaindex.png"}
 **Founding Engineer** *6/2024 - 9/2025*
 
