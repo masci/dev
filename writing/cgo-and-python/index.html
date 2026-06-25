@@ -1,0 +1,895 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="true"
+><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FFFFFF" />
+  
+  <title>Cgo and Python &middot; /dev/ by Massimiliano Pippi</title>
+    <meta name="title" content="Cgo and Python &middot; /dev/ by Massimiliano Pippi" />
+  
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="https://dev.pippi.im/js/appearance.min.8a082f81b27f3cb2ee528df0b0bdc39787034cf2cc34d4669fbc9977c929023c.js"
+    integrity="sha256-iggvgbJ/PLLuUo3wsL3Dl4cDTPLMNNRmn7yZd8kpAjw="
+  ></script>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://dev.pippi.im/css/main.bundle.min.0d7741ba9cbb18cda8b216ec427899086537d4305eba3c52d7c5d21c5506f0ce.css"
+    integrity="sha256-DXdBupy7GM2oshbsQniZCGU31DBeujxS18XSHFUG8M4="
+  />
+  
+  
+  
+  
+  
+  
+  
+  <meta
+    name="description"
+    content="
+      
+        This blog post was hosted in the Datadog Engineering Blog, you can
+read it here.
+If you look at the new Datadog Agent,
+you might notice most of the codebase is written in Go, although the checks we
+use to gather metrics are still written in Python. This is possible because the
+Datadog Agent, a regular Go binary, embeds a CPython interpreter that
+can be called whenever it needs to execute Python code. This process can be made
+transparent using an abstraction layer so that you can still write idiomatic Go
+code even when there&rsquo;s Python running under the hood.
+      
+    "
+  />
+  
+  
+  
+  
+    <link rel="canonical" href="https://dev.pippi.im/writing/cgo-and-python/" />
+  
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://dev.pippi.im/writing/cgo-and-python/">
+  <meta property="og:site_name" content="/dev/ by Massimiliano Pippi">
+  <meta property="og:title" content="Cgo and Python">
+  <meta property="og:description" content="This blog post was hosted in the Datadog Engineering Blog, you can read it here.
+If you look at the new Datadog Agent, you might notice most of the codebase is written in Go, although the checks we use to gather metrics are still written in Python. This is possible because the Datadog Agent, a regular Go binary, embeds a CPython interpreter that can be called whenever it needs to execute Python code. This process can be made transparent using an abstraction layer so that you can still write idiomatic Go code even when there’s Python running under the hood.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writing">
+    <meta property="article:published_time" content="2018-04-16T00:00:00+01:00">
+    <meta property="article:modified_time" content="2018-04-16T00:00:00+01:00">
+    <meta property="article:tag" content="Golang">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Cgo">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cgo and Python">
+  <meta name="twitter:description" content="This blog post was hosted in the Datadog Engineering Blog, you can read it here.
+If you look at the new Datadog Agent, you might notice most of the codebase is written in Go, although the checks we use to gather metrics are still written in Python. This is possible because the Datadog Agent, a regular Go binary, embeds a CPython interpreter that can be called whenever it needs to execute Python code. This process can be made transparent using an abstraction layer so that you can still write idiomatic Go code even when there’s Python running under the hood.">
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Writings",
+    "name": "Cgo and Python",
+    "headline": "Cgo and Python",
+    
+    "abstract": "\u003cp\u003e\u003cstrong\u003eThis blog post was hosted in the Datadog Engineering Blog, you can\n\u003ca href=\u0022https:\/\/www.datadoghq.com\/blog\/engineering\/cgo-and-python\/\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003eread it here\u003c\/a\u003e.\u003c\/strong\u003e\u003c\/p\u003e\n\u003cp\u003eIf you look at the \u003ca href=\u0022https:\/\/github.com\/DataDog\/datadog-agent\/\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003enew Datadog Agent\u003c\/a\u003e,\nyou might notice most of the codebase is written in Go, although the checks we\nuse to gather metrics are still written in Python. This is possible because the\nDatadog Agent, a regular Go binary, \u003ca href=\u0022https:\/\/docs.python.org\/2\/extending\/embedding.html\u0022 target=\u0022_blank\u0022 rel=\u0022noreferrer\u0022\u003eembeds\u003c\/a\u003e a CPython interpreter that\ncan be called whenever it needs to execute Python code. This process can be made\ntransparent using an abstraction layer so that you can still write idiomatic Go\ncode even when there\u0026rsquo;s Python running under the hood.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/dev.pippi.im\/writing\/cgo-and-python\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Massimiliano Pippi"
+    },
+    "copyrightYear": "2018",
+    "dateCreated": "2018-04-16T00:00:00\u002b01:00",
+    "datePublished": "2018-04-16T00:00:00\u002b01:00",
+    
+    "dateModified": "2018-04-16T00:00:00\u002b01:00",
+    
+    "keywords": ["golang","python","cgo"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2418"
+  }
+  </script>
+    
+    <script type="application/ld+json">
+    {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+     {
+       "@type": "ListItem",
+       "item": "https://dev.pippi.im/",
+       "name": "Dev by Massimiliano Pippi",
+       "position": 1
+     },
+     {
+       "@type": "ListItem",
+       "item": "https://dev.pippi.im/writing/",
+       "name": "Writings",
+       "position": 2
+     },
+     {
+       "@type": "ListItem",
+       "name": "Cgo and Python",
+       "position": 3
+     }
+   ]
+ }
+  </script>
+
+  
+  
+    <meta name="author" content="Massimiliano Pippi" />
+  
+  
+    
+      <link href="https://github.com/masci" rel="me" />
+    
+      <link href="https://bsky.app/profile/massi.pippi.im" rel="me" />
+    
+      <link href="http://www.linkedin.com/in/masci" rel="me" />
+    
+  
+  
+  
+
+
+
+
+
+
+
+  
+  <script
+    data-goatcounter="https://massi.goatcounter.com/count"
+    async
+    src="//gc.zgo.at/count.js"
+></script>
+
+  
+  
+</head>
+<body
+    class="m-auto flex h-screen max-w-7xl flex-col bg-neutral px-6 text-lg leading-7 text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32"
+  >
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="-translate-y-8 rounded-b-lg bg-primary-200 px-3 py-1 text-sm focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="pe-2 font-bold text-primary-600 dark:text-primary-400">&darr;</span
+        >Skip to main content</a
+      >
+    </div>
+    
+    
+      <header class="py-6 font-semibold text-neutral-900 dark:text-neutral sm:py-10 print:hidden">
+  <nav class="flex items-start justify-between sm:items-center">
+    
+    <div class="flex flex-row items-center">
+      
+  <a
+    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+    rel="me"
+    href="/"
+    >/dev/ by Massimiliano Pippi</a
+  >
+
+    </div>
+    
+    
+      <ul class="flex list-none flex-col text-end sm:flex-row">
+        
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/now/"
+                  title="What I&#39;m doing Now"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Now</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/writing/"
+                  title="Writings"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I write</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/book/"
+                  title=""
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I read</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/talk/"
+                  title="Talks"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >Stuff I say</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+            
+            <li class="group mb-1 sm:mb-0 sm:me-7 sm:last:me-0.5">
+              
+                <a
+                  href="/resume/"
+                  title="Massimiliano Pippi"
+                  
+                  ><span
+                      class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2"
+                      >cv</span
+                    >
+                  </a
+                >
+              
+            </li>
+          
+          
+        
+      </ul>
+    
+  </nav>
+</header>
+
+    
+    <div class="relative flex grow flex-col">
+      <main id="main-content" class="grow">
+        
+  <article>
+    <header class="max-w-prose">
+      
+      <h1 class="mb-8 mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Cgo and Python
+      </h1>
+      
+        <div class="mb-10 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+          
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2018-04-16 00:00:00 &#43;0100 &#43;0100">16 April 2018</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">12 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+
+
+        </div>
+      
+      
+    </header>
+    <section class="prose mt-0 flex max-w-full flex-col dark:prose-invert lg:flex-row">
+      
+      <div class="min-h-0 min-w-0 max-w-prose grow">
+        <p><strong>This blog post was hosted in the Datadog Engineering Blog, you can
+<a href="https://www.datadoghq.com/blog/engineering/cgo-and-python/" target="_blank" rel="noreferrer">read it here</a>.</strong></p>
+<p>If you look at the <a href="https://github.com/DataDog/datadog-agent/" target="_blank" rel="noreferrer">new Datadog Agent</a>,
+you might notice most of the codebase is written in Go, although the checks we
+use to gather metrics are still written in Python. This is possible because the
+Datadog Agent, a regular Go binary, <a href="https://docs.python.org/2/extending/embedding.html" target="_blank" rel="noreferrer">embeds</a> a CPython interpreter that
+can be called whenever it needs to execute Python code. This process can be made
+transparent using an abstraction layer so that you can still write idiomatic Go
+code even when there&rsquo;s Python running under the hood.</p>
+<p>There are a number of reasons why you might want to embed Python in a Go
+application:</p>
+<ul>
+<li>It is useful during a port; gradually moving portions of an existing Python project to the new language without losing any functionality during the process.</li>
+<li>You can reuse existing Python software or libraries without re-implementing them in the new language.</li>
+<li>You can dynamically extend your software by loading and executing regular Python scripts, even at runtime.</li>
+</ul>
+<p>The list could go on, but for the Datadog Agent the last point is crucial: we
+want you to be able to execute custom checks or change existing ones without
+forcing you to recompile the Agent, or in general, to compile anything.</p>
+<p>Embedding CPython is quite easy and well documented. The interpreter itself is
+written in C and a C API is provided to programmatically perform operations at
+a very low level, like creating objects, importing modules, and calling functions.</p>
+<p>In this article we&rsquo;ll show some code examples, and we&rsquo;ll focus on keeping the Go
+code idiomatic while interacting with Python at the same time, but before we
+proceed we need to address a small gap: the embedding API is C but our main
+application is Go, how can this possibly work?</p>
+
+
+
+
+
+
+
+
+<h2 id="introducing-cgo">Introducing cgo
+</h2>
+<p>There are <a href="https://dave.cheney.net/2016/01/18/cgo-is-not-go" target="_blank" rel="noreferrer">a number of good reasons</a>
+why you might not want to introduce cgo in your stack, but embedding CPython is
+one of those cases where you must. <a href="https://golang.org/cmd/cgo/" target="_blank" rel="noreferrer">Cgo</a> is not a
+language nor a compiler. It&rsquo;s a <a href="https://en.wikipedia.org/wiki/Foreign_function_interface" target="_blank" rel="noreferrer">Foreign Function Interface</a> (FFI), a mechanism we
+can use in Go to invoke functions and services written in a different language,
+specifically C.</p>
+<p>When we say &ldquo;cgo&rdquo; we&rsquo;re actually referring to a set of tools, libraries, functions,
+and types that are used by the go toolchain under the hood so we can keep doing
+<code>go build</code> to get our Go binaries. An absolutely minimal example of a program
+using cgo looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#8bd5ca">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6e738d;font-style:italic">// #include &lt;float.h&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> <span style="color:#a6da95">&#34;C&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> <span style="color:#a6da95">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ed8796">func</span> <span style="color:#8aadf4">main</span>() {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#8aadf4">Println</span>(<span style="color:#a6da95">&#34;Max float value of float is&#34;</span>, C.FLT_MAX)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The comment block right above the <code>import &quot;C&quot;</code> instruction is called a &ldquo;preamble&rdquo;
+and can contain actual C code, in this case an header inclusion. Once imported,
+the &ldquo;C&rdquo; pseudo-package lets us &ldquo;jump&rdquo; to the foreign code, accessing the <code>FLT_MAX</code>
+constant. You can build the example by invoking <code>go build</code>, the same as if it
+was plain Go.</p>
+<p>If you want to have a look at all the work cgo does under the hood,
+run <code>go build -x</code>. You&rsquo;ll see the &ldquo;cgo&rdquo; tool will be invoked to generate some C
+and Go modules, then the C and Go compilers will be invoked to build the object
+modules and finally the linker will put everything together.</p>
+<p>You can read more about cgo on the <a href="https://blog.golang.org/c-go-cgo" target="_blank" rel="noreferrer">Go blog</a>.
+The article contains more examples and few useful links to get further into
+details.</p>
+<p>Now that we have an idea of what cgo can do for us, let&rsquo;s see how we can run
+some Python code using this mechanism.</p>
+
+
+
+
+
+
+
+
+<h2 id="embedding-cpython-a-primer">Embedding CPython: a primer
+</h2>
+<p>A Go program that, technically speaking, embeds CPython is not as complicated as
+you might expect. In fact, at the bare minimum, all we have to do is initialize
+the interpreter before running any Python code and finalize it when we&rsquo;re done.
+Please note that we&rsquo;re going to use Python 2.x throughout all the examples but
+everything we&rsquo;ll see can be applied to Python 3.x as well with very little
+adaptation. Let&rsquo;s look at an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#8bd5ca">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6e738d;font-style:italic">// #cgo pkg-config: python-2.7</span>
+</span></span><span style="display:flex;"><span><span style="color:#6e738d;font-style:italic">// #include &lt;Python.h&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> <span style="color:#a6da95">&#34;C&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> <span style="color:#a6da95">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ed8796">func</span> <span style="color:#8aadf4">main</span>() {
+</span></span><span style="display:flex;"><span>    C.<span style="color:#8aadf4">Py_Initialize</span>()
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#8aadf4">Println</span>(C.<span style="color:#8aadf4">GoString</span>(C.<span style="color:#8aadf4">Py_GetVersion</span>()))
+</span></span><span style="display:flex;"><span>    C.<span style="color:#8aadf4">Py_Finalize</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The example above does exactly what the following Python code would do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> <span style="color:#f5a97f">sys</span>
+</span></span><span style="display:flex;"><span><span style="color:#91d7e3">print</span>(sys<span style="color:#91d7e3;font-weight:bold">.</span>version)
+</span></span></code></pre></div><p>You can see we put a <code>#cgo</code> directive in the preamble; those directives are
+passed to the toolchain to let you change the build workflow. In this case, we
+tell cgo to invoke &ldquo;pkg-config&rdquo; to gather the flags needed to build and link
+against a library called &ldquo;python-2.7&rdquo; and pass those flags to the C compiler.
+If you have the CPython development libraries installed in your system along
+with pkg-config, this would let you keep using a plain <code>go build</code> to compile
+the example above.</p>
+<p>Back to the code, we use <code>Py_Initialize()</code> and <code>Py_Finalize()</code> to set up and shut
+down the interpreter and the <code>Py_GetVersion</code> C function to retrieve the string
+containing the version information for the embedded interpreter.</p>
+<p>If you&rsquo;re wondering, all the cgo bits we need to put together to invoke the C
+Python API are boilerplate code. This is why the Datadog Agent relies on
+<a href="https://github.com/sbinet/go-python" target="_blank" rel="noreferrer">go-python</a> for all the embedding operations;
+the library provides a Go friendly thin wrapper around the C API and hides the
+cgo details. This is another basic embedding example, this time using go-python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#8bd5ca">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> (
+</span></span><span style="display:flex;"><span>    python <span style="color:#a6da95">&#34;github.com/sbinet/go-python&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ed8796">func</span> <span style="color:#8aadf4">main</span>() {
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">Initialize</span>()
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">PyRun_SimpleString</span>(<span style="color:#a6da95">&#34;print &#39;hello, world!&#39;&#34;</span>)
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">Finalize</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This looks closer to regular Go code, no more cgo exposed and we can use Go
+strings back and forth while accessing the Python API. Embedding looks powerful
+and developer friendly. Time to put the interpreter to good use: let&rsquo;s try to
+load a Python module from disk.</p>
+<p>We don&rsquo;t need anything complex on the Python side, the ubiquitous &ldquo;hello world&rdquo;
+will serve the purpose:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6e738d;font-style:italic"># foo.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#c6a0f6">def</span> <span style="color:#8aadf4">hello</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#a6da95">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    Print hello world for fun and profit.
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#91d7e3">print</span> <span style="color:#a6da95">&#34;hello, world!&#34;</span>
+</span></span></code></pre></div><p>The Go code is slightly more complex but still readable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#6e738d;font-style:italic">// main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> <span style="color:#a6da95">&#34;github.com/sbinet/go-python&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ed8796">func</span> <span style="color:#8aadf4">main</span>() {
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">Initialize</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">defer</span> python.<span style="color:#8aadf4">Finalize</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fooModule <span style="color:#91d7e3;font-weight:bold">:=</span> python.<span style="color:#8aadf4">PyImport_ImportModule</span>(<span style="color:#a6da95">&#34;foo&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">if</span> fooModule <span style="color:#91d7e3;font-weight:bold">==</span> <span style="color:#f5a97f">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#91d7e3">panic</span>(<span style="color:#a6da95">&#34;Error importing module&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    helloFunc <span style="color:#91d7e3;font-weight:bold">:=</span> fooModule.<span style="color:#8aadf4">GetAttrString</span>(<span style="color:#a6da95">&#34;hello&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">if</span> helloFunc <span style="color:#91d7e3;font-weight:bold">==</span> <span style="color:#f5a97f">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#91d7e3">panic</span>(<span style="color:#a6da95">&#34;Error importing function&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// The Python function takes no params but when using the C api</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// we&#39;re required to send (empty) *args and **kwargs anyways.</span>
+</span></span><span style="display:flex;"><span>    helloFunc.<span style="color:#8aadf4">Call</span>(python.<span style="color:#8aadf4">PyTuple_New</span>(<span style="color:#f5a97f">0</span>), python.<span style="color:#8aadf4">PyDict_New</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Once built, we need to set the <code>PYTHONPATH</code> environment variable to the current
+working dir so that the import statement will be able to find the <code>foo.py</code> module.
+From a shell, the command would look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ go build main.go <span style="color:#91d7e3;font-weight:bold">&amp;&amp;</span> <span style="color:#f4dbd6">PYTHONPATH</span><span style="color:#91d7e3;font-weight:bold">=</span>. ./main
+</span></span><span style="display:flex;"><span>hello, world!
+</span></span></code></pre></div>
+
+
+
+
+
+
+
+<h2 id="the-dreadful-global-interpreter-lock">The dreadful Global Interpreter Lock
+</h2>
+<p>Having to bring in cgo in order to embed Python is a tradeoff: builds will be
+slower, the Garbage Collector won&rsquo;t help us managing memory used by the foreign
+system, and cross compilation will be non-trivial. Whether or not these are
+concerns for a specific project can be debated, but there&rsquo;s something I deem not
+negotiable: the Go concurrency model. If we couldn&rsquo;t run Python from a goroutine,
+using Go altogether would make very little sense.</p>
+<p>Before playing with concurrency, Python, and cgo, there&rsquo;s something we need to
+know: it&rsquo;s the Global Interpreter Lock, also known as the GIL. The GIL is a
+mechanism widely adopted in language interpreters (CPython is one of those)
+preventing more than one thread from running at the same time. This means that
+no Python program executed by CPython will be ever able to run in parallel within
+the same process. Concurrency is still possible and in the end, the lock is a
+good tradeoff between speed, security, and implementation simplicity. So why
+should this pose a problem when it comes to embedding?</p>
+<p>When a regular, non-embedded Python program starts, there&rsquo;s no GIL involved to
+avoid useless overhead in locking operations; the GIL starts the first time some
+Python code requests to spawn a thread. For each thread, the interpreter creates
+a data structure to store information about the current state and locks the GIL.
+When the thread has finished, the state is restored and the GIL unlocked, ready
+to be used by other threads.</p>
+<p>When we run Python from a Go program, none of the above happens automatically.
+Without the GIL, multiple Python threads could be created by our Go program.
+This could cause a race condition leading to fatal runtime errors, and most
+likely a segmentation fault bringing down the whole Go application.</p>
+<p>The solution to this problem is to explicitly invoke the GIL whenever we run
+multithreaded code from Go; the code is not complex because the C API provides
+all the tools we need. To better expose the problem, we need to do something
+CPU bounded from Python. Let&rsquo;s add these functions to our foo.py module from
+the previous example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6e738d;font-style:italic"># foo.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> <span style="color:#f5a97f">sys</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c6a0f6">def</span> <span style="color:#8aadf4">print_odds</span>(limit<span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#f5a97f">10</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#a6da95">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    Print odds numbers &lt; limit
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">for</span> i <span style="color:#91d7e3;font-weight:bold">in</span> <span style="color:#91d7e3">range</span>(limit):
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">if</span> i<span style="color:#91d7e3;font-weight:bold">%</span><span style="color:#f5a97f">2</span>:
+</span></span><span style="display:flex;"><span>            sys<span style="color:#91d7e3;font-weight:bold">.</span>stderr<span style="color:#91d7e3;font-weight:bold">.</span>write(<span style="color:#a6da95">&#34;</span><span style="color:#a6da95">{}</span><span style="color:#8aadf4">\n</span><span style="color:#a6da95">&#34;</span><span style="color:#91d7e3;font-weight:bold">.</span>format(i))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c6a0f6">def</span> <span style="color:#8aadf4">print_even</span>(limit<span style="color:#91d7e3;font-weight:bold">=</span><span style="color:#f5a97f">10</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#a6da95">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    Print even numbers &lt; limit
+</span></span></span><span style="display:flex;"><span><span style="color:#a6da95">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">for</span> i <span style="color:#91d7e3;font-weight:bold">in</span> <span style="color:#91d7e3">range</span>(limit):
+</span></span><span style="display:flex;"><span>        <span style="color:#c6a0f6">if</span> i<span style="color:#91d7e3;font-weight:bold">%</span><span style="color:#f5a97f">2</span> <span style="color:#91d7e3;font-weight:bold">==</span> <span style="color:#f5a97f">0</span>:
+</span></span><span style="display:flex;"><span>            sys<span style="color:#91d7e3;font-weight:bold">.</span>stderr<span style="color:#91d7e3;font-weight:bold">.</span>write(<span style="color:#a6da95">&#34;</span><span style="color:#a6da95">{}</span><span style="color:#8aadf4">\n</span><span style="color:#a6da95">&#34;</span><span style="color:#91d7e3;font-weight:bold">.</span>format(i))
+</span></span></code></pre></div><p>We&rsquo;ll try to print odd and even numbers concurrently from Go, using two
+different goroutines (thus involving threads):</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#8bd5ca">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8bd5ca">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#a6da95">&#34;sync&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6da95">&#34;github.com/sbinet/go-python&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ed8796">func</span> <span style="color:#8aadf4">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// The following will also create the GIL explicitly</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// by calling PyEval_InitThreads(), without waiting</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// for the interpreter to do that</span>
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">Initialize</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ed8796">var</span> wg sync.WaitGroup
+</span></span><span style="display:flex;"><span>    wg.<span style="color:#8aadf4">Add</span>(<span style="color:#f5a97f">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fooModule <span style="color:#91d7e3;font-weight:bold">:=</span> python.<span style="color:#8aadf4">PyImport_ImportModule</span>(<span style="color:#a6da95">&#34;foo&#34;</span>)
+</span></span><span style="display:flex;"><span>    odds <span style="color:#91d7e3;font-weight:bold">:=</span> fooModule.<span style="color:#8aadf4">GetAttrString</span>(<span style="color:#a6da95">&#34;print_odds&#34;</span>)
+</span></span><span style="display:flex;"><span>    even <span style="color:#91d7e3;font-weight:bold">:=</span> fooModule.<span style="color:#8aadf4">GetAttrString</span>(<span style="color:#a6da95">&#34;print_even&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// Initialize() has locked the the GIL but at this point we don&#39;t need it</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// anymore. We save the current state and release the lock</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// so that goroutines can acquire it</span>
+</span></span><span style="display:flex;"><span>    state <span style="color:#91d7e3;font-weight:bold">:=</span> python.<span style="color:#8aadf4">PyEval_SaveThread</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">go</span> <span style="color:#ed8796">func</span>() {
+</span></span><span style="display:flex;"><span>        _gstate <span style="color:#91d7e3;font-weight:bold">:=</span> python.<span style="color:#8aadf4">PyGILState_Ensure</span>()
+</span></span><span style="display:flex;"><span>        odds.<span style="color:#8aadf4">Call</span>(python.<span style="color:#8aadf4">PyTuple_New</span>(<span style="color:#f5a97f">0</span>), python.<span style="color:#8aadf4">PyDict_New</span>())
+</span></span><span style="display:flex;"><span>        python.<span style="color:#8aadf4">PyGILState_Release</span>(_gstate)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        wg.<span style="color:#8aadf4">Done</span>()
+</span></span><span style="display:flex;"><span>    }()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c6a0f6">go</span> <span style="color:#ed8796">func</span>() {
+</span></span><span style="display:flex;"><span>        _gstate <span style="color:#91d7e3;font-weight:bold">:=</span> python.<span style="color:#8aadf4">PyGILState_Ensure</span>()
+</span></span><span style="display:flex;"><span>        even.<span style="color:#8aadf4">Call</span>(python.<span style="color:#8aadf4">PyTuple_New</span>(<span style="color:#f5a97f">0</span>), python.<span style="color:#8aadf4">PyDict_New</span>())
+</span></span><span style="display:flex;"><span>        python.<span style="color:#8aadf4">PyGILState_Release</span>(_gstate)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        wg.<span style="color:#8aadf4">Done</span>()
+</span></span><span style="display:flex;"><span>    }()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    wg.<span style="color:#8aadf4">Wait</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// At this point we know we won&#39;t need Python anymore in this</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// program, we can restore the state and lock the GIL to perform</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6e738d;font-style:italic">// the final operations before exiting.</span>
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">PyEval_RestoreThread</span>(state)
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">Finalize</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>While reading the example you might note a pattern, the pattern that will become
+our mantra to run embedded Python code:</p>
+<ol>
+<li>Save the state and lock the GIL.</li>
+<li>Do Python.</li>
+<li>Restore the state and unlock the GIL.</li>
+</ol>
+<p>The code should be straightforward but there&rsquo;s a subtle detail we want to point
+out: notice that despite seconding the GIL mantra, in one case we operate the GIL
+by calling <code>PyEval_SaveThread()</code> and <code>PyEval_RestoreThread()</code>, in another (look
+inside the goroutines) we do the same with <code>PyGILState_Ensure()</code> and
+<code>PyGILState_Release()</code>.</p>
+<p>We said when multithreading is operated from Python, the interpreter takes care
+of creating the data structure needed to store the current state, but when the
+same happens from the C API, we&rsquo;re responsible for that.</p>
+<p>When we initialize the interpreter with go-python, we&rsquo;re operating in a Python
+context. So when <code>PyEval_InitThreads()</code> is called it initializes the data
+structure and locks the GIL. We can use <code>PyEval_SaveThread()</code> and
+<code>PyEval_RestoreThread()</code> to operate on already existing state.</p>
+<p>Inside the goroutines, we&rsquo;re operating from a Go context and we need to
+explicitly create the state and remove it when done, which is what
+<code>PyGILState_Ensure()</code> and <code>PyGILState_Release()</code> do for us.</p>
+
+
+
+
+
+
+
+
+<h2 id="unleash-the-gopher">Unleash the Gopher
+</h2>
+<p>At this point we know how to deal with multithreading Go code executing Python
+in an embedded interpreter but after the GIL, another challenge is right around
+the corner: the Go scheduler.</p>
+<p>When a goroutine starts, it&rsquo;s scheduled for execution on one of the <code>GOMAXPROCS</code>
+threads available—<a href="https://morsmachine.dk/go-scheduler" target="_blank" rel="noreferrer">see here</a> for more
+details on the topic. If a goroutine happens to perform a syscall or call C
+code, the current thread hands over the other goroutines waiting to run in the
+thread queue to another thread so they can have better chances to run; the
+current goroutine is paused, waiting for the syscall or the C function to
+return. When this happens, the thread tries to resume the paused goroutine, but
+if this is not possible, it asks the Go runtime to find another thread to
+complete the goroutine and goes to sleep. The goroutine is finally scheduled to
+another thread and it finishes.</p>
+<p>With this in mind, let&rsquo;s see what can happen to a goroutine running some Python
+code when a goroutine is moved to a new thread::</p>
+<ol>
+<li>Our goroutine starts, performs a C call, and pauses. The GIL is locked.</li>
+<li>When the C call returns, the current thread tries to resume the goroutine, but it fails.</li>
+<li>The current thread tells the Go runtime to find another thread to resume our goroutine.</li>
+<li>The Go scheduler finds an available thread and the goroutine is resumed.</li>
+<li>The goroutine is almost done and tries to unlock the GIL before returning.</li>
+<li>The thread ID stored in the current state is from the original thread and is different from the ID of the current thread.</li>
+<li>Panic!</li>
+</ol>
+<p>Luckily for us, we can force the Go runtime to always keep our goroutine running
+on the same thread by calling the LockOSThread function from the runtime package
+from within a goroutine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#cad3f5;background-color:#24273a;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#c6a0f6">go</span> <span style="color:#ed8796">func</span>() {
+</span></span><span style="display:flex;"><span>    runtime.<span style="color:#8aadf4">LockOSThread</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    _gstate <span style="color:#91d7e3;font-weight:bold">:=</span> python.<span style="color:#8aadf4">PyGILState_Ensure</span>()
+</span></span><span style="display:flex;"><span>    odds.<span style="color:#8aadf4">Call</span>(python.<span style="color:#8aadf4">PyTuple_New</span>(<span style="color:#f5a97f">0</span>), python.<span style="color:#8aadf4">PyDict_New</span>())
+</span></span><span style="display:flex;"><span>    python.<span style="color:#8aadf4">PyGILState_Release</span>(_gstate)
+</span></span><span style="display:flex;"><span>    wg.<span style="color:#8aadf4">Done</span>()
+</span></span><span style="display:flex;"><span>}()
+</span></span></code></pre></div><p>This will interfere with the scheduler and might introduce some overhead, but
+it&rsquo;s a price that we&rsquo;re willing to pay to avoid random panics.</p>
+
+
+
+
+
+
+
+
+<h2 id="conclusions">Conclusions
+</h2>
+<p>In order to embed Python, the Datadog Agent has to accept a few tradeoffs:</p>
+<ul>
+<li>The overhead introduced by cgo.</li>
+<li>The task of manually handling the GIL.</li>
+<li>The limitation of binding goroutines to the same thread during execution.</li>
+</ul>
+<p>We&rsquo;re happy to accept each of these for the convenience of running Python checks
+in Go. But by being conscious of the tradeoffs, we&rsquo;re able to minimize their
+effect. Regarding other limitations introduced to support Python, we have few
+countermeasures to contain potential issues:</p>
+<ul>
+<li>The build is automated and configurable so that devs have still something very similar to <code>go build</code>.</li>
+<li>A lightweight version of the agent can be built stripping out Python support entirely simply using Go build tags.</li>
+<li>Such a version only relies on core checks hardcoded in the agent itself (system and network checks mostly) but is cgo free and can be cross compiled.</li>
+</ul>
+<p>We&rsquo;ll re-evaluate our options in the future and decide whether keeping around
+cgo is still worth it; we could even reconsider whether Python as a whole is
+still worth it, waiting for the <a href="https://golang.org/pkg/plugin/" target="_blank" rel="noreferrer">Go plugin package</a>
+to be mature enough to support our use case. But for now the embedded Python is
+working well and transitioning from the old Agent to the new one couldn&rsquo;t be easier.</p>
+
+      </div>
+    </section>
+    <footer class="max-w-prose pt-8 print:hidden">
+      
+
+      
+
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="group flex" href="https://dev.pippi.im/writing/manage-with-trello/">
+              <span
+                class="me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&larr;</span
+                ><span class="ltr:hidden rtl:inline">&rarr;</span></span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >How I manage a small team with the help of Trello</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2018-02-03 16:47:03 &#43;0100 &#43;0100">3 February 2018</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="group flex text-right" href="https://dev.pippi.im/writing/stale-bot/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Make a stale bot, learn GitHub Actions</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2019-09-22 15:53:40 &#43;0200 &#43;0200">22 September 2019</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[-2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+                ><span class="ltr:inline rtl:hidden">&rarr;</span
+                ><span class="ltr:hidden rtl:inline">&larr;</span></span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+      </main>
+      
+        <div
+          class="pointer-events-none absolute bottom-0 end-0 top-[100vh] w-12"
+          id="to-top"
+          hidden="true"
+        >
+          <a
+            href="#the-top"
+            class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 backdrop-blur hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            &uarr;
+          </a>
+        </div>
+      <footer class="py-10 print:hidden">
+  
+  
+  <div class="flex items-center justify-between">
+    <div>
+      
+      
+        <p class="text-sm text-neutral-500 dark:text-neutral-400">
+            &copy;
+            2026
+            Massimiliano Pippi
+        </p>
+      
+      
+      
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          
+          
+          Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+            href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500" href="https://github.com/jpanther/congo" target="_blank" rel="noopener noreferrer">Congo</a>
+        </p>
+      
+    </div>
+    <div class="flex flex-row items-center">
+      
+      
+      
+      
+        <div
+          class="me-14 cursor-pointer text-sm text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        >
+          <button id="appearance-switcher-0" type="button" aria-label="appearance switcher">
+            <div
+              class="flex h-12 w-12 items-center justify-center dark:hidden"
+              title="Switch to dark appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+</span>
+            </div>
+            <div
+              class="hidden h-12 w-12 items-center justify-center dark:flex"
+              title="Switch to light appearance"
+            >
+              <span class="icon relative inline-block px-1 align-text-bottom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+</span>
+            </div>
+          </button>
+        </div>
+      
+    </div>
+  </div>
+  
+  
+</footer>
+
+    </div>
+  </body>
+</html>

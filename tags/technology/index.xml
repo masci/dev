@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technology on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/technology/</link>
+    <description>Recent content in Technology on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Intelligence Illusion: a practical guide to the business risks of Generative AI</title>
+      <link>https://dev.pippi.im/book/intelligence-illusion/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/intelligence-illusion/</guid>
+      <description>&lt;p&gt;At the time I&amp;rsquo;m writing, this is the best book you can read to form an opinion&#xA;around the &amp;ldquo;dysfunctions, risks, and flaws of generative models&amp;rdquo;&#xA;that very rarely reach the mainstream.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rebooting AI</title>
+      <link>https://dev.pippi.im/book/rebooting-ai/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/rebooting-ai/</guid>
+      <description>&lt;p&gt;The book accurately describes the problems with the current trend of AI development, problems from which large language&#xA;models and tools like ChatGPT greatly suffer. Only the book was written &lt;em&gt;before&lt;/em&gt; ChatGPT! It&amp;rsquo;s impressive how actual the&#xA;book can be, and even more impressive is learning how these problems have been known for years now and the industry&#xA;seems to just not care.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Atlas of AI</title>
+      <link>https://dev.pippi.im/book/atlas-of-ai/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/atlas-of-ai/</guid>
+      <description>&lt;p&gt;This book is a masterpiece: the metaphor of the atlas, the many thorough notes, the data behind each chapter is just&#xA;amazing. The author also shows fine technical skills that let her jump from politics to hardware and algorithms&#xA;flawlessly as the narrative requires. This book is an eye-opener for those who think about modern AI as &amp;ldquo;software&amp;rdquo;,&#xA;whereas the environmental and human costs are massive.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>If It&#39;s Smart, It&#39;s Vulnerable</title>
+      <link>https://dev.pippi.im/book/if-its-smart-its-vulnerable/</link>
+      <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://dev.pippi.im/book/if-its-smart-its-vulnerable/</guid>
+      <description>&lt;p&gt;This is a must read for your non-tech savvy audience: parents, kids, your friends&#xA;who think they know how to navigate the Internet. It&amp;rsquo;s not very technical and can be&#xA;easily understood with a minimum of familiarity with the modern devices that are&#xA;normally available in our houses.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

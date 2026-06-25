@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Business on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/business/</link>
+    <description>Recent content in Business on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Oct 2025 11:09:53 +0200</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/business/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anything You Want</title>
+      <link>https://dev.pippi.im/book/anything-you-want/</link>
+      <pubDate>Thu, 16 Oct 2025 11:09:53 +0200</pubDate>
+      <guid>https://dev.pippi.im/book/anything-you-want/</guid>
+      <description>&lt;p&gt;Very inspiring, going through the book was like listening to the author telling his story to a friend. The style is&#xA;minimalistic, no tricks to produce more pages, no repetitions, always straight to the point.&#xA;It really makes you want start your own business, and not for the money but rather for the journey and fulfillment.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

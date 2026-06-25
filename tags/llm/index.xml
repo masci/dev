@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Llm on /dev/ by Massimiliano Pippi</title>
+    <link>https://dev.pippi.im/tags/llm/</link>
+    <description>Recent content in Llm on /dev/ by Massimiliano Pippi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Jun 2023 00:22:34 +0100</lastBuildDate>
+    <atom:link href="https://dev.pippi.im/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Turbo charge your template prompts with Banks</title>
+      <link>https://dev.pippi.im/writing/turbo_charge_your_template_prompts_with_banks/</link>
+      <pubDate>Tue, 13 Jun 2023 00:22:34 +0100</pubDate>
+      <guid>https://dev.pippi.im/writing/turbo_charge_your_template_prompts_with_banks/</guid>
+      <description>&lt;p&gt;Like many others, I&amp;rsquo;ve been playing with prompt engineering a lot lately and ended up with my very own prompt template&#xA;engine: &lt;a href=&#34;https://github.com/masci/banks&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;Banks&lt;/a&gt;. Heavily based on Jinja2, the project isn&amp;rsquo;t really much more than a toy,&#xA;but inspired by &lt;a href=&#34;https://www.pinecone.io/learn/langchain-prompt-templates/&#34; target=&#34;_blank&#34; rel=&#34;noreferrer&#34;&gt;this langchain tutorial&lt;/a&gt; from Pinecone,&#xA;I decided to take it out for a spin.&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;h2 id=&#34;a-basic-example&#34;&gt;A basic example&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Working with a very basic example, Banks and Langchain don&amp;rsquo;t look very much different, let&amp;rsquo;s start with the latter:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
