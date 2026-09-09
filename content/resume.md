@@ -13,7 +13,7 @@ tagline: "Engineering Lead"
 
 ## Skills
 
-*   **Programming:** Python (expert), Golang (proficient), C, C++ (prior experiences).
+*   **Programming:** Python (expert, used daily), Golang, C, C++ (expert, prior experiences).
 *   **Management:** I managed distributed teams in the range of 4 to 12 people.
 
 ## Writings
