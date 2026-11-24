@@ -5,6 +5,8 @@ category:
 tags: ["django", "python", "angularjs"]
 date: "2013-10-22"
 slug: "build-github-like-notifications-with-django-messages-and-angular-js"
+aliases:
+  - /2013/10/22/build-github-like-notifications-with-django-messages-and-angular-js/
 ---
 
 Foreword
