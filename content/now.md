@@ -27,22 +27,20 @@ LLM evaluation and benchmarks.
 
 ### 👨‍👩‍👧‍👦 Life
 
-I'm currently reading [Jupiter's Travels](https://www.goodreads.com/book/show/63417.Jupiter_s_Travels) by Ted Simon
-and [Build a Large Language Model](https://www.goodreads.com/book/show/209234015-build-a-large-language-model) by
-Sebastian Raschka. I've spent several hours reordering my bookshelf, organizing 300+ volumes and syncing my Goodreads 
-account.
+I'm currently reading [Build a Large Language Model](https://www.goodreads.com/book/show/209234015-build-a-large-language-model) by
+Sebastian Raschka. I'm also reading a lot of fiction, trying to get into this old habit, my target is 10 to 12 books a
+year.
 
 In a moment in history where the free press is particularly fucked up, I'm currently supporting 
-independent journalists:
+independent journalism:
 - [404 Media](https://www.404media.co) for all the things about technology investigations and reports
-- [Ed Zitron](https://www.wheresyoured.at) for a perspective on AI that's grounded in numbers and facts
 - [Domani](https://www.editorialedomani.it) is one of the last remaining newspapers in Italy with actual journalists making journalism
-Plus a bunch of other newsletters and small independent onliner newspapers I support occasionally.
+- A bunch of small newsletters and independent online newspapers I support occasionally.
 
 After removing all social media apps from my phone, I've spent some time rebuilding my attention span and I went
 back to some reading and writing on Bluesky, it has its problems but it's an ok platform for now.
 Still fuck LinkedIn, I've removed all my personal data and set it up to forward messages to my email. I still have 
-to use it for work when I hire people, and for the occasional public shaming of screenshots from dumb AI influencers.
+to use it for work to hire or get hired, and for the occasional public shaming of screenshots from dumb AI influencers.
   
 Recently enjoying taking care of the green surroundings of my house, I've bought two chainsaws of different sizes to
 trim trees and bushes accordingly. I learned that mistakes can cost you years when dealing with trees, it makes you
