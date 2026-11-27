@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup git
         run: |
@@ -22,8 +24,7 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           extended: true
-          # Remove the pin once https://github.com/gohugoio/hugo/issues/14282 is fixed
-          hugo-version: '0.152.2'
+          hugo-version: '0.166.0'
 
       - name: Build site
         run: hugo
